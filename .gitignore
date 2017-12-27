@@ -150,7 +150,7 @@ publish/
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
-
+packages.xml
 # Windows Azure Build Output
 csx/
 *.build.csdef
