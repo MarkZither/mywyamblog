@@ -5,3 +5,6 @@ Settings[BlogKeys.Intro] = "Hi, welcome to my blog!";
 
 #n -p Wyam.Markdown
 #n -p Wyam.Yaml
+
+#theme CleanBlog
+#recipe Blog
