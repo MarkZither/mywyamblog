@@ -14,6 +14,12 @@ Tags:
 I started with the sw.js file in the assets/scripts folder with the rest of the script files, but calls to ```navigator.serviceWorker.getRegistration()``` were never returning, this stackoverflow thread explains the issue.
 [Service Worker is never ready](https://stackoverflow.com/questions/29874068/navigator-serviceworker-is-never-ready)
 
+##  Building Progressive Web Apps with Chris Love
+Great explaination of Service Workers and further reading and [offer](https://love2dev.com/dnrpwa) for Chris' course on this episode of
+[DotNetRocks](https://dotnetrocks.com/?show=1509).
+
+[PWA Builder](http://www.pwabuilder.com/generator)
+
 <script>
   window.addEventListener('load', function() {
       // Registration was successful

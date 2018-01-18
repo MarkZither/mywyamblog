@@ -1,7 +1,11 @@
 Settings[Keys.Host] = "blog.mark-burton.com";
-Settings[BlogKeys.Title] = "Mark Burton";
-Settings[BlogKeys.Description] = "Burton Blogs";
-Settings[BlogKeys.Intro] = "Hi, welcome to my blog!";
+Settings[Wyam.Blog.BlogKeys.Title] = "Mark Burton";
+Settings[Wyam.Blog.BlogKeys.Description] = "Burton Blogs";
+Settings[Wyam.Blog.BlogKeys.Intro] = "Hi, welcome to my blog!";
+Settings[Wyam.Blog.BlogKeys.IgnoreFolders] = "events";
+Settings[BlogKeys.ArchivePageSize] = 3;
+Settings[BlogKeys.IndexPaging] = 1;
+Settings[BlogKeys.IndexPageSize] = 2;
 
 #n -p Wyam.Markdown
 #n -p Wyam.Yaml

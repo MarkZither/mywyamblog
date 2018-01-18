@@ -8,8 +8,6 @@ Tags:
   - LEMP
 ---
 
----
-
 # Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack
 
 Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.

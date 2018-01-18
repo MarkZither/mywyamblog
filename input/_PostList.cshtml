@@ -1,0 +1,23 @@
+@model IEnumerable<IDocument>
+
+@{
+    foreach (IDocument post in Model)
+    {
+        string lead = post.String(Wyam.Blog.BlogKeys.Lead);
+        
+        <div class="post-list">
+            <a href="@Context.GetLink(post)">
+                <h3 class="post-title">@post.WithoutSettings.String(Wyam.Blog.BlogKeys.Title)</h3>
+                @if(!string.IsNullOrWhiteSpace(lead))
+                {
+                    <h4 class="post-subtitle">@lead</h4>
+                }
+            </a>
+            <p class="post-meta">Posted on @(post.Get<DateTime>(Wyam.Blog.BlogKeys.Published).ToLongDateString(Context))</p>      
+            @if(Context.Bool(Wyam.Blog.BlogKeys.ArchiveExcerpts))
+            {
+                @Html.Raw(post.String(Wyam.Blog.BlogKeys.Excerpt))
+            }            
+        </div>   
+    }
+}
