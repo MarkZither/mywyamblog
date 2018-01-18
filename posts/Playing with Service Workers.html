@@ -96,6 +96,8 @@ if ('serviceWorker' in navigator) {
 </li>
         <li><a href="/posts">Archive</a></li>
         <li><a href="/tags">Tags</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/offline.md">Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack</a></li>
  
                                         </ul>
                                 </div>
@@ -139,6 +141,10 @@ Published on Monday, December 18, 2017<br>        <a href="http://blog.mark-burt
 <h2 id="location-of-the-serviceworker.js-file-matters">Location of the serviceworker.js file matters</h2>
 <p>I started with the sw.js file in the assets/scripts folder with the rest of the script files, but calls to <code>navigator.serviceWorker.getRegistration()</code> were never returning, this stackoverflow thread explains the issue.
 <a href="https://stackoverflow.com/questions/29874068/navigator-serviceworker-is-never-ready">Service Worker is never ready</a></p>
+<h2 id="building-progressive-web-apps-with-chris-love">Building Progressive Web Apps with Chris Love</h2>
+<p>Great explaination of Service Workers and further reading and <a href="https://love2dev.com/dnrpwa">offer</a> for Chris' course on this episode of
+<a href="https://dotnetrocks.com/?show=1509">DotNetRocks</a>.</p>
+<p><a href="http://www.pwabuilder.com/generator">PWA Builder</a></p>
 <script>
   window.addEventListener('load', function() {
       // Registration was successful
@@ -251,7 +257,7 @@ s.setAttribute('data-timestamp', +new Date());
                         </li>
                 </ul>
                 <p class="copyright text-muted">
-                        Copyright © 2017 by Mark Burton. The opinions expressed herein are my own and do not represent those of my employer or any other third-party views in any way. This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International License</a>.
+                        Copyright © 2018 by Mark Burton. The opinions expressed herein are my own and do not represent those of my employer or any other third-party views in any way. This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International License</a>.
                         <br />
                             <a href="/feed.rss"><i class="fa fa-rss"></i> RSS Feed</a>
                         |

@@ -4,9 +4,9 @@
 		<title>Mark Burton</title>
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
-		<copyright>2017</copyright>
-		<pubDate>Wed, 27 Dec 2017 14:45:47 GMT</pubDate>
-		<lastBuildDate>Wed, 27 Dec 2017 14:45:47 GMT</lastBuildDate>
+		<copyright>2018</copyright>
+		<pubDate>Thu, 18 Jan 2018 07:35:34 GMT</pubDate>
+		<lastBuildDate>Thu, 18 Jan 2018 07:35:34 GMT</lastBuildDate>
 		<item>
 			<title>Playing with Service Workers</title>
 			<link>http://blog.mark-burton.com/posts/Playing%20with%20Service%20Workers</link>
@@ -18,6 +18,10 @@
 &lt;h2 id="location-of-the-serviceworker.js-file-matters"&gt;Location of the serviceworker.js file matters&lt;/h2&gt;
 &lt;p&gt;I started with the sw.js file in the assets/scripts folder with the rest of the script files, but calls to &lt;code&gt;navigator.serviceWorker.getRegistration()&lt;/code&gt; were never returning, this stackoverflow thread explains the issue.
 &lt;a href="https://stackoverflow.com/questions/29874068/navigator-serviceworker-is-never-ready"&gt;Service Worker is never ready&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="building-progressive-web-apps-with-chris-love"&gt;Building Progressive Web Apps with Chris Love&lt;/h2&gt;
+&lt;p&gt;Great explaination of Service Workers and further reading and &lt;a href="https://love2dev.com/dnrpwa"&gt;offer&lt;/a&gt; for Chris' course on this episode of
+&lt;a href="https://dotnetrocks.com/?show=1509"&gt;DotNetRocks&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.pwabuilder.com/generator"&gt;PWA Builder&lt;/a&gt;&lt;/p&gt;
 &lt;script&gt;
   window.addEventListener('load', function() {
       // Registration was successful
@@ -230,8 +234,7 @@ Returns - Func&amp;lt;int, int, int&amp;gt; add = (x, y) =&amp;gt; { return x + 
 			<description>&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;</description>
 			<guid>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</guid>
 			<pubDate>Tue, 21 Feb 2017 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;hr /&gt;
-&lt;h1 id="setting-up-a-raspberry-pi-nginx-php-mysql-lemp-stack"&gt;Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack&lt;/h1&gt;
+			<content:encoded>&lt;h1 id="setting-up-a-raspberry-pi-nginx-php-mysql-lemp-stack"&gt;Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack&lt;/h1&gt;
 &lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.stewright.me/2016/03/turn-raspberry-pi-3-php-7-powered-web-server/"&gt;Ste Wright - Turn your Raspberry Pi 3 into a PHP 7 powered web server&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Follow the blog except at step 2 run&lt;/p&gt;
