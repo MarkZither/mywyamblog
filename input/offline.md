@@ -1,2 +1,4 @@
-Title: Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack
+Title: Offline
 ---
+# You are offline
+The page you are looking for is not available offline.
