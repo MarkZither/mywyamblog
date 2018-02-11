@@ -53,8 +53,13 @@
 <link rel="manifest" href="/manifest.json">
 <script>
 if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/sw.js', {
+    scope: './'
+  }).then(function(registration) {
       // Registration was successful
       console.log('PAGE: ServiceWorker registration successful with scope: ', registration.scope);
       //registration.update();
@@ -63,6 +68,7 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+}
 }
 </script>
 
@@ -124,11 +130,11 @@ if ('serviceWorker' in navigator) {
         <h1>2017</h1>
         <hr />
         <div class="post-list">
-            <a href="/posts/miniblog%20clone">
-                <h3 class="post-title">First Post</h3>
+            <a href="/posts/Nunit_Tests_Not_Showing_In_Test_Explorer">
+                <h3 class="post-title">NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</h3>
             </a>
-            <p class="post-meta">Posted on Thursday, January 12, 2017</p>      
-        </div>   
+            <p class="post-meta">Posted on Tuesday, February 21, 2017</p>      
+<p>Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.</p>        </div>   
     <ul class="pager">
         <li class="previous">                
                 <a href="/posts/page2"><span aria-hidden="true">&larr;</span> Newer</a>
@@ -197,7 +203,8 @@ if ('serviceWorker' in navigator) {
 
                 </footer> 
 
-                
+                <script src="/assets/js/push-notifications.js"></script>
+<script src="/assets/js/modernizr.3.5.0.custom.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>
 
                         <script type="text/javascript">                

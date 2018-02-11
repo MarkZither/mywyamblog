@@ -53,8 +53,13 @@
 <link rel="manifest" href="/manifest.json">
 <script>
 if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/sw.js', {
+    scope: './'
+  }).then(function(registration) {
       // Registration was successful
       console.log('PAGE: ServiceWorker registration successful with scope: ', registration.scope);
       //registration.update();
@@ -63,6 +68,7 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+}
 }
 </script>
 
@@ -117,11 +123,13 @@ if ('serviceWorker' in navigator) {
 Published on Monday, December 18, 2017<br>        <a href="http://blog.mark-burton.com/posts/Playing%20with%20Service%20Workers#disqus_thread" data-disqus-identifier="Playing with Service Workers" async></a>
     </div>
         <div class="tags">
+                    <a role="button" href="/tags/CORS" class="btn btn-default btn-xs">CORS</a>
                     <a role="button" href="/tags/Notifications-API" class="btn btn-default btn-xs">Notifications API</a>
                     <a role="button" href="/tags/Progressive-Web-Apps" class="btn btn-default btn-xs">Progressive Web Apps</a>
                     <a role="button" href="/tags/Push-API" class="btn btn-default btn-xs">Push API</a>
                     <a role="button" href="/tags/PWA" class="btn btn-default btn-xs">PWA</a>
                     <a role="button" href="/tags/Service-Workers" class="btn btn-default btn-xs">Service Workers</a>
+                    <a role="button" href="/tags/VAPID" class="btn btn-default btn-xs">VAPID</a>
         </div>     
 </div>
                                         </div>
@@ -136,14 +144,48 @@ Published on Monday, December 18, 2017<br>        <a href="http://blog.mark-burt
                                         
 
 <h1 id="service-workers-push-api-notifcations-api-and-pwas">Service workers, Push API, Notifcations API and PWAs</h1>
-<h2 id="location-of-the-serviceworker.js-file-matters">Location of the serviceworker.js file matters</h2>
+<p class="serviceworker-warning">This will not work for you as service workers are not supported </p>
+<!--more-->
+<h2 id="location-of-the-serviceworker.js-file-and-scope-matters">Location of the serviceworker.js file and scope matters</h2>
 <p>I started with the sw.js file in the assets/scripts folder with the rest of the script files, but calls to <code>navigator.serviceWorker.getRegistration()</code> were never returning, this stackoverflow thread explains the issue.
-<a href="https://stackoverflow.com/questions/29874068/navigator-serviceworker-is-never-ready">Service Worker is never ready</a></p>
+<a href="https://stackoverflow.com/questions/29874068/navigator-serviceworker-is-never-ready">Service Worker is never ready</a>.</p>
+<p>Maybe this is the proper way</p>
+<pre><code>{
+    navigator.serviceWorker.register('/sw.js', {
+    scope: './'
+  }
+</code></pre>
+<h2 id="subscribe-to-notifications">Subscribe to notifications</h2>
+<div id="dashboard-controls">
+    <button disabled="disabled" id="subscribe">Subscribe for Push Notifications</button>
+    <button disabled="disabled" id="unsubscribe">Unsubscribe from Push Notifications</button>
+    <br /><hr />
+    <label for="topic">Topic:</label><input type="text" id="topic" size="32" maxlength="32" />
+    <label for="urgency">Urgency:</label>
+    <select id="urgency">
+        <option value="VeryLow">Very Low</option>
+        <option value="Low">Low</option>
+        <option value="Normal" selected="selected">Normal</option>
+        <option value="High">High</option>
+    </select><br />
+    <input id="notification" size="65" />
+    <button id="send">Send Push Notification</button>
+</div>
+    <hr />
+<div id="dashboard-console">
+    <label>Log:</label>
+    <div id="output"></div>
+    <button id="clear" style="position: relative; top: 3px;">Clear</button>
+</div>
 <h2 id="building-progressive-web-apps-with-chris-love">Building Progressive Web Apps with Chris Love</h2>
 <p>Great explaination of Service Workers and further reading and <a href="https://love2dev.com/dnrpwa">offer</a> for Chris' course on this episode of
 <a href="https://dotnetrocks.com/?show=1509">DotNetRocks</a>.</p>
 <p><a href="http://www.pwabuilder.com/generator">PWA Builder</a></p>
+<h2 id="cors">CORS</h2>
+<p>As the blog is a static site and the backend is hosted in azure it is neccessary  setup CORS using one of the examples here<a href="https://docs.microsoft.com/en-us/aspnet/core/security/cors">Enabling Cross-Origin Requests (CORS)</a></p>
+<p>don't forget to do the CORS section in Azure if you are using that.</p>
 <script>
+
   window.addEventListener('load', function() {
       // Registration was successful
       console.log('PAGE: Get Notification permission');
@@ -285,7 +327,8 @@ s.setAttribute('data-timestamp', +new Date());
 
                 </footer> 
 
-                
+                <script src="/assets/js/push-notifications.js"></script>
+<script src="/assets/js/modernizr.3.5.0.custom.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>
 
                         <script type="text/javascript">                

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 
-        <title>Mark Burton - Introduction</title>
+        <title>Mark Burton - CORS</title>
         <meta name="description" content="Burton Blogs" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">        
 
@@ -28,9 +28,9 @@
         <meta name="msapplication-tooltip" content="Mark Burton" />
         <meta name="msapplication-starturl" content="/" />
 
-        <meta property="og:title" content="Mark Burton - Introduction" />
+        <meta property="og:title" content="Mark Burton - CORS" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://blog.mark-burton.com/tags/Introduction" />
+        <meta property="og:url" content="http://blog.mark-burton.com/tags/CORS" />
         <!-- TODO: More social graph meta tags -->
 
         <script src="/assets/js/jquery.min.js"></script>
@@ -53,8 +53,13 @@
 <link rel="manifest" href="/manifest.json">
 <script>
 if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/sw.js', {
+    scope: './'
+  }).then(function(registration) {
       // Registration was successful
       console.log('PAGE: ServiceWorker registration successful with scope: ', registration.scope);
       //registration.update();
@@ -63,6 +68,7 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+}
 }
 </script>
 
@@ -110,7 +116,7 @@ if ('serviceWorker' in navigator) {
                                 <div class="row">
                                         <div class="col-md-12">
 <div class="site-heading">
-    <h1>Introduction</h1>
+    <h1>CORS</h1>
 </div>                                            </div>
                                 </div>
                         </div>
@@ -124,11 +130,11 @@ if ('serviceWorker' in navigator) {
     <div class="row row-sm-height">
         <div class="col-sm-8 right-border col-sm-height">
                     <div class="post-list">
-            <a href="/posts/miniblog%20clone">
-                <h3 class="post-title">First Post</h3>
+            <a href="/posts/Playing%20with%20Service%20Workers">
+                <h3 class="post-title">Playing with Service Workers</h3>
             </a>
-            <p class="post-meta">Posted on Thursday, January 12, 2017</p>      
-        </div>   
+            <p class="post-meta">Posted on Monday, December 18, 2017</p>      
+<p class="serviceworker-warning">This will not work for you as service workers are not supported </p>        </div>   
 
 
             <nav>
@@ -144,11 +150,14 @@ if ('serviceWorker' in navigator) {
 		
         <div class="col-sm-4 col-sm-height">
                 <a role="button" href="/tags/ASPNET-Core" class="btn btn-default btn-xs">ASP.NET Core (2)</a>
+                <a role="button" href="/tags/GitHub" class="btn btn-default btn-xs">GitHub (1)</a>
                 <a role="button" href="/tags/Service-Workers" class="btn btn-default btn-xs">Service Workers (1)</a>
                 <a role="button" href="/tags/Notifications-API" class="btn btn-default btn-xs">Notifications API (1)</a>
                 <a role="button" href="/tags/Push-API" class="btn btn-default btn-xs">Push API (1)</a>
                 <a role="button" href="/tags/PWA" class="btn btn-default btn-xs">PWA (1)</a>
                 <a role="button" href="/tags/Progressive-Web-Apps" class="btn btn-default btn-xs">Progressive Web Apps (1)</a>
+                <a role="button" href="/tags/VAPID" class="btn btn-default btn-xs">VAPID (1)</a>
+                <a role="button" href="/tags/CORS" class="btn btn-primary btn-xs">CORS (1)</a>
                 <a role="button" href="/tags/NET-Core" class="btn btn-default btn-xs">.NET Core (1)</a>
                 <a role="button" href="/tags/Encoding" class="btn btn-default btn-xs">Encoding (1)</a>
                 <a role="button" href="/tags/EPPlus" class="btn btn-default btn-xs">EPPlus (1)</a>
@@ -166,7 +175,6 @@ if ('serviceWorker' in navigator) {
                 <a role="button" href="/tags/MySQL" class="btn btn-default btn-xs">MySQL (1)</a>
                 <a role="button" href="/tags/LEMP" class="btn btn-default btn-xs">LEMP (1)</a>
                 <a role="button" href="/tags/NUnit" class="btn btn-default btn-xs">NUnit (1)</a>
-                <a role="button" href="/tags/Introduction" class="btn btn-primary btn-xs">Introduction (1)</a>
         </div>
     </div>
 </div>
@@ -230,7 +238,8 @@ if ('serviceWorker' in navigator) {
 
                 </footer> 
 
-                
+                <script src="/assets/js/push-notifications.js"></script>
+<script src="/assets/js/modernizr.3.5.0.custom.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>
 
                         <script type="text/javascript">                

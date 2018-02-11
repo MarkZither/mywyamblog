@@ -4,12 +4,36 @@ self.addEventListener('install', function(event) {
     var CACHE_NAME = 'my-site-cache-v1';
     var urlsToCache = [
         '/',
-        '/assets/css/override.css',
         '/index.html',
-        '/posts/Playing%20with%20Service%20Workers',
+        '/offline.html',
+        '/manifest.json',
         '/assets/css/bootstrap.min.css',
+        '/assets/css/override.css',
+        '/assets/css/bootstrap.min.css',
+        '/assets/Images/Empty Test Explorer.png',
+        '/assets/Images/GitHub fork Repository add origin.PNG',
+        '/assets/Images/GitHub fork Repository change push upstream.PNG',
+        '/assets/Images/GitHub fork Repository Rename to Upstream.PNG',
+        '/assets/Images/GitHub fork Repository Settings.PNG',
+        '/assets/Images/GitHub fork Team Explorer.PNG',
+        '/assets/Images/NetlifyCMS_Webhooks.PNG',
+        '/assets/Images/NetlifyCMS_Webhooks_PullRequest.PNG',
+        '/assets/Images/Netlify_Identity_Complete_Signup.PNG',
+        '/assets/Images/Netlify_Identity_Local_Testing.PNG',
+        '/assets/Images/push-notification-icon.png',
+        '/assets/Images/Tools Extensions and Updates Menu.png',
+        '/assets/Images/Tools Extensions and Updates.png',
         '/assets/js/jquery.min.js',
-        '/assets/js/bootstrap.min.js'
+        '/assets/js/bootstrap.min.js',
+        '/posts/Playing%20with%20Service%20Workers',
+        '/posts/exception using .net core',
+        '/posts/Fork a cloned git repository',
+        '/posts/index.html',
+        '/posts/Job Interview Technical Test Preparation',
+        '/posts/Nunit_Tests_Not_Showing_In_Test_Explorer',
+        '/posts/Running ASP.NET Core on a RaspberryPi 2 with Nginx',
+        '/posts/Setting up NetlifyCMS with Wyam',
+        '/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack',
     ];
 
     caches.delete(CACHE_NAME);
@@ -32,32 +56,27 @@ self.addEventListener('fetch', function(event) {
     if (event.request.method !== 'GET') {
         return;
     }
-    var title = 'You are online message.';
-    var body = 'We have received a push message.';
-    var icon = '/images/icon-192x192.png';
-    var tag = 'simple-push-demo-notification-tag';
 
     event.respondWith(
         Promise.race([timeout(20000), fetch(event.request)]).then(networkResponse => {
             console.log(`WORKER: Serving ${event.request.url} from NETWORK`);
-            if (Notification.permission == 'granted' && event.request.url.indexOf('Playing') > -1) {
-                self.registration.showNotification('you are online', {
-                    body: `this page was fetched from the server ${event.request.url}`
-                })
-            }
             var responseClone = networkResponse.clone();
             caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseClone));
             return networkResponse;
         })
-        //.timeout(200)
         .catch(_ => {
             console.log(`WORKER: Serving ${event.request.url} from CACHE`);
-            if (Notification.permission == 'granted' && event.request.url.indexOf('Playing') > -1) {
-                self.registration.showNotification('it still works, but', {
-                    body: 'looks like you are not online'
-                })
-            }
-            return caches.match(event.request);
+            return caches.open(CACHE_NAME).then(function(cache) {
+                return cache.match(event.request).then(function(matching) {
+                    if (!matching || matching.status == 404) {
+                        console.log(`WORKER: Offline as ${event.request.url} not in CACHE`);
+                        return cache.match('offline.html')
+                    } else {
+                        console.log(`WORKER: Serving ${event.request.url} from CACHE`);
+                        return matching;
+                    }
+                });
+            });
         })
     );
 });

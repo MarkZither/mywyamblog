@@ -53,8 +53,13 @@
 <link rel="manifest" href="/manifest.json">
 <script>
 if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/sw.js', {
+    scope: './'
+  }).then(function(registration) {
       // Registration was successful
       console.log('PAGE: ServiceWorker registration successful with scope: ', registration.scope);
       //registration.update();
@@ -63,6 +68,7 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+}
 }
 </script>
 
@@ -128,11 +134,11 @@ if ('serviceWorker' in navigator) {
 <div class="row">
     <div class="col-sm-8 right-border">
                 <div class="post-preview">
-                    <a href="/posts/miniblog%20clone">
-                        <h2 class="post-title">First Post</h2>
+                    <a href="/posts/Nunit_Tests_Not_Showing_In_Test_Explorer">
+                        <h2 class="post-title">NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</h2>
                     </a>
-                    <p class="post-meta">Posted on Thursday, January 12, 2017</p>
-<p>The initial idea behind this was to learn about the differences when building a website on ASP.net CORE so that i can run on a raspberry pi, i am sure there were much easier ways to achieve that.</p>                </div>       
+                    <p class="post-meta">Posted on Tuesday, February 21, 2017</p>
+<p>Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.</p>                </div>       
         <ul class="pager">
             <li class="previous">                
                     <a href="/index3"><span aria-hidden="true">&larr;</span> Newer</a>
@@ -147,15 +153,15 @@ if ('serviceWorker' in navigator) {
             <h5>Tags</h5>
             <div>
                     <a role="button" href="/tags/ASPNET-Core" class="btn btn-default btn-sm"> ASP.NET Core (2)</a>
-                    <a role="button" href="/tags/PWA" class="btn btn-default btn-sm"> PWA (1)</a>
-                    <a role="button" href="/tags/NUnit" class="btn btn-default btn-sm"> NUnit (1)</a>
+                    <a role="button" href="/tags/Raspberry-Pi" class="btn btn-default btn-sm"> Raspberry Pi (1)</a>
+                    <a role="button" href="/tags/SharpZip" class="btn btn-default btn-sm"> SharpZip (1)</a>
+                    <a role="button" href="/tags/GitHub" class="btn btn-default btn-sm"> GitHub (1)</a>
+                    <a role="button" href="/tags/AMQP" class="btn btn-default btn-sm"> AMQP (1)</a>
                     <a role="button" href="/tags/Progressive-Web-Apps" class="btn btn-default btn-sm"> Progressive Web Apps (1)</a>
-                    <a role="button" href="/tags/LEMP" class="btn btn-default btn-sm"> LEMP (1)</a>
-                    <a role="button" href="/tags/NET-Core" class="btn btn-default btn-sm"> .NET Core (1)</a>
-                    <a role="button" href="/tags/Azure-Service-Bus" class="btn btn-default btn-sm"> Azure Service Bus (1)</a>
-                    <a role="button" href="/tags/Encoding" class="btn btn-default btn-sm"> Encoding (1)</a>
-                    <a role="button" href="/tags/PHP" class="btn btn-default btn-sm"> PHP (1)</a>
-                    <a role="button" href="/tags/EPPlus" class="btn btn-default btn-sm"> EPPlus (1)</a>
+                    <a role="button" href="/tags/NUnit" class="btn btn-default btn-sm"> NUnit (1)</a>
+                    <a role="button" href="/tags/Custom-Model-Binding" class="btn btn-default btn-sm"> Custom Model Binding (1)</a>
+                    <a role="button" href="/tags/Push-API" class="btn btn-default btn-sm"> Push API (1)</a>
+                    <a role="button" href="/tags/CQRS" class="btn btn-default btn-sm"> CQRS (1)</a>
             </div>
             <ul class="pager">
                 <li class="next">
@@ -235,7 +241,8 @@ if ('serviceWorker' in navigator) {
 
                 </footer> 
 
-                
+                <script src="/assets/js/push-notifications.js"></script>
+<script src="/assets/js/modernizr.3.5.0.custom.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>
 
                         <script type="text/javascript">                

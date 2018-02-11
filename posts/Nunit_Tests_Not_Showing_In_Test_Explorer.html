@@ -53,8 +53,13 @@
 <link rel="manifest" href="/manifest.json">
 <script>
 if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/sw.js', {
+    scope: './'
+  }).then(function(registration) {
       // Registration was successful
       console.log('PAGE: ServiceWorker registration successful with scope: ', registration.scope);
       //registration.update();
@@ -63,6 +68,7 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+}
 }
 </script>
 
@@ -135,7 +141,7 @@ Published on Tuesday, February 21, 2017<br>        <a href="http://blog.mark-bur
 <p>Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.</p>
 <div class="row">
 <div class="col-xs-12 col-md-4">
-<p><img src="Empty%20Test%20Explorer.png" class="img-fluid" alt="" /></p>
+<p><img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /></p>
 </div>
 <div class="col-xs-12 col-md-8">
 The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
@@ -147,11 +153,11 @@ The message suggests that simply building the solution will fix this and the tes
 To fix this it is necessary to open Tools -> Extensions and Updates...
 </div>
 <div class="col-xs-12 col-md-4">
-<p><img src="Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /></p>
+<p><img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /></p>
 </div>
 </div>
 <p>Search for NUnit to find the NUnit 3 Test Adapter
-<img src="Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /></p>
+<img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /></p>
 <p>Click enable and restart Visual Studio, the tests now show correctly.</p>
 
 
@@ -253,7 +259,8 @@ s.setAttribute('data-timestamp', +new Date());
 
                 </footer> 
 
-                
+                <script src="/assets/js/push-notifications.js"></script>
+<script src="/assets/js/modernizr.3.5.0.custom.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>
 
                         <script type="text/javascript">                

@@ -53,8 +53,13 @@
 <link rel="manifest" href="/manifest.json">
 <script>
 if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/sw.js', {
+    scope: './'
+  }).then(function(registration) {
       // Registration was successful
       console.log('PAGE: ServiceWorker registration successful with scope: ', registration.scope);
       //registration.update();
@@ -63,6 +68,7 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+}
 }
 </script>
 
@@ -121,6 +127,16 @@ if ('serviceWorker' in navigator) {
                         <div class="row">
                                 <div id="content" class="col-md-12">
                                         
+        <h1>2018</h1>
+        <hr />
+        <div class="post-list">
+            <a href="/posts/Fork%20a%20cloned%20git%20repository">
+                <h3 class="post-title">How to fork a cloned repository in Visual Studio</h3>
+            </a>
+            <p class="post-meta">Posted on Saturday, January 27, 2018</p>      
+<p>based on these gists
+<a href="https://gist.github.com/jpierson/b6c0815e9dd7078f6b8cc3cb9076ddf4">https://gist.github.com/jpierson/b6c0815e9dd7078f6b8cc3cb9076ddf4</a>
+<a href="https://gist.github.com/ElectricRCAircraftGuy/8ca9c04924ac11a50d48c2061d28b090">https://gist.github.com/ElectricRCAircraftGuy/8ca9c04924ac11a50d48c2061d28b090</a></p>        </div>   
         <h1>2017</h1>
         <hr />
         <div class="post-list">
@@ -128,19 +144,14 @@ if ('serviceWorker' in navigator) {
                 <h3 class="post-title">Playing with Service Workers</h3>
             </a>
             <p class="post-meta">Posted on Monday, December 18, 2017</p>      
-        </div>   
+<p class="serviceworker-warning">This will not work for you as service workers are not supported </p>        </div>   
         <div class="post-list">
             <a href="/posts/exception%20using%20.net%20core">
                 <h3 class="post-title">Resolving System.NotSupportedException No data is available for encoding 850 in .net Core</h3>
             </a>
             <p class="post-meta">Posted on Tuesday, December 12, 2017</p>      
-        </div>   
-        <div class="post-list">
-            <a href="/posts/Job%20Interview%20Technical%20Test%20Preparation">
-                <h3 class="post-title">Job Interview Technical Test Preparation</h3>
-            </a>
-            <p class="post-meta">Posted on Saturday, November 4, 2017</p>      
-        </div>   
+<p><a href="https://msdn.microsoft.com/en-us/library/system.text.encodingprovider(v=vs.110).aspx">https://msdn.microsoft.com/en-us/library/system.text.encodingprovider(v=vs.110).aspx</a>
+<code>Message: System.NotSupportedException : No data is available for encoding 850. For information on defining a custom encoding, see the documentation for the Encoding.RegisterProvider method.</code></p>        </div>   
     <ul class="pager">
         <li class="previous">                
         </li>
@@ -209,7 +220,8 @@ if ('serviceWorker' in navigator) {
 
                 </footer> 
 
-                
+                <script src="/assets/js/push-notifications.js"></script>
+<script src="/assets/js/modernizr.3.5.0.custom.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>
 
                         <script type="text/javascript">                
