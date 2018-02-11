@@ -6,7 +6,7 @@ Settings[Wyam.Blog.BlogKeys.Intro] = "Hi, welcome to my blog!";
 Settings[Wyam.Blog.BlogKeys.IgnoreFolders] = "events";
 Settings[BlogKeys.ArchivePageSize] = 3;
 Settings[BlogKeys.IndexPaging] = 1;
-Settings[BlogKeys.IndexPageSize] = 2;
+Settings[BlogKeys.IndexPageSize] = 3;
 
 #n -p Wyam.Markdown
 #n -p Wyam.Yaml

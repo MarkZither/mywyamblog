@@ -9,6 +9,7 @@ Tags:
   - Netlify
 ---
 
+The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .
 ## Set registration preference and external providers
 Registration settings and External providers are located in settings under Identity
 ![](../assets/Images/Netlify_Site_Settings.PNG)
