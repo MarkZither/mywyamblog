@@ -1,4 +1,5 @@
-﻿Title: Running ASP.NET Core on a RaspberryPi 2 with Nginx
+﻿---
+Title: Running ASP.NET Core on a RaspberryPi 2 with Nginx
 Published: 2017-02-21
 Tags: 
   - ASP.NET Core

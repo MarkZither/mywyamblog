@@ -1,3 +1,4 @@
+---
 Title: Resolving System.NotSupportedException No data is available for encoding 850 in .net Core
 Published: 2017-12-12
 Tags: 

@@ -1,4 +1,5 @@
-﻿Title: NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer
+﻿---
+Title: NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer
 Published: 2017-02-21
 Tags: NUnit
 ---

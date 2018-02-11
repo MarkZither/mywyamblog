@@ -1,4 +1,5 @@
-﻿Title: First Post
+﻿---
+Title: First Post
 Published: 2020-01-12
 Tags: Introduction
 ---

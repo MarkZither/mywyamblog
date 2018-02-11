@@ -1,7 +1,7 @@
 ---
-Title: Setting up NetlifyCMS with Wyam
-Published: 2018-03-09
-Lead: test a lead
+Title: Setting up NetlifyCMS with Wyam - Part 1
+Published: 2018-02-09
+Lead: Configuring a simple single user mode NetlifyCMS with Wyam
 Tags: 
   - Wyam
   - AppVeyor
@@ -55,7 +55,7 @@ The second file, admin/config.yml, is the heart of your Netlify CMS installation
 ### Example NetlifyCMS config file
 A couple of things to note here are;
 * The Tags field, in the CMS is will display as a simple textbox, but you add your tags as a comma seperated list. I tried to get the list to add and item for each tag i wanted to add, but hit some javascript errors which prevented me typing more than 1 character per tag.
-* The Featured Image will happily accept a filename with spaces in it, which markdown/html will then fail to render as it doesn't get escaped to %20, the field can have validation added to it like `pattern: ['^\S*$', "Please rename you image remove any spaces from the filename"]` 
+* The Featured Image will happily accept a filename with spaces in it, which markdown/html will then fail to render as it doesn't get escaped to %20, the field can have validation added to it like `pattern: ['^\S*$', "Please rename your image remove any spaces from the filename"]` 
 ```
 backend:
   name: git-gateway
@@ -90,21 +90,11 @@ TODO update Wyam docs to show Netlify with GitHub continuous integration? and ad
 ### Enable Netlify Identity
 ![](../assets/Images/Netlify_Identity_Enable.PNG)
 
-### Invite some users
-Might be best to come back to this step after setting the registration preferences
-![](../assets/Images/Netlify_Identity_Invite_Users.PNG)
-
 ### Set registration preference and external providers
 Registration settings and External providers are located in settings under Identity
 ![](../assets/Images/Netlify_Site_Settings.PNG)
 
 ![](../assets/Images/Netlify_Identity_Reg_pref_providers.PNG)
-
-### Enable Git Gateway in Netlify
-Your CMS users are likely to not have Github logins, so enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github.
-It is explained further in the [Netlify Docs on Git Gateway](https://www.netlify.com/docs/git-gateway/)
-The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings. 
-![](../assets/Images/Netlify_Git_Gateway.PNG)
 
 ## Local Testing
 ::::::row

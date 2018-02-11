@@ -9,6 +9,18 @@ Tags:
   - Netlify
 ---
 
+## Set registration preference and external providers
+Registration settings and External providers are located in settings under Identity
+![](../assets/Images/Netlify_Site_Settings.PNG)
+
+![](../assets/Images/Netlify_Identity_Reg_pref_providers.PNG)
+
+### Enable Git Gateway in Netlify
+Your CMS users are likely to not have Github logins, so enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github.
+It is explained further in the [Netlify Docs on Git Gateway](https://www.netlify.com/docs/git-gateway/)
+The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings. 
+![](../assets/Images/Netlify_Git_Gateway.PNG)
+
 ## Make it easy for user to complete signup by adding Netlify Identity Widget to the site
 ::::::row
 :::{.col-xs-12 .col-sm-8}
@@ -25,3 +37,7 @@ Now when the user hits the homepage with the `/#invite_token=` in the URL the co
 ![](../assets/Images/Netlify_Identity_Complete_Signup.png)
 :::
 ::::::
+
+### Invite some users
+Might be best to come back to this step after setting the registration preferences
+![](../assets/Images/Netlify_Identity_Invite_Users.PNG)

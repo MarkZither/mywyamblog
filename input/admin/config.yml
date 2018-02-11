@@ -18,7 +18,7 @@ collections:
       - {label: "Lead", name: "Lead", widget: "string", optional: true, required: false}
       - {label: "Published", name: "Published", widget: "datetime"}
       - {label: "Featured Image", name: "Image", widget: "image",  
-        optional: true, required: false, pattern: ['^\S*$', "Please rename you image remove any spaces from the filename"]}
+        optional: true, required: false, pattern: ['^\S*$', "Please rename your image remove any spaces from the filename"]}
       - label: Tags
         name: Tags
         widget: list
