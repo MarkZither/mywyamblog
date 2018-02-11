@@ -1,7 +1,7 @@
 //self.importScripts('');
+const CACHE_NAME = 'my-site-cache-v3';
 self.addEventListener('install', function(event) {
     // Perform install steps
-    var CACHE_NAME = 'my-site-cache-v1';
     var urlsToCache = [
         '/',
         '/index.html',
@@ -50,7 +50,6 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-    var CACHE_NAME = 'my-site-cache-v1';
     console.log(`WORKER: in sw fetch for ${event.request.url}`);
 
     if (event.request.method !== 'GET') {

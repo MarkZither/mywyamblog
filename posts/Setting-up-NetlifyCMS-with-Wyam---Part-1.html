@@ -30,7 +30,7 @@
 
         <meta property="og:title" content="Mark Burton - Setting up NetlifyCMS with Wyam - Part 1" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam" />
+        <meta property="og:url" content="http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1" />
         <!-- TODO: More social graph meta tags -->
 
         <script src="/assets/js/jquery.min.js"></script>
@@ -121,7 +121,7 @@ if ('serviceWorker' in navigator) {
     <h1>Setting up NetlifyCMS with Wyam - Part 1</h1>
         <h2 class="subheading">Configuring a simple single user mode NetlifyCMS with Wyam</h2>
     <div class="meta">        
-Published on Friday, February 9, 2018<br>        <a href="http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam#disqus_thread" data-disqus-identifier="Setting up NetlifyCMS with Wyam" async></a>
+Published on Friday, February 9, 2018<br>        <a href="http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1#disqus_thread" data-disqus-identifier="Setting-up-NetlifyCMS-with-Wyam---Part-1" async></a>
     </div>
         <div class="tags">
                     <a role="button" href="/tags/AppVeyor" class="btn btn-default btn-xs">AppVeyor</a>
@@ -142,30 +142,37 @@ Published on Friday, February 9, 2018<br>        <a href="http://blog.mark-burto
                                         
 
 <h1 id="setting-up-netlifycms-with-wyam">Setting up NetlifyCMS with Wyam</h1>
-<p>Despite the length of this blog post NetlifyCMS is actually really easy to setup, it just involves configuration across a few different systems to get it all working in an automated fashion, from publishing a post in the CMS, thereby the file being pushed to GitHub, to automatically building and publishing your site, in this instance to Netlify. I was not familiar with all of these tools when i started so leave a comment if there are improvements that can be made.</p>
-<p>So lets start with what Wyam and NetlifyCMS are;</p>
+<p>Despite the length of this series of blog posts NetlifyCMS is actually really easy to setup. It just involves configuration across a few different tools to get it all working in an automated fashion, from publishing a post in the CMS, thereby the file being pushed to GitHub, to automatically building and publishing your site, in this instance to Netlify. I was not familiar with all these tools when i started so please leave a comment if there are improvements that can be made.</p>
+<p>Lets start with what Wyam and NetlifyCMS are;</p>
 <blockquote class="blockquote">
 <p><cite>Wyam is different.
 It's a static content toolkit and can be used to generate web sites, produce documentation, create ebooks, and much more. Since everything is configured by chaining together flexible modules (that you can even write yourself), the only limits to what it can create are your imagination.</cite>--<cite>
-<a href="https://wyam.io/">wyam.io</a></cite>
-<cite>Netlify CMS is an open source content management system for your Git workflow that enables you to provide editors with friendly UI and intuitive workflow. You can use it with any static site generator to create faster, more flexible web projects.</cite>
+<a href="https://wyam.io/">wyam.io</a></cite></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><cite>Netlify CMS is an open source content management system for your Git workflow that enables you to provide editors with friendly UI and intuitive workflow. You can use it with any static site generator to create faster, more flexible web projects.</cite>
 --<cite>
 <a href="https://www.netlifycms.org/docs/intro/">NetlifyCMS</a></cite></p>
 </blockquote>
-<p>Now onto the steps i went through to setup NetlifyCMS for my blog.</p>
+<h2 id="now-onto-the-steps-i-went-through-to-setup-netlifycms-for-my-blog">Now onto the steps I went through to setup NetlifyCMS for my blog.</h2>
 <p>This information is what worked for me and makes some assumptions</p>
 <ul>
 <li>Your code is in a GitHub repository</li>
 <li>Your site is hosted on Netlify</li>
-<li>You are using AppVeyor for CI</li>
-<li>You are the only editor of you blog (Part 2 will deal with adding users and Netlify Identify features to the blog)</li>
-<li>You know that your CMS will be accessed at /admin</li>
-<li>You are happy pushing your changes directly to master (Part 3 will explain the editorial workflow, which saves drafts to feature branches and creates a PR and merges once the post is published)</li>
+<li>You are using AppVeyor for continuous deployment</li>
+<li>You are the only editor of your blog (Part 2 will deal with adding users and Netlify Identify features to the blog)</li>
+<li>You know that your CMS will be accessed at by manually adding /admin to your site URL</li>
+<li>You are happy pushing your changes directly to master (Part 3 will explain the editorial workflow, which saves drafts to feature branches, creates a PR and merges once the post is published)</li>
 </ul>
-<h2 id="add-an-admin-directory-under-your-wyam-input-directory">Add an admin directory under your Wyam input directory</h2>
-<p>The general instructions to <a href="https://www.netlifycms.org/docs/add-to-your-site/">add NetlifyCMS to your site</a> cover several static site generators but not Wyam (i have a PR in to add it).</p>
-<p>Assuming you are using the default Wyam input directory name and structure the setup is basically, add a folder called <code>admin</code> under your Wyam <code>input</code> directory with 2 files, <code>index.html</code> and <code>config.yml</code>.</p>
-<p>In the <code>index.html</code> add the following, <strong>note</strong> i also added the Netlify Identity script since we will be using that, which is not in the Netlify instructions at this point, you could also use <a href="https://www.netlify.com/docs/inject-analytics-snippets/">Netlify’s Script Injection</a> feature to achieve the same.</p>
+<h2 id="changes-in-your-wyam-project">Changes in your Wyam project</h2>
+<h3 id="add-an-admin-directory-under-your-wyam-input-directory">Add an admin directory under your Wyam input directory</h3>
+<p>The general instructions to <a href="https://www.netlifycms.org/docs/add-to-your-site/">add NetlifyCMS to your site</a> cover several static site generators but not Wyam (I have a PR in to add it to the table for App File Structure).</p>
+<p>Assuming you are using the default Wyam input directory name and structure the setup is;</p>
+<ul>
+<li>add a folder called <code>admin</code> under your Wyam <code>input</code> directory</li>
+<li>add 2 files to it, <code>index.html</code> and <code>config.yml</code>.</li>
+</ul>
+<p>In the <code>index.html</code> add the following,</p>
 <pre><code>&lt;head&gt;
   &lt;!-- Include the styles for the Netlify CMS UI, after your own styles --&gt;
   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/netlify-cms&#64;^1.0.0/dist/cms.css&quot; /&gt;
@@ -177,13 +184,9 @@ It's a static content toolkit and can be used to generate web sites, produce doc
   &lt;script src=&quot;https://identity.netlify.com/v1/netlify-identity-widget.js&quot;&gt;&lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p>The second file, admin/config.yml, is the heart of your Netlify CMS installation, and a bit more complex. It is explained in full in the <a href="https://www.netlifycms.org/docs/add-to-your-site/">add NetlifyCMS to your site</a> and <a href="https://www.netlifycms.org/docs/configuration-options/">configuration options</a> documentation and i have added a working version toward the bottom of this post.</p>
+<p><strong>note</strong> i also added the Netlify Identity script since we will be using that, which is not in the Netlify instructions at this point, you could also use <a href="https://www.netlify.com/docs/inject-analytics-snippets/">Netlify’s Script Injection</a> feature to achieve the same.</p>
+<p>The second file, admin/config.yml, is the heart of your Netlify CMS installation, and a bit more complex. It is explained in full in the <a href="https://www.netlifycms.org/docs/add-to-your-site/">add NetlifyCMS to your site</a> and <a href="https://www.netlifycms.org/docs/configuration-options/">configuration options</a> documentation and I have added a working version below.</p>
 <h3 id="example-netlifycms-config-file">Example NetlifyCMS config file</h3>
-<p>A couple of things to note here are;</p>
-<ul>
-<li>The Tags field, in the CMS is will display as a simple textbox, but you add your tags as a comma seperated list. I tried to get the list to add and item for each tag i wanted to add, but hit some javascript errors which prevented me typing more than 1 character per tag.</li>
-<li>The Featured Image will happily accept a filename with spaces in it, which markdown/html will then fail to render as it doesn't get escaped to %20, the field can have validation added to it like <code>pattern: ['^\S*$', &quot;Please rename your image remove any spaces from the filename&quot;]</code></li>
-</ul>
 <pre><code>backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
@@ -202,87 +205,89 @@ collections:
       - {label: &quot;Lead&quot;, name: &quot;Lead&quot;, widget: &quot;string&quot;, optional: true, required: false}
       - {label: &quot;Published&quot;, name: &quot;Published&quot;, widget: &quot;datetime&quot;}
       - {label: &quot;Featured Image&quot;, name: &quot;Image&quot;, widget: &quot;image&quot;, 
-        optional: true, required: false, pattern: ['^\S*$', &quot;Please rename you image remove any spaces from the filename&quot;]}
+        optional: true, required: false, pattern: ['^\S*$', &quot;Please rename your image remove any spaces from the filename&quot;]}
       - label: Tags
         name: Tags
         widget: list
       - {label: &quot;Body&quot;, name: &quot;body&quot;, widget: &quot;markdown&quot;}
 </code></pre>
+<div class="row">
+<div class="col-xs-12 col-sm-7"><p>A couple of things to note here are;
+It is using git-gateway as the backend, if you don't intend on having additional editors for your blog you could connect directly to GitHub as described in <a href="https://www.netlifycms.org/docs/authentication-backends/">authentication and backends</a> and <a href="https://www.netlify.com/docs/authentication-providers/#using-an-authentication-provider">Using an Authentication Provider</a>, but it looks to be more work for less functionality.</p>
+<p>The Tags field, in the CMS it will display as a simple textbox, but you add your tags as a comma separated list. I tried to get the list to add and item for each tag i wanted to add, but hit some JavaScript errors which prevented me typing more than 1 character per tag.</p>
+<p>The Featured Image (and media upload screen) will happily accept a filename with spaces in it, which markdown/html will then fail to render as it doesn't get escaped to %20. The field can have validation added to it like <code>pattern: ['^\S*$', &quot;Please rename your image remove any spaces from the filename&quot;]</code> not very user friendly, but better than the image just not working.</p>
+</div>
+<div class="col-xs-12 col-sm-5"><p><img src="../assets/Images/NetlifyCMS_Validation.PNG" class="img-responsive img-fluid" alt="" /></p>
+</div>
+</div>
 <h2 id="setup-your-blog-on-netlify">Setup your blog on Netlify</h2>
-<p>The Wyam website already has a guide on <a href="https://wyam.io/docs/deployment/netlify">setting up a site on Netlify</a> but for this you will want to read the site from a GitHub branch, a bit like gh-pages.</p>
-<p>TODO update Wyam docs to show Netlify with GitHub continuous integration? and add screen shot of Netlify setup</p>
+<p>The Wyam website already has a guide on <a href="https://wyam.io/docs/deployment/netlify">setting up a site on Netlify</a> to get started you can just drag and drop your site as described, in Part 3 we will setup the continuous deployment from GitHub.</p>
 <h3 id="enable-netlify-identity">Enable Netlify Identity</h3>
-<p><img src="../assets/Images/Netlify_Identity_Enable.PNG" class="img-fluid" alt="" /></p>
+<p>As the config states is setup with <code>backend: name:git-gateway</code> we will be using Netlify Identity.
+<img src="../assets/Images/Netlify_Identity_Enable.PNG" class="img-responsive img-fluid" alt="" /></p>
 <h3 id="set-registration-preference-and-external-providers">Set registration preference and external providers</h3>
-<p>Registration settings and External providers are located in settings under Identity
-<img src="../assets/Images/Netlify_Site_Settings.PNG" class="img-fluid" alt="" /></p>
-<p><img src="../assets/Images/Netlify_Identity_Reg_pref_providers.PNG" class="img-fluid" alt="" /></p>
+<p>Registration settings and External providers are in settings under Identity.
+<img src="../assets/Images/Netlify_Site_Settings.PNG" class="img-responsive img-fluid" alt="" /></p>
+<p>At this stage I only want access myself, so I have made it invite only and enabled GitHub as the sole external provider.
+<img src="../assets/Images/Netlify_Identity_Reg_pref_providers.PNG" class="img-responsive img-fluid" alt="" /></p>
+<h3 id="enable-git-gateway-in-netlify">Enable Git Gateway in Netlify</h3>
+<div class="row">
+<div class="col-xs-12 col-sm-6"><p>Your CMS users are likely to not have GitHub logins. Enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github, this is also required as we set the backend to git-gateway. Without it you will get errors in the console when you try to save media or posts.
+It is explained further in the <a href="https://www.netlify.com/docs/git-gateway/">Netlify Docs on Git Gateway</a>
+The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings.</p>
+</div>
+<div class="col-xs-12 col-sm-6"><p><img src="../assets/Images/Netlify_Git_Gateway.PNG" class="img-responsive img-fluid" alt="" /></p>
+</div>
+</div>
+<h3 id="netlifycms-in-action">NetlifyCMS in action</h3>
+<div class="row">
+<div class="col-xs-12 col-sm-6"><p>At this point you should have a working CMS, run <code>wyam -p 5080 -w</code> - <a href="https://wyam.io/docs/usage/command-line">here is more information on the wyam command line</a> - then navigate to <a href="http://localhost:5080/admin/,">http://localhost:5080/admin/,</a> you should be greeted with the NetlifyCMS screen.</p>
+</div>
+<div class="col-xs-12 col-sm-6"><p><img src="../assets/Images/NetlifyCMS_Home.PNG" class="img-responsive img-fluid" alt="" /></p>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12 col-sm-8"><p>Click Login with Netlify and login with your GitHub account, you might be redirected here to your site on Netlify, just correct the first part of the URL to <code>https://localhost:5080/admin/</code> and be sure to keep the <code>#access_token=eyj...lkdAGI&amp;expires_in=3600&amp;refresh_token=zEM...BQSw&amp;token_type=bearer</code> in the URL, this should log you in to your local instance.</p>
+</div>
+<div class="col-xs-12 col-sm-3 col-sm-offset-1"><p><img src="../assets/Images/NetlifyCMS_Login.PNG" class="img-responsive img-fluid" alt="" /></p>
+</div>
+</div>
+<p>Finally we have NetlifyCMS in all its glory</p>
+<p><img src="../assets/Images/NetlifyCMS_Main.PNG" class="img-responsive img-fluid" alt="" /></p>
+<p>Create a new post and publish it</p>
+<p><img src="../assets/Images/NetlifyCMS_Publish_New.PNG" class="img-responsive img-fluid" alt="" /></p>
+<h2 id="netlifycms-successfully-publishing-to-github">NetlifyCMS successfully publishing to GitHub</h2>
+<div class="row">
+<div class="col-xs-12 col-sm-6"><p>you should see a commit in GitHub</p>
+<p><img src="../assets/Images/NetlifyCMS_Published_GitHub.PNG" class="img-responsive img-fluid" alt="" /></p>
+</div>
+<div class="col-xs-12 col-sm-6"><p>and the markdown as rendered in GitHub</p>
+<p><img src="../assets/Images/NetlifyCMS_Published_GitHub_Details.PNG" class="img-responsive img-fluid" alt="" /></p>
+</div>
+</div>
+<p>This is all well and good, but you could have done that in VS Code or similar, in Parts 2 and 3 I will describe how I configured AppVeyor and Netlify to support continuous deployment, the editorial workflow and adding the Netlify Identity widget to my blog to make this a fully functioning CMS.</p>
+<h2 id="errors-and-issues-i-encountered-while-setting-this-up">Errors and issues I encountered while setting this up</h2>
 <h2 id="local-testing">Local Testing</h2>
 <div class="row">
-<div class="col-xs-12 col-sm-8"><p>If you are testing your site locally you can still use the Netlify Identity, you just need to specify the URL of your site on Netlify. This is explained in full in the <a href="https://github.com/netlify/netlify-identity-widget#localhost">netlify identity widget docs</a>.</p>
-<p>I have found that not everything works properly locally, adding media has resulted in CORS errors.</p>
+<div class="col-xs-12 col-sm-8"><p>If you are testing your site locally you can still use the Netlify Identity. You just need to specify the URL of your site on Netlify. This is explained in full in the <a href="https://github.com/netlify/netlify-identity-widget#localhost">netlify identity widget docs</a>.</p>
+<p>It does however seem to have a side effect of redirecting to your hosted site after login if you use the external provider, logging in with a Netlify Identity account works and leaves you on the same page, alternatively just correct the first part of the URL to <a href="https://localhost:5080/admin/">https://localhost:5080/admin/</a> and be sure to keep the #access_token=eyj...lkdAGI&amp;expires_in=3600&amp;refresh_token=zEM...BQSw&amp;token_type=bearer in the URL, this should log you in to your local instance. Sometimes it needs a refresh to load the actual CMS.</p>
 </div>
-<div class="col-xs-12 col-sm-4"><p><img src="../assets/Images/Netlify_Identity_Local_Testing.png" class="img-fluid" alt="" /></p>
+<div class="col-xs-12 col-sm-4"><p><img src="../assets/Images/Netlify_Identity_Local_Testing.png" class="img-responsive img-fluid" alt="" /></p>
 </div>
 </div>
-<h2 id="use-appveyor-for-ci">Use AppVeyor for CI</h2>
-<p>To get started with a simple NetlifyCMS setup without the editorial workflow you can use the <a href="https://wyam.io/docs/deployment/appveyor">AppVeyor for Continuous Integration</a> Wyam document.</p>
-<h1 id="enabling-the-editorial-workflow-start-a-new-blog-here">Enabling the editorial workflow (Start a new blog here?)</h1>
-<h2 id="turn-off-webhook-for-pr-to-prevent-extra-build-being-triggered-in-appveyor">Turn off webhook for PR to prevent extra build being triggered in AppVeyor</h2>
-<p>For more details see <a href="https://github.com/appveyor/ci/issues/1636">Do not build virtual merge on Pull Requests #1636</a> and <a href="http://help.appveyor.com/discussions/questions/5082-preventing-master-ci-run-when-a-commit-a-made-on-a-feature-branch">Preventing master CI run when a commit a made on a feature branch</a>
-<img src="../assets/Images/NetlifyCMS_Webhooks.png" class="img-responsive img-fluid" alt="" />
-If this is not done AppVeyor will run the master branch config when a draft is saved in NetlifyCMS as a PR is created, it will fail with</p>
-<pre><code>git push
-remote: Anonymous access to MarkZither/ProjectName.git denied.
-fatal: Authentication failed for 'https://github.com/MarkZither/ProjectName.git/'
-Command exited with code 128
-</code></pre>
-<h2 id="advanced-appveyor-config-to-support-editorial_workflow">Advanced AppVeyor config to support Editorial_Workflow</h2>
-<p>When a blog post is saved as a draft it will create a branch starting with 'cms', use the for branches with a regular expression to control different aspects of the build on master and cms branches, here is <a href="https://github.com/NokNokMLS/BigDoorWyamBlog/blob/master/appveyor.yml">an example of this in action</a></p>
-<pre><code>for:
- # override settings for `master` branch
-- 
-  version: 1.0.{build}
-  branches:
-    only:
-      - master
-  #######################
-  # removed for brevity #
-  #######################
-
-# override settings for `cms*` branches
--
-  branches:
-    only:
-      - /cms.*/
-
-  deploy:
-</code></pre>
-<h2 id="errors-and-issues-i-hit-while-setting-this-up">Errors and issues i hit while setting this up</h2>
 <h3 id="front-matter-syntax">Front Matter syntax</h3>
-<p>Initally i found that none of my existing posts were displaying any details at all in the CMS, it just showed up as a blank line, <img src="../assets/Images/NetlifyCMS_Missing_Posts.PNG" class="img-responsive img-fluid" alt="" /> you can click on the blank line and it will open a blank editor window <img src="../assets/Images/NetlifyCMS_Missing_Post_Details.PNG" class="img-responsive img-fluid" alt="" />.
+<p>Initially i found that none of my existing posts were displaying any details at all in the CMS, it just showed up as a blank line, <img src="../assets/Images/NetlifyCMS_Missing_Posts.PNG" class="img-responsive img-fluid" alt="" /> you can click on the blank line and it will open a blank editor window <img src="../assets/Images/NetlifyCMS_Missing_Post_Details.PNG" class="img-responsive img-fluid" alt="" />.
 Any new posts created by the CMS did display correctly.</p>
 <p>The only difference i found between the existing posts and those created in NetlifyCMS was the leading <code>---</code> to start the front matter section. Once i added that in all posts displayed correctly in the CMS.</p>
-<h3 id="the-build-phase-is-set-to-msbuild-mode-default-but-no-visual-studio-project-or-solution-files-were-found"><a href="https://help.appveyor.com/discussions/problems/11287-the-build-phase-is-set-to-msbuild-mode-default-but-no-visual-studio-project-or-solution-files-were-found">the build phase is set to msbuild mode default but no visual studio project or solution files were found</a></h3>
-<p build>caused by having version: 1.0. in wrong place in appveyor.yml</p>
-<h3 id="failed-build-after-saving-a-post">Failed build after saving a post</h3>
-<pre><code>git push
-remote: Anonymous access to MarkZither/ProjectName.git denied.
-fatal: Authentication failed for 'https://github.com/MarkZither/ProjectName.git/'
-Command exited with code 128
-</code></pre>
-<p>This is caused by the PR firing a Webhook which triggers the build on the master branch.</p>
-<h2 id="other-things-to-write-about">Other things to write about</h2>
-<p>*show the correct logged/logged out menu based on <a href="https://github.com/netlify/netlify-identity-widget">Netlify Identity Widget</a> events and</p>
 
 
 <ul class="share-buttons">
-  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
-  <li><a href="https://twitter.com/intent/tweet?source=http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam&text=:%20@Model.String(BlogKeys.Title)&via=mark__burton" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
-  <li><a href="https://plus.google.com/share?url=http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a></li>
-  <li><a href="http://pinterest.com/pin/create/button/?url=http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-pinterest-square fa-2x" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
-  <li><a href="http://www.reddit.com/submit?url=http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a></li>
-  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam&title=&summary=&source=http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+  <li><a href="https://twitter.com/intent/tweet?source=http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1&text=:%20@Model.String(BlogKeys.Title)&via=mark__burton" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+  <li><a href="https://plus.google.com/share?url=http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a></li>
+  <li><a href="http://pinterest.com/pin/create/button/?url=http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-pinterest-square fa-2x" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
+  <li><a href="http://www.reddit.com/submit?url=http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a></li>
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1&title=&summary=&source=http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
   <li><a href="mailto:?subject=&body=:%20@Context.GetLink(Model, true)" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
 </ul>
 
@@ -290,9 +295,9 @@ Command exited with code 128
 <script type="text/javascript">
 
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_identifier = 'Setting up NetlifyCMS with Wyam';
+    var disqus_identifier = 'Setting-up-NetlifyCMS-with-Wyam---Part-1';
     var disqus_title = 'Setting up NetlifyCMS with Wyam - Part 1';
-    var disqus_url = 'http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam';
+    var disqus_url = 'http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1';
 
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
