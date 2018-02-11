@@ -9,7 +9,7 @@ Regularly when opening a solution containing a project with NUnit 3 tests Visual
 <div class="row">
 <div class="col-xs-12 col-md-4">
 
-![](Empty%20Test%20Explorer.png) 
+![](../assets/Images/Empty%20Test%20Explorer.png) 
 
 </div>
 <div class="col-xs-12 col-md-8">
@@ -26,12 +26,12 @@ To fix this it is necessary to open Tools -> Extensions and Updates...
 </div>
 <div class="col-xs-12 col-md-4">
 
-![](Tools%20Extensions%20and%20Updates%20Menu.png)
+![](../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png)
 
 </div>
 </div>
 
 Search for NUnit to find the NUnit 3 Test Adapter
-![](Tools%20Extensions%20and%20Updates.png) 
+![](../assets/Images/Tools%20Extensions%20and%20Updates.png) 
 
 Click enable and restart Visual Studio, the tests now show correctly.

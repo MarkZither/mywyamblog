@@ -2,8 +2,13 @@
 <link rel="manifest" href="/manifest.json">
 <script>
 if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/sw.js', {
+    scope: './'
+  }).then(function(registration) {
       // Registration was successful
       console.log('PAGE: ServiceWorker registration successful with scope: ', registration.scope);
       //registration.update();
@@ -12,5 +17,6 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+}
 }
 </script>
