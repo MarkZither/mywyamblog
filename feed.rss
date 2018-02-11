@@ -5,8 +5,20 @@
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
 		<copyright>2018</copyright>
-		<pubDate>Sun, 11 Feb 2018 12:19:00 GMT</pubDate>
-		<lastBuildDate>Sun, 11 Feb 2018 12:19:00 GMT</lastBuildDate>
+		<pubDate>Sun, 11 Feb 2018 15:28:14 GMT</pubDate>
+		<lastBuildDate>Sun, 11 Feb 2018 15:28:14 GMT</lastBuildDate>
+		<item>
+			<title>Test blog post for docs</title>
+			<link>http://blog.mark-burton.com/posts/2018-02-11-test-blog-post-for-docs</link>
+			<description>&lt;p&gt;this is a test post created in &lt;strong&gt;NetlifyCMS&lt;/strong&gt;&lt;/p&gt;</description>
+			<enclosure url="http://blog.mark-burton.com/input/assets/NetlifyCMS_Missing_Posts.PNG" length="0" type="image" />
+			<guid>http://blog.mark-burton.com/posts/2018-02-11-test-blog-post-for-docs</guid>
+			<pubDate>Sun, 11 Feb 2018 15:23:12 GMT</pubDate>
+			<content:encoded>&lt;h1 id="test-blog-post"&gt;Test Blog Post&lt;/h1&gt;
+&lt;p&gt;this is a test post created in &lt;strong&gt;NetlifyCMS&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://wyam.io"&gt;Wyam&lt;/a&gt;&lt;/p&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>Setting up NetlifyCMS with Wyam - Part 1</title>
 			<link>http://blog.mark-burton.com/posts/Setting%20up%20NetlifyCMS%20with%20Wyam</link>
