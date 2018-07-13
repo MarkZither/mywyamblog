@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 
-        <title>Mark Burton - NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
+        <title>Mark Burton - Search</title>
         <meta name="description" content="Burton Blogs" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">        
 
@@ -27,9 +27,9 @@
         <meta name="msapplication-tooltip" content="Mark Burton" />
         <meta name="msapplication-starturl" content="/" />
 
-        <meta property="og:title" content="Mark Burton - NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer" />
+        <meta property="og:title" content="Mark Burton - Search" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
+        <meta property="og:url" content="http://blog.mark-burton.com/Search" />
         <!-- TODO: More social graph meta tags -->
 
         <script src="/assets/js/jquery.min.js"></script>
@@ -50,7 +50,7 @@
         
         <meta name="theme-color" content="#317EFB"/>
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer">
+<link rel="canonical" href="https://blog.mark-burton.com/Search">
 
 <script>
 if ('serviceWorker' in navigator) {
@@ -117,18 +117,9 @@ if ('serviceWorker' in navigator) {
                         <div class="container">
                                 <div class="row">
                                         <div class="col-md-12">
-
-    
-<div class="post-heading">
-    <h1>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</h1>
-    <div class="meta">        
-Published on Tuesday, February 21, 2017<br>        <a href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer#disqus_thread" data-disqus-identifier="Nunit_Tests_Not_Showing_In_Test_Explorer" async></a>
-    </div>
-        <div class="tags">
-                    <a role="button" href="/tags/NUnit" class="btn btn-default btn-xs">NUnit</a>
-        </div>     
-</div>
-                                        </div>
+<div class="site-heading">
+    <h1>Search</h1>
+</div>                                            </div>
                                 </div>
                         </div>
                 </header>
@@ -138,69 +129,78 @@ Published on Tuesday, February 21, 2017<br>        <a href="http://blog.mark-bur
                         <div class="row">
                                 <div id="content" class="col-md-12">
                                         
+<script src="https://unpkg.com/lunr@1.0.0/lunr.js"></script>
+<script src="/assets/js/lunr.unicodeNormalizer.js"></script>
+<script src="/assets/js/searchindex.js"></script>
 
-<h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer">NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</h1>
-<p>Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.</p>
-<div class="row">
-<div class="col-xs-12 col-md-4">
-<p><img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /></p>
+<div class="sidebar-form">
+    <div class="input-group">
+        <input type="text" name="search" id="searchbox" class="form-control" placeholder="Search Services...">
+        <span class="input-group-btn">
+            <button class="btn btn-flat"><i class="fa fa-search"></i></button>
+        </span>
+    </div>
 </div>
-<div class="col-xs-12 col-md-8">
-The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
-<p>Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.</p>
+<div id="search-query"></div>
+<div id="search-results">
 </div>
-</div>
-<div class="row">
-<div class="col-xs-12 col-md-8">
-To fix this it is necessary to open Tools -> Extensions and Updates...
-</div>
-<div class="col-xs-12 col-md-4">
-<p><img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /></p>
-</div>
-</div>
-<p>Search for NUnit to find the NUnit 3 Test Adapter
-<img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /></p>
-<p>Click enable and restart Visual Studio, the tests now show correctly.</p>
 
+<script>
+$(function () {
+    var searchBox = $("#searchbox");
 
-<ul class="share-buttons">
-  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
-  <li><a href="https://twitter.com/intent/tweet?source=http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer&text=:%20@Model.String(BlogKeys.Title)&via=mark__burton" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
-  <li><a href="https://plus.google.com/share?url=http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a></li>
-  <li><a href="http://pinterest.com/pin/create/button/?url=http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-pinterest-square fa-2x" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
-  <li><a href="http://www.reddit.com/submit?url=http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a></li>
-  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer&title=&summary=&source=http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
-  <li><a href="mailto:?subject=&body=:%20@Context.GetLink(Model, true)" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
-</ul>
+    searchBox.on('input propertychange paste', function () {
+        runQuery(searchBox.val());
+    });
 
-<div id="disqus_thread"></div>
-<script type="text/javascript">
+    var q = getParam("q");
 
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_identifier = 'Nunit_Tests_Not_Showing_In_Test_Explorer';
-    var disqus_title = 'NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer';
-    var disqus_url = 'http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer';
+    if (q) {
+        q = decodeURIComponent(q);
+        searchBox.val(q);
+        runQuery(q);
+    }
+});
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-var disqus_config = function () {
-this.page.url = disqus_url;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = disqus_identifier; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-this.page.title = disqus_title;
+var getParam = function(key) {
+  var val = new RegExp(key + '(?:=(.*?))?(?:[&#]|$)').exec(window.location.search.slice(1));
+  return val === null ? null : (
+    typeof val[1] === 'string' ? decodeURIComponent(val[1].replace(/\+/g, ' ')) : ''
+  );
 };
 
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = '//blog-mark-burton-com.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
+function runQuery(query) {
+    var searchQuery = $("#search-query"),
+        searchResults = $("#search-results");
+
+    searchResults.empty();
+    searchQuery.html(query);
+
+    if (query.length < 2) {
+        return;
+    }
+
+    var results = searchModule.search(query);
+
+    if (results.length == 0) {
+        searchResults.append("<p><b>No results found for query '" + query + "'</b></p>")
+    }
+    else {
+        searchResults.append("<p>Number of matching posts: <b>" + results.length + "</b></p>");
+
+        var listHtml = "<ul>";
+
+        for (var i = 0; i < results.length; ++i) {
+            var res = results[i];
+            listHtml += "<li><a href='" + res.url + "'>" + res.title + "</a><p>" + res.description + "</p></li>";
+        }
+
+        listHtml += "</ul>"
+
+        searchResults.append(listHtml);
+    }
+}
 </script>
-<script id="dsq-count-scr" src="//blog-mark-burton-com.disqus.com/count.js" async></script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                                
                                 </div>
                         </div>
                 </div>

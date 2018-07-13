@@ -32,7 +32,7 @@ self.addEventListener('install', function(event) {
         '/posts/Job Interview Technical Test Preparation',
         '/posts/Nunit_Tests_Not_Showing_In_Test_Explorer',
         '/posts/Running ASP.NET Core on a RaspberryPi 2 with Nginx',
-        '/posts/Setting up NetlifyCMS with Wyam',
+        '/posts/Setting-up-NetlifyCMS-with-Wyam--Part-1',
         '/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack',
     ];
 

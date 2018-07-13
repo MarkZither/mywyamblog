@@ -23,7 +23,6 @@
         <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
         <link href="/assets/css/override.css" rel="stylesheet" />
 
-
         <meta name="application-name" content="Mark Burton" />
         <meta name="msapplication-tooltip" content="Mark Burton" />
         <meta name="msapplication-starturl" content="/" />
@@ -51,6 +50,8 @@
         
         <meta name="theme-color" content="#317EFB"/>
 <link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4">
+
 <script>
 if ('serviceWorker' in navigator) {
   if (navigator.serviceWorker.controller) {
@@ -102,6 +103,7 @@ if ('serviceWorker' in navigator) {
 </li>
         <li><a href="/posts">Archive</a></li>
         <li><a href="/tags">Tags</a></li>
+        <li><a href="/Search">Search</a></li>
  
                                         </ul>
                                 </div>
@@ -268,6 +270,9 @@ s.setAttribute('data-timestamp', +new Date());
 
                 <script src="/assets/js/push-notifications.js"></script>
 <script src="/assets/js/modernizr.3.5.0.custom.js"></script>
+<script src="https://unpkg.com/lunr@1.0.0/lunr.js"></script>
+<script src="/assets/js/lunr.unicodeNormalizer.js"></script>
+<script src="/assets/js/searchindex.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>
 
                         <script type="text/javascript">                

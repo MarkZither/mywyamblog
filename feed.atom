@@ -4,7 +4,7 @@
 	<id>http://blog.mark-burton.com/</id>
 	<title>Mark Burton</title>
 	<rights>2018</rights>
-	<updated>2018-06-26T21:57:10Z</updated>
+	<updated>2018-07-13T18:37:03Z</updated>
 	<subtitle>Burton Blogs</subtitle>
 	<entry>
 		<link href="http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202" />
@@ -523,6 +523,62 @@ Returns - Func&amp;lt;int, int, int&amp;gt; add = (x, y) =&amp;gt; { return x + 
 		<summary>&lt;p&gt;&lt;a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/advanced/custom-model-binding"&gt;docs.microsoft.com&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<link href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
+		<id>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</id>
+		<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
+		<updated>2017-02-21T00:00:00Z</updated>
+		<content>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
+&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
+&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+To fix this it is necessary to open Tools -&gt; Extensions and Updates...
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
+&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<link href="http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx" />
+		<id>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</id>
+		<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
+		<updated>2017-02-21T00:00:00Z</updated>
+		<content>&lt;h1 id="running-asp.net-core-on-a-raspberrypi-2-with-nginx"&gt;Running ASP.NET Core on a RaspberryPi 2 with Nginx&lt;/h1&gt;
+&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;
+&lt;h1 id="prerequisites"&gt;prerequisites&lt;/h1&gt;
+&lt;p&gt;the &lt;a href="https://github.com/dotnet/core/blob/master/Documentation/prereqs.md"&gt;prerequisites&lt;/a&gt; are required or you will get an error like:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt;Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /var/www/PublishOutput/libcoreclr.so'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;chmod 744?&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="tell-kestrel-to-listen"&gt;Tell Kestrel to listen&lt;/h1&gt;
+&lt;p&gt;If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the &lt;code&gt;ASPNETCORE_URLS environment variable&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt; ASPNETCORE_URLS=&amp;quot;http://*:5000&amp;quot; dotnet Your.App.dll
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="create-the-service-file"&gt;Create the service file&lt;/h1&gt;
+&lt;p&gt;add a symlink for dotnet to limit the changes to the service file&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt;sudo ln -s /opt/dotnet/dotnet /usr/bin/dotnet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
+&lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
 		<link href="http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack" />
 		<id>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</id>
 		<title>Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack</title>
@@ -567,61 +623,5 @@ Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
 You should now have a working nginx server running PHP scripts, next time I will setup piwik so you can monitor the traffic to your website.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<link href="http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx" />
-		<id>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</id>
-		<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
-		<updated>2017-02-21T00:00:00Z</updated>
-		<content>&lt;h1 id="running-asp.net-core-on-a-raspberrypi-2-with-nginx"&gt;Running ASP.NET Core on a RaspberryPi 2 with Nginx&lt;/h1&gt;
-&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;
-&lt;h1 id="prerequisites"&gt;prerequisites&lt;/h1&gt;
-&lt;p&gt;the &lt;a href="https://github.com/dotnet/core/blob/master/Documentation/prereqs.md"&gt;prerequisites&lt;/a&gt; are required or you will get an error like:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt;Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /var/www/PublishOutput/libcoreclr.so'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;chmod 744?&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id="tell-kestrel-to-listen"&gt;Tell Kestrel to listen&lt;/h1&gt;
-&lt;p&gt;If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the &lt;code&gt;ASPNETCORE_URLS environment variable&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt; ASPNETCORE_URLS=&amp;quot;http://*:5000&amp;quot; dotnet Your.App.dll
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="create-the-service-file"&gt;Create the service file&lt;/h1&gt;
-&lt;p&gt;add a symlink for dotnet to limit the changes to the service file&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt;sudo ln -s /opt/dotnet/dotnet /usr/bin/dotnet
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
-&lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<link href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
-		<id>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</id>
-		<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
-		<updated>2017-02-21T00:00:00Z</updated>
-		<content>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
-&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
-&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-To fix this it is necessary to open Tools -&gt; Extensions and Updates...
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
-&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</summary>
 	</entry>
 </feed>
