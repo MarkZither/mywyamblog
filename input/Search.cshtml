@@ -1,0 +1,73 @@
+
+<script src="https://unpkg.com/lunr@1.0.0/lunr.js"></script>
+<script src="@Context.GetLink("assets/js/lunr.unicodeNormalizer.js")"></script>
+<script src="@Context.GetLink("assets/js/searchindex.js")"></script>
+
+<div class="sidebar-form">
+    <div class="input-group">
+        <input type="text" name="search" id="searchbox" class="form-control" placeholder="Search Services...">
+        <span class="input-group-btn">
+            <button class="btn btn-flat"><i class="fa fa-search"></i></button>
+        </span>
+    </div>
+</div>
+<div id="search-query"></div>
+<div id="search-results">
+</div>
+
+<script>
+$(function () {
+    var searchBox = $("#searchbox");
+
+    searchBox.on('input propertychange paste', function () {
+        runQuery(searchBox.val());
+    });
+
+    var q = getParam("q");
+
+    if (q) {
+        q = decodeURIComponent(q);
+        searchBox.val(q);
+        runQuery(q);
+    }
+});
+
+var getParam = function(key) {
+  var val = new RegExp(key + '(?:=(.*?))?(?:[&#]|$)').exec(window.location.search.slice(1));
+  return val === null ? null : (
+    typeof val[1] === 'string' ? decodeURIComponent(val[1].replace(/\+/g, ' ')) : ''
+  );
+};
+
+function runQuery(query) {
+    var searchQuery = $("#search-query"),
+        searchResults = $("#search-results");
+
+    searchResults.empty();
+    searchQuery.html(query);
+
+    if (query.length < 2) {
+        return;
+    }
+
+    var results = searchModule.search(query);
+
+    if (results.length == 0) {
+        searchResults.append("<p><b>No results found for query '" + query + "'</b></p>")
+    }
+    else {
+        searchResults.append("<p>Number of matching posts: <b>" + results.length + "</b></p>");
+
+        var listHtml = "<ul>";
+
+        for (var i = 0; i < results.length; ++i) {
+            var res = results[i];
+            listHtml += "<li><a href='" + res.url + "'>" + res.title + "</a><p>" + res.description + "</p></li>";
+        }
+
+        listHtml += "</ul>"
+
+        searchResults.append(listHtml);
+    }
+}
+</script>
