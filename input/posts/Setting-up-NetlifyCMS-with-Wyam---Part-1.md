@@ -64,8 +64,8 @@ backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
-media_folder: "/input/assets/Images" # Media files will be stored in the repo under static/images/uploads
-public_folder: "/input/assets" # The src attribute for uploaded media will begin with /images/uploads
+media_folder: "input/assets/Images" # Media files will be stored in the repo under input/assets/Images
+public_folder: "/assets/Images" # public_folder indicates where they can be found in the published site. This path is used in image src attributes and is relative to the file where its called.  https://www.netlifycms.org/docs/add-to-your-site/
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
