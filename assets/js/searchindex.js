@@ -28,10 +28,10 @@ var searchModule = function() {
 
     a({
         id:1,
-        title:"NUnit Tests Showing Visual Studio Test Explorer",
-        content:"NUnit",
+        title:"Resolving System NotSupportedException data available encoding net Core",
+        content:"NET Core",
         description:'',
-        tags:'NUnit'
+        tags:'.NET Core'
     });
 
     a({
@@ -84,10 +84,10 @@ var searchModule = function() {
 
     a({
         id:8,
-        title:"Resolving System NotSupportedException data available encoding net Core",
-        content:"NET Core",
+        title:"NUnit Tests Showing Visual Studio Test Explorer",
+        content:"NUnit",
         description:'',
-        tags:'.NET Core'
+        tags:'NUnit'
     });
 
     a({
@@ -129,8 +129,8 @@ var searchModule = function() {
     });
 
     y({
-        url:'/posts/Nunit_Tests_Not_Showing_In_Test_Explorer',
-        title:"NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer",
+        url:'/posts/NotSupportedException%20exception%20using%20Encoding%20in%20.net%20core',
+        title:"Resolving System.NotSupportedException No data is available for encoding 850 in .net Core",
         description:""
     });
 
@@ -171,8 +171,8 @@ var searchModule = function() {
     });
 
     y({
-        url:'/posts/NotSupportedException%20exception%20using%20Encoding%20in%20.net%20core',
-        title:"Resolving System.NotSupportedException No data is available for encoding 850 in .net Core",
+        url:'/posts/Nunit_Tests_Not_Showing_In_Test_Explorer',
+        title:"NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer",
         description:""
     });
 
