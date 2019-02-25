@@ -24,8 +24,8 @@
     {
         pages.Insert(0, Tuple.Create("Archive", Context.GetLink(Context.String(Wyam.Blog.BlogKeys.PostsPath) + "/index.html")));
     }
-    foreach(Tuple<string, string> page in pages)
+    foreach(Tuple<string, string> _page in pages)
     {
-        <li><a href="@page.Item2">@page.Item1</a></li>
+        <li><a href="@_page.Item2">@_page.Item1</a></li>
     }
 }
