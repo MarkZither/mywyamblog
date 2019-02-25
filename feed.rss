@@ -4,9 +4,43 @@
 		<title>Mark Burton</title>
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
-		<copyright>2018</copyright>
-		<pubDate>Sat, 04 Aug 2018 22:38:51 GMT</pubDate>
-		<lastBuildDate>Sat, 04 Aug 2018 22:38:51 GMT</lastBuildDate>
+		<copyright>2019</copyright>
+		<pubDate>Mon, 25 Feb 2019 19:02:05 GMT</pubDate>
+		<lastBuildDate>Mon, 25 Feb 2019 19:02:05 GMT</lastBuildDate>
+		<item>
+			<title>VSTO installs over HTTPS issues</title>
+			<link>http://blog.mark-burton.com/posts/VSTO-installs-over-HTTPS-issues</link>
+			<description>&lt;p&gt;Test with this &lt;a href="../assets/testvsto/setup.exe"&gt;setup.exe&lt;/a&gt;.&lt;/p&gt;</description>
+			<guid>http://blog.mark-burton.com/posts/VSTO-installs-over-HTTPS-issues</guid>
+			<pubDate>Mon, 25 Feb 2019 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h1 id="are-envrionmental"&gt;Are Envrionmental?&lt;/h1&gt;
+&lt;p&gt;Test with this &lt;a href="../assets/testvsto/setup.exe"&gt;setup.exe&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="the-problem"&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;Setup runs sucessfully over http, but switch to https by publishing again with the https url or by using &lt;code&gt;setup.exe -url=&amp;quot;https://myurl.com/MyAppFolder/setup.exe&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;URLDownloadToCacheFile failed with HRESULT '-2146697208'
+Error: An error occurred trying to download 'https://myurl.com/MyAppFolder/setup.exe'.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="other-examples"&gt;Other Examples&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/20244507/download-clickonce-fails-from-setup-exe"&gt;https://stackoverflow.com/questions/20244507/download-clickonce-fails-from-setup-exe&lt;/a&gt;&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>Using Netlify Identity with NetlifyCMS and Wyam</title>
+			<link>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202</link>
+			<description>&lt;p&gt;To get started with a simple NetlifyCMS setup without the editorial workflow you can use the &lt;a href="https://wyam.io/docs/deployment/appveyor"&gt;AppVeyor for Continuous Integration&lt;/a&gt; Wyam document.&lt;/p&gt;</description>
+			<guid>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202</guid>
+			<pubDate>Fri, 15 Feb 2019 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h1 id="setup-appveyor-continuous-deployment"&gt;Setup AppVeyor continuous deployment&lt;/h1&gt;
+&lt;p&gt;To get started with a simple NetlifyCMS setup without the editorial workflow you can use the &lt;a href="https://wyam.io/docs/deployment/appveyor"&gt;AppVeyor for Continuous Integration&lt;/a&gt; Wyam document.&lt;/p&gt;
+&lt;p&gt;With that in place once you publish a post in your NetlifyCMS and it will be pushed to GitHub as seen in &lt;a href="/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1"&gt;part 1&lt;/a&gt;, but to get a build will be triggered on AppVeyor and the output will be pushed to the branch specified in the appveyor.yml, in the docs that is gh-pages, in the same repository.&lt;/p&gt;
+&lt;p&gt;This will not display properly in GitHub pages as the site runs in a subdirectory, changing the build_script step to include a LinkRoot setting to match your GitHub pages subdirectory will fix that.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;build_script:
+  - ..\Wyam\wyam --output ..\output -s LinkRoot=&amp;quot;/BigDoorWyamBlog&amp;quot; # https://noknokmls.github.io/BigDoorWyamBlog/posts/2018-02-12-where-i-live-john-naughton-krakow-rzaska.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="setup-your-netlify-site-to-use"&gt;Setup your Netlify site to use&lt;/h1&gt;
+&lt;p&gt;Now we have AppVeyor building the site and pushing the output back to GitHub we can configure the deploy settings in Netlify so that changes are automatically published to your blog.&lt;/p&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>Setting up NetlifyCMS with Wyam - Part 3</title>
 			<link>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3</link>
@@ -215,7 +249,7 @@ The Git Gateway option is in settings under Identity, further down than the Regi
 &lt;/div&gt;
 &lt;h3 id="netlifycms-in-action"&gt;NetlifyCMS in action&lt;/h3&gt;
 &lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-sm-6"&gt;&lt;p&gt;At this point you should have a working CMS, run &lt;code&gt;wyam -p 5080 -w&lt;/code&gt; - &lt;a href="https://wyam.io/docs/usage/command-line"&gt;here is more information on the wyam command line&lt;/a&gt; - then navigate to &lt;a href="http://localhost:5080/admin/,"&gt;http://localhost:5080/admin/,&lt;/a&gt; you should be greeted with the NetlifyCMS screen.&lt;/p&gt;
+&lt;div class="col-xs-12 col-sm-6"&gt;&lt;p&gt;At this point you should have a working CMS, run &lt;code&gt;wyam -p 5080 -w&lt;/code&gt; - &lt;a href="https://wyam.io/docs/usage/command-line"&gt;here is more information on the wyam command line&lt;/a&gt; - then navigate to http://localhost:5080/admin/, you should be greeted with the NetlifyCMS screen.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="col-xs-12 col-sm-6"&gt;&lt;p&gt;&lt;img src="../assets/Images/NetlifyCMS_Home.PNG" class="img-responsive img-fluid" alt="" /&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -244,7 +278,7 @@ The Git Gateway option is in settings under Identity, further down than the Regi
 &lt;h2 id="local-testing"&gt;Local Testing&lt;/h2&gt;
 &lt;div class="row"&gt;
 &lt;div class="col-xs-12 col-sm-8"&gt;&lt;p&gt;If you are testing your site locally you can still use the Netlify Identity. You just need to specify the URL of your site on Netlify. This is explained in full in the &lt;a href="https://github.com/netlify/netlify-identity-widget#localhost"&gt;netlify identity widget docs&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;It does however seem to have a side effect of redirecting to your hosted site after login if you use the external provider, logging in with a Netlify Identity account works and leaves you on the same page, alternatively just correct the first part of the URL to &lt;a href="https://localhost:5080/admin/"&gt;https://localhost:5080/admin/&lt;/a&gt; and be sure to keep the #access_token=eyj...lkdAGI&amp;amp;expires_in=3600&amp;amp;refresh_token=zEM...BQSw&amp;amp;token_type=bearer in the URL, this should log you in to your local instance. Sometimes it needs a refresh to load the actual CMS.&lt;/p&gt;
+&lt;p&gt;It does however seem to have a side effect of redirecting to your hosted site after login if you use the external provider, logging in with a Netlify Identity account works and leaves you on the same page, alternatively just correct the first part of the URL to https://localhost:5080/admin/ and be sure to keep the #access_token=eyj...lkdAGI&amp;amp;expires_in=3600&amp;amp;refresh_token=zEM...BQSw&amp;amp;token_type=bearer in the URL, this should log you in to your local instance. Sometimes it needs a refresh to load the actual CMS.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="col-xs-12 col-sm-4"&gt;&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Local_Testing.png" class="img-responsive img-fluid" alt="" /&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -512,6 +546,52 @@ Returns - Func&amp;lt;int, int, int&amp;gt; add = (x, y) =&amp;gt; { return x + 
 </content:encoded>
 		</item>
 		<item>
+			<title>Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack</title>
+			<link>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</link>
+			<description>&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;</description>
+			<guid>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</guid>
+			<pubDate>Tue, 21 Feb 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h1 id="setting-up-a-raspberry-pi-nginx-php-mysql-lemp-stack"&gt;Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack&lt;/h1&gt;
+&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.stewright.me/2016/03/turn-raspberry-pi-3-php-7-powered-web-server/"&gt;Ste Wright - Turn your Raspberry Pi 3 into a PHP 7 powered web server&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Follow the blog except at step 2 run&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-PERL"&gt;sudo apt-get install php-fpm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then check the version&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-PERL"&gt;$ php -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You should see something like this&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-PERL"&gt;PHP 7.0.16-1~bpo8+1 (cli) (built: Feb 18 2017 02:34:09) ( NTS )
+Copyright (c) 1997-2017 The PHP Group
+Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
+    with Zend OPcache v7.0.16-1~bpo8+1, Copyright (c) 1999-2017, by Zend Technologies
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then use these instructions to &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04"&gt;setup PHP with Nginx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Make sure to enable PHP in the Nginx config file, and ensure it is pointing to the correct location, for me that was&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-PERL"&gt;        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+        #
+        #       # With php5-cgi alone:
+        #       fastcgi_pass 127.0.0.1:9000;
+        #       # With php5-fpm:
+                fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;restart Nginx to pick up the new configuration&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo nginx -s reload
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Test it with a simple php page using &lt;code&gt;&amp;lt;?php phpinfo(); ?&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In order to serve extensionless html pages, update the try_files in the location block when setting up the sites-available server blocks config&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-PERL"&gt;location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Install MySQL by following this tutorial again by
+&lt;a href="https://www.stewright.me/2016/04/install-mysql-server-raspberry-pi/"&gt;Ste Wright - Install MySQL Server on you Respberry Pi&lt;/a&gt;
+You should now have a working nginx server running PHP scripts, next time I will setup piwik so you can monitor the traffic to your website.&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
 			<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
 			<link>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</link>
 			<description>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</description>
@@ -565,52 +645,6 @@ To fix this it is necessary to open Tools -&gt; Extensions and Updates...
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
 &lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
-</content:encoded>
-		</item>
-		<item>
-			<title>Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack</title>
-			<link>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</link>
-			<description>&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;</description>
-			<guid>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</guid>
-			<pubDate>Tue, 21 Feb 2017 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;h1 id="setting-up-a-raspberry-pi-nginx-php-mysql-lemp-stack"&gt;Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack&lt;/h1&gt;
-&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.stewright.me/2016/03/turn-raspberry-pi-3-php-7-powered-web-server/"&gt;Ste Wright - Turn your Raspberry Pi 3 into a PHP 7 powered web server&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Follow the blog except at step 2 run&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-PERL"&gt;sudo apt-get install php-fpm
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then check the version&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-PERL"&gt;$ php -v
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You should see something like this&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-PERL"&gt;PHP 7.0.16-1~bpo8+1 (cli) (built: Feb 18 2017 02:34:09) ( NTS )
-Copyright (c) 1997-2017 The PHP Group
-Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
-    with Zend OPcache v7.0.16-1~bpo8+1, Copyright (c) 1999-2017, by Zend Technologies
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then use these instructions to &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04"&gt;setup PHP with Nginx&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Make sure to enable PHP in the Nginx config file, and ensure it is pointing to the correct location, for me that was&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-PERL"&gt;        location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-        #
-        #       # With php5-cgi alone:
-        #       fastcgi_pass 127.0.0.1:9000;
-        #       # With php5-fpm:
-                fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
-        }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;restart Nginx to pick up the new configuration&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo nginx -s reload
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Test it with a simple php page using &lt;code&gt;&amp;lt;?php phpinfo(); ?&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;In order to serve extensionless html pages, update the try_files in the location block when setting up the sites-available server blocks config&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-PERL"&gt;location / {
-        try_files $uri $uri.html $uri/ =404;
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Install MySQL by following this tutorial again by
-&lt;a href="https://www.stewright.me/2016/04/install-mysql-server-raspberry-pi/"&gt;Ste Wright - Install MySQL Server on you Respberry Pi&lt;/a&gt;
-You should now have a working nginx server running PHP scripts, next time I will setup piwik so you can monitor the traffic to your website.&lt;/p&gt;
 </content:encoded>
 		</item>
 	</channel>
