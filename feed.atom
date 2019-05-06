@@ -4,7 +4,7 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2019</rights>
-	<updated>2019-02-25T20:02:32Z</updated>
+	<updated>2019-05-06T19:03:06Z</updated>
 	<subtitle>Burton Blogs</subtitle>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/VSTO-installs-over-HTTPS-issues</id>
@@ -20,6 +20,16 @@ Error: An error occurred trying to download 'https://myurl.com/MyAppFolder/setup
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="other-examples"&gt;Other Examples&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://stackoverflow.com/questions/20244507/download-clickonce-fails-from-setup-exe"&gt;https://stackoverflow.com/questions/20244507/download-clickonce-fails-from-setup-exe&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="solution"&gt;Solution&lt;/h2&gt;
+&lt;p&gt;As explained on technet [https://social.technet.microsoft.com/Forums/ie/en-US/3d443283-c251-44b8-99ab-7ee33c928eee/group-policy-setting-blocking-downloads-from-https-even-on-trusted-sites?forum=ieitprocurrentver](Check the GPO) the GPO was under:&lt;/p&gt;
+&lt;p&gt;User Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Pages\Advanced Page\Do not save encrypted pages to disk&lt;/p&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;p&gt;User Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Advanced Page\Do not save encrypted pages to disk&lt;/p&gt;
+&lt;p&gt;&lt;img src="../assets/images/GPOIE.png" class="img-fluid" alt="Group Policy Management Editor" /&gt;&lt;/p&gt;
+&lt;p&gt;By default this value is not configured
+&lt;img src="../assets/images/DoNotSaveEncryptedFileToDiscDialog.png" class="img-fluid" alt="Do Not Save Encrypted File To Disc Dialog" /&gt;&lt;/p&gt;
+&lt;p&gt;In Internet Explorer the associated configuration option is found in Internet Options on the Advanced tab.
+&lt;img src="../assets/images/IEOptions.png" class="img-fluid" alt="Do Not Save Encrypted File To Disc Dialog" /&gt;&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Test with this &lt;a href="../assets/testvsto/setup.exe"&gt;setup.exe&lt;/a&gt;.&lt;/p&gt;</summary>
 	</entry>
@@ -39,39 +49,6 @@ Error: An error occurred trying to download 'https://myurl.com/MyAppFolder/setup
 &lt;p&gt;Now we have AppVeyor building the site and pushing the output back to GitHub we can configure the deploy settings in Netlify so that changes are automatically published to your blog.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;To get started with a simple NetlifyCMS setup without the editorial workflow you can use the &lt;a href="https://wyam.io/docs/deployment/appveyor"&gt;AppVeyor for Continuous Integration&lt;/a&gt; Wyam document.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<id>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</id>
-		<title>Using Netlify Identity with NetlifyCMS and Wyam</title>
-		<link href="http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4" />
-		<updated>2018-03-09T00:00:00Z</updated>
-		<content>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;
-&lt;h2 id="set-registration-preference-and-external-providers"&gt;Set registration preference and external providers&lt;/h2&gt;
-&lt;p&gt;Registration settings and External providers are located in settings under Identity
-&lt;img src="../assets/Images/Netlify_Site_Settings.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Reg_pref_providers.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;h3 id="enable-git-gateway-in-netlify"&gt;Enable Git Gateway in Netlify&lt;/h3&gt;
-&lt;p&gt;Your CMS users are likely to not have Github logins, so enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github.
-It is explained further in the &lt;a href="https://www.netlify.com/docs/git-gateway/"&gt;Netlify Docs on Git Gateway&lt;/a&gt;
-The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings.
-&lt;img src="../assets/Images/Netlify_Git_Gateway.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;h2 id="make-it-easy-for-user-to-complete-signup-by-adding-netlify-identity-widget-to-the-site"&gt;Make it easy for user to complete signup by adding Netlify Identity Widget to the site&lt;/h2&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-sm-8"&gt;&lt;p&gt;The email inviting a user to use the CMS links to the homepage with a invite token in the URL, if you do not follow this step the user will be left looking at the homepage not understanding why they are there or what they should do next.&lt;/p&gt;
-&lt;p&gt;Add the &lt;a href="https://github.com/netlify/netlify-identity-widget"&gt;netlify-identity-widget&lt;/a&gt;
-to your layout/homepage, you can just add the following to the body of your layout page&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://identity.netlify.com/v1/netlify-identity-widget.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now when the user hits the homepage with the &lt;code&gt;/#invite_token=&lt;/code&gt; in the URL the complete signup modal will appear.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-sm-4"&gt;&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Complete_Signup.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id="invite-some-users"&gt;Invite some users&lt;/h3&gt;
-&lt;p&gt;Might be best to come back to this step after setting the registration preferences
-&lt;img src="../assets/Images/Netlify_Identity_Invite_Users.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3</id>
@@ -128,6 +105,39 @@ Command exited with code 128
 &lt;/ul&gt;
 </content>
 		<summary>&lt;p&gt;To get started with a simple NetlifyCMS setup without the editorial workflow you can use the &lt;a href="https://wyam.io/docs/deployment/appveyor"&gt;AppVeyor for Continuous Integration&lt;/a&gt; Wyam document.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<id>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</id>
+		<title>Using Netlify Identity with NetlifyCMS and Wyam</title>
+		<link href="http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4" />
+		<updated>2018-03-09T00:00:00Z</updated>
+		<content>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;
+&lt;h2 id="set-registration-preference-and-external-providers"&gt;Set registration preference and external providers&lt;/h2&gt;
+&lt;p&gt;Registration settings and External providers are located in settings under Identity
+&lt;img src="../assets/Images/Netlify_Site_Settings.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Reg_pref_providers.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;h3 id="enable-git-gateway-in-netlify"&gt;Enable Git Gateway in Netlify&lt;/h3&gt;
+&lt;p&gt;Your CMS users are likely to not have Github logins, so enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github.
+It is explained further in the &lt;a href="https://www.netlify.com/docs/git-gateway/"&gt;Netlify Docs on Git Gateway&lt;/a&gt;
+The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings.
+&lt;img src="../assets/Images/Netlify_Git_Gateway.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;h2 id="make-it-easy-for-user-to-complete-signup-by-adding-netlify-identity-widget-to-the-site"&gt;Make it easy for user to complete signup by adding Netlify Identity Widget to the site&lt;/h2&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-sm-8"&gt;&lt;p&gt;The email inviting a user to use the CMS links to the homepage with a invite token in the URL, if you do not follow this step the user will be left looking at the homepage not understanding why they are there or what they should do next.&lt;/p&gt;
+&lt;p&gt;Add the &lt;a href="https://github.com/netlify/netlify-identity-widget"&gt;netlify-identity-widget&lt;/a&gt;
+to your layout/homepage, you can just add the following to the body of your layout page&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://identity.netlify.com/v1/netlify-identity-widget.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now when the user hits the homepage with the &lt;code&gt;/#invite_token=&lt;/code&gt; in the URL the complete signup modal will appear.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-sm-4"&gt;&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Complete_Signup.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id="invite-some-users"&gt;Invite some users&lt;/h3&gt;
+&lt;p&gt;Might be best to come back to this step after setting the registration preferences
+&lt;img src="../assets/Images/Netlify_Identity_Invite_Users.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2018-02-11-test-blog-post-for-docs</id>
@@ -545,6 +555,36 @@ Returns - Func&amp;lt;int, int, int&amp;gt; add = (x, y) =&amp;gt; { return x + 
 		<summary>&lt;p&gt;&lt;a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/advanced/custom-model-binding"&gt;docs.microsoft.com&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<id>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</id>
+		<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
+		<link href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
+		<updated>2017-02-21T00:00:00Z</updated>
+		<content>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
+&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
+&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+To fix this it is necessary to open Tools -&gt; Extensions and Updates...
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
+&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
 		<id>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</id>
 		<title>Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack</title>
 		<link href="http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack" />
@@ -615,35 +655,5 @@ You should now have a working nginx server running PHP scripts, next time I will
 &lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<id>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</id>
-		<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
-		<link href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
-		<updated>2017-02-21T00:00:00Z</updated>
-		<content>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
-&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
-&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-To fix this it is necessary to open Tools -&gt; Extensions and Updates...
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
-&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</summary>
 	</entry>
 </feed>

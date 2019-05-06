@@ -80,90 +80,6 @@ var searchModule = function() {
     a(
         {
             id:5,
-            title:"Setting up NetlifyCMS Wyam Part",
-            content:"Wyam",
-            description:"Configuring simple single user mode NetlifyCMS Wyam",
-            tags:'Wyam'
-        },
-        {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1',
-            title:"Setting up NetlifyCMS with Wyam - Part 1",
-            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
-        }
-    );
-    a(
-        {
-            id:6,
-            title:"Using Netlify Identity NetlifyCMS Wyam",
-            content:"Wyam",
-            description:"test lead",
-            tags:'Wyam'
-        },
-        {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4',
-            title:"Using Netlify Identity with NetlifyCMS and Wyam",
-            description:"test a lead"
-        }
-    );
-    a(
-        {
-            id:7,
-            title:"fork cloned repository Visual Studio",
-            content:"GitHub",
-            description:'',
-            tags:'GitHub'
-        },
-        {
-            url:'/posts/Fork%20a%20cloned%20git%20repository',
-            title:"How to fork a cloned repository in Visual Studio",
-            description:""
-        }
-    );
-    a(
-        {
-            id:8,
-            title:"First Post",
-            content:"Introduction",
-            description:'',
-            tags:'Introduction'
-        },
-        {
-            url:'/posts/miniblog%20clone',
-            title:"First Post",
-            description:""
-        }
-    );
-    a(
-        {
-            id:9,
-            title:"NUnit Tests Showing Visual Studio Test Explorer",
-            content:"NUnit",
-            description:'',
-            tags:'NUnit'
-        },
-        {
-            url:'/posts/Nunit_Tests_Not_Showing_In_Test_Explorer',
-            title:"NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer",
-            description:""
-        }
-    );
-    a(
-        {
-            id:10,
-            title:"Running ASP NET Core RaspberryPi Nginx",
-            content:"ASP NET Core",
-            description:'',
-            tags:'ASP.NET Core'
-        },
-        {
-            url:'/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx',
-            title:"Running ASP.NET Core on a RaspberryPi 2 with Nginx",
-            description:""
-        }
-    );
-    a(
-        {
-            id:11,
             title:"Using Netlify Identity NetlifyCMS Wyam",
             content:"Wyam",
             description:"test lead",
@@ -177,7 +93,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:12,
+            id:6,
+            title:"Setting up NetlifyCMS Wyam Part",
+            content:"Wyam",
+            description:"Configuring simple single user mode NetlifyCMS Wyam",
+            tags:'Wyam'
+        },
+        {
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1',
+            title:"Setting up NetlifyCMS with Wyam - Part 1",
+            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
+        }
+    );
+    a(
+        {
+            id:7,
             title:"Setting up NetlifyCMS Wyam Part",
             content:"Wyam",
             description:"Configuring simple single user mode NetlifyCMS Wyam",
@@ -191,7 +121,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:13,
+            id:8,
             title:"VSTO installs over HTTPS issues",
             content:"VSTO",
             description:'',
@@ -201,6 +131,76 @@ var searchModule = function() {
             url:'/posts/VSTO-installs-over-HTTPS-issues',
             title:"VSTO installs over HTTPS issues",
             description:""
+        }
+    );
+    a(
+        {
+            id:9,
+            title:"fork cloned repository Visual Studio",
+            content:"GitHub",
+            description:'',
+            tags:'GitHub'
+        },
+        {
+            url:'/posts/Fork%20a%20cloned%20git%20repository',
+            title:"How to fork a cloned repository in Visual Studio",
+            description:""
+        }
+    );
+    a(
+        {
+            id:10,
+            title:"First Post",
+            content:"Introduction",
+            description:'',
+            tags:'Introduction'
+        },
+        {
+            url:'/posts/miniblog%20clone',
+            title:"First Post",
+            description:""
+        }
+    );
+    a(
+        {
+            id:11,
+            title:"NUnit Tests Showing Visual Studio Test Explorer",
+            content:"NUnit",
+            description:'',
+            tags:'NUnit'
+        },
+        {
+            url:'/posts/Nunit_Tests_Not_Showing_In_Test_Explorer',
+            title:"NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer",
+            description:""
+        }
+    );
+    a(
+        {
+            id:12,
+            title:"Running ASP NET Core RaspberryPi Nginx",
+            content:"ASP NET Core",
+            description:'',
+            tags:'ASP.NET Core'
+        },
+        {
+            url:'/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx',
+            title:"Running ASP.NET Core on a RaspberryPi 2 with Nginx",
+            description:""
+        }
+    );
+    a(
+        {
+            id:13,
+            title:"Using Netlify Identity NetlifyCMS Wyam",
+            content:"Wyam",
+            description:"test lead",
+            tags:'Wyam'
+        },
+        {
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4',
+            title:"Using Netlify Identity with NetlifyCMS and Wyam",
+            description:"test a lead"
         }
     );
     var idx = lunr(function() {

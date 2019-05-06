@@ -125,7 +125,9 @@ if ('serviceWorker' in navigator) {
 Published on Monday, February 25, 2019<br>        <a href="http://blog.mark-burton.com/posts/VSTO-installs-over-HTTPS-issues#disqus_thread" data-disqus-identifier="VSTO-installs-over-HTTPS-issues" async></a>
     </div>
         <div class="tags">
+                    <a role="button" href="/tags/GPO" class="btn btn-default btn-xs">GPO</a>
                     <a role="button" href="/tags/HTTPS" class="btn btn-default btn-xs">HTTPS</a>
+                    <a role="button" href="/tags/IE-Security" class="btn btn-default btn-xs">IE Security</a>
                     <a role="button" href="/tags/VSTO" class="btn btn-default btn-xs">VSTO</a>
         </div>     
 </div>
@@ -149,6 +151,16 @@ Error: An error occurred trying to download 'https://myurl.com/MyAppFolder/setup
 </code></pre>
 <h2 id="other-examples">Other Examples</h2>
 <p><a href="https://stackoverflow.com/questions/20244507/download-clickonce-fails-from-setup-exe">https://stackoverflow.com/questions/20244507/download-clickonce-fails-from-setup-exe</a></p>
+<h2 id="solution">Solution</h2>
+<p>As explained on technet [https://social.technet.microsoft.com/Forums/ie/en-US/3d443283-c251-44b8-99ab-7ee33c928eee/group-policy-setting-blocking-downloads-from-https-even-on-trusted-sites?forum=ieitprocurrentver](Check the GPO) the GPO was under:</p>
+<p>User Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Pages\Advanced Page\Do not save encrypted pages to disk</p>
+<p>or</p>
+<p>User Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Advanced Page\Do not save encrypted pages to disk</p>
+<p><img src="../assets/images/GPOIE.png" class="img-fluid" alt="Group Policy Management Editor" /></p>
+<p>By default this value is not configured
+<img src="../assets/images/DoNotSaveEncryptedFileToDiscDialog.png" class="img-fluid" alt="Do Not Save Encrypted File To Disc Dialog" /></p>
+<p>In Internet Explorer the associated configuration option is found in Internet Options on the Advanced tab.
+<img src="../assets/images/IEOptions.png" class="img-fluid" alt="Do Not Save Encrypted File To Disc Dialog" /></p>
 
 
 <ul class="share-buttons">
