@@ -1,6 +1,6 @@
 ---
 Title: Using Netlify Identity with NetlifyCMS and Wyam
-Published: 2018-03-09
+Published: 2019-03-09
 Lead: test a lead
 Tags: 
   - Wyam

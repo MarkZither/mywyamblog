@@ -1,0 +1,24 @@
+<meta name="theme-color" content="#317EFB"/>
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="@Context.GetLink(Context.GetLink(Model), Context.GetString(Keys.Host), null, true, false, false )">
+
+<script>
+if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js', {
+    scope: './'
+  }).then(function(registration) {
+      // Registration was successful
+      console.log('PAGE: ServiceWorker registration successful with scope: ', registration.scope);
+      //registration.update();
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+}
+</script>

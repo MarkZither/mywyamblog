@@ -2,6 +2,7 @@
 config.wyam.hash
 config.wyam.dll
 [Oo]utput
+[Oo]utputw
 packages.xml
 config.wyam.packages.xml
 
