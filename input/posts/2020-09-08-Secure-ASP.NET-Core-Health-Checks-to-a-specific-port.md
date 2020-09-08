@@ -66,3 +66,5 @@ If you debug now you will have access to the `/health` endpoint only on the `Man
 More interestingly you can also go to the `/hc` endpoint, this contains more detailed information about the state of the service and therefore needs to be secured.
 
 ![HealthCheck external shows 404 while internal shows detailed health status](/assets/Images/hc_endpoint.png){.img-fluid .img-responsive}
+
+Now you can safely get the status of your services reported as json, but there are 2 further aspects of ASP.NET Core Health Checks, the UI and push-based monitoring, i will cover those in parts 2 and 3.
