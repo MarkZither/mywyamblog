@@ -10,48 +10,6 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"Test blog post docs",
-            content:"NetlifyCMS",
-            description:"blog post written NetlifyCMS",
-            tags:'NetlifyCMS'
-        },
-        {
-            url:'/posts/2018-02-11-test-blog-post-for-docs',
-            title:"Test blog post for docs",
-            description:"This blog post was written in NetlifyCMS"
-        }
-    );
-    a(
-        {
-            id:1,
-            title:"Job Interview Technical Test Preparation",
-            content:"ASP NET Core",
-            description:'',
-            tags:'ASP.NET Core'
-        },
-        {
-            url:'/posts/Job%20Interview%20Technical%20Test%20Preparation',
-            title:"Job Interview Technical Test Preparation",
-            description:""
-        }
-    );
-    a(
-        {
-            id:2,
-            title:"Resolving System NotSupportedException data available encoding net Core",
-            content:"NET Core",
-            description:'',
-            tags:'.NET Core'
-        },
-        {
-            url:'/posts/NotSupportedException%20exception%20using%20Encoding%20in%20.net%20core',
-            title:"Resolving System.NotSupportedException No data is available for encoding 850 in .net Core",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
             title:"Playing Service Workers",
             content:"Service Workers",
             description:'',
@@ -65,7 +23,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:4,
+            id:1,
+            title:"Using Netlify Identity NetlifyCMS Wyam",
+            content:"Wyam",
+            description:"test lead",
+            tags:'Wyam'
+        },
+        {
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202',
+            title:"Using Netlify Identity with NetlifyCMS and Wyam",
+            description:"test a lead"
+        }
+    );
+    a(
+        {
+            id:2,
             title:"Setting up Raspberry Pi NGINX PHP MySQL LEMP Stack",
             content:"Raspberry Pi",
             description:'',
@@ -79,7 +51,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:5,
+            id:3,
+            title:"Setting up NetlifyCMS Wyam Part",
+            content:"Wyam",
+            description:"Configuring simple single user mode NetlifyCMS Wyam",
+            tags:'Wyam'
+        },
+        {
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
+            title:"Setting up NetlifyCMS with Wyam - Part 3",
+            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
+        }
+    );
+    a(
+        {
+            id:4,
             title:"Setting up NetlifyCMS Wyam Part",
             content:"Wyam",
             description:"Configuring simple single user mode NetlifyCMS Wyam",
@@ -89,6 +75,20 @@ var searchModule = function() {
             url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1',
             title:"Setting up NetlifyCMS with Wyam - Part 1",
             description:"Configuring a simple single user mode NetlifyCMS with Wyam"
+        }
+    );
+    a(
+        {
+            id:5,
+            title:"VSTO installs over HTTPS issues",
+            content:"VSTO",
+            description:'',
+            tags:'VSTO'
+        },
+        {
+            url:'/posts/VSTO-installs-over-HTTPS-issues',
+            title:"VSTO installs over HTTPS issues",
+            description:""
         }
     );
     a(
@@ -122,6 +122,20 @@ var searchModule = function() {
     a(
         {
             id:8,
+            title:"Test blog post docs",
+            content:"NetlifyCMS",
+            description:"blog post written NetlifyCMS",
+            tags:'NetlifyCMS'
+        },
+        {
+            url:'/posts/2018-02-11-test-blog-post-for-docs',
+            title:"Test blog post for docs",
+            description:"This blog post was written in NetlifyCMS"
+        }
+    );
+    a(
+        {
+            id:9,
             title:"First Post",
             content:"Introduction",
             description:'',
@@ -135,7 +149,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:9,
+            id:10,
+            title:"Job Interview Technical Test Preparation",
+            content:"ASP NET Core",
+            description:'',
+            tags:'ASP.NET Core'
+        },
+        {
+            url:'/posts/Job%20Interview%20Technical%20Test%20Preparation',
+            title:"Job Interview Technical Test Preparation",
+            description:""
+        }
+    );
+    a(
+        {
+            id:11,
             title:"NUnit Tests Showing Visual Studio Test Explorer",
             content:"NUnit",
             description:'',
@@ -149,7 +177,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:10,
+            id:12,
+            title:"Resolving System NotSupportedException data available encoding net Core",
+            content:"NET Core",
+            description:'',
+            tags:'.NET Core'
+        },
+        {
+            url:'/posts/NotSupportedException%20exception%20using%20Encoding%20in%20.net%20core',
+            title:"Resolving System.NotSupportedException No data is available for encoding 850 in .net Core",
+            description:""
+        }
+    );
+    a(
+        {
+            id:13,
             title:"Running ASP NET Core RaspberryPi Nginx",
             content:"ASP NET Core",
             description:'',
@@ -158,48 +200,6 @@ var searchModule = function() {
         {
             url:'/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx',
             title:"Running ASP.NET Core on a RaspberryPi 2 with Nginx",
-            description:""
-        }
-    );
-    a(
-        {
-            id:11,
-            title:"Using Netlify Identity NetlifyCMS Wyam",
-            content:"Wyam",
-            description:"test lead",
-            tags:'Wyam'
-        },
-        {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202',
-            title:"Using Netlify Identity with NetlifyCMS and Wyam",
-            description:"test a lead"
-        }
-    );
-    a(
-        {
-            id:12,
-            title:"Setting up NetlifyCMS Wyam Part",
-            content:"Wyam",
-            description:"Configuring simple single user mode NetlifyCMS Wyam",
-            tags:'Wyam'
-        },
-        {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
-            title:"Setting up NetlifyCMS with Wyam - Part 3",
-            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
-        }
-    );
-    a(
-        {
-            id:13,
-            title:"VSTO installs over HTTPS issues",
-            content:"VSTO",
-            description:'',
-            tags:'VSTO'
-        },
-        {
-            url:'/posts/VSTO-installs-over-HTTPS-issues',
-            title:"VSTO installs over HTTPS issues",
             description:""
         }
     );
