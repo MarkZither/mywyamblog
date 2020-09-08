@@ -5,8 +5,8 @@
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
 		<copyright>2020</copyright>
-		<pubDate>Tue, 08 Sep 2020 10:26:13 GMT</pubDate>
-		<lastBuildDate>Tue, 08 Sep 2020 10:26:13 GMT</lastBuildDate>
+		<pubDate>Tue, 08 Sep 2020 12:40:50 GMT</pubDate>
+		<lastBuildDate>Tue, 08 Sep 2020 12:40:50 GMT</lastBuildDate>
 		<item>
 			<title>Secure ASP.NET Core Health Checks to a specific port</title>
 			<link>http://blog.mark-burton.com/posts/2020-09-08-Secure-ASP.NET-Core-Health-Checks-to-a-specific-port</link>
@@ -27,7 +27,7 @@
   &amp;quot;Urls&amp;quot;: &amp;quot;http://localhost:1114;http://localhost:1115&amp;quot;,
   &amp;quot;ManagementPort&amp;quot;: &amp;quot;1115&amp;quot;,
   &amp;quot;ConnectionStrings&amp;quot;: {
-    &amp;quot;LoginServiceDb&amp;quot;: &amp;quot;Data Source=.,11433;Initial Catalog=LoginServiceDatabase;Integrated Security=false; User ID=CollabLogin;Password=CollabLogin123!;&amp;quot;
+    &amp;quot;LoginServiceDb&amp;quot;: &amp;quot;Data Source=.,11433;Initial Catalog=LoginServiceDatabase;Integrated Security=false; User ID=;&amp;quot;
   },
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This can be done in several ways, and is described in more detail by Andrew Lock in his post &lt;a href="https://andrewlock.net/5-ways-to-set-the-urls-for-an-aspnetcore-app/"&gt;5 ways to set the URLs for an ASP.NET Core app&lt;/a&gt;.&lt;/p&gt;
