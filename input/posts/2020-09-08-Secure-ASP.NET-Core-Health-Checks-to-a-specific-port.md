@@ -59,10 +59,10 @@ In `startup.cs` we can use the `ManagementPort` to secure the Health Check endpo
 			});
 ```
 
-If you debug now you will have access to the health endpoint only on the `ManagementPort` and not on the public facing url.
+If you debug now you will have access to the `/health` endpoint only on the `ManagementPort` and not on the public facing url.
 
-![HealthCheck external shows 404 while internal shows overall health status](/assets/Images/health_endpoint.png)
+![HealthCheck external shows 404 while internal shows overall health status](/assets/Images/health_endpoint.png){.img-fluid .img-responsive}
 
-More interestingly you can also go to the `hc` endpoint, this contains more detailed information about the state of the service and therefore needs to be secured.
+More interestingly you can also go to the `/hc` endpoint, this contains more detailed information about the state of the service and therefore needs to be secured.
 
-![HealthCheck external shows 404 while internal shows detailed health status](/assets/Images/hc_endpoint.png)
+![HealthCheck external shows 404 while internal shows detailed health status](/assets/Images/hc_endpoint.png){.img-fluid .img-responsive}
