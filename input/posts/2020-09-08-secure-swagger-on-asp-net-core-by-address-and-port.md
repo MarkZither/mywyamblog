@@ -1,7 +1,7 @@
 ---
 Title: Secure Swagger on ASP.NET Core by address and port
-Lead: Swagger provides a powerful tool to test your APIs and allow consumers to
-  learn how to consume your APIs, but it can also open up security issues and
+Lead: Swagger is a powerful tool to test your APIs and allow users to easily
+  discover how to consume your APIs, but it can also open up security issues and
   make it easier for attackers to access your data.
 Published: 2020-09-08T14:46:15.750Z
 Image: /assets/Images/swagger.png
@@ -10,8 +10,6 @@ Tags:
   - Swagger
   - Swashbuckle
 ---
-Swagger provides a powerful tool to test your APIs and allow consumers to learn how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.
-
 Best practice is to [secure access to your Swagger pages using OAuth as described by Scott Brady](https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4) but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.
 
 As discussed in this [GitHub issue, it is not possible out of the box to limit access to a specific URL](https://github.com/domaindrivendev/Swashbuckle/issues/384). 
