@@ -1,7 +1,9 @@
 ---
-Title: Test blog post for docs
-Lead: Health Checks in ASP.NET Core can give valuable insights into the health of services, but that includes sensitive data that should not be leaked externally.
-Published: 2020-09-08T12:13:12.976Z
+Title: Secure ASP.NET Core Health Checks to a specific port
+Lead: Health Checks in ASP.NET Core can give valuable insights into the health
+  of services, but that includes sensitive data that should not be leaked
+  externally.
+Published: 2020-09-08T10:24:26.968Z
 Image: /input/assets/NetlifyCMS_Missing_Posts.PNG
 Tags:
   - ASP.NET Core
