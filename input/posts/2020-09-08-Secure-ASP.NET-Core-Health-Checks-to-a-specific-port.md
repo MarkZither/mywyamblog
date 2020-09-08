@@ -25,7 +25,7 @@ First we need to make the service available over 2 different ports, this can be 
   "Urls": "http://localhost:1114;http://localhost:1115",
   "ManagementPort": "1115",
   "ConnectionStrings": {
-    "LoginServiceDb": "Data Source=.,11433;Initial Catalog=LoginServiceDatabase;Integrated Security=false; User ID=;"
+    "LoginServiceDb": "Data Source=.,11433;Initial Catalog=LoginServiceDatabase;Integrated Security=true;"
   },
 ```
 
