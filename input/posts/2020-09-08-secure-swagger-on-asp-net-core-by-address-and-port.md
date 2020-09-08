@@ -1,6 +1,10 @@
 ---
 Title: Secure Swagger on ASP.NET Core by address and port
+Lead: Swagger provides a powerful tool to test your APIs and allow consumers to
+  learn how to consume your APIs, but it can also open up security issues and
+  make it easier for attackers to access your data.
 Published: 2020-09-08T14:46:15.750Z
+Image: /assets/Images/swagger.png
 Tags:
   - ASP.NET Core
   - Swagger
