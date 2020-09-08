@@ -1,6 +1,6 @@
 ---
 Title: Setting up NetlifyCMS with Wyam - Part 3
-Published: 2019-03-09
+Published: 2018-03-09
 Lead: Configuring a simple single user mode NetlifyCMS with Wyam
 Tags: 
   - Wyam
@@ -67,5 +67,3 @@ This is caused by the PR firing a Webhook which triggers the build on the master
 ## Other things to write about
 * show the correct logged/logged out menu based on [Netlify Identity Widget](https://github.com/netlify/netlify-identity-widget) events and user object.
 * how to populate the author field from the Netlify Identity metadata.
-* add a canonical link `<link rel="canonical" href="@Context.GetLink(Context.GetLink(Model), Context.String(Keys.Host), null, true, false, false )">`
-* can cake and netlifysharp publish without creating another GitHub branch

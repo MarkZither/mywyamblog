@@ -1,8 +1,0 @@
-{
-    "profiles": {
-      "MyWyamBlog": {
-        "commandName": "Project",
-        "commandLineArgs": "preview"
-      }
-    }
-  }

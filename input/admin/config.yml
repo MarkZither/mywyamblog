@@ -1,5 +1,5 @@
 backend:
-  name: test-repo
+  name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
 publish_mode: editorial_workflow
@@ -14,22 +14,7 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Lead", name: "Lead", widget: "string", optional: true, required: false}
-      - {label: "Published", name: "Published", widget: "datetime"}
-      - {label: "Featured Image", name: "Image", widget: "image",  
-        optional: true, required: false, pattern: ['^\S*$', "Please rename your image remove any spaces from the filename"]}
-      - label: Tags
-        name: Tags
-        widget: list
-      - {label: "Body", name: "body", widget: "markdown"}
-  - name: "podcast" # Used in routes, e.g., /admin/collections/blog
-    label: "Podcast" # Used in the UI
-    folder: "input/posts" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Title", name: "Title", widget: "string"}
       - {label: "Lead", name: "Lead", widget: "string", optional: true, required: false}
       - {label: "Published", name: "Published", widget: "datetime"}
       - {label: "Featured Image", name: "Image", widget: "image",  
