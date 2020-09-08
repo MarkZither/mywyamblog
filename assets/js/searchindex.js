@@ -10,14 +10,14 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"Test blog post docs",
+            title:"Secure ASP NET Core Health Checks specific port",
             content:"ASP NET Core",
             description:"Health Checks ASP NET Core give valuable insights health services includes sensitive data leaked externally",
             tags:'ASP.NET Core'
         },
         {
             url:'/posts/2020-09-08-Secure-ASP.NET-Core-Health-Checks-to-a-specific-port',
-            title:"Test blog post for docs",
+            title:"Secure ASP.NET Core Health Checks to a specific port",
             description:"Health Checks in ASP.NET Core can give valuable insights into the health of services, but that includes sensitive data that should not be leaked externally."
         }
     );
