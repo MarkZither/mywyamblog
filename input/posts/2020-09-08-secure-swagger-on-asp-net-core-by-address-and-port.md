@@ -21,6 +21,63 @@ By changing the SwaggerEndpoint to specify absolute URL it is possible to preven
    });
 ```
 
-However this still leaves some of the Swagger pages accessible displaying an error message due to CORS issues.
+However this still leaves the Swagger homepage accessible displaying an error message due to CORS issues.
 
 ![Swagger CORS error](/assets/Images/swagger_internal_only_error.png){.img-fluid .img-responsive}
+
+To reject all requests to Swagger that are not on an internal address we need to create a middleware, [something like this suggestion by Thwaitesy](https://github.com/domaindrivendev/Swashbuckle/issues/384#issuecomment-410117400)
+
+```C#
+	public class SwaggerUrlPortAuthMiddleware {
+		private readonly RequestDelegate next;
+
+		public SwaggerUrlPortAuthMiddleware(RequestDelegate next) {
+			this.next = next;
+		}
+
+		public async Task InvokeAsync(HttpContext context, IConfiguration configuration) {
+			//Make sure we are hitting the swagger path, and not doing it locally and are on the management port
+			if (context.Request.Path.StartsWithSegments("/swagger") && !configuration.GetValue<int>("ManagementPort").Equals(context.Request.Host.Port)) {
+				// Return unauthorized
+				context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+			}
+			else {
+				await next.Invoke(context);
+			}
+		}
+
+		public bool IsLocalRequest(HttpContext context) {
+			//Handle running using the Microsoft.AspNetCore.TestHost and the site being run entirely locally in memory without an actual TCP/IP connection
+			if (context.Connection.RemoteIpAddress == null && context.Connection.LocalIpAddress == null) {
+				return true;
+			}
+			if (context.Connection.RemoteIpAddress.Equals(context.Connection.LocalIpAddress)) {
+				return true;
+			}
+			if (IPAddress.IsLoopback(context.Connection.RemoteIpAddress)) {
+				return true;
+			}
+			return false;
+		}
+	}
+```
+
+This middleware must be registered before swagger, so in startup.cs change `Configure` to add the middleware.
+
+```C#
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+...
+			app.UseSwaggerAuthorized();
+			app.UseSwagger();
+			app.UseSwaggerUI(c => {
+				c.SwaggerEndpoint("v1/swagger.json", "Login Service API V1");
+			});
+...
+}
+```
+
+Now running the service will return a 401 on the public facing URL and serve swagger internally. 
+
+![Public facing swagger returns 401 internal works](/assets/Images/swagger_secured_by_port.png){.img-fluid .img-responsive}
+
+It is still recommended to secure swagger with OAuth as a misconfiguration could still lead to your Swagger being exposed this way, for example behind a reverse proxy.
