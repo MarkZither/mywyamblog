@@ -9,7 +9,7 @@ Tags:
   - ASP.NET Core
   - Health Checks
 ---
-To secure Health Checks it is possible to make them available on internal addresses only and on a different port to the publicly served pages/api.
+To secure Health Checks it is possible to make them available on internal addresses only and on a different port to the publicly served pages/API endpoints.
 
 First we need to make the service available over 2 different ports, this can be achieved by adding a Urls value to the appsettings.config.
 
@@ -47,19 +47,19 @@ Now that we have the service listening on 2 addresses we can specify one of them
 In `startup.cs` we can use the `ManagementPort` to secure the Health Check endpoint
 
 ```C#
-			// HealthCheck middleware
-			app.UseHealthChecks("/hc", $"{Configuration["ManagementPort"]}", new HealthCheckOptions() {
-				Predicate = _ => true,
-				ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-			});
+   // HealthCheck middleware
+   app.UseHealthChecks("/hc", $"{Configuration["ManagementPort"]}", new HealthCheckOptions() {
+    Predicate = _ => true,
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+   });
 
-			app.UseEndpoints(endpoints => {
-				endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
-				endpoints.MapHealthChecks("/health").RequireHost($"*:{Configuration["ManagementPort"]}");
-			});
+   app.UseEndpoints(endpoints => {
+    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapHealthChecks("/health").RequireHost($"*:{Configuration["ManagementPort"]}");
+   });
 ```
 
-If you debug now you will have access to the `/health` endpoint only on the `ManagementPort` and not on the public facing url.
+If you debug now you will have access to the `/health` endpoint only on the `ManagementPort` and not on the public facing URL.
 
 ![HealthCheck external shows 404 while internal shows overall health status](/assets/Images/health_endpoint.png){.img-fluid .img-responsive}
 
