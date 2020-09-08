@@ -4,7 +4,7 @@ Lead: Health Checks in ASP.NET Core can give valuable insights into the health
   of services, but that includes sensitive data that should not be leaked
   externally.
 Published: 2020-09-08T10:24:26.968Z
-Image: /input/assets/NetlifyCMS_Missing_Posts.PNG
+Image: /assets/Images/hc_sample.png
 Tags:
   - ASP.NET Core
   - Health Checks
