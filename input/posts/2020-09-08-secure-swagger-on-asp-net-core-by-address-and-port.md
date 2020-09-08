@@ -6,47 +6,21 @@ Tags:
   - Swagger
   - Swashbuckle
 ---
+Swagger provides a powerful tool to test your APIs and allow consumers to learn how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.
 
-Healthy
+Best practice is to [secure access to your Swagger pages using OAuth as described by Scott Brady](https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4) but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.
 
-``` json
-{
-    "status": "Healthy",
-    "totalDuration": "00:00:00.6304391",
-    "entries": {
-        "LoginDB-check": {
-            "data": {},
-            "duration": "00:00:00.6070053",
-            "status": "Healthy"
-        },
-        "OtherServer-check": {
-            "data": {},
-            "duration": "00:00:00.6069850",
-            "status": "Healthy"
-        }
-    }
-}
+As discussed in this [GitHub issue, it is not possible out of the box to limit access to a specific URL](https://github.com/domaindrivendev/Swashbuckle/issues/384). 
+
+By changing the SwaggerEndpoint to specify absolute URL it is possible to prevent access to the documentation on the public facing URL.
+
+```C#
+   app.UseSwaggerUI(c => {
+      c.SwaggerEndpoint("http://localhost:1115/swagger/v1/swagger.json", "Login Service API V1");
+      c.RoutePrefix = string.Empty;
+   });
 ```
 
-Unhealthy
+However this still leaves some of the Swagger pages accessible displaying an error message due to CORS issues.
 
-``` json
-{
-    "status": "Unhealthy",
-    "totalDuration": "00:00:15.6160238",
-    "entries": {
-        "LoginDB-check": {
-            "data": {},
-            "description": "A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)",
-            "duration": "00:00:15.3302265",
-            "exception": "A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)",
-            "status": "Unhealthy"
-        },
-        "OtherServer-check": {
-            "data": {},
-            "duration": "00:00:00.6069850",
-            "status": "Healthy"
-        }
-    }
-}
-```
+![Swagger CORS error](/assets/Images/swagger_internal_only_error.png){.img-fluid .img-responsive}
