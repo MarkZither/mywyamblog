@@ -121,7 +121,6 @@ if ('serviceWorker' in navigator) {
     
 <div class="post-heading">
     <h1>Secure Swagger on ASP.NET Core by address and port</h1>
-        <h2 class="subheading">Swagger is a powerful tool to test your APIs and allow users to easily discover how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.</h2>
     <div class="meta">        
 Published on Tuesday, September 8, 2020<br>        <a href="http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port#disqus_thread" data-disqus-identifier="2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port" async></a>
     </div>
@@ -142,6 +141,8 @@ Published on Tuesday, September 8, 2020<br>        <a href="http://blog.mark-bur
                                 <div id="content" class="col-md-12">
                                         
 
+<p>This follows on from my previous post <a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port">Secure ASP.NET Core Health Checks to a specific port</a> and assumes that you already have your service running over 2 port and have specified a <code>ManagementPort</code> in the appsettings.json file.</p>
+<p>Swagger is a powerful tool to test your APIs and allow users to easily discover how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.</p>
 <p>Best practice is to <a href="https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4">secure access to your Swagger pages using OAuth as described by Scott Brady</a> but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.</p>
 <p>As discussed in this <a href="https://github.com/domaindrivendev/Swashbuckle/issues/384">GitHub issue, it is not possible out of the box to limit access to a specific URL</a>.</p>
 <p>By changing the SwaggerEndpoint to specify absolute URL it is possible to prevent access to the documentation on the public facing URL.</p>

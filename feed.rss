@@ -5,16 +5,18 @@
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
 		<copyright>2020</copyright>
-		<pubDate>Tue, 08 Sep 2020 19:13:14 GMT</pubDate>
-		<lastBuildDate>Tue, 08 Sep 2020 19:13:14 GMT</lastBuildDate>
+		<pubDate>Tue, 08 Sep 2020 19:17:47 GMT</pubDate>
+		<lastBuildDate>Tue, 08 Sep 2020 19:17:47 GMT</lastBuildDate>
 		<item>
 			<title>Secure Swagger on ASP.NET Core by address and port</title>
 			<link>http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port</link>
-			<description>&lt;p&gt;Best practice is to &lt;a href="https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4"&gt;secure access to your Swagger pages using OAuth as described by Scott Brady&lt;/a&gt; but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.&lt;/p&gt;</description>
+			<description>&lt;p&gt;This follows on from my previous post &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Secure ASP.NET Core Health Checks to a specific port&lt;/a&gt; and assumes that you already have your service running over 2 port and have specified a &lt;code&gt;ManagementPort&lt;/code&gt; in the appsettings.json file.&lt;/p&gt;</description>
 			<enclosure url="http://blog.mark-burton.com/assets/Images/swagger.png" length="0" type="image" />
 			<guid>http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port</guid>
 			<pubDate>Tue, 08 Sep 2020 14:46:15 GMT</pubDate>
-			<content:encoded>&lt;p&gt;Best practice is to &lt;a href="https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4"&gt;secure access to your Swagger pages using OAuth as described by Scott Brady&lt;/a&gt; but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.&lt;/p&gt;
+			<content:encoded>&lt;p&gt;This follows on from my previous post &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Secure ASP.NET Core Health Checks to a specific port&lt;/a&gt; and assumes that you already have your service running over 2 port and have specified a &lt;code&gt;ManagementPort&lt;/code&gt; in the appsettings.json file.&lt;/p&gt;
+&lt;p&gt;Swagger is a powerful tool to test your APIs and allow users to easily discover how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.&lt;/p&gt;
+&lt;p&gt;Best practice is to &lt;a href="https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4"&gt;secure access to your Swagger pages using OAuth as described by Scott Brady&lt;/a&gt; but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.&lt;/p&gt;
 &lt;p&gt;As discussed in this &lt;a href="https://github.com/domaindrivendev/Swashbuckle/issues/384"&gt;GitHub issue, it is not possible out of the box to limit access to a specific URL&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By changing the SwaggerEndpoint to specify absolute URL it is possible to prevent access to the documentation on the public facing URL.&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-C#"&gt;   app.UseSwaggerUI(c =&amp;gt; {
@@ -733,36 +735,6 @@ Returns - Func&amp;lt;int, int, int&amp;gt; add = (x, y) =&amp;gt; { return x + 
 </content:encoded>
 		</item>
 		<item>
-			<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
-			<link>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</link>
-			<description>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</description>
-			<guid>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</guid>
-			<pubDate>Tue, 21 Feb 2017 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
-&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
-&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-To fix this it is necessary to open Tools -&gt; Extensions and Updates...
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
-&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
-</content:encoded>
-		</item>
-		<item>
 			<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
 			<link>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</link>
 			<description>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</description>
@@ -832,6 +804,36 @@ Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
 &lt;p&gt;Install MySQL by following this tutorial again by
 &lt;a href="https://www.stewright.me/2016/04/install-mysql-server-raspberry-pi/"&gt;Ste Wright - Install MySQL Server on you Respberry Pi&lt;/a&gt;
 You should now have a working nginx server running PHP scripts, next time I will setup piwik so you can monitor the traffic to your website.&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
+			<link>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</link>
+			<description>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</description>
+			<guid>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</guid>
+			<pubDate>Tue, 21 Feb 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
+&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
+&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+To fix this it is necessary to open Tools -&gt; Extensions and Updates...
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
+&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
 </content:encoded>
 		</item>
 	</channel>
