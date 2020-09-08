@@ -4,7 +4,7 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-08T19:06:40Z</updated>
+	<updated>2020-09-08T19:12:20Z</updated>
 	<subtitle>Burton Blogs</subtitle>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port</id>
@@ -12,8 +12,7 @@
 		<link href="http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port" />
 		<link rel="enclosure" type="image" href="http://blog.mark-burton.com/assets/Images/swagger.png" />
 		<updated>2020-09-08T14:46:15Z</updated>
-		<content>&lt;p&gt;Swagger provides a powerful tool to test your APIs and allow consumers to learn how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.&lt;/p&gt;
-&lt;p&gt;Best practice is to &lt;a href="https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4"&gt;secure access to your Swagger pages using OAuth as described by Scott Brady&lt;/a&gt; but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.&lt;/p&gt;
+		<content>&lt;p&gt;Best practice is to &lt;a href="https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4"&gt;secure access to your Swagger pages using OAuth as described by Scott Brady&lt;/a&gt; but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.&lt;/p&gt;
 &lt;p&gt;As discussed in this &lt;a href="https://github.com/domaindrivendev/Swashbuckle/issues/384"&gt;GitHub issue, it is not possible out of the box to limit access to a specific URL&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By changing the SwaggerEndpoint to specify absolute URL it is possible to prevent access to the documentation on the public facing URL.&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-C#"&gt;   app.UseSwaggerUI(c =&amp;gt; {
@@ -72,7 +71,7 @@
 &lt;p&gt;&lt;img src="/assets/Images/swagger_secured_by_port.png" class="img-fluid img-responsive" alt="Public facing swagger returns 401 internal works" /&gt;&lt;/p&gt;
 &lt;p&gt;It is still recommended to secure swagger with OAuth as a misconfiguration could still lead to your Swagger being exposed this way, for example behind a reverse proxy.&lt;/p&gt;
 </content>
-		<summary>&lt;p&gt;Swagger provides a powerful tool to test your APIs and allow consumers to learn how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.&lt;/p&gt;</summary>
+		<summary>&lt;p&gt;Best practice is to &lt;a href="https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4"&gt;secure access to your Swagger pages using OAuth as described by Scott Brady&lt;/a&gt; but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-08-Secure-ASP.NET-Core-Health-Checks-to-a-specific-port</id>
