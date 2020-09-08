@@ -80,20 +80,6 @@ var searchModule = function() {
     a(
         {
             id:5,
-            title:"Using Netlify Identity NetlifyCMS Wyam",
-            content:"Wyam",
-            description:"test lead",
-            tags:'Wyam'
-        },
-        {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202',
-            title:"Using Netlify Identity with NetlifyCMS and Wyam",
-            description:"test a lead"
-        }
-    );
-    a(
-        {
-            id:6,
             title:"Setting up NetlifyCMS Wyam Part",
             content:"Wyam",
             description:"Configuring simple single user mode NetlifyCMS Wyam",
@@ -107,35 +93,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:7,
-            title:"Setting up NetlifyCMS Wyam Part",
+            id:6,
+            title:"Using Netlify Identity NetlifyCMS Wyam",
             content:"Wyam",
-            description:"Configuring simple single user mode NetlifyCMS Wyam",
+            description:"test lead",
             tags:'Wyam'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
-            title:"Setting up NetlifyCMS with Wyam - Part 3",
-            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4',
+            title:"Using Netlify Identity with NetlifyCMS and Wyam",
+            description:"test a lead"
         }
     );
     a(
         {
-            id:8,
-            title:"VSTO installs over HTTPS issues",
-            content:"VSTO",
-            description:'',
-            tags:'VSTO'
-        },
-        {
-            url:'/posts/VSTO-installs-over-HTTPS-issues',
-            title:"VSTO installs over HTTPS issues",
-            description:""
-        }
-    );
-    a(
-        {
-            id:9,
+            id:7,
             title:"fork cloned repository Visual Studio",
             content:"GitHub",
             description:'',
@@ -149,7 +121,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:10,
+            id:8,
             title:"First Post",
             content:"Introduction",
             description:'',
@@ -163,7 +135,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:11,
+            id:9,
             title:"NUnit Tests Showing Visual Studio Test Explorer",
             content:"NUnit",
             description:'',
@@ -177,7 +149,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:12,
+            id:10,
             title:"Running ASP NET Core RaspberryPi Nginx",
             content:"ASP NET Core",
             description:'',
@@ -191,16 +163,44 @@ var searchModule = function() {
     );
     a(
         {
-            id:13,
+            id:11,
             title:"Using Netlify Identity NetlifyCMS Wyam",
             content:"Wyam",
             description:"test lead",
             tags:'Wyam'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4',
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202',
             title:"Using Netlify Identity with NetlifyCMS and Wyam",
             description:"test a lead"
+        }
+    );
+    a(
+        {
+            id:12,
+            title:"Setting up NetlifyCMS Wyam Part",
+            content:"Wyam",
+            description:"Configuring simple single user mode NetlifyCMS Wyam",
+            tags:'Wyam'
+        },
+        {
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
+            title:"Setting up NetlifyCMS with Wyam - Part 3",
+            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
+        }
+    );
+    a(
+        {
+            id:13,
+            title:"VSTO installs over HTTPS issues",
+            content:"VSTO",
+            description:'',
+            tags:'VSTO'
+        },
+        {
+            url:'/posts/VSTO-installs-over-HTTPS-issues',
+            title:"VSTO installs over HTTPS issues",
+            description:""
         }
     );
     var idx = lunr(function() {
