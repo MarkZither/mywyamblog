@@ -4,7 +4,7 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-08T19:17:47Z</updated>
+	<updated>2020-09-08T19:22:07Z</updated>
 	<subtitle>Burton Blogs</subtitle>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port</id>
@@ -123,6 +123,7 @@ info: Microsoft.Hosting.Lifetime[0]
 &lt;p&gt;&lt;img src="/assets/Images/health_endpoint.png" class="img-fluid img-responsive" alt="HealthCheck external shows 404 while internal shows overall health status" /&gt;&lt;/p&gt;
 &lt;p&gt;More interestingly you can also go to the &lt;code&gt;/hc&lt;/code&gt; endpoint, this contains more detailed information about the state of the service and therefore needs to be secured.&lt;/p&gt;
 &lt;p&gt;&lt;img src="/assets/Images/hc_endpoint.png" class="img-fluid img-responsive" alt="HealthCheck external shows 404 while internal shows detailed health status" /&gt;&lt;/p&gt;
+&lt;p&gt;Now you can safely get the status of your services reported as json, but there are 2 further aspects of ASP.NET Core Health Checks, the UI and push-based monitoring, i will cover those in parts 2 and 3.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;To secure Health Checks it is possible to make them available on internal addresses only and on a different port to the publicly served pages/API endpoints.&lt;/p&gt;</summary>
 	</entry>
@@ -734,6 +735,36 @@ Returns - Func&amp;lt;int, int, int&amp;gt; add = (x, y) =&amp;gt; { return x + 
 		<summary>&lt;p&gt;&lt;a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/advanced/custom-model-binding"&gt;docs.microsoft.com&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<id>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</id>
+		<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
+		<link href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
+		<updated>2017-02-21T00:00:00Z</updated>
+		<content>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
+&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
+&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+To fix this it is necessary to open Tools -&gt; Extensions and Updates...
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
+&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
 		<id>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</id>
 		<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
 		<link href="http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx" />
@@ -804,35 +835,5 @@ Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
 You should now have a working nginx server running PHP scripts, next time I will setup piwik so you can monitor the traffic to your website.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<id>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</id>
-		<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
-		<link href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
-		<updated>2017-02-21T00:00:00Z</updated>
-		<content>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
-&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
-&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-To fix this it is necessary to open Tools -&gt; Extensions and Updates...
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
-&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</summary>
 	</entry>
 </feed>
