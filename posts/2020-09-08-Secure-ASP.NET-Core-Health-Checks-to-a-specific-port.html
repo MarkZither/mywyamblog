@@ -179,10 +179,10 @@ info: Microsoft.Hosting.Lifetime[0]
 				endpoints.MapHealthChecks(&quot;/health&quot;).RequireHost($&quot;*:{Configuration[&quot;ManagementPort&quot;]}&quot;);
 			});
 </code></pre>
-<p>If you debug now you will have access to the health endpoint only on the <code>ManagementPort</code> and not on the public facing url.</p>
-<p><img src="/assets/Images/health_endpoint.png" class="img-fluid" alt="HealthCheck external shows 404 while internal shows overall health status" /></p>
-<p>More interestingly you can also go to the <code>hc</code> endpoint, this contains more detailed information about the state of the service and therefore needs to be secured.</p>
-<p><img src="/assets/Images/hc_endpoint.png" class="img-fluid" alt="HealthCheck external shows 404 while internal shows detailed health status" /></p>
+<p>If you debug now you will have access to the <code>/health</code> endpoint only on the <code>ManagementPort</code> and not on the public facing url.</p>
+<p><img src="/assets/Images/health_endpoint.png" class="img-fluid img-responsive" alt="HealthCheck external shows 404 while internal shows overall health status" /></p>
+<p>More interestingly you can also go to the <code>/hc</code> endpoint, this contains more detailed information about the state of the service and therefore needs to be secured.</p>
+<p><img src="/assets/Images/hc_endpoint.png" class="img-fluid img-responsive" alt="HealthCheck external shows 404 while internal shows detailed health status" /></p>
 
 
 <ul class="share-buttons">

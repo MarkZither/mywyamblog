@@ -52,29 +52,29 @@ var searchModule = function() {
     a(
         {
             id:3,
-            title:"Running ASP NET Core RaspberryPi Nginx",
-            content:"ASP NET Core",
+            title:"Playing Service Workers",
+            content:"Service Workers",
             description:'',
-            tags:'ASP.NET Core'
+            tags:'Service Workers'
         },
         {
-            url:'/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx',
-            title:"Running ASP.NET Core on a RaspberryPi 2 with Nginx",
+            url:'/posts/Playing-with-Service-Workers',
+            title:"Playing with Service Workers",
             description:""
         }
     );
     a(
         {
             id:4,
-            title:"Using Netlify Identity NetlifyCMS Wyam",
-            content:"Wyam",
-            description:"test lead",
-            tags:'Wyam'
+            title:"Setting up Raspberry Pi NGINX PHP MySQL LEMP Stack",
+            content:"Raspberry Pi",
+            description:'',
+            tags:'Raspberry Pi'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202',
-            title:"Using Netlify Identity with NetlifyCMS and Wyam",
-            description:"test a lead"
+            url:'/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack',
+            title:"Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack",
+            description:""
         }
     );
     a(
@@ -86,23 +86,23 @@ var searchModule = function() {
             tags:'Wyam'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
-            title:"Setting up NetlifyCMS with Wyam - Part 3",
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1',
+            title:"Setting up NetlifyCMS with Wyam - Part 1",
             description:"Configuring a simple single user mode NetlifyCMS with Wyam"
         }
     );
     a(
         {
             id:6,
-            title:"VSTO installs over HTTPS issues",
-            content:"VSTO",
-            description:'',
-            tags:'VSTO'
+            title:"Using Netlify Identity NetlifyCMS Wyam",
+            content:"Wyam",
+            description:"test lead",
+            tags:'Wyam'
         },
         {
-            url:'/posts/VSTO-installs-over-HTTPS-issues',
-            title:"VSTO installs over HTTPS issues",
-            description:""
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4',
+            title:"Using Netlify Identity with NetlifyCMS and Wyam",
+            description:"test a lead"
         }
     );
     a(
@@ -164,29 +164,29 @@ var searchModule = function() {
     a(
         {
             id:11,
-            title:"Playing Service Workers",
-            content:"Service Workers",
+            title:"Running ASP NET Core RaspberryPi Nginx",
+            content:"ASP NET Core",
             description:'',
-            tags:'Service Workers'
+            tags:'ASP.NET Core'
         },
         {
-            url:'/posts/Playing-with-Service-Workers',
-            title:"Playing with Service Workers",
+            url:'/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx',
+            title:"Running ASP.NET Core on a RaspberryPi 2 with Nginx",
             description:""
         }
     );
     a(
         {
             id:12,
-            title:"Setting up Raspberry Pi NGINX PHP MySQL LEMP Stack",
-            content:"Raspberry Pi",
-            description:'',
-            tags:'Raspberry Pi'
+            title:"Using Netlify Identity NetlifyCMS Wyam",
+            content:"Wyam",
+            description:"test lead",
+            tags:'Wyam'
         },
         {
-            url:'/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack',
-            title:"Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack",
-            description:""
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202',
+            title:"Using Netlify Identity with NetlifyCMS and Wyam",
+            description:"test a lead"
         }
     );
     a(
@@ -198,23 +198,23 @@ var searchModule = function() {
             tags:'Wyam'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1',
-            title:"Setting up NetlifyCMS with Wyam - Part 1",
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
+            title:"Setting up NetlifyCMS with Wyam - Part 3",
             description:"Configuring a simple single user mode NetlifyCMS with Wyam"
         }
     );
     a(
         {
             id:14,
-            title:"Using Netlify Identity NetlifyCMS Wyam",
-            content:"Wyam",
-            description:"test lead",
-            tags:'Wyam'
+            title:"VSTO installs over HTTPS issues",
+            content:"VSTO",
+            description:'',
+            tags:'VSTO'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4',
-            title:"Using Netlify Identity with NetlifyCMS and Wyam",
-            description:"test a lead"
+            url:'/posts/VSTO-installs-over-HTTPS-issues',
+            title:"VSTO installs over HTTPS issues",
+            description:""
         }
     );
     var idx = lunr(function() {
