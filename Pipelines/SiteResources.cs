@@ -7,7 +7,7 @@ namespace mywyamblog.Pipelines
     {
         public SiteResources()
         {
-            Isolated = true;
+            //Isolated = true;
 
             OutputModules = new ModuleList
             {

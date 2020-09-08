@@ -1,3 +1,10 @@
 <div class="site-heading">
     <h1>@Model.GetString("Title")</h1>
-</div>    
+</div>
+@if (Model.ContainsKey("Tags"))
+{
+    foreach (string tag in Model.GetList<string>("Tags"))
+    {
+        <span class="mr-1"><a href="/projects/?filter-tags=@(tag)"><i class="fas fa-tag"></i> @tag</a></span>
+    }
+}

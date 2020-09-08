@@ -1,1 +1,30 @@
-<p>Hello</p>
+<div class="row">
+    <div class="col-sm-8 right-border">
+        @{
+            bool first = true;
+            foreach (IDocument post in Outputs[nameof(Pages)])
+            {
+                if (!first)
+                {
+                    <hr />
+                }
+                first = false;
+                string lead = post.GetString("Lead");
+                <div class="post-preview">
+                    <a href="@Context.GetLink(post)">
+                        <h2 class="post-title">@post.GetString("Title")</h2>
+                        @if (!string.IsNullOrWhiteSpace(lead))
+                        {
+                            <h3 class="post-subtitle">@lead</h3>
+                        }
+                    </a>
+                    <p class="post-meta">Posted on (@post.GetDateTime("Published").ToLongDateString(Context))</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-sm-4 sidebar">
+        <hr class="visible-xs-block" />
+        @Html.Partial("_Sidebar")
+    </div>
+</div>

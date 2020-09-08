@@ -21,7 +21,11 @@ namespace mywyamblog.Pipelines
                 new CacheDocuments
                 {
                     new ExtractFrontMatter(new ParseYaml()),
-                    new SetMetadata("Title", Config.FromDocument(x => x.GetString("Title", "English"))),
+                    new SetMetadata(BlogKeys.Title, Config.FromDocument(x => x.GetString(BlogKeys.Title, Config.FromContext(ctx => ctx.GetString(BlogKeys.Title)).ToString()))),
+                    new SetMetadata(BlogKeys.Tags, Config.FromDocument(x => x.GetMetadata(
+                    BlogKeys.Tags))),
+                    new SetMetadata("Published", Config.FromDocument(x => x.GetDateTime(
+                    "Published"))),
                     new ExecuteIf(
                         Config.FromDocument(doc => doc.Source.Extension.Equals(".md", StringComparison.OrdinalIgnoreCase)),
                         new RenderMarkdown().UseExtensions()),
