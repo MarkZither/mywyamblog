@@ -9,7 +9,6 @@ Tags:
   - ASP.NET Core
   - Health Checks
 ---
-
 To secure Health Checks it is possible to make them available on internal addresses only and on a different port to the publicly served pages/api.
 
 First we need to make the service available over 2 different ports, this can be achieved by adding a Urls value to the appsettings.config.
@@ -26,7 +25,7 @@ First we need to make the service available over 2 different ports, this can be 
   "Urls": "http://localhost:1114;http://localhost:1115",
   "ManagementPort": "1115",
   "ConnectionStrings": {
-    "LoginServiceDb": "Data Source=.,11433;Initial Catalog=LoginServiceDatabase;Integrated Security=false; User ID=CollabLogin;Password=CollabLogin123!;"
+    "LoginServiceDb": "Data Source=.,11433;Initial Catalog=LoginServiceDatabase;Integrated Security=false; User ID=;"
   },
 ```
 
