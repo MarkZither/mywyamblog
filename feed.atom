@@ -4,7 +4,7 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-08T12:40:50Z</updated>
+	<updated>2020-09-08T14:13:07Z</updated>
 	<subtitle>Burton Blogs</subtitle>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-08-Secure-ASP.NET-Core-Health-Checks-to-a-specific-port</id>
@@ -25,7 +25,7 @@
   &amp;quot;Urls&amp;quot;: &amp;quot;http://localhost:1114;http://localhost:1115&amp;quot;,
   &amp;quot;ManagementPort&amp;quot;: &amp;quot;1115&amp;quot;,
   &amp;quot;ConnectionStrings&amp;quot;: {
-    &amp;quot;LoginServiceDb&amp;quot;: &amp;quot;Data Source=.,11433;Initial Catalog=LoginServiceDatabase;Integrated Security=false; User ID=;&amp;quot;
+    &amp;quot;LoginServiceDb&amp;quot;: &amp;quot;Data Source=.,11433;Initial Catalog=LoginServiceDatabase;Integrated Security=true;&amp;quot;
   },
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This can be done in several ways, and is described in more detail by Andrew Lock in his post &lt;a href="https://andrewlock.net/5-ways-to-set-the-urls-for-an-aspnetcore-app/"&gt;5 ways to set the URLs for an ASP.NET Core app&lt;/a&gt;.&lt;/p&gt;

@@ -10,34 +10,20 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"Test blog post docs",
-            content:"NetlifyCMS",
-            description:"blog post written NetlifyCMS",
-            tags:'NetlifyCMS'
+            title:"Secure ASP NET Core Health Checks specific port",
+            content:"ASP NET Core",
+            description:"Health Checks ASP NET Core give valuable insights health services includes sensitive data leaked externally",
+            tags:'ASP.NET Core'
         },
         {
-            url:'/posts/2018-02-11-test-blog-post-for-docs',
-            title:"Test blog post for docs",
-            description:"This blog post was written in NetlifyCMS"
+            url:'/posts/2020-09-08-Secure-ASP.NET-Core-Health-Checks-to-a-specific-port',
+            title:"Secure ASP.NET Core Health Checks to a specific port",
+            description:"Health Checks in ASP.NET Core can give valuable insights into the health of services, but that includes sensitive data that should not be leaked externally."
         }
     );
     a(
         {
             id:1,
-            title:"fork cloned repository Visual Studio",
-            content:"GitHub",
-            description:'',
-            tags:'GitHub'
-        },
-        {
-            url:'/posts/Fork%20a%20cloned%20git%20repository',
-            title:"How to fork a cloned repository in Visual Studio",
-            description:""
-        }
-    );
-    a(
-        {
-            id:2,
             title:"Job Interview Technical Test Preparation",
             content:"ASP NET Core",
             description:'',
@@ -51,7 +37,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:3,
+            id:2,
             title:"Resolving System NotSupportedException data available encoding net Core",
             content:"NET Core",
             description:'',
@@ -65,72 +51,86 @@ var searchModule = function() {
     );
     a(
         {
+            id:3,
+            title:"Running ASP NET Core RaspberryPi Nginx",
+            content:"ASP NET Core",
+            description:'',
+            tags:'ASP.NET Core'
+        },
+        {
+            url:'/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx',
+            title:"Running ASP.NET Core on a RaspberryPi 2 with Nginx",
+            description:""
+        }
+    );
+    a(
+        {
             id:4,
-            title:"Playing Service Workers",
-            content:"Service Workers",
-            description:'',
-            tags:'Service Workers'
-        },
-        {
-            url:'/posts/Playing-with-Service-Workers',
-            title:"Playing with Service Workers",
-            description:""
-        }
-    );
-    a(
-        {
-            id:5,
-            title:"Setting up Raspberry Pi NGINX PHP MySQL LEMP Stack",
-            content:"Raspberry Pi",
-            description:'',
-            tags:'Raspberry Pi'
-        },
-        {
-            url:'/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack',
-            title:"Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack",
-            description:""
-        }
-    );
-    a(
-        {
-            id:6,
-            title:"Setting up NetlifyCMS Wyam Part",
-            content:"Wyam",
-            description:"Configuring simple single user mode NetlifyCMS Wyam",
-            tags:'Wyam'
-        },
-        {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1',
-            title:"Setting up NetlifyCMS with Wyam - Part 1",
-            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
-        }
-    );
-    a(
-        {
-            id:7,
             title:"Using Netlify Identity NetlifyCMS Wyam",
             content:"Wyam",
             description:"test lead",
             tags:'Wyam'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4',
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202',
             title:"Using Netlify Identity with NetlifyCMS and Wyam",
             description:"test a lead"
         }
     );
     a(
         {
-            id:8,
-            title:"Secure ASP NET Core Health Checks specific port",
-            content:"ASP NET Core",
-            description:"Health Checks ASP NET Core give valuable insights health services includes sensitive data leaked externally",
-            tags:'ASP.NET Core'
+            id:5,
+            title:"Setting up NetlifyCMS Wyam Part",
+            content:"Wyam",
+            description:"Configuring simple single user mode NetlifyCMS Wyam",
+            tags:'Wyam'
         },
         {
-            url:'/posts/2020-09-08-Secure-ASP.NET-Core-Health-Checks-to-a-specific-port',
-            title:"Secure ASP.NET Core Health Checks to a specific port",
-            description:"Health Checks in ASP.NET Core can give valuable insights into the health of services, but that includes sensitive data that should not be leaked externally."
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
+            title:"Setting up NetlifyCMS with Wyam - Part 3",
+            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
+        }
+    );
+    a(
+        {
+            id:6,
+            title:"VSTO installs over HTTPS issues",
+            content:"VSTO",
+            description:'',
+            tags:'VSTO'
+        },
+        {
+            url:'/posts/VSTO-installs-over-HTTPS-issues',
+            title:"VSTO installs over HTTPS issues",
+            description:""
+        }
+    );
+    a(
+        {
+            id:7,
+            title:"Test blog post docs",
+            content:"NetlifyCMS",
+            description:"blog post written NetlifyCMS",
+            tags:'NetlifyCMS'
+        },
+        {
+            url:'/posts/2018-02-11-test-blog-post-for-docs',
+            title:"Test blog post for docs",
+            description:"This blog post was written in NetlifyCMS"
+        }
+    );
+    a(
+        {
+            id:8,
+            title:"fork cloned repository Visual Studio",
+            content:"GitHub",
+            description:'',
+            tags:'GitHub'
+        },
+        {
+            url:'/posts/Fork%20a%20cloned%20git%20repository',
+            title:"How to fork a cloned repository in Visual Studio",
+            description:""
         }
     );
     a(
@@ -164,29 +164,29 @@ var searchModule = function() {
     a(
         {
             id:11,
-            title:"Running ASP NET Core RaspberryPi Nginx",
-            content:"ASP NET Core",
+            title:"Playing Service Workers",
+            content:"Service Workers",
             description:'',
-            tags:'ASP.NET Core'
+            tags:'Service Workers'
         },
         {
-            url:'/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx',
-            title:"Running ASP.NET Core on a RaspberryPi 2 with Nginx",
+            url:'/posts/Playing-with-Service-Workers',
+            title:"Playing with Service Workers",
             description:""
         }
     );
     a(
         {
             id:12,
-            title:"Using Netlify Identity NetlifyCMS Wyam",
-            content:"Wyam",
-            description:"test lead",
-            tags:'Wyam'
+            title:"Setting up Raspberry Pi NGINX PHP MySQL LEMP Stack",
+            content:"Raspberry Pi",
+            description:'',
+            tags:'Raspberry Pi'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202',
-            title:"Using Netlify Identity with NetlifyCMS and Wyam",
-            description:"test a lead"
+            url:'/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack',
+            title:"Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack",
+            description:""
         }
     );
     a(
@@ -198,23 +198,23 @@ var searchModule = function() {
             tags:'Wyam'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
-            title:"Setting up NetlifyCMS with Wyam - Part 3",
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1',
+            title:"Setting up NetlifyCMS with Wyam - Part 1",
             description:"Configuring a simple single user mode NetlifyCMS with Wyam"
         }
     );
     a(
         {
             id:14,
-            title:"VSTO installs over HTTPS issues",
-            content:"VSTO",
-            description:'',
-            tags:'VSTO'
+            title:"Using Netlify Identity NetlifyCMS Wyam",
+            content:"Wyam",
+            description:"test lead",
+            tags:'Wyam'
         },
         {
-            url:'/posts/VSTO-installs-over-HTTPS-issues',
-            title:"VSTO installs over HTTPS issues",
-            description:""
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4',
+            title:"Using Netlify Identity with NetlifyCMS and Wyam",
+            description:"test a lead"
         }
     );
     var idx = lunr(function() {
