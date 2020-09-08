@@ -4,8 +4,76 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-08T14:54:36Z</updated>
+	<updated>2020-09-08T19:01:31Z</updated>
 	<subtitle>Burton Blogs</subtitle>
+	<entry>
+		<id>http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port</id>
+		<title>Secure Swagger on ASP.NET Core by address and port</title>
+		<link href="http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port" />
+		<link rel="enclosure" type="image" href="http://blog.mark-burton.com/assets/Images/swagger.png" />
+		<updated>2020-09-08T14:46:15Z</updated>
+		<content>&lt;p&gt;Swagger provides a powerful tool to test your APIs and allow consumers to learn how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.&lt;/p&gt;
+&lt;p&gt;Best practice is to &lt;a href="https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4"&gt;secure access to your Swagger pages using OAuth as described by Scott Brady&lt;/a&gt; but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.&lt;/p&gt;
+&lt;p&gt;As discussed in this &lt;a href="https://github.com/domaindrivendev/Swashbuckle/issues/384"&gt;GitHub issue, it is not possible out of the box to limit access to a specific URL&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;By changing the SwaggerEndpoint to specify absolute URL it is possible to prevent access to the documentation on the public facing URL.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-C#"&gt;   app.UseSwaggerUI(c =&amp;gt; {
+      c.SwaggerEndpoint(&amp;quot;http://localhost:1115/swagger/v1/swagger.json&amp;quot;, &amp;quot;Login Service API V1&amp;quot;);
+      c.RoutePrefix = string.Empty;
+   });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However this still leaves the Swagger homepage accessible displaying an error message due to CORS issues.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/Images/swagger_internal_only_error.png" class="img-fluid img-responsive" alt="Swagger CORS error" /&gt;&lt;/p&gt;
+&lt;p&gt;To reject all requests to Swagger that are not on an internal address we need to create a middleware, &lt;a href="https://github.com/domaindrivendev/Swashbuckle/issues/384#issuecomment-410117400"&gt;something like this suggestion by Thwaitesy&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-C#"&gt;	public class SwaggerUrlPortAuthMiddleware {
+		private readonly RequestDelegate next;
+
+		public SwaggerUrlPortAuthMiddleware(RequestDelegate next) {
+			this.next = next;
+		}
+
+		public async Task InvokeAsync(HttpContext context, IConfiguration configuration) {
+			//Make sure we are hitting the swagger path, and not doing it locally and are on the management port
+			if (context.Request.Path.StartsWithSegments(&amp;quot;/swagger&amp;quot;) &amp;amp;&amp;amp; !configuration.GetValue&amp;lt;int&amp;gt;(&amp;quot;ManagementPort&amp;quot;).Equals(context.Request.Host.Port)) {
+				// Return unauthorized
+				context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+			}
+			else {
+				await next.Invoke(context);
+			}
+		}
+
+		public bool IsLocalRequest(HttpContext context) {
+			//Handle running using the Microsoft.AspNetCore.TestHost and the site being run entirely locally in memory without an actual TCP/IP connection
+			if (context.Connection.RemoteIpAddress == null &amp;amp;&amp;amp; context.Connection.LocalIpAddress == null) {
+				return true;
+			}
+			if (context.Connection.RemoteIpAddress.Equals(context.Connection.LocalIpAddress)) {
+				return true;
+			}
+			if (IPAddress.IsLoopback(context.Connection.RemoteIpAddress)) {
+				return true;
+			}
+			return false;
+		}
+	}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This middleware must be registered before swagger, so in startup.cs change &lt;code&gt;Configure&lt;/code&gt; to add the middleware.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-C#"&gt;		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+...
+			app.UseSwaggerAuthorized();
+			app.UseSwagger();
+			app.UseSwaggerUI(c =&amp;gt; {
+				c.SwaggerEndpoint(&amp;quot;v1/swagger.json&amp;quot;, &amp;quot;Login Service API V1&amp;quot;);
+			});
+...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now running the service will return a 401 on the public facing URL and serve swagger internally.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/Images/swagger_secured_by_port.png" class="img-fluid img-responsive" alt="Public facing swagger returns 401 internal works" /&gt;&lt;/p&gt;
+&lt;p&gt;It is still recommended to secure swagger with OAuth as a misconfiguration could still lead to your Swagger being exposed this way, for example behind a reverse proxy.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Swagger provides a powerful tool to test your APIs and allow consumers to learn how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.&lt;/p&gt;</summary>
+	</entry>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-08-Secure-ASP.NET-Core-Health-Checks-to-a-specific-port</id>
 		<title>Secure ASP.NET Core Health Checks to a specific port</title>
@@ -665,32 +733,6 @@ Returns - Func&amp;lt;int, int, int&amp;gt; add = (x, y) =&amp;gt; { return x + 
 		<summary>&lt;p&gt;&lt;a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/advanced/custom-model-binding"&gt;docs.microsoft.com&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</id>
-		<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
-		<link href="http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx" />
-		<updated>2017-02-21T00:00:00Z</updated>
-		<content>&lt;h1 id="running-asp.net-core-on-a-raspberrypi-2-with-nginx"&gt;Running ASP.NET Core on a RaspberryPi 2 with Nginx&lt;/h1&gt;
-&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;
-&lt;h1 id="prerequisites"&gt;prerequisites&lt;/h1&gt;
-&lt;p&gt;the &lt;a href="https://github.com/dotnet/core/blob/master/Documentation/prereqs.md"&gt;prerequisites&lt;/a&gt; are required or you will get an error like:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt;Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /var/www/PublishOutput/libcoreclr.so'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;chmod 744?&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id="tell-kestrel-to-listen"&gt;Tell Kestrel to listen&lt;/h1&gt;
-&lt;p&gt;If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the &lt;code&gt;ASPNETCORE_URLS environment variable&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt; ASPNETCORE_URLS=&amp;quot;http://*:5000&amp;quot; dotnet Your.App.dll
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="create-the-service-file"&gt;Create the service file&lt;/h1&gt;
-&lt;p&gt;add a symlink for dotnet to limit the changes to the service file&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt;sudo ln -s /opt/dotnet/dotnet /usr/bin/dotnet
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
-&lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
 		<id>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</id>
 		<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
 		<link href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
@@ -719,6 +761,32 @@ To fix this it is necessary to open Tools -&gt; Extensions and Updates...
 &lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<id>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</id>
+		<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
+		<link href="http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx" />
+		<updated>2017-02-21T00:00:00Z</updated>
+		<content>&lt;h1 id="running-asp.net-core-on-a-raspberrypi-2-with-nginx"&gt;Running ASP.NET Core on a RaspberryPi 2 with Nginx&lt;/h1&gt;
+&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;
+&lt;h1 id="prerequisites"&gt;prerequisites&lt;/h1&gt;
+&lt;p&gt;the &lt;a href="https://github.com/dotnet/core/blob/master/Documentation/prereqs.md"&gt;prerequisites&lt;/a&gt; are required or you will get an error like:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt;Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /var/www/PublishOutput/libcoreclr.so'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;chmod 744?&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="tell-kestrel-to-listen"&gt;Tell Kestrel to listen&lt;/h1&gt;
+&lt;p&gt;If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the &lt;code&gt;ASPNETCORE_URLS environment variable&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt; ASPNETCORE_URLS=&amp;quot;http://*:5000&amp;quot; dotnet Your.App.dll
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="create-the-service-file"&gt;Create the service file&lt;/h1&gt;
+&lt;p&gt;add a symlink for dotnet to limit the changes to the service file&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt;sudo ln -s /opt/dotnet/dotnet /usr/bin/dotnet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
+&lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</id>
