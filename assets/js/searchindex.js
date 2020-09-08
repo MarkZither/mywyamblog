@@ -11,14 +11,14 @@ var searchModule = function() {
         {
             id:0,
             title:"Test blog post docs",
-            content:"NetlifyCMS",
-            description:"blog post written NetlifyCMS",
-            tags:'NetlifyCMS'
+            content:"ASP NET Core",
+            description:"Health Checks ASP NET Core give valuable insights health services includes sensitive data leaked externally",
+            tags:'ASP.NET Core'
         },
         {
-            url:'/posts/2018-02-11-test-blog-post-for-docs',
+            url:'/posts/2020-09-08-Secure-ASP.NET-Core-Health-Checks-to-a-specific-port',
             title:"Test blog post for docs",
-            description:"This blog post was written in NetlifyCMS"
+            description:"Health Checks in ASP.NET Core can give valuable insights into the health of services, but that includes sensitive data that should not be leaked externally."
         }
     );
     a(
@@ -108,6 +108,20 @@ var searchModule = function() {
     a(
         {
             id:7,
+            title:"Test blog post docs",
+            content:"NetlifyCMS",
+            description:"blog post written NetlifyCMS",
+            tags:'NetlifyCMS'
+        },
+        {
+            url:'/posts/2018-02-11-test-blog-post-for-docs',
+            title:"Test blog post for docs",
+            description:"This blog post was written in NetlifyCMS"
+        }
+    );
+    a(
+        {
+            id:8,
             title:"fork cloned repository Visual Studio",
             content:"GitHub",
             description:'',
@@ -121,7 +135,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:8,
+            id:9,
             title:"First Post",
             content:"Introduction",
             description:'',
@@ -135,7 +149,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:9,
+            id:10,
             title:"NUnit Tests Showing Visual Studio Test Explorer",
             content:"NUnit",
             description:'',
@@ -149,7 +163,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:10,
+            id:11,
             title:"Running ASP NET Core RaspberryPi Nginx",
             content:"ASP NET Core",
             description:'',
@@ -163,7 +177,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:11,
+            id:12,
             title:"Using Netlify Identity NetlifyCMS Wyam",
             content:"Wyam",
             description:"test lead",
@@ -177,7 +191,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:12,
+            id:13,
             title:"Setting up NetlifyCMS Wyam Part",
             content:"Wyam",
             description:"Configuring simple single user mode NetlifyCMS Wyam",
@@ -191,7 +205,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:13,
+            id:14,
             title:"VSTO installs over HTTPS issues",
             content:"VSTO",
             description:'',
