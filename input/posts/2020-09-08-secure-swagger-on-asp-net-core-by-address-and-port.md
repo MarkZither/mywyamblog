@@ -2,7 +2,7 @@
 Title: Secure Swagger on ASP.NET Core by address and port
 Lead: ""
 Published: 2020-09-08T14:46:15.750Z
-Image: /assets/Images/swagger.png
+Image: ""
 Tags:
   - ASP.NET Core
   - Swagger
@@ -66,7 +66,17 @@ To reject all requests to Swagger that are not on an internal address we need to
 	}
 ```
 
-This middleware must be registered before swagger, so in startup.cs change `Configure` to add the middleware.
+Assuming a [project layout something like BaGet](https://github.com/loic-sharma/BaGet) the middleware would be added to your shared project and in `Extensions` directory you can add an extension method to `IApplicationBuilderExtensions` to add the middleware and keep your startup clean.
+
+``` C#
+	public static class SwaggerAuthorizeExtensions {
+		public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder) {
+			return builder.UseMiddleware<SwaggerUrlPortAuthMiddleware>();
+		}
+	}
+```
+
+This middleware must be registered before swagger, so in startup.cs change `Configure` to add the middleware by calling the new extension method.
 
 ```C#
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
