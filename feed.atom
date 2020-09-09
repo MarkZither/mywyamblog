@@ -4,7 +4,7 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-09T08:33:56Z</updated>
+	<updated>2020-09-09T08:44:02Z</updated>
 	<subtitle>Burton Blogs</subtitle>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port</id>
@@ -57,9 +57,10 @@
 		}
 	}
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Assuming a &lt;a href="https://github.com/loic-sharma/BaGet"&gt;project layout something like BaGet&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="/assets/Images/baget_project_layout.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;the middleware would be added to your shared project and in &lt;code&gt;Extensions&lt;/code&gt; directory you can add an extension method to &lt;code&gt;IApplicationBuilderExtensions&lt;/code&gt; to add the middleware and keep your startup clean.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/Images/baget_project_layout.png" class="img-fluid img-responsive pull-right" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;Assuming your &lt;a href="https://github.com/loic-sharma/BaGet"&gt;project layout is something like BaGet&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The middleware should be added to your shared project in the &lt;code&gt;Extensions&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;Add the following extension method to &lt;code&gt;IApplicationBuilderExtensions&lt;/code&gt; to add the middleware and keep your startup clean.&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-C#"&gt;	public static class SwaggerAuthorizeExtensions {
 		public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder) {
 			return builder.UseMiddleware&amp;lt;SwaggerUrlPortAuthMiddleware&amp;gt;();
