@@ -164,14 +164,14 @@ var searchModule = function() {
     a(
         {
             id:11,
-            title:"Setup ASP NET Core Health Check UI",
+            title:"Getting out Swagger ASP NET Core api",
             content:"ASP NET Core",
             description:'',
             tags:'ASP.NET Core'
         },
         {
-            url:'/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui',
-            title:"How to Setup ASP.NET Core Health Check UI",
+            url:'/posts/2020-09-09-getting-the-most-out-of-swagger-in-your-asp-net-core-api',
+            title:"Getting the most out of Swagger in your ASP.NET Core api",
             description:""
         }
     );

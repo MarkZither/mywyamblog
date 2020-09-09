@@ -4,8 +4,17 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-09T10:49:00Z</updated>
+	<updated>2020-09-09T10:50:40Z</updated>
 	<subtitle>Burton Blogs</subtitle>
+	<entry>
+		<id>http://blog.mark-burton.com/posts/2020-09-09-getting-the-most-out-of-swagger-in-your-asp-net-core-api</id>
+		<title>Getting the most out of Swagger in your ASP.NET Core api</title>
+		<link href="http://blog.mark-burton.com/posts/2020-09-09-getting-the-most-out-of-swagger-in-your-asp-net-core-api" />
+		<updated>2020-09-09T10:48:13Z</updated>
+		<content>&lt;p&gt;Even with next to no configuration or additional work on your API Swagger already provides great insights into your API.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Even with next to no configuration or additional work on your API Swagger already provides great insights into your API.&lt;/p&gt;</summary>
+	</entry>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port</id>
 		<title>Secure Swagger on ASP.NET Core by address and port</title>
