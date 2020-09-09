@@ -113,7 +113,7 @@ if ('serviceWorker' in navigator) {
                 </nav>
                 
                 <!-- Page Header -->
-                <header class="intro-header" id="intro-header" style="background-image: url(&quot;/assets/Images/swagger.png&quot;)">
+                <header class="intro-header" id="intro-header" style="background-image: url(&quot;&quot;)">
                         <div class="container">
                                 <div class="row">
                                         <div class="col-md-12">
@@ -187,7 +187,14 @@ Published on Tuesday, September 8, 2020<br>        <a href="http://blog.mark-bur
 		}
 	}
 </code></pre>
-<p>This middleware must be registered before swagger, so in startup.cs change <code>Configure</code> to add the middleware.</p>
+<p>Assuming a <a href="https://github.com/loic-sharma/BaGet">project layout something like BaGet</a> the middleware would be added to your shared project and in <code>Extensions</code> directory you can add an extension method to <code>IApplicationBuilderExtensions</code> to add the middleware and keep your startup clean.</p>
+<pre><code class="language-C#">	public static class SwaggerAuthorizeExtensions {
+		public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder) {
+			return builder.UseMiddleware&lt;SwaggerUrlPortAuthMiddleware&gt;();
+		}
+	}
+</code></pre>
+<p>This middleware must be registered before swagger, so in startup.cs change <code>Configure</code> to add the middleware by calling the new extension method.</p>
 <pre><code class="language-C#">		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
 ...
 			app.UseSwaggerAuthorized();
