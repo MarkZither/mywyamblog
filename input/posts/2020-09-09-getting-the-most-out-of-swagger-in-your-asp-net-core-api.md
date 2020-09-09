@@ -1,6 +1,6 @@
 ---
 Title: Getting the most out of Swagger in your ASP.NET Core api
-Published: 2020-09-09T10:48:13.546Z
+Published: 2020-09-11T10:49:51.923Z
 Tags:
   - ASP.NET Core
   - Swagger
