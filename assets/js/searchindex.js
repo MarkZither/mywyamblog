@@ -10,34 +10,6 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"Test blog post docs",
-            content:"NetlifyCMS",
-            description:"blog post written NetlifyCMS",
-            tags:'NetlifyCMS'
-        },
-        {
-            url:'/posts/2018-02-11-test-blog-post-for-docs',
-            title:"Test blog post for docs",
-            description:"This blog post was written in NetlifyCMS"
-        }
-    );
-    a(
-        {
-            id:1,
-            title:"Secure Swagger ASP NET Core address port",
-            content:"ASP NET Core",
-            description:'',
-            tags:'ASP.NET Core'
-        },
-        {
-            url:'/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port',
-            title:"Secure Swagger on ASP.NET Core by address and port",
-            description:""
-        }
-    );
-    a(
-        {
-            id:2,
             title:"Job Interview Technical Test Preparation",
             content:"ASP NET Core",
             description:'',
@@ -51,7 +23,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:3,
+            id:1,
             title:"Resolving System NotSupportedException data available encoding net Core",
             content:"NET Core",
             description:'',
@@ -65,7 +37,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:4,
+            id:2,
             title:"Playing Service Workers",
             content:"Service Workers",
             description:'',
@@ -79,7 +51,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:5,
+            id:3,
             title:"Setting up Raspberry Pi NGINX PHP MySQL LEMP Stack",
             content:"Raspberry Pi",
             description:'',
@@ -93,7 +65,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:6,
+            id:4,
             title:"Setting up NetlifyCMS Wyam Part",
             content:"Wyam",
             description:"Configuring simple single user mode NetlifyCMS Wyam",
@@ -107,7 +79,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:7,
+            id:5,
+            title:"Setting up NetlifyCMS Wyam Part",
+            content:"Wyam",
+            description:"Configuring simple single user mode NetlifyCMS Wyam",
+            tags:'Wyam'
+        },
+        {
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
+            title:"Setting up NetlifyCMS with Wyam - Part 3",
+            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
+        }
+    );
+    a(
+        {
+            id:6,
             title:"Using Netlify Identity NetlifyCMS Wyam",
             content:"Wyam",
             description:"test lead",
@@ -117,6 +103,20 @@ var searchModule = function() {
             url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4',
             title:"Using Netlify Identity with NetlifyCMS and Wyam",
             description:"test a lead"
+        }
+    );
+    a(
+        {
+            id:7,
+            title:"VSTO installs over HTTPS issues",
+            content:"VSTO",
+            description:'',
+            tags:'VSTO'
+        },
+        {
+            url:'/posts/VSTO-installs-over-HTTPS-issues',
+            title:"VSTO installs over HTTPS issues",
+            description:""
         }
     );
     a(
@@ -136,20 +136,6 @@ var searchModule = function() {
     a(
         {
             id:9,
-            title:"fork cloned repository Visual Studio",
-            content:"GitHub",
-            description:'',
-            tags:'GitHub'
-        },
-        {
-            url:'/posts/Fork%20a%20cloned%20git%20repository',
-            title:"How to fork a cloned repository in Visual Studio",
-            description:""
-        }
-    );
-    a(
-        {
-            id:10,
             title:"First Post",
             content:"Introduction",
             description:'',
@@ -163,7 +149,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:11,
+            id:10,
             title:"NUnit Tests Showing Visual Studio Test Explorer",
             content:"NUnit",
             description:'',
@@ -177,7 +163,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:12,
+            id:11,
             title:"Running ASP NET Core RaspberryPi Nginx",
             content:"ASP NET Core",
             description:'',
@@ -191,7 +177,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:13,
+            id:12,
             title:"Using Netlify Identity NetlifyCMS Wyam",
             content:"Wyam",
             description:"test lead",
@@ -205,29 +191,57 @@ var searchModule = function() {
     );
     a(
         {
-            id:14,
-            title:"Setting up NetlifyCMS Wyam Part",
-            content:"Wyam",
-            description:"Configuring simple single user mode NetlifyCMS Wyam",
-            tags:'Wyam'
+            id:13,
+            title:"Test blog post docs",
+            content:"NetlifyCMS",
+            description:"blog post written NetlifyCMS",
+            tags:'NetlifyCMS'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
-            title:"Setting up NetlifyCMS with Wyam - Part 3",
-            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
+            url:'/posts/2018-02-11-test-blog-post-for-docs',
+            title:"Test blog post for docs",
+            description:"This blog post was written in NetlifyCMS"
+        }
+    );
+    a(
+        {
+            id:14,
+            title:"Secure Swagger ASP NET Core address port",
+            content:"ASP NET Core",
+            description:'',
+            tags:'ASP.NET Core'
+        },
+        {
+            url:'/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port',
+            title:"Secure Swagger on ASP.NET Core by address and port",
+            description:""
         }
     );
     a(
         {
             id:15,
-            title:"VSTO installs over HTTPS issues",
-            content:"VSTO",
-            description:'',
-            tags:'VSTO'
+            title:"Setup ASP NET Core Health Check UI",
+            content:"ASP NET Core",
+            description:"Part one -secure-asp net-core-health-checks-to-a-specific-port setup health check endpoints now add",
+            tags:'ASP.NET Core'
         },
         {
-            url:'/posts/VSTO-installs-over-HTTPS-issues',
-            title:"VSTO installs over HTTPS issues",
+            url:'/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui',
+            title:"How to Setup ASP.NET Core Health Check UI",
+            description:"In [Part one](2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port) we setup the health check endpoints, now to add"
+        }
+    );
+    a(
+        {
+            id:16,
+            title:"fork cloned repository Visual Studio",
+            content:"GitHub",
+            description:'',
+            tags:'GitHub'
+        },
+        {
+            url:'/posts/Fork%20a%20cloned%20git%20repository',
+            title:"How to fork a cloned repository in Visual Studio",
             description:""
         }
     );
