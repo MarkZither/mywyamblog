@@ -5,8 +5,8 @@
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
 		<copyright>2020</copyright>
-		<pubDate>Wed, 09 Sep 2020 08:13:54 GMT</pubDate>
-		<lastBuildDate>Wed, 09 Sep 2020 08:13:54 GMT</lastBuildDate>
+		<pubDate>Wed, 09 Sep 2020 08:33:56 GMT</pubDate>
+		<lastBuildDate>Wed, 09 Sep 2020 08:33:56 GMT</lastBuildDate>
 		<item>
 			<title>Secure Swagger on ASP.NET Core by address and port</title>
 			<link>http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port</link>
@@ -59,7 +59,9 @@
 		}
 	}
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Assuming a &lt;a href="https://github.com/loic-sharma/BaGet"&gt;project layout something like BaGet&lt;/a&gt; the middleware would be added to your shared project and in &lt;code&gt;Extensions&lt;/code&gt; directory you can add an extension method to &lt;code&gt;IApplicationBuilderExtensions&lt;/code&gt; to add the middleware and keep your startup clean.&lt;/p&gt;
+&lt;p&gt;Assuming a &lt;a href="https://github.com/loic-sharma/BaGet"&gt;project layout something like BaGet&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/Images/baget_project_layout.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;the middleware would be added to your shared project and in &lt;code&gt;Extensions&lt;/code&gt; directory you can add an extension method to &lt;code&gt;IApplicationBuilderExtensions&lt;/code&gt; to add the middleware and keep your startup clean.&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-C#"&gt;	public static class SwaggerAuthorizeExtensions {
 		public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder) {
 			return builder.UseMiddleware&amp;lt;SwaggerUrlPortAuthMiddleware&amp;gt;();
@@ -772,6 +774,32 @@ To fix this it is necessary to open Tools -&gt; Extensions and Updates...
 </content:encoded>
 		</item>
 		<item>
+			<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
+			<link>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</link>
+			<description>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</description>
+			<guid>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</guid>
+			<pubDate>Tue, 21 Feb 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h1 id="running-asp.net-core-on-a-raspberrypi-2-with-nginx"&gt;Running ASP.NET Core on a RaspberryPi 2 with Nginx&lt;/h1&gt;
+&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;
+&lt;h1 id="prerequisites"&gt;prerequisites&lt;/h1&gt;
+&lt;p&gt;the &lt;a href="https://github.com/dotnet/core/blob/master/Documentation/prereqs.md"&gt;prerequisites&lt;/a&gt; are required or you will get an error like:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt;Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /var/www/PublishOutput/libcoreclr.so'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;chmod 744?&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="tell-kestrel-to-listen"&gt;Tell Kestrel to listen&lt;/h1&gt;
+&lt;p&gt;If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the &lt;code&gt;ASPNETCORE_URLS environment variable&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt; ASPNETCORE_URLS=&amp;quot;http://*:5000&amp;quot; dotnet Your.App.dll
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="create-the-service-file"&gt;Create the service file&lt;/h1&gt;
+&lt;p&gt;add a symlink for dotnet to limit the changes to the service file&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt;sudo ln -s /opt/dotnet/dotnet /usr/bin/dotnet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
+&lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
 			<title>Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack</title>
 			<link>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</link>
 			<description>&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;</description>
@@ -815,32 +843,6 @@ Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
 &lt;p&gt;Install MySQL by following this tutorial again by
 &lt;a href="https://www.stewright.me/2016/04/install-mysql-server-raspberry-pi/"&gt;Ste Wright - Install MySQL Server on you Respberry Pi&lt;/a&gt;
 You should now have a working nginx server running PHP scripts, next time I will setup piwik so you can monitor the traffic to your website.&lt;/p&gt;
-</content:encoded>
-		</item>
-		<item>
-			<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
-			<link>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</link>
-			<description>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</description>
-			<guid>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</guid>
-			<pubDate>Tue, 21 Feb 2017 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;h1 id="running-asp.net-core-on-a-raspberrypi-2-with-nginx"&gt;Running ASP.NET Core on a RaspberryPi 2 with Nginx&lt;/h1&gt;
-&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;
-&lt;h1 id="prerequisites"&gt;prerequisites&lt;/h1&gt;
-&lt;p&gt;the &lt;a href="https://github.com/dotnet/core/blob/master/Documentation/prereqs.md"&gt;prerequisites&lt;/a&gt; are required or you will get an error like:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt;Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /var/www/PublishOutput/libcoreclr.so'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;chmod 744?&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id="tell-kestrel-to-listen"&gt;Tell Kestrel to listen&lt;/h1&gt;
-&lt;p&gt;If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the &lt;code&gt;ASPNETCORE_URLS environment variable&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt; ASPNETCORE_URLS=&amp;quot;http://*:5000&amp;quot; dotnet Your.App.dll
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="create-the-service-file"&gt;Create the service file&lt;/h1&gt;
-&lt;p&gt;add a symlink for dotnet to limit the changes to the service file&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt;sudo ln -s /opt/dotnet/dotnet /usr/bin/dotnet
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
-&lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
 </content:encoded>
 		</item>
 	</channel>

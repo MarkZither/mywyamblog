@@ -187,7 +187,9 @@ Published on Tuesday, September 8, 2020<br>        <a href="http://blog.mark-bur
 		}
 	}
 </code></pre>
-<p>Assuming a <a href="https://github.com/loic-sharma/BaGet">project layout something like BaGet</a> the middleware would be added to your shared project and in <code>Extensions</code> directory you can add an extension method to <code>IApplicationBuilderExtensions</code> to add the middleware and keep your startup clean.</p>
+<p>Assuming a <a href="https://github.com/loic-sharma/BaGet">project layout something like BaGet</a></p>
+<p><img src="/assets/Images/baget_project_layout.png" class="img-fluid" alt="" /></p>
+<p>the middleware would be added to your shared project and in <code>Extensions</code> directory you can add an extension method to <code>IApplicationBuilderExtensions</code> to add the middleware and keep your startup clean.</p>
 <pre><code class="language-C#">	public static class SwaggerAuthorizeExtensions {
 		public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder) {
 			return builder.UseMiddleware&lt;SwaggerUrlPortAuthMiddleware&gt;();
