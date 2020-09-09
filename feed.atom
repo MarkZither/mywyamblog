@@ -4,17 +4,8 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-09T10:17:21Z</updated>
+	<updated>2020-09-09T10:32:28Z</updated>
 	<subtitle>Burton Blogs</subtitle>
-	<entry>
-		<id>http://blog.mark-burton.com/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui</id>
-		<title>How to Setup ASP.NET Core Health Check UI</title>
-		<link href="http://blog.mark-burton.com/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui" />
-		<updated>2020-09-09T10:02:20Z</updated>
-		<content>&lt;p&gt;The &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Health Checks UI&lt;/a&gt; should be hosted in its own service&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;The &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Health Checks UI&lt;/a&gt; should be hosted in its own service&lt;/p&gt;</summary>
-	</entry>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port</id>
 		<title>Secure Swagger on ASP.NET Core by address and port</title>
