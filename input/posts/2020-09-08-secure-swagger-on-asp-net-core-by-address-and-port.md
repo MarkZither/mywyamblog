@@ -66,9 +66,13 @@ To reject all requests to Swagger that are not on an internal address we need to
 	}
 ```
 
-Assuming a [project layout something like BaGet](https://github.com/loic-sharma/BaGet) the middleware would be added to your shared project and in `Extensions` directory you can add an extension method to `IApplicationBuilderExtensions` to add the middleware and keep your startup clean.
+Assuming a [project layout something like BaGet](https://github.com/loic-sharma/BaGet) 
 
-``` C#
+![](/assets/Images/baget_project_layout.png)
+
+the middleware would be added to your shared project and in `Extensions` directory you can add an extension method to `IApplicationBuilderExtensions` to add the middleware and keep your startup clean.
+
+```C#
 	public static class SwaggerAuthorizeExtensions {
 		public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder) {
 			return builder.UseMiddleware<SwaggerUrlPortAuthMiddleware>();
