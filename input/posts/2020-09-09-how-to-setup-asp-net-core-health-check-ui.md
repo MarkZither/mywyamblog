@@ -47,11 +47,39 @@ The [Health Checks UI](2020-09-08-secure-asp.net-core-health-checks-to-a-specifi
 
             app.UseAuthorization();
 
-            app.UseHealthChecksUI(config => config.UIPath = "/hc-ui");
+            app.UseHealthChecksUI() ;
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecksUI(config => {
+                    config.UIPath = "/hc-ui";
+                }).RequireHost($"*:{Configuration["ManagementPort"]}");
             });
         }
+```
+
+``` json
+...
+  "https_port": 1131,
+  "Urls": "http://localhost:1130;https://localhost:1131;https://localhost:1132",
+  "ManagementPort": "1132",
+  "AllowedHosts": "*",
+  "HealthChecks-UI": {
+    "HealthChecks": [
+      {
+        "Name": "LoginService Check",
+        "Uri": "https://localhost:1116/hc"
+      },
+      {
+        "Name": "ResourceService Check",
+        "Uri": "https://localhost:5002/hc"
+      },
+      {
+        "Name": "NotificationService Check",
+        "Uri": "https://localhost:1179/hc"
+      }
+    ]
+  }
+...
 ```
