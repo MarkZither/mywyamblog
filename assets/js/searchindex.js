@@ -52,20 +52,6 @@ var searchModule = function() {
     a(
         {
             id:3,
-            title:"Using Netlify Identity NetlifyCMS Wyam",
-            content:"Wyam",
-            description:"test lead",
-            tags:'Wyam'
-        },
-        {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202',
-            title:"Using Netlify Identity with NetlifyCMS and Wyam",
-            description:"test a lead"
-        }
-    );
-    a(
-        {
-            id:4,
             title:"Setting up NetlifyCMS Wyam Part",
             content:"Wyam",
             description:"Configuring simple single user mode NetlifyCMS Wyam",
@@ -79,21 +65,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:5,
-            title:"Setting up NetlifyCMS Wyam Part",
+            id:4,
+            title:"Using Netlify Identity NetlifyCMS Wyam",
             content:"Wyam",
-            description:"Configuring simple single user mode NetlifyCMS Wyam",
+            description:"test lead",
             tags:'Wyam'
         },
         {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
-            title:"Setting up NetlifyCMS with Wyam - Part 3",
-            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part%202',
+            title:"Using Netlify Identity with NetlifyCMS and Wyam",
+            description:"test a lead"
         }
     );
     a(
         {
-            id:6,
+            id:5,
             title:"Using Netlify Identity NetlifyCMS Wyam",
             content:"Wyam",
             description:"test lead",
@@ -103,6 +89,20 @@ var searchModule = function() {
             url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4',
             title:"Using Netlify Identity with NetlifyCMS and Wyam",
             description:"test a lead"
+        }
+    );
+    a(
+        {
+            id:6,
+            title:"Setting up NetlifyCMS Wyam Part",
+            content:"Wyam",
+            description:"Configuring simple single user mode NetlifyCMS Wyam",
+            tags:'Wyam'
+        },
+        {
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
+            title:"Setting up NetlifyCMS with Wyam - Part 3",
+            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
         }
     );
     a(
@@ -122,20 +122,6 @@ var searchModule = function() {
     a(
         {
             id:8,
-            title:"Test blog post docs",
-            content:"NetlifyCMS",
-            description:"blog post written NetlifyCMS",
-            tags:'NetlifyCMS'
-        },
-        {
-            url:'/posts/2018-02-11-test-blog-post-for-docs',
-            title:"Test blog post for docs",
-            description:"This blog post was written in NetlifyCMS"
-        }
-    );
-    a(
-        {
-            id:9,
             title:"Secure ASP NET Core Health Checks specific port",
             content:"ASP NET Core",
             description:"Health Checks ASP NET Core give valuable insights health services includes sensitive data leaked externally",
@@ -149,7 +135,35 @@ var searchModule = function() {
     );
     a(
         {
+            id:9,
+            title:"Test blog post docs",
+            content:"NetlifyCMS",
+            description:"blog post written NetlifyCMS",
+            tags:'NetlifyCMS'
+        },
+        {
+            url:'/posts/2018-02-11-test-blog-post-for-docs',
+            title:"Test blog post for docs",
+            description:"This blog post was written in NetlifyCMS"
+        }
+    );
+    a(
+        {
             id:10,
+            title:"Setup ASP NET Core Health Check UI",
+            content:"ASP NET Core",
+            description:'',
+            tags:'ASP.NET Core'
+        },
+        {
+            url:'/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui',
+            title:"How to Setup ASP.NET Core Health Check UI",
+            description:""
+        }
+    );
+    a(
+        {
+            id:11,
             title:"Secure Swagger ASP NET Core address port",
             content:"ASP NET Core",
             description:'',
@@ -158,20 +172,6 @@ var searchModule = function() {
         {
             url:'/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port',
             title:"Secure Swagger on ASP.NET Core by address and port",
-            description:""
-        }
-    );
-    a(
-        {
-            id:11,
-            title:"Getting out Swagger ASP NET Core api",
-            content:"ASP NET Core",
-            description:'',
-            tags:'ASP.NET Core'
-        },
-        {
-            url:'/posts/2020-09-09-getting-the-most-out-of-swagger-in-your-asp-net-core-api',
-            title:"Getting the most out of Swagger in your ASP.NET Core api",
             description:""
         }
     );
