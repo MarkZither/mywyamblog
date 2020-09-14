@@ -169,13 +169,39 @@ Published on Thursday, September 10, 2020<br>        <a href="http://blog.mark-b
 
             app.UseAuthorization();
 
-            app.UseHealthChecksUI(config =&gt; config.UIPath = &quot;/hc-ui&quot;);
+            app.UseHealthChecksUI() ;
 
             app.UseEndpoints(endpoints =&gt;
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecksUI(config =&gt; {
+                    config.UIPath = &quot;/hc-ui&quot;;
+                }).RequireHost($&quot;*:{Configuration[&quot;ManagementPort&quot;]}&quot;);
             });
         }
+</code></pre>
+<pre><code class="language-json">...
+  &quot;https_port&quot;: 1131,
+  &quot;Urls&quot;: &quot;http://localhost:1130;https://localhost:1131;https://localhost:1132&quot;,
+  &quot;ManagementPort&quot;: &quot;1132&quot;,
+  &quot;AllowedHosts&quot;: &quot;*&quot;,
+  &quot;HealthChecks-UI&quot;: {
+    &quot;HealthChecks&quot;: [
+      {
+        &quot;Name&quot;: &quot;LoginService Check&quot;,
+        &quot;Uri&quot;: &quot;https://localhost:1116/hc&quot;
+      },
+      {
+        &quot;Name&quot;: &quot;ResourceService Check&quot;,
+        &quot;Uri&quot;: &quot;https://localhost:5002/hc&quot;
+      },
+      {
+        &quot;Name&quot;: &quot;NotificationService Check&quot;,
+        &quot;Uri&quot;: &quot;https://localhost:1179/hc&quot;
+      }
+    ]
+  }
+...
 </code></pre>
 
 

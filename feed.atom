@@ -4,7 +4,7 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-14T19:33:57Z</updated>
+	<updated>2020-09-14T20:20:06Z</updated>
 	<subtitle>Burton Blogs</subtitle>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui</id>
@@ -40,13 +40,39 @@
 
             app.UseAuthorization();
 
-            app.UseHealthChecksUI(config =&amp;gt; config.UIPath = &amp;quot;/hc-ui&amp;quot;);
+            app.UseHealthChecksUI() ;
 
             app.UseEndpoints(endpoints =&amp;gt;
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecksUI(config =&amp;gt; {
+                    config.UIPath = &amp;quot;/hc-ui&amp;quot;;
+                }).RequireHost($&amp;quot;*:{Configuration[&amp;quot;ManagementPort&amp;quot;]}&amp;quot;);
             });
         }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;...
+  &amp;quot;https_port&amp;quot;: 1131,
+  &amp;quot;Urls&amp;quot;: &amp;quot;http://localhost:1130;https://localhost:1131;https://localhost:1132&amp;quot;,
+  &amp;quot;ManagementPort&amp;quot;: &amp;quot;1132&amp;quot;,
+  &amp;quot;AllowedHosts&amp;quot;: &amp;quot;*&amp;quot;,
+  &amp;quot;HealthChecks-UI&amp;quot;: {
+    &amp;quot;HealthChecks&amp;quot;: [
+      {
+        &amp;quot;Name&amp;quot;: &amp;quot;LoginService Check&amp;quot;,
+        &amp;quot;Uri&amp;quot;: &amp;quot;https://localhost:1116/hc&amp;quot;
+      },
+      {
+        &amp;quot;Name&amp;quot;: &amp;quot;ResourceService Check&amp;quot;,
+        &amp;quot;Uri&amp;quot;: &amp;quot;https://localhost:5002/hc&amp;quot;
+      },
+      {
+        &amp;quot;Name&amp;quot;: &amp;quot;NotificationService Check&amp;quot;,
+        &amp;quot;Uri&amp;quot;: &amp;quot;https://localhost:1179/hc&amp;quot;
+      }
+    ]
+  }
+...
 &lt;/code&gt;&lt;/pre&gt;
 </content>
 		<summary>&lt;p&gt;In &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Part one&lt;/a&gt; we setup the health check endpoints, now to add a frontend.&lt;/p&gt;</summary>
@@ -789,6 +815,32 @@ Returns - Func&amp;lt;int, int, int&amp;gt; add = (x, y) =&amp;gt; { return x + 
 		<summary>&lt;p&gt;&lt;a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/advanced/custom-model-binding"&gt;docs.microsoft.com&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<id>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</id>
+		<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
+		<link href="http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx" />
+		<updated>2017-02-21T00:00:00Z</updated>
+		<content>&lt;h1 id="running-asp.net-core-on-a-raspberrypi-2-with-nginx"&gt;Running ASP.NET Core on a RaspberryPi 2 with Nginx&lt;/h1&gt;
+&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;
+&lt;h1 id="prerequisites"&gt;prerequisites&lt;/h1&gt;
+&lt;p&gt;the &lt;a href="https://github.com/dotnet/core/blob/master/Documentation/prereqs.md"&gt;prerequisites&lt;/a&gt; are required or you will get an error like:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt;Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /var/www/PublishOutput/libcoreclr.so'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;chmod 744?&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="tell-kestrel-to-listen"&gt;Tell Kestrel to listen&lt;/h1&gt;
+&lt;p&gt;If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the &lt;code&gt;ASPNETCORE_URLS environment variable&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt; ASPNETCORE_URLS=&amp;quot;http://*:5000&amp;quot; dotnet Your.App.dll
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="create-the-service-file"&gt;Create the service file&lt;/h1&gt;
+&lt;p&gt;add a symlink for dotnet to limit the changes to the service file&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt;sudo ln -s /opt/dotnet/dotnet /usr/bin/dotnet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
+&lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
 		<id>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</id>
 		<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
 		<link href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
@@ -863,31 +915,5 @@ Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
 You should now have a working nginx server running PHP scripts, next time I will setup piwik so you can monitor the traffic to your website.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<id>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</id>
-		<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
-		<link href="http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx" />
-		<updated>2017-02-21T00:00:00Z</updated>
-		<content>&lt;h1 id="running-asp.net-core-on-a-raspberrypi-2-with-nginx"&gt;Running ASP.NET Core on a RaspberryPi 2 with Nginx&lt;/h1&gt;
-&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;
-&lt;h1 id="prerequisites"&gt;prerequisites&lt;/h1&gt;
-&lt;p&gt;the &lt;a href="https://github.com/dotnet/core/blob/master/Documentation/prereqs.md"&gt;prerequisites&lt;/a&gt; are required or you will get an error like:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt;Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /var/www/PublishOutput/libcoreclr.so'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;chmod 744?&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id="tell-kestrel-to-listen"&gt;Tell Kestrel to listen&lt;/h1&gt;
-&lt;p&gt;If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the &lt;code&gt;ASPNETCORE_URLS environment variable&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt; ASPNETCORE_URLS=&amp;quot;http://*:5000&amp;quot; dotnet Your.App.dll
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="create-the-service-file"&gt;Create the service file&lt;/h1&gt;
-&lt;p&gt;add a symlink for dotnet to limit the changes to the service file&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt;sudo ln -s /opt/dotnet/dotnet /usr/bin/dotnet
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
-&lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</summary>
 	</entry>
 </feed>
