@@ -5,17 +5,51 @@
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
 		<copyright>2020</copyright>
-		<pubDate>Mon, 14 Sep 2020 10:09:58 GMT</pubDate>
-		<lastBuildDate>Mon, 14 Sep 2020 10:09:58 GMT</lastBuildDate>
+		<pubDate>Mon, 14 Sep 2020 19:33:57 GMT</pubDate>
+		<lastBuildDate>Mon, 14 Sep 2020 19:33:57 GMT</lastBuildDate>
 		<item>
 			<title>How to Setup ASP.NET Core Health Check UI</title>
 			<link>http://blog.mark-burton.com/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui</link>
 			<description>&lt;p&gt;In &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Part one&lt;/a&gt; we setup the health check endpoints, now to add a frontend.&lt;/p&gt;</description>
-			<enclosure url="http://blog.mark-burton.com/assets/Images/healthchecksui.png" length="0" type="image" />
 			<guid>http://blog.mark-burton.com/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui</guid>
 			<pubDate>Thu, 10 Sep 2020 10:31:00 GMT</pubDate>
 			<content:encoded>&lt;p&gt;In &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Part one&lt;/a&gt; we setup the health check endpoints, now to add a frontend.&lt;/p&gt;
 &lt;p&gt;The &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Health Checks UI&lt;/a&gt; is best hosted in its own service as it can consolidate health checks for a number of services.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/Images/HealthChecksUI.png" class="img-fluid img-responsive" alt="Swagger CORS error" /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;    &amp;lt;PackageReference Include=&amp;quot;AspNetCore.HealthChecks.UI&amp;quot; Version=&amp;quot;$(AspNetCoreHealthChecksUIVersion)&amp;quot; /&amp;gt;
+    &amp;lt;PackageReference Include=&amp;quot;AspNetCore.HealthChecks.UI.InMemory.Storage&amp;quot; Version=&amp;quot;$(AspNetCoreHealthChecksUIVersion)&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;&amp;lt;AspNetCoreHealthChecksUIVersion&amp;gt;3.1.1&amp;lt;/AspNetCoreHealthChecksUIVersion&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-c#"&gt;        public void ConfigureServices(IServiceCollection services)
+        {
+            services
+                .AddHealthChecksUI()
+                .AddInMemoryStorage();
+            services.AddControllers();
+        }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-c#"&gt;        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseHealthChecksUI(config =&amp;gt; config.UIPath = &amp;quot;/hc-ui&amp;quot;);
+
+            app.UseEndpoints(endpoints =&amp;gt;
+            {
+                endpoints.MapControllers();
+            });
+        }
+&lt;/code&gt;&lt;/pre&gt;
 </content:encoded>
 		</item>
 		<item>
@@ -193,39 +227,6 @@ Error: An error occurred trying to download 'https://myurl.com/MyAppFolder/setup
 </content:encoded>
 		</item>
 		<item>
-			<title>Using Netlify Identity with NetlifyCMS and Wyam</title>
-			<link>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</link>
-			<description>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;</description>
-			<guid>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</guid>
-			<pubDate>Fri, 09 Mar 2018 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;
-&lt;h2 id="set-registration-preference-and-external-providers"&gt;Set registration preference and external providers&lt;/h2&gt;
-&lt;p&gt;Registration settings and External providers are located in settings under Identity
-&lt;img src="../assets/Images/Netlify_Site_Settings.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Reg_pref_providers.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;h3 id="enable-git-gateway-in-netlify"&gt;Enable Git Gateway in Netlify&lt;/h3&gt;
-&lt;p&gt;Your CMS users are likely to not have Github logins, so enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github.
-It is explained further in the &lt;a href="https://www.netlify.com/docs/git-gateway/"&gt;Netlify Docs on Git Gateway&lt;/a&gt;
-The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings.
-&lt;img src="../assets/Images/Netlify_Git_Gateway.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;h2 id="make-it-easy-for-user-to-complete-signup-by-adding-netlify-identity-widget-to-the-site"&gt;Make it easy for user to complete signup by adding Netlify Identity Widget to the site&lt;/h2&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-sm-8"&gt;&lt;p&gt;The email inviting a user to use the CMS links to the homepage with a invite token in the URL, if you do not follow this step the user will be left looking at the homepage not understanding why they are there or what they should do next.&lt;/p&gt;
-&lt;p&gt;Add the &lt;a href="https://github.com/netlify/netlify-identity-widget"&gt;netlify-identity-widget&lt;/a&gt;
-to your layout/homepage, you can just add the following to the body of your layout page&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://identity.netlify.com/v1/netlify-identity-widget.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now when the user hits the homepage with the &lt;code&gt;/#invite_token=&lt;/code&gt; in the URL the complete signup modal will appear.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-sm-4"&gt;&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Complete_Signup.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id="invite-some-users"&gt;Invite some users&lt;/h3&gt;
-&lt;p&gt;Might be best to come back to this step after setting the registration preferences
-&lt;img src="../assets/Images/Netlify_Identity_Invite_Users.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-</content:encoded>
-		</item>
-		<item>
 			<title>Setting up NetlifyCMS with Wyam - Part 3</title>
 			<link>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3</link>
 			<description>&lt;p&gt;To get started with a simple NetlifyCMS setup without the editorial workflow you can use the &lt;a href="https://wyam.io/docs/deployment/appveyor"&gt;AppVeyor for Continuous Integration&lt;/a&gt; Wyam document.&lt;/p&gt;</description>
@@ -279,6 +280,39 @@ Command exited with code 128
 &lt;li&gt;show the correct logged/logged out menu based on &lt;a href="https://github.com/netlify/netlify-identity-widget"&gt;Netlify Identity Widget&lt;/a&gt; events and user object.&lt;/li&gt;
 &lt;li&gt;how to populate the author field from the Netlify Identity metadata.&lt;/li&gt;
 &lt;/ul&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>Using Netlify Identity with NetlifyCMS and Wyam</title>
+			<link>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</link>
+			<description>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;</description>
+			<guid>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</guid>
+			<pubDate>Fri, 09 Mar 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;
+&lt;h2 id="set-registration-preference-and-external-providers"&gt;Set registration preference and external providers&lt;/h2&gt;
+&lt;p&gt;Registration settings and External providers are located in settings under Identity
+&lt;img src="../assets/Images/Netlify_Site_Settings.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Reg_pref_providers.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;h3 id="enable-git-gateway-in-netlify"&gt;Enable Git Gateway in Netlify&lt;/h3&gt;
+&lt;p&gt;Your CMS users are likely to not have Github logins, so enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github.
+It is explained further in the &lt;a href="https://www.netlify.com/docs/git-gateway/"&gt;Netlify Docs on Git Gateway&lt;/a&gt;
+The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings.
+&lt;img src="../assets/Images/Netlify_Git_Gateway.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;h2 id="make-it-easy-for-user-to-complete-signup-by-adding-netlify-identity-widget-to-the-site"&gt;Make it easy for user to complete signup by adding Netlify Identity Widget to the site&lt;/h2&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-sm-8"&gt;&lt;p&gt;The email inviting a user to use the CMS links to the homepage with a invite token in the URL, if you do not follow this step the user will be left looking at the homepage not understanding why they are there or what they should do next.&lt;/p&gt;
+&lt;p&gt;Add the &lt;a href="https://github.com/netlify/netlify-identity-widget"&gt;netlify-identity-widget&lt;/a&gt;
+to your layout/homepage, you can just add the following to the body of your layout page&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://identity.netlify.com/v1/netlify-identity-widget.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now when the user hits the homepage with the &lt;code&gt;/#invite_token=&lt;/code&gt; in the URL the complete signup modal will appear.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-sm-4"&gt;&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Complete_Signup.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id="invite-some-users"&gt;Invite some users&lt;/h3&gt;
+&lt;p&gt;Might be best to come back to this step after setting the registration preferences
+&lt;img src="../assets/Images/Netlify_Identity_Invite_Users.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
 </content:encoded>
 		</item>
 		<item>
@@ -756,6 +790,36 @@ Returns - Func&amp;lt;int, int, int&amp;gt; add = (x, y) =&amp;gt; { return x + 
 </content:encoded>
 		</item>
 		<item>
+			<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
+			<link>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</link>
+			<description>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</description>
+			<guid>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</guid>
+			<pubDate>Tue, 21 Feb 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
+&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
+&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+To fix this it is necessary to open Tools -&gt; Extensions and Updates...
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
+&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
 			<title>Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack</title>
 			<link>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</link>
 			<description>&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;</description>
@@ -825,36 +889,6 @@ You should now have a working nginx server running PHP scripts, next time I will
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
 &lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
-</content:encoded>
-		</item>
-		<item>
-			<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
-			<link>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</link>
-			<description>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</description>
-			<guid>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</guid>
-			<pubDate>Tue, 21 Feb 2017 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
-&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
-&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-To fix this it is necessary to open Tools -&gt; Extensions and Updates...
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
-&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
 </content:encoded>
 		</item>
 	</channel>

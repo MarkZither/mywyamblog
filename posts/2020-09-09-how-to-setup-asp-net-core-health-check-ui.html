@@ -113,7 +113,7 @@ if ('serviceWorker' in navigator) {
                 </nav>
                 
                 <!-- Page Header -->
-                <header class="intro-header" id="intro-header" style="background-image: url(&quot;/assets/Images/healthchecksui.png&quot;)">
+                <header class="intro-header" id="intro-header" style="background-image: url(&quot;&quot;)">
                         <div class="container">
                                 <div class="row">
                                         <div class="col-md-12">
@@ -142,6 +142,41 @@ Published on Thursday, September 10, 2020<br>        <a href="http://blog.mark-b
 
 <p>In <a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port">Part one</a> we setup the health check endpoints, now to add a frontend.</p>
 <p>The <a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port">Health Checks UI</a> is best hosted in its own service as it can consolidate health checks for a number of services.</p>
+<p><img src="/assets/Images/HealthChecksUI.png" class="img-fluid img-responsive" alt="Swagger CORS error" /></p>
+<pre><code class="language-xml">    &lt;PackageReference Include=&quot;AspNetCore.HealthChecks.UI&quot; Version=&quot;$(AspNetCoreHealthChecksUIVersion)&quot; /&gt;
+    &lt;PackageReference Include=&quot;AspNetCore.HealthChecks.UI.InMemory.Storage&quot; Version=&quot;$(AspNetCoreHealthChecksUIVersion)&quot; /&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;AspNetCoreHealthChecksUIVersion&gt;3.1.1&lt;/AspNetCoreHealthChecksUIVersion&gt;
+</code></pre>
+<pre><code class="language-c#">        public void ConfigureServices(IServiceCollection services)
+        {
+            services
+                .AddHealthChecksUI()
+                .AddInMemoryStorage();
+            services.AddControllers();
+        }
+</code></pre>
+<pre><code class="language-c#">        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseHealthChecksUI(config =&gt; config.UIPath = &quot;/hc-ui&quot;);
+
+            app.UseEndpoints(endpoints =&gt;
+            {
+                endpoints.MapControllers();
+            });
+        }
+</code></pre>
 
 
 <ul class="share-buttons">
