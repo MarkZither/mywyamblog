@@ -5,8 +5,88 @@
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
 		<copyright>2020</copyright>
-		<pubDate>Tue, 15 Sep 2020 07:48:39 GMT</pubDate>
-		<lastBuildDate>Tue, 15 Sep 2020 07:48:39 GMT</lastBuildDate>
+		<pubDate>Tue, 15 Sep 2020 09:11:39 GMT</pubDate>
+		<lastBuildDate>Tue, 15 Sep 2020 09:11:39 GMT</lastBuildDate>
+		<item>
+			<title>How to Setup ASP.NET Core Health Check UI</title>
+			<link>http://blog.mark-burton.com/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui</link>
+			<description>&lt;p&gt;In &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Part one&lt;/a&gt; we setup the health check endpoints, now to add a frontend.&lt;/p&gt;</description>
+			<guid>http://blog.mark-burton.com/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui</guid>
+			<pubDate>Thu, 10 Sep 2020 10:31:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;In &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Part one&lt;/a&gt; we setup the health check endpoints, now to add a frontend.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port"&gt;Health Checks UI&lt;/a&gt; is best hosted in its own service as it can consolidate health checks for a number of services.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/Images/HealthChecksUI.png" class="img-fluid img-responsive" alt="Swagger CORS error" /&gt;&lt;/p&gt;
+&lt;p&gt;Adding the HealthChecks UI to the service involves adding 2 nuget packages, the main &lt;code&gt;AspNetCore.HealthChecks.UI&lt;/code&gt; package and a storage provider, initially I have used the InMemory storage provider as I do not have the need to see historical data. There are also providers various databases including SqlServer and SQLite which can be used to persist the data.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;    &amp;lt;PackageReference Include=&amp;quot;AspNetCore.HealthChecks.UI&amp;quot; Version=&amp;quot;$(AspNetCoreHealthChecksUIVersion)&amp;quot; /&amp;gt;
+    &amp;lt;PackageReference Include=&amp;quot;AspNetCore.HealthChecks.UI.InMemory.Storage&amp;quot; Version=&amp;quot;$(AspNetCoreHealthChecksUIVersion)&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As the HealthChecks nuget packages will be used across all projects I have set the version numbers centrally in &lt;a href="https://github.com/MarkZither/SwaggerAndHealthCheckBlog/blob/master/Directory.Build.props"&gt;Directory.Build.props&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;&amp;lt;AspNetCoreHealthChecksUIVersion&amp;gt;3.1.1&amp;lt;/AspNetCoreHealthChecksUIVersion&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The HealthChecks UI can now be added to &lt;code&gt;ConfigureServices&lt;/code&gt; and &lt;code&gt;Configure&lt;/code&gt; in &lt;a href="https://github.com/MarkZither/SwaggerAndHealthCheckBlog/blob/master/src/MonitoringService/Startup.cs"&gt;Startup.cs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As I want to limit the access to the UI in the same way as I did for the HealthCheck endpoints I have the service listening on multiple ports and use &lt;code&gt;RequireHost&lt;/code&gt; when configuring the endpoints to ensure the UI is only accessible internally.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c#"&gt;public void ConfigureServices(IServiceCollection services)
+{
+    services
+        .AddHealthChecksUI()
+        .AddInMemoryStorage();
+    services.AddControllers();
+}
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    app.UseHealthChecksUI();
+    
+    app.UseEndpoints(endpoints =&amp;gt;
+        
+    {
+        endpoints.MapControllers();
+        endpoints.MapHealthChecksUI(config =&amp;gt; {
+            config.UIPath = &amp;quot;/hc-ui&amp;quot;;
+            }).RequireHost($&amp;quot;*:{Configuration[&amp;quot;ManagementPort&amp;quot;]}&amp;quot;);
+        });
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally we need to tell the UI where to read the HealthChecks from, this can either be done in a configuration file&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;...
+  &amp;quot;https_port&amp;quot;: 1131,
+  &amp;quot;Urls&amp;quot;: &amp;quot;http://localhost:1130;https://localhost:1131;https://localhost:1132&amp;quot;,
+  &amp;quot;ManagementPort&amp;quot;: &amp;quot;1132&amp;quot;,
+  &amp;quot;AllowedHosts&amp;quot;: &amp;quot;*&amp;quot;,
+  &amp;quot;HealthChecks-UI&amp;quot;: {
+    &amp;quot;HealthChecks&amp;quot;: [
+      {
+        &amp;quot;Name&amp;quot;: &amp;quot;LoginService Check&amp;quot;,
+        &amp;quot;Uri&amp;quot;: &amp;quot;https://localhost:1116/hc&amp;quot;
+      },
+      {
+        &amp;quot;Name&amp;quot;: &amp;quot;ResourceService Check&amp;quot;,
+        &amp;quot;Uri&amp;quot;: &amp;quot;https://localhost:5002/hc&amp;quot;
+      },
+      {
+        &amp;quot;Name&amp;quot;: &amp;quot;NotificationService Check&amp;quot;,
+        &amp;quot;Uri&amp;quot;: &amp;quot;https://localhost:1179/hc&amp;quot;
+      }
+    ]
+  }
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or in code by adding settings to the &lt;code&gt;AddHealthChecksUI&lt;/code&gt; method.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c#"&gt;services.AddHealthChecksUI(setupSettings: settings =&amp;gt;
+                    {
+                        settings
+                            .DisableDatabaseMigrations()
+                            .AddHealthCheckEndpoint(name: healthCheckName, uri: healthCheckUri)
+                            .AddWebhookNotification(name: webhookName, uri: webhookUri, payload: webhookPayload,
+                                restorePayload: webhookRestorePayload)
+                            .SetEvaluationTimeInSeconds(evaluationTimeInSeconds)
+                            .SetMinimumSecondsBetweenFailureNotifications(minimumSeconds);
+                    }).AddInMemoryStorage();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can get the full working demo from &lt;a href="https://github.com/MarkZither/SwaggerAndHealthCheckBlog"&gt;my GitHub repo&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>Secure Swagger on ASP.NET Core by address and port</title>
 			<link>http://blog.mark-burton.com/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port</link>

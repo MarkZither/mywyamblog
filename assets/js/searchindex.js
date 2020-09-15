@@ -24,15 +24,15 @@ var searchModule = function() {
     a(
         {
             id:1,
-            title:"Experimenting YARP Reverse Proxy",
+            title:"Setup ASP NET Core Health Check UI",
             content:"ASP NET Core",
-            description:"YARP reverse proxy toolkit building fast proxy servers NET using infrastructure ASP NET NET",
+            description:'',
             tags:'ASP.NET Core'
         },
         {
-            url:'/posts/2020-09-14-experimenting-with-yarp-a-reverse-proxy',
-            title:"Experimenting with YARP: A Reverse Proxy",
-            description:"YARP is a reverse proxy toolkit for building fast proxy servers in .NET using the infrastructure from ASP.NET and .NET."
+            url:'/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui',
+            title:"How to Setup ASP.NET Core Health Check UI",
+            description:""
         }
     );
     a(
