@@ -13,51 +13,48 @@ The [Health Checks UI](2020-09-08-secure-asp.net-core-health-checks-to-a-specifi
 
 ![Swagger CORS error](/assets/Images/HealthChecksUI.png){.img-fluid .img-responsive}
 
+Adding the HealthChecks UI to the service involves adding 2 nuget packages, the main `AspNetCore.HealthChecks.UI` package and a storage provider, initially I have used the InMemory storage provider as I do not have the need to see historical data. There are also providers various databases including SqlServer and SQLite which can be used to persist the data.
+
 ``` xml
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="$(AspNetCoreHealthChecksUIVersion)" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="$(AspNetCoreHealthChecksUIVersion)" />
 ```
 
+As the HealthChecks nuget packages will be used across all projects I have set the version numbers centrally in [Directory.Build.props](https://github.com/MarkZither/SwaggerAndHealthCheckBlog/blob/master/Directory.Build.props).
+
 ``` xml
 <AspNetCoreHealthChecksUIVersion>3.1.1</AspNetCoreHealthChecksUIVersion>
 ```
 
+The HealthChecks UI can now be added to `ConfigureServices` and `Configure` in [Startup.cs](https://github.com/MarkZither/SwaggerAndHealthCheckBlog/blob/master/src/MonitoringService/Startup.cs). 
+
+As I want to limit the access to the UI in the same way as I did for the HealthCheck endpoints I have the service listening on multiple ports and use `RequireHost` when configuring the endpoints to ensure the UI is only accessible internally.
 
 ``` c#
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services
-                .AddHealthChecksUI()
-                .AddInMemoryStorage();
-            services.AddControllers();
-        }
+public void ConfigureServices(IServiceCollection services)
+{
+    services
+        .AddHealthChecksUI()
+        .AddInMemoryStorage();
+    services.AddControllers();
+}
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    app.UseHealthChecksUI();
+    
+    app.UseEndpoints(endpoints =>        
+    {
+        endpoints.MapControllers();
+        endpoints.MapHealthChecksUI(config => {
+            config.UIPath = "/hc-ui";
+            }).RequireHost($"*:{Configuration["ManagementPort"]}");
+        });
+    }
+}
 ```
 
-``` c#
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseHealthChecksUI() ;
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-                endpoints.MapHealthChecksUI(config => {
-                    config.UIPath = "/hc-ui";
-                }).RequireHost($"*:{Configuration["ManagementPort"]}");
-            });
-        }
-```
+Finally we need to tell the UI where to read the HealthChecks from, this can either be done in a configuration file 
 
 ``` json
 ...
@@ -83,3 +80,20 @@ The [Health Checks UI](2020-09-08-secure-asp.net-core-health-checks-to-a-specifi
   }
 ...
 ```
+
+or in code by adding settings to the `AddHealthChecksUI` method.
+
+``` c#
+services.AddHealthChecksUI(setupSettings: settings =>
+                    {
+                        settings
+                            .DisableDatabaseMigrations()
+                            .AddHealthCheckEndpoint(name: healthCheckName, uri: healthCheckUri)
+                            .AddWebhookNotification(name: webhookName, uri: webhookUri, payload: webhookPayload,
+                                restorePayload: webhookRestorePayload)
+                            .SetEvaluationTimeInSeconds(evaluationTimeInSeconds)
+                            .SetMinimumSecondsBetweenFailureNotifications(minimumSeconds);
+                    }).AddInMemoryStorage();
+```
+
+You can get the full working demo from [my GitHub repo](https://github.com/MarkZither/SwaggerAndHealthCheckBlog).
