@@ -9,3 +9,18 @@ Tags:
   - Reverse Proxy
 ---
 don't add a single transformation, it must be in [] or you will get no transformations and lots of confusion.
+
+``` json
+      {
+        "RouteId": "NotificationServiceRoute",
+        "ClusterId": "clusterNotificationService",
+        "Match": {
+          "Path": "/notificationservice/{*remainder}"
+        },
+        "Transforms": [
+          {
+            "PathRemovePrefix": "/notificationservice"
+          }
+        ]
+      },
+```
