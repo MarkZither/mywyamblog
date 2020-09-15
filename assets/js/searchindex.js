@@ -10,6 +10,20 @@ var searchModule = function() {
     a(
         {
             id:0,
+            title:"Secure Swagger ASP NET Core address port",
+            content:"ASP NET Core",
+            description:'',
+            tags:'ASP.NET Core'
+        },
+        {
+            url:'/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port',
+            title:"Secure Swagger on ASP.NET Core by address and port",
+            description:""
+        }
+    );
+    a(
+        {
+            id:1,
             title:"Experimenting YARP Reverse Proxy",
             content:"ASP NET Core",
             description:"YARP reverse proxy toolkit building fast proxy servers NET using infrastructure ASP NET NET",
@@ -23,7 +37,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:1,
+            id:2,
             title:"Job Interview Technical Test Preparation",
             content:"ASP NET Core",
             description:'',
@@ -37,7 +51,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:2,
+            id:3,
             title:"Resolving System NotSupportedException data available encoding net Core",
             content:"NET Core",
             description:'',
@@ -51,7 +65,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:3,
+            id:4,
             title:"Playing Service Workers",
             content:"Service Workers",
             description:'',
@@ -65,7 +79,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:4,
+            id:5,
             title:"Setting up Raspberry Pi NGINX PHP MySQL LEMP Stack",
             content:"Raspberry Pi",
             description:'',
@@ -79,7 +93,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:5,
+            id:6,
             title:"Setting up NetlifyCMS Wyam Part",
             content:"Wyam",
             description:"Configuring simple single user mode NetlifyCMS Wyam",
@@ -88,20 +102,6 @@ var searchModule = function() {
         {
             url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-1',
             title:"Setting up NetlifyCMS with Wyam - Part 1",
-            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
-        }
-    );
-    a(
-        {
-            id:6,
-            title:"Setting up NetlifyCMS Wyam Part",
-            content:"Wyam",
-            description:"Configuring simple single user mode NetlifyCMS Wyam",
-            tags:'Wyam'
-        },
-        {
-            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
-            title:"Setting up NetlifyCMS with Wyam - Part 3",
             description:"Configuring a simple single user mode NetlifyCMS with Wyam"
         }
     );
@@ -136,28 +136,28 @@ var searchModule = function() {
     a(
         {
             id:9,
-            title:"Test blog post docs",
-            content:"NetlifyCMS",
-            description:"blog post written NetlifyCMS",
-            tags:'NetlifyCMS'
+            title:"Secure ASP NET Core Health Checks specific port",
+            content:"ASP NET Core",
+            description:"Health Checks ASP NET Core give valuable insights health services includes sensitive data leaked externally",
+            tags:'ASP.NET Core'
         },
         {
-            url:'/posts/2018-02-11-test-blog-post-for-docs',
-            title:"Test blog post for docs",
-            description:"This blog post was written in NetlifyCMS"
+            url:'/posts/2020-09-08-Secure-ASP.NET-Core-Health-Checks-to-a-specific-port',
+            title:"Secure ASP.NET Core Health Checks to a specific port",
+            description:"Health Checks in ASP.NET Core can give valuable insights into the health of services, but that includes sensitive data that should not be leaked externally."
         }
     );
     a(
         {
             id:10,
-            title:"Secure Swagger ASP NET Core address port",
+            title:"Setup ASP NET Core Health Check UI",
             content:"ASP NET Core",
             description:'',
             tags:'ASP.NET Core'
         },
         {
-            url:'/posts/2020-09-08-secure-swagger-on-asp-net-core-by-address-and-port',
-            title:"Secure Swagger on ASP.NET Core by address and port",
+            url:'/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui',
+            title:"How to Setup ASP.NET Core Health Check UI",
             description:""
         }
     );
@@ -234,29 +234,29 @@ var searchModule = function() {
     a(
         {
             id:16,
-            title:"Secure ASP NET Core Health Checks specific port",
-            content:"ASP NET Core",
-            description:"Health Checks ASP NET Core give valuable insights health services includes sensitive data leaked externally",
-            tags:'ASP.NET Core'
+            title:"Setting up NetlifyCMS Wyam Part",
+            content:"Wyam",
+            description:"Configuring simple single user mode NetlifyCMS Wyam",
+            tags:'Wyam'
         },
         {
-            url:'/posts/2020-09-08-Secure-ASP.NET-Core-Health-Checks-to-a-specific-port',
-            title:"Secure ASP.NET Core Health Checks to a specific port",
-            description:"Health Checks in ASP.NET Core can give valuable insights into the health of services, but that includes sensitive data that should not be leaked externally."
+            url:'/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3',
+            title:"Setting up NetlifyCMS with Wyam - Part 3",
+            description:"Configuring a simple single user mode NetlifyCMS with Wyam"
         }
     );
     a(
         {
             id:17,
-            title:"Setup ASP NET Core Health Check UI",
-            content:"ASP NET Core",
-            description:'',
-            tags:'ASP.NET Core'
+            title:"Test blog post docs",
+            content:"NetlifyCMS",
+            description:"blog post written NetlifyCMS",
+            tags:'NetlifyCMS'
         },
         {
-            url:'/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui',
-            title:"How to Setup ASP.NET Core Health Check UI",
-            description:""
+            url:'/posts/2018-02-11-test-blog-post-for-docs',
+            title:"Test blog post for docs",
+            description:"This blog post was written in NetlifyCMS"
         }
     );
     var idx = lunr(function() {
