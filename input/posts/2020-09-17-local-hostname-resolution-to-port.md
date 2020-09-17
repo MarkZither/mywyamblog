@@ -17,15 +17,15 @@ This I adapted from the stackoverflow answer [Using port number in Windows host 
 
 There are several way to do this, the quickest is probably just to add entries to the host file, another way is to install Unbound or if you are lucky enough to have a local Active Directory server you can configure it there (although that won't work while you are on other networks).
 
-It is not possible to make this work on 127.0.0.1, however the entire block 127/8 is reserved for local loopback so any other 127.n.n.n address will work {.alert-danger}
+It is not possible to make this work on 127.0.0.1, however the entire block 127/8 is reserved for local loopback so any other 127.n.n.n address will work, more interesting reading about that on [stackoverflow](https://serverfault.com/questions/157496/why-is-loopback-ip-address-from-127-0-0-1-to-127-255-255-254) and in [RFC 1700](https://www.ietf.org/rfc/rfc3330.txt) {.alert-danger}
 
 ### Hosts file
 
 Add a new entry for each service to the `hosts` file in `C:\Windows\System32\drivers\etc\`.
 
 ``` cmd
-    127.0.0.2       mailhog
-    127.0.0.3       git.local
+    127.0.0.2       mailhog.localhost
+    127.0.0.3       git.localhost
 ```
 
 ### Unbound
@@ -33,6 +33,16 @@ Add a new entry for each service to the `hosts` file in `C:\Windows\System32\dri
 Install [Unbound](https://nlnetlabs.nl/projects/unbound/download/).
 
 Add entries to `service.conf` by default on Windows that is in `C:\Program Files\Unbound`
+
+``` cmd
+server:
+    
+    local-data: "mailhog.localhost A 127.0.0.2"
+    local-data-ptr: "127.0.0.2 mailhog.localhost"
+    local-data: "git.localhost A 127.0.0.3"
+    local-data-ptr: "127.0.0.3 git.localhost"
+    
+```
 
 Restart the service to make sure the new settings are used.
 
@@ -52,10 +62,15 @@ netsh interface portproxy add v4tov4 listenport=80 listenaddress=mailhog connect
 netsh interface portproxy add v4tov4 listenport=80 listenaddress=git.local connectport=3005 connectaddress=127.0.0.3
 ```
 
-I still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally.
+Between the 16 million loopback addresses and 65 thousand (48k usable according to [TCP/IP number usage] and the Microsoft article [Port Exhaustion and You]) ports that leaves us a whole lot of services we can address on a single machine. {.alert-information}
+
+I still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally. I also need to understand the exact equivalence of127.0.0.0/8 and::1/128.
+
 netsh interface portproxy add v6tov4 listenport=80 listenaddress {IPv6Address | HostName} \[connectaddress=] {IPv4Address | HostName} \[[connectport=] {Integer | ServiceName}] \[[listenaddress=] {IPv6Address | HostName} \[[protocol=]tcp]
 
 Full [Network Shell (netsh) documentation](https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-interface-portproxy) on Microsoft docs.
 
 ## References
 [Using port number in Windows host file]: https://stackoverflow.com/a/36646749/7400768
+[TCP/IP number usage]: https://stackoverflow.com/questions/113224/what-is-the-largest-tcp-ip-network-port-number-allowable-for-ipv4
+[Port Exhaustion and You]: https://docs.microsoft.com/en-us/archive/blogs/askds/port-exhaustion-and-you-or-why-the-netstat-tool-is-your-friend
