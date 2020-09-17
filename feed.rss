@@ -5,8 +5,8 @@
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
 		<copyright>2020</copyright>
-		<pubDate>Thu, 17 Sep 2020 13:32:41 GMT</pubDate>
-		<lastBuildDate>Thu, 17 Sep 2020 13:32:41 GMT</lastBuildDate>
+		<pubDate>Thu, 17 Sep 2020 22:05:49 GMT</pubDate>
+		<lastBuildDate>Thu, 17 Sep 2020 22:05:49 GMT</lastBuildDate>
 		<item>
 			<title>Experimenting with YARP: A Reverse Proxy</title>
 			<link>http://blog.mark-burton.com/posts/2020-09-14-experimenting-with-yarp-a-reverse-proxy</link>
@@ -322,15 +322,23 @@ Error: An error occurred trying to download 'https://myurl.com/MyAppFolder/setup
 &lt;p&gt;This I adapted from the stackoverflow answer &lt;a href="https://stackoverflow.com/a/36646749/7400768"&gt;Using port number in Windows host file&lt;/a&gt;, there are a number of options proposed in answer to the question including using nginx or apache to act as a reverse proxy or running fiddler all the time to proxy the requests. I chose the netsh approach since we already make use of netsh so thought it would be good to understand it more and it is all built into Windows.&lt;/p&gt;
 &lt;h2 id="setting-up-the-local-dns"&gt;Setting up the local DNS&lt;/h2&gt;
 &lt;p&gt;There are several way to do this, the quickest is probably just to add entries to the host file, another way is to install Unbound or if you are lucky enough to have a local Active Directory server you can configure it there (although that won't work while you are on other networks).&lt;/p&gt;
-&lt;p class="alert-danger"&gt;It is not possible to make this work on 127.0.0.1, however the entire block 127/8 is reserved for local loopback so any other 127.n.n.n address will work &lt;/p&gt;
+&lt;p class="alert-danger"&gt;It is not possible to make this work on 127.0.0.1, however the entire block 127/8 is reserved for local loopback so any other 127.n.n.n address will work, more interesting reading about that on &lt;a href="https://serverfault.com/questions/157496/why-is-loopback-ip-address-from-127-0-0-1-to-127-255-255-254"&gt;stackoverflow&lt;/a&gt; and in &lt;a href="https://www.ietf.org/rfc/rfc3330.txt"&gt;RFC 1700&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="hosts-file"&gt;Hosts file&lt;/h3&gt;
 &lt;p&gt;Add a new entry for each service to the &lt;code&gt;hosts&lt;/code&gt; file in &lt;code&gt;C:\Windows\System32\drivers\etc\&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-cmd"&gt;    127.0.0.2       mailhog
-    127.0.0.3       git.local
+&lt;pre&gt;&lt;code class="language-cmd"&gt;    127.0.0.2       mailhog.localhost
+    127.0.0.3       git.localhost
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id="unbound"&gt;Unbound&lt;/h3&gt;
 &lt;p&gt;Install &lt;a href="https://nlnetlabs.nl/projects/unbound/download/"&gt;Unbound&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Add entries to &lt;code&gt;service.conf&lt;/code&gt; by default on Windows that is in &lt;code&gt;C:\Program Files\Unbound&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-cmd"&gt;server:
+    
+    local-data: &amp;quot;mailhog.localhost A 127.0.0.2&amp;quot;
+    local-data-ptr: &amp;quot;127.0.0.2 mailhog.localhost&amp;quot;
+    local-data: &amp;quot;git.localhost A 127.0.0.3&amp;quot;
+    local-data-ptr: &amp;quot;127.0.0.3 git.localhost&amp;quot;
+    
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Restart the service to make sure the new settings are used.&lt;/p&gt;
 &lt;p&gt;Add &lt;code&gt;127.0.0.1&lt;/code&gt; at the top of the list of DNS servers in network settings.&lt;/p&gt;
 &lt;p&gt;&lt;img src="../assets/Images/local_dns_with_unbound_network_settings.png" class="img-fluid" alt="Network settings with 127.0.0.1 as DNS server" /&gt;&lt;/p&gt;
@@ -342,8 +350,9 @@ netsh interface portproxy add v4tov4 listenport=80 listenaddress=127.0.0.3 conne
 &lt;pre&gt;&lt;code&gt;netsh interface portproxy add v4tov4 listenport=80 listenaddress=mailhog connectport=8025 connectaddress=127.0.0.2  
 netsh interface portproxy add v4tov4 listenport=80 listenaddress=git.local connectport=3005 connectaddress=127.0.0.3
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally.
-netsh interface portproxy add v6tov4 listenport=80 listenaddress {IPv6Address | HostName} [connectaddress=] {IPv4Address | HostName} [[connectport=] {Integer | ServiceName}] [[listenaddress=] {IPv6Address | HostName} [[protocol=]tcp]&lt;/p&gt;
+&lt;p class="alert-information"&gt;Between the 16 million loopback addresses and 65 thousand (48k usable according to &lt;a href="https://stackoverflow.com/questions/113224/what-is-the-largest-tcp-ip-network-port-number-allowable-for-ipv4"&gt;TCP/IP number usage&lt;/a&gt; and the Microsoft article &lt;a href="https://docs.microsoft.com/en-us/archive/blogs/askds/port-exhaustion-and-you-or-why-the-netstat-tool-is-your-friend"&gt;Port Exhaustion and You&lt;/a&gt;) ports that leaves us a whole lot of services we can address on a single machine. &lt;/p&gt;
+&lt;p&gt;I still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally. I also need to understand the exact equivalence of127.0.0.0/8 and::1/128.&lt;/p&gt;
+&lt;p&gt;netsh interface portproxy add v6tov4 listenport=80 listenaddress {IPv6Address | HostName} [connectaddress=] {IPv4Address | HostName} [[connectport=] {Integer | ServiceName}] [[listenaddress=] {IPv6Address | HostName} [[protocol=]tcp]&lt;/p&gt;
 &lt;p&gt;Full &lt;a href="https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-interface-portproxy"&gt;Network Shell (netsh) documentation&lt;/a&gt; on Microsoft docs.&lt;/p&gt;
 &lt;h2 id="references"&gt;References&lt;/h2&gt;
 </content:encoded>
