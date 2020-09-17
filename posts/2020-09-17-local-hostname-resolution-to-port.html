@@ -143,14 +143,14 @@ Published on Friday, November 30, 2018<br>        <a href="http://blog.mark-burt
                                         
 
 <h1 id="adding-friendly-local-urls-for-services">Adding friendly local URLs for services</h1>
-<p>How i setup <a href="https://github.com/mailhog/MailHog">mailhog</a> to run in docker with exposed port 8025 to be accessible on http://mailhog and a local <a href="https://gitea.io/en-us/">Gitea</a></p>
-<p>This i adapted from the stackoverflow answer <a href="https://stackoverflow.com/a/36646749/7400768">Using port number in Windows host file</a>, there are a number of options proposed in answer to the question including using nginx or apache to act as a reverse proxy or running fiddler all the time to proxy the requests. I chose the netsh approach since we already make use of netsh so thought it would be good to understand it more and it is all built into Windows.</p>
+<p>How I setup <a href="https://github.com/mailhog/MailHog">mailhog</a> to run in docker with exposed port 8025 to be accessible on http://mailhog and a local <a href="https://gitea.io/en-us/">Gitea</a></p>
+<p>This I adapted from the stackoverflow answer <a href="https://stackoverflow.com/a/36646749/7400768">Using port number in Windows host file</a>, there are a number of options proposed in answer to the question including using nginx or apache to act as a reverse proxy or running fiddler all the time to proxy the requests. I chose the netsh approach since we already make use of netsh so thought it would be good to understand it more and it is all built into Windows.</p>
 <h2 id="setting-up-the-local-dns">Setting up the local DNS</h2>
 <p>There are several way to do this, the quickest is probably just to add entries to the host file, another way is to install Unbound or if you are lucky enough to have a local Active Directory server you can configure it there (although that won't work while you are on other networks).</p>
 <p class="alert-danger">It is not possible to make this work on 127.0.0.1, however the entire block 127/8 is reserved for local loopback so any other 127.n.n.n address will work </p>
 <h3 id="hosts-file">Hosts file</h3>
 <p>Add a new entry for each service to the <code>hosts</code> file in <code>C:\Windows\System32\drivers\etc\</code>.</p>
-<pre><code>    127.0.0.2       mailhog
+<pre><code class="language-cmd">    127.0.0.2       mailhog
     127.0.0.3       git.local
 </code></pre>
 <h3 id="unbound">Unbound</h3>
@@ -158,9 +158,8 @@ Published on Friday, November 30, 2018<br>        <a href="http://blog.mark-burt
 <p>Add entries to <code>service.conf</code> by default on Windows that is in <code>C:\Program Files\Unbound</code></p>
 <p>Restart the service to make sure the new settings are used.</p>
 <p>Add <code>127.0.0.1</code> at the top of the list of DNS servers in network settings.</p>
-<p><img src="/assets/Images/local_dns_with_unbound_network_settings.png" class="img-fluid" alt="" /></p>
-<h3 id="ad">AD</h3>
-<h2 id="add-a-net-interface-portproxy">Add a net interface portproxy</h2>
+<p><img src="../assets/Images/local_dns_with_unbound_network_settings.png" class="img-fluid" alt="Network settings with 127.0.0.1 as DNS server" /></p>
+<h2 id="add-a-netsh-interface-portproxy">Add a netsh interface portproxy</h2>
 <pre><code>netsh interface portproxy add v4tov4 listenport=80 listenaddress=127.0.0.2 connectport=8025 connectaddress=127.0.0.2  
 netsh interface portproxy add v4tov4 listenport=80 listenaddress=127.0.0.3 connectport=3005 connectaddress=127.0.0.3
 </code></pre>
@@ -168,9 +167,9 @@ netsh interface portproxy add v4tov4 listenport=80 listenaddress=127.0.0.3 conne
 <pre><code>netsh interface portproxy add v4tov4 listenport=80 listenaddress=mailhog connectport=8025 connectaddress=127.0.0.2  
 netsh interface portproxy add v4tov4 listenport=80 listenaddress=git.local connectport=3005 connectaddress=127.0.0.3
 </code></pre>
-<p>Still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally.
+<p>I still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally.
 netsh interface portproxy add v6tov4 listenport=80 listenaddress {IPv6Address | HostName} [connectaddress=] {IPv4Address | HostName} [[connectport=] {Integer | ServiceName}] [[listenaddress=] {IPv6Address | HostName} [[protocol=]tcp]</p>
-<p>Full <a href="https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-interface-portproxy">Network Shell (netsh) documentation</a> on microsoft docs.</p>
+<p>Full <a href="https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-interface-portproxy">Network Shell (netsh) documentation</a> on Microsoft docs.</p>
 <h2 id="references">References</h2>
 
 
