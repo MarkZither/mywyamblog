@@ -4,7 +4,7 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-17T22:05:49Z</updated>
+	<updated>2020-09-17T22:17:24Z</updated>
 	<subtitle>Burton Blogs</subtitle>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-14-experimenting-with-yarp-a-reverse-proxy</id>
@@ -348,8 +348,8 @@ netsh interface portproxy add v4tov4 listenport=80 listenaddress=127.0.0.3 conne
 &lt;pre&gt;&lt;code&gt;netsh interface portproxy add v4tov4 listenport=80 listenaddress=mailhog connectport=8025 connectaddress=127.0.0.2  
 netsh interface portproxy add v4tov4 listenport=80 listenaddress=git.local connectport=3005 connectaddress=127.0.0.3
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p class="alert-information"&gt;Between the 16 million loopback addresses and 65 thousand (48k usable according to &lt;a href="https://stackoverflow.com/questions/113224/what-is-the-largest-tcp-ip-network-port-number-allowable-for-ipv4"&gt;TCP/IP number usage&lt;/a&gt; and the Microsoft article &lt;a href="https://docs.microsoft.com/en-us/archive/blogs/askds/port-exhaustion-and-you-or-why-the-netstat-tool-is-your-friend"&gt;Port Exhaustion and You&lt;/a&gt;) ports that leaves us a whole lot of services we can address on a single machine. &lt;/p&gt;
-&lt;p&gt;I still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally. I also need to understand the exact equivalence of127.0.0.0/8 and::1/128.&lt;/p&gt;
+&lt;p class="alert-info"&gt;Between the 16 million loopback addresses and 65 thousand (48k usable according to &lt;a href="https://stackoverflow.com/questions/113224/what-is-the-largest-tcp-ip-network-port-number-allowable-for-ipv4"&gt;TCP/IP number usage&lt;/a&gt; and the Microsoft article &lt;a href="https://docs.microsoft.com/en-us/archive/blogs/askds/port-exhaustion-and-you-or-why-the-netstat-tool-is-your-friend"&gt;Port Exhaustion and You&lt;/a&gt;) ports that leaves us a whole lot of services we can address on a single machine. &lt;/p&gt;
+&lt;p&gt;I still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally. I also need to understand the exact equivalence of &lt;code&gt;127.0.0.0/8&lt;/code&gt; and &lt;code&gt;::1/128&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;netsh interface portproxy add v6tov4 listenport=80 listenaddress {IPv6Address | HostName} [connectaddress=] {IPv4Address | HostName} [[connectport=] {Integer | ServiceName}] [[listenaddress=] {IPv6Address | HostName} [[protocol=]tcp]&lt;/p&gt;
 &lt;p&gt;Full &lt;a href="https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-interface-portproxy"&gt;Network Shell (netsh) documentation&lt;/a&gt; on Microsoft docs.&lt;/p&gt;
 &lt;h2 id="references"&gt;References&lt;/h2&gt;
