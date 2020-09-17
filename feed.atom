@@ -4,8 +4,58 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-15T09:24:13Z</updated>
+	<updated>2020-09-17T13:26:10Z</updated>
 	<subtitle>Burton Blogs</subtitle>
+	<entry>
+		<id>http://blog.mark-burton.com/posts/2020-09-14-experimenting-with-yarp-a-reverse-proxy</id>
+		<title>Experimenting with YARP: A Reverse Proxy</title>
+		<link href="http://blog.mark-burton.com/posts/2020-09-14-experimenting-with-yarp-a-reverse-proxy" />
+		<updated>2020-09-16T20:20:00Z</updated>
+		<content>&lt;p&gt;A Route is the inbound URL which the reverse proxy is going to act on. The cluster is a list of potential destination URLs.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; &amp;quot;ReverseProxy&amp;quot;: {
+    &amp;quot;Routes&amp;quot;: [
+      {
+        &amp;quot;RouteId&amp;quot;: &amp;quot;LoginServiceRoute&amp;quot;,
+        &amp;quot;ClusterId&amp;quot;: &amp;quot;clusterLoginService&amp;quot;,
+        &amp;quot;Match&amp;quot;: {
+          &amp;quot;Path&amp;quot;: &amp;quot;/loginservice/{*remainder}&amp;quot;
+        },
+        &amp;quot;Transforms&amp;quot;: [
+          {
+            &amp;quot;PathRemovePrefix&amp;quot;: &amp;quot;/loginservice&amp;quot;
+          }
+        ]
+      }
+    ],
+    &amp;quot;Clusters&amp;quot;: {
+      &amp;quot;clusterLoginService&amp;quot;: {
+        &amp;quot;Destinations&amp;quot;: {
+          &amp;quot;clusterLoginService/destination1&amp;quot;: {
+            &amp;quot;Address&amp;quot;: &amp;quot;https://localhost:1116/&amp;quot;
+          }
+        }
+      }
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Take care when adding a transformation to a route, &lt;strong&gt;do not&lt;/strong&gt; add a single transformation, it must be wrapped in [] or you will get no transformations and lots of confusion.&lt;/p&gt;
+&lt;p&gt;My mistake looked like this and took debugging into the YARP source to figure out my mistake which resulted in 503 and 404 errors due to URLs like &lt;code&gt;https://localhost:1116/loginservice/hc&lt;/code&gt; instead of the correct &lt;code&gt;https://localhost:1116//loginservice/hc&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;      {
+        &amp;quot;RouteId&amp;quot;: &amp;quot;NotificationServiceRoute&amp;quot;,
+        &amp;quot;ClusterId&amp;quot;: &amp;quot;clusterNotificationService&amp;quot;,
+        &amp;quot;Match&amp;quot;: {
+          &amp;quot;Path&amp;quot;: &amp;quot;/notificationservice/{*remainder}&amp;quot;
+        },
+        &amp;quot;Transforms&amp;quot;: [
+          {
+            &amp;quot;PathRemovePrefix&amp;quot;: &amp;quot;/notificationservice&amp;quot;
+          }
+        ]
+      },
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+		<summary>&lt;p&gt;A Route is the inbound URL which the reverse proxy is going to act on. The cluster is a list of potential destination URLs.&lt;/p&gt;</summary>
+	</entry>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-09-how-to-setup-asp-net-core-health-check-ui</id>
 		<title>How to Setup ASP.NET Core Health Check UI</title>
@@ -259,6 +309,44 @@ Error: An error occurred trying to download 'https://myurl.com/MyAppFolder/setup
 &lt;p&gt;Now we have AppVeyor building the site and pushing the output back to GitHub we can configure the deploy settings in Netlify so that changes are automatically published to your blog.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;To get started with a simple NetlifyCMS setup without the editorial workflow you can use the &lt;a href="https://wyam.io/docs/deployment/appveyor"&gt;AppVeyor for Continuous Integration&lt;/a&gt; Wyam document.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<id>http://blog.mark-burton.com/posts/2020-09-17-local-hostname-resolution-to-port</id>
+		<title>Local Hostname Resolution To Port</title>
+		<link href="http://blog.mark-burton.com/posts/2020-09-17-local-hostname-resolution-to-port" />
+		<updated>2018-11-30T13:39:00Z</updated>
+		<content>&lt;h1 id="adding-friendly-local-urls-for-services"&gt;Adding friendly local URLs for services&lt;/h1&gt;
+&lt;p&gt;How i setup &lt;a href="https://github.com/mailhog/MailHog"&gt;mailhog&lt;/a&gt; to run in docker with exposed port 8025 to be accessible on http://mailhog and a local &lt;a href="https://gitea.io/en-us/"&gt;Gitea&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This i adapted from the stackoverflow answer &lt;a href="https://stackoverflow.com/a/36646749/7400768"&gt;Using port number in Windows host file&lt;/a&gt;, there are a number of options proposed in answer to the question including using nginx or apache to act as a reverse proxy or running fiddler all the time to proxy the requests. I chose the netsh approach since we already make use of netsh so thought it would be good to understand it more and it is all built into Windows.&lt;/p&gt;
+&lt;h2 id="setting-up-the-local-dns"&gt;Setting up the local DNS&lt;/h2&gt;
+&lt;p&gt;There are several way to do this, the quickest is probably just to add entries to the host file, another way is to install Unbound or if you are lucky enough to have a local Active Directory server you can configure it there (although that won't work while you are on other networks).&lt;/p&gt;
+&lt;p class="alert-danger"&gt;It is not possible to make this work on 127.0.0.1, however the entire block 127/8 is reserved for local loopback so any other 127.n.n.n address will work &lt;/p&gt;
+&lt;h3 id="hosts-file"&gt;Hosts file&lt;/h3&gt;
+&lt;p&gt;Add a new entry for each service to the &lt;code&gt;hosts&lt;/code&gt; file in &lt;code&gt;C:\Windows\System32\drivers\etc\&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    127.0.0.2       mailhog
+    127.0.0.3       git.local
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="unbound"&gt;Unbound&lt;/h3&gt;
+&lt;p&gt;Install &lt;a href="https://nlnetlabs.nl/projects/unbound/download/"&gt;Unbound&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Add entries to &lt;code&gt;service.conf&lt;/code&gt; by default on Windows that is in &lt;code&gt;C:\Program Files\Unbound&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Restart the service to make sure the new settings are used.&lt;/p&gt;
+&lt;p&gt;Add &lt;code&gt;127.0.0.1&lt;/code&gt; at the top of the list of DNS servers in network settings.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/Images/local_dns_with_unbound_network_settings.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;h3 id="ad"&gt;AD&lt;/h3&gt;
+&lt;h2 id="add-a-net-interface-portproxy"&gt;Add a net interface portproxy&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;netsh interface portproxy add v4tov4 listenport=80 listenaddress=127.0.0.2 connectport=8025 connectaddress=127.0.0.2  
+netsh interface portproxy add v4tov4 listenport=80 listenaddress=127.0.0.3 connectport=3005 connectaddress=127.0.0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or by domain name&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;netsh interface portproxy add v4tov4 listenport=80 listenaddress=mailhog connectport=8025 connectaddress=127.0.0.2  
+netsh interface portproxy add v4tov4 listenport=80 listenaddress=git.local connectport=3005 connectaddress=127.0.0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally.
+netsh interface portproxy add v6tov4 listenport=80 listenaddress {IPv6Address | HostName} [connectaddress=] {IPv4Address | HostName} [[connectport=] {Integer | ServiceName}] [[listenaddress=] {IPv6Address | HostName} [[protocol=]tcp]&lt;/p&gt;
+&lt;p&gt;Full &lt;a href="https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-interface-portproxy"&gt;Network Shell (netsh) documentation&lt;/a&gt; on microsoft docs.&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+</content>
+		<summary>&lt;p&gt;How i setup &lt;a href="https://github.com/mailhog/MailHog"&gt;mailhog&lt;/a&gt; to run in docker with exposed port 8025 to be accessible on http://mailhog and a local &lt;a href="https://gitea.io/en-us/"&gt;Gitea&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3</id>
@@ -824,62 +912,6 @@ Returns - Func&amp;lt;int, int, int&amp;gt; add = (x, y) =&amp;gt; { return x + 
 		<summary>&lt;p&gt;&lt;a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/advanced/custom-model-binding"&gt;docs.microsoft.com&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</id>
-		<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
-		<link href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
-		<updated>2017-02-21T00:00:00Z</updated>
-		<content>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
-&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
-&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-md-8"&gt;
-To fix this it is necessary to open Tools -&gt; Extensions and Updates...
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-md-4"&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
-&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<id>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</id>
-		<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
-		<link href="http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx" />
-		<updated>2017-02-21T00:00:00Z</updated>
-		<content>&lt;h1 id="running-asp.net-core-on-a-raspberrypi-2-with-nginx"&gt;Running ASP.NET Core on a RaspberryPi 2 with Nginx&lt;/h1&gt;
-&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;
-&lt;h1 id="prerequisites"&gt;prerequisites&lt;/h1&gt;
-&lt;p&gt;the &lt;a href="https://github.com/dotnet/core/blob/master/Documentation/prereqs.md"&gt;prerequisites&lt;/a&gt; are required or you will get an error like:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt;Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /var/www/PublishOutput/libcoreclr.so'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;chmod 744?&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id="tell-kestrel-to-listen"&gt;Tell Kestrel to listen&lt;/h1&gt;
-&lt;p&gt;If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the &lt;code&gt;ASPNETCORE_URLS environment variable&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt; ASPNETCORE_URLS=&amp;quot;http://*:5000&amp;quot; dotnet Your.App.dll
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="create-the-service-file"&gt;Create the service file&lt;/h1&gt;
-&lt;p&gt;add a symlink for dotnet to limit the changes to the service file&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-perl"&gt;sudo ln -s /opt/dotnet/dotnet /usr/bin/dotnet
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
-&lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
 		<id>http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack</id>
 		<title>Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack</title>
 		<link href="http://blog.mark-burton.com/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack" />
@@ -924,5 +956,61 @@ Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
 You should now have a working nginx server running PHP scripts, next time I will setup piwik so you can monitor the traffic to your website.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<id>http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx</id>
+		<title>Running ASP.NET Core on a RaspberryPi 2 with Nginx</title>
+		<link href="http://blog.mark-burton.com/posts/Running%20ASP.NET%20Core%20on%20a%20RaspberryPi%202%20with%20Nginx" />
+		<updated>2017-02-21T00:00:00Z</updated>
+		<content>&lt;h1 id="running-asp.net-core-on-a-raspberrypi-2-with-nginx"&gt;Running ASP.NET Core on a RaspberryPi 2 with Nginx&lt;/h1&gt;
+&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;
+&lt;h1 id="prerequisites"&gt;prerequisites&lt;/h1&gt;
+&lt;p&gt;the &lt;a href="https://github.com/dotnet/core/blob/master/Documentation/prereqs.md"&gt;prerequisites&lt;/a&gt; are required or you will get an error like:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt;Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /var/www/PublishOutput/libcoreclr.so'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;chmod 744?&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="tell-kestrel-to-listen"&gt;Tell Kestrel to listen&lt;/h1&gt;
+&lt;p&gt;If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the &lt;code&gt;ASPNETCORE_URLS environment variable&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt; ASPNETCORE_URLS=&amp;quot;http://*:5000&amp;quot; dotnet Your.App.dll
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="create-the-service-file"&gt;Create the service file&lt;/h1&gt;
+&lt;p&gt;add a symlink for dotnet to limit the changes to the service file&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-perl"&gt;sudo ln -s /opt/dotnet/dotnet /usr/bin/dotnet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="configuring-ssl"&gt;Configuring SSL&lt;/h1&gt;
+&lt;p&gt;Rather than building nginx from source to get SSL I used nginx-core.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;I followed the instructions from &lt;a href="https://blogs.msdn.microsoft.com/david/2017/07/20/setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi/"&gt;Get Started&lt;/a&gt; and &lt;a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x"&gt;docs.microsoft.com&lt;/a&gt;, and found that some additional configuration was required.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<id>http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer</id>
+		<title>NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer</title>
+		<link href="http://blog.mark-burton.com/posts/Nunit_Tests_Not_Showing_In_Test_Explorer" />
+		<updated>2017-02-21T00:00:00Z</updated>
+		<content>&lt;h1 id="nunit-3-tests-are-not-showing-in-visual-studio-test-explorer"&gt;NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer&lt;/h1&gt;
+&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Empty%20Test%20Explorer.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+The message suggests that simply building the solution will fix this and the tests will appear in Test Explorer.
+&lt;p&gt;Regularly that has not been the outcome for me, the Test Explorer window remaining resolutely empty.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-md-8"&gt;
+To fix this it is necessary to open Tools -&gt; Extensions and Updates...
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-md-4"&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates%20Menu.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Search for NUnit to find the NUnit 3 Test Adapter
+&lt;img src="../assets/Images/Tools%20Extensions%20and%20Updates.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;Click enable and restart Visual Studio, the tests now show correctly.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.&lt;/p&gt;</summary>
 	</entry>
 </feed>
