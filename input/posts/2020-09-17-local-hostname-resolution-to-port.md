@@ -62,9 +62,9 @@ netsh interface portproxy add v4tov4 listenport=80 listenaddress=mailhog connect
 netsh interface portproxy add v4tov4 listenport=80 listenaddress=git.local connectport=3005 connectaddress=127.0.0.3
 ```
 
-Between the 16 million loopback addresses and 65 thousand (48k usable according to [TCP/IP number usage] and the Microsoft article [Port Exhaustion and You]) ports that leaves us a whole lot of services we can address on a single machine. {.alert-information}
+Between the 16 million loopback addresses and 65 thousand (48k usable according to [TCP/IP number usage] and the Microsoft article [Port Exhaustion and You]) ports that leaves us a whole lot of services we can address on a single machine. {.alert-info}
 
-I still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally. I also need to understand the exact equivalence of127.0.0.0/8 and::1/128.
+I still need to figure out how this will work with IPv6 at the moment I only use IPv4 locally. I also need to understand the exact equivalence of `127.0.0.0/8` and `::1/128`.
 
 netsh interface portproxy add v6tov4 listenport=80 listenaddress {IPv6Address | HostName} \[connectaddress=] {IPv4Address | HostName} \[[connectport=] {Integer | ServiceName}] \[[listenaddress=] {IPv6Address | HostName} \[[protocol=]tcp]
 
