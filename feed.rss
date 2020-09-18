@@ -5,8 +5,8 @@
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
 		<copyright>2020</copyright>
-		<pubDate>Thu, 17 Sep 2020 22:17:24 GMT</pubDate>
-		<lastBuildDate>Thu, 17 Sep 2020 22:17:24 GMT</lastBuildDate>
+		<pubDate>Fri, 18 Sep 2020 13:31:25 GMT</pubDate>
+		<lastBuildDate>Fri, 18 Sep 2020 13:31:25 GMT</lastBuildDate>
 		<item>
 			<title>Experimenting with YARP: A Reverse Proxy</title>
 			<link>http://blog.mark-burton.com/posts/2020-09-14-experimenting-with-yarp-a-reverse-proxy</link>
@@ -325,18 +325,21 @@ Error: An error occurred trying to download 'https://myurl.com/MyAppFolder/setup
 &lt;p class="alert-danger"&gt;It is not possible to make this work on 127.0.0.1, however the entire block 127/8 is reserved for local loopback so any other 127.n.n.n address will work, more interesting reading about that on &lt;a href="https://serverfault.com/questions/157496/why-is-loopback-ip-address-from-127-0-0-1-to-127-255-255-254"&gt;stackoverflow&lt;/a&gt; and in &lt;a href="https://www.ietf.org/rfc/rfc3330.txt"&gt;RFC 1700&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="hosts-file"&gt;Hosts file&lt;/h3&gt;
 &lt;p&gt;Add a new entry for each service to the &lt;code&gt;hosts&lt;/code&gt; file in &lt;code&gt;C:\Windows\System32\drivers\etc\&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-cmd"&gt;    127.0.0.2       mailhog.localhost
-    127.0.0.3       git.localhost
+&lt;pre&gt;&lt;code class="language-cmd"&gt;    127.0.0.2       mailhog.internal
+    127.0.0.3       git.internal
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id="unbound"&gt;Unbound&lt;/h3&gt;
 &lt;p&gt;Install &lt;a href="https://nlnetlabs.nl/projects/unbound/download/"&gt;Unbound&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Add entries to &lt;code&gt;service.conf&lt;/code&gt; by default on Windows that is in &lt;code&gt;C:\Program Files\Unbound&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="local-vs.localhost-vs.test-vs.internal"&gt;.local vs .localhost vs .test vs .internal&lt;/h3&gt;
+&lt;p&gt;After reading round in circles about reserved TLDs such as &lt;a href="https://tools.ietf.org/html/rfc2606#page-2"&gt;rfc2606&lt;/a&gt; which lists &lt;code&gt;.test&lt;/code&gt;, &lt;code&gt;.example&lt;/code&gt;, &lt;code&gt;.invalid&lt;/code&gt;, &lt;code&gt;.localhost&lt;/code&gt; as reserved domain names. The risks of using my initial choice of &lt;code&gt;.local&lt;/code&gt; due to possible clashes with mDNS and Zero Configuration Networking. Trying to use servicename.localhost with mixed results (works with hosts file but causes Unbound to throw and error and fail to start) and noticing that docker uses &lt;code&gt;.internal&lt;/code&gt; I finally found &lt;a href="https://tools.ietf.org/html/rfc6762#appendix-G"&gt;RFC6762#appendix-G&lt;/a&gt; which lists &lt;code&gt;.intranet.&lt;/code&gt;, &lt;code&gt;.internal.&lt;/code&gt;, &lt;code&gt;.private.&lt;/code&gt;,  &lt;code&gt;.corp.&lt;/code&gt;, &lt;code&gt;.home.&lt;/code&gt; and &lt;code&gt;.lan.&lt;/code&gt; as proposed reserved domain names, I settled on using .internal.
+&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-cmd"&gt;server:
     
-    local-data: &amp;quot;mailhog.localhost A 127.0.0.2&amp;quot;
-    local-data-ptr: &amp;quot;127.0.0.2 mailhog.localhost&amp;quot;
-    local-data: &amp;quot;git.localhost A 127.0.0.3&amp;quot;
-    local-data-ptr: &amp;quot;127.0.0.3 git.localhost&amp;quot;
+    local-data: &amp;quot;mailhog.internal A 127.0.0.2&amp;quot;
+    local-data-ptr: &amp;quot;127.0.0.2 mailhog.internal&amp;quot;
+    local-data: &amp;quot;git.internal A 127.0.0.3&amp;quot;
+    local-data-ptr: &amp;quot;127.0.0.3 git.internal&amp;quot;
     
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Restart the service to make sure the new settings are used.&lt;/p&gt;
@@ -355,6 +358,39 @@ netsh interface portproxy add v4tov4 listenport=80 listenaddress=git.local conne
 &lt;p&gt;netsh interface portproxy add v6tov4 listenport=80 listenaddress {IPv6Address | HostName} [connectaddress=] {IPv4Address | HostName} [[connectport=] {Integer | ServiceName}] [[listenaddress=] {IPv6Address | HostName} [[protocol=]tcp]&lt;/p&gt;
 &lt;p&gt;Full &lt;a href="https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-interface-portproxy"&gt;Network Shell (netsh) documentation&lt;/a&gt; on Microsoft docs.&lt;/p&gt;
 &lt;h2 id="references"&gt;References&lt;/h2&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>Using Netlify Identity with NetlifyCMS and Wyam</title>
+			<link>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</link>
+			<description>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;</description>
+			<guid>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</guid>
+			<pubDate>Fri, 09 Mar 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;
+&lt;h2 id="set-registration-preference-and-external-providers"&gt;Set registration preference and external providers&lt;/h2&gt;
+&lt;p&gt;Registration settings and External providers are located in settings under Identity
+&lt;img src="../assets/Images/Netlify_Site_Settings.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Reg_pref_providers.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;h3 id="enable-git-gateway-in-netlify"&gt;Enable Git Gateway in Netlify&lt;/h3&gt;
+&lt;p&gt;Your CMS users are likely to not have Github logins, so enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github.
+It is explained further in the &lt;a href="https://www.netlify.com/docs/git-gateway/"&gt;Netlify Docs on Git Gateway&lt;/a&gt;
+The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings.
+&lt;img src="../assets/Images/Netlify_Git_Gateway.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;h2 id="make-it-easy-for-user-to-complete-signup-by-adding-netlify-identity-widget-to-the-site"&gt;Make it easy for user to complete signup by adding Netlify Identity Widget to the site&lt;/h2&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-sm-8"&gt;&lt;p&gt;The email inviting a user to use the CMS links to the homepage with a invite token in the URL, if you do not follow this step the user will be left looking at the homepage not understanding why they are there or what they should do next.&lt;/p&gt;
+&lt;p&gt;Add the &lt;a href="https://github.com/netlify/netlify-identity-widget"&gt;netlify-identity-widget&lt;/a&gt;
+to your layout/homepage, you can just add the following to the body of your layout page&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://identity.netlify.com/v1/netlify-identity-widget.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now when the user hits the homepage with the &lt;code&gt;/#invite_token=&lt;/code&gt; in the URL the complete signup modal will appear.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-sm-4"&gt;&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Complete_Signup.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id="invite-some-users"&gt;Invite some users&lt;/h3&gt;
+&lt;p&gt;Might be best to come back to this step after setting the registration preferences
+&lt;img src="../assets/Images/Netlify_Identity_Invite_Users.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
 </content:encoded>
 		</item>
 		<item>
@@ -411,39 +447,6 @@ Command exited with code 128
 &lt;li&gt;show the correct logged/logged out menu based on &lt;a href="https://github.com/netlify/netlify-identity-widget"&gt;Netlify Identity Widget&lt;/a&gt; events and user object.&lt;/li&gt;
 &lt;li&gt;how to populate the author field from the Netlify Identity metadata.&lt;/li&gt;
 &lt;/ul&gt;
-</content:encoded>
-		</item>
-		<item>
-			<title>Using Netlify Identity with NetlifyCMS and Wyam</title>
-			<link>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</link>
-			<description>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;</description>
-			<guid>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</guid>
-			<pubDate>Fri, 09 Mar 2018 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;
-&lt;h2 id="set-registration-preference-and-external-providers"&gt;Set registration preference and external providers&lt;/h2&gt;
-&lt;p&gt;Registration settings and External providers are located in settings under Identity
-&lt;img src="../assets/Images/Netlify_Site_Settings.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Reg_pref_providers.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;h3 id="enable-git-gateway-in-netlify"&gt;Enable Git Gateway in Netlify&lt;/h3&gt;
-&lt;p&gt;Your CMS users are likely to not have Github logins, so enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github.
-It is explained further in the &lt;a href="https://www.netlify.com/docs/git-gateway/"&gt;Netlify Docs on Git Gateway&lt;/a&gt;
-The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings.
-&lt;img src="../assets/Images/Netlify_Git_Gateway.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;h2 id="make-it-easy-for-user-to-complete-signup-by-adding-netlify-identity-widget-to-the-site"&gt;Make it easy for user to complete signup by adding Netlify Identity Widget to the site&lt;/h2&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-sm-8"&gt;&lt;p&gt;The email inviting a user to use the CMS links to the homepage with a invite token in the URL, if you do not follow this step the user will be left looking at the homepage not understanding why they are there or what they should do next.&lt;/p&gt;
-&lt;p&gt;Add the &lt;a href="https://github.com/netlify/netlify-identity-widget"&gt;netlify-identity-widget&lt;/a&gt;
-to your layout/homepage, you can just add the following to the body of your layout page&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://identity.netlify.com/v1/netlify-identity-widget.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now when the user hits the homepage with the &lt;code&gt;/#invite_token=&lt;/code&gt; in the URL the complete signup modal will appear.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-sm-4"&gt;&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Complete_Signup.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id="invite-some-users"&gt;Invite some users&lt;/h3&gt;
-&lt;p&gt;Might be best to come back to this step after setting the registration preferences
-&lt;img src="../assets/Images/Netlify_Identity_Invite_Users.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
 </content:encoded>
 		</item>
 		<item>

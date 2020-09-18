@@ -150,18 +150,21 @@ Published on Friday, November 30, 2018<br>        <a href="http://blog.mark-burt
 <p class="alert-danger">It is not possible to make this work on 127.0.0.1, however the entire block 127/8 is reserved for local loopback so any other 127.n.n.n address will work, more interesting reading about that on <a href="https://serverfault.com/questions/157496/why-is-loopback-ip-address-from-127-0-0-1-to-127-255-255-254">stackoverflow</a> and in <a href="https://www.ietf.org/rfc/rfc3330.txt">RFC 1700</a> </p>
 <h3 id="hosts-file">Hosts file</h3>
 <p>Add a new entry for each service to the <code>hosts</code> file in <code>C:\Windows\System32\drivers\etc\</code>.</p>
-<pre><code class="language-cmd">    127.0.0.2       mailhog.localhost
-    127.0.0.3       git.localhost
+<pre><code class="language-cmd">    127.0.0.2       mailhog.internal
+    127.0.0.3       git.internal
 </code></pre>
 <h3 id="unbound">Unbound</h3>
 <p>Install <a href="https://nlnetlabs.nl/projects/unbound/download/">Unbound</a>.</p>
 <p>Add entries to <code>service.conf</code> by default on Windows that is in <code>C:\Program Files\Unbound</code></p>
+<h3 id="local-vs.localhost-vs.test-vs.internal">.local vs .localhost vs .test vs .internal</h3>
+<p>After reading round in circles about reserved TLDs such as <a href="https://tools.ietf.org/html/rfc2606#page-2">rfc2606</a> which lists <code>.test</code>, <code>.example</code>, <code>.invalid</code>, <code>.localhost</code> as reserved domain names. The risks of using my initial choice of <code>.local</code> due to possible clashes with mDNS and Zero Configuration Networking. Trying to use servicename.localhost with mixed results (works with hosts file but causes Unbound to throw and error and fail to start) and noticing that docker uses <code>.internal</code> I finally found <a href="https://tools.ietf.org/html/rfc6762#appendix-G">RFC6762#appendix-G</a> which lists <code>.intranet.</code>, <code>.internal.</code>, <code>.private.</code>,  <code>.corp.</code>, <code>.home.</code> and <code>.lan.</code> as proposed reserved domain names, I settled on using .internal.
+</p>
 <pre><code class="language-cmd">server:
     
-    local-data: &quot;mailhog.localhost A 127.0.0.2&quot;
-    local-data-ptr: &quot;127.0.0.2 mailhog.localhost&quot;
-    local-data: &quot;git.localhost A 127.0.0.3&quot;
-    local-data-ptr: &quot;127.0.0.3 git.localhost&quot;
+    local-data: &quot;mailhog.internal A 127.0.0.2&quot;
+    local-data-ptr: &quot;127.0.0.2 mailhog.internal&quot;
+    local-data: &quot;git.internal A 127.0.0.3&quot;
+    local-data-ptr: &quot;127.0.0.3 git.internal&quot;
     
 </code></pre>
 <p>Restart the service to make sure the new settings are used.</p>
