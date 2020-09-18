@@ -169,6 +169,16 @@ Published on Wednesday, September 16, 2020<br>        <a href="http://blog.mark-
     }
   }
 </code></pre>
+<p>This would be the equivalent of the NGINX virtual server</p>
+<pre><code class="language-nginx">server {
+    listen 80;
+    server_name example.com;
+
+    location /work/ {
+        proxy_pass              http://10.255.8.77:8065;
+    }
+  }
+</code></pre>
 <p>Take care when adding a transformation to a route, <strong>do not</strong> add a single transformation, it must be wrapped in [] or you will get no transformations and lots of confusion.</p>
 <p>My mistake looked like this and took debugging into the YARP source to figure out my mistake which resulted in 503 and 404 errors due to URLs like <code>https://localhost:1116/loginservice/hc</code> instead of the correct <code>https://localhost:1116//loginservice/hc</code>.</p>
 <pre><code class="language-json">      {
