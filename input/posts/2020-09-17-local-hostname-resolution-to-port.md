@@ -24,8 +24,8 @@ It is not possible to make this work on 127.0.0.1, however the entire block 127/
 Add a new entry for each service to the `hosts` file in `C:\Windows\System32\drivers\etc\`.
 
 ``` cmd
-    127.0.0.2       mailhog.localhost
-    127.0.0.3       git.localhost
+    127.0.0.2       mailhog.internal
+    127.0.0.3       git.internal
 ```
 
 ### Unbound
@@ -34,13 +34,17 @@ Install [Unbound](https://nlnetlabs.nl/projects/unbound/download/).
 
 Add entries to `service.conf` by default on Windows that is in `C:\Program Files\Unbound`
 
+### .local vs .localhost vs .test vs .internal
+After reading round in circles about reserved TLDs such as [rfc2606](https://tools.ietf.org/html/rfc2606#page-2) which lists `.test`, `.example`, `.invalid`, `.localhost` as reserved domain names. The risks of using my initial choice of `.local` due to possible clashes with mDNS and Zero Configuration Networking. Trying to use servicename.localhost with mixed results (works with hosts file but causes Unbound to throw and error and fail to start) and noticing that docker uses `.internal` I finally found [RFC6762#appendix-G](https://tools.ietf.org/html/rfc6762#appendix-G) which lists `.intranet.`, `.internal.`, `.private.`,  `.corp.`, `.home.` and `.lan.` as proposed reserved domain names, I settled on using .internal.
+ {.alert-info}
+
 ``` cmd
 server:
     
-    local-data: "mailhog.localhost A 127.0.0.2"
-    local-data-ptr: "127.0.0.2 mailhog.localhost"
-    local-data: "git.localhost A 127.0.0.3"
-    local-data-ptr: "127.0.0.3 git.localhost"
+    local-data: "mailhog.internal A 127.0.0.2"
+    local-data-ptr: "127.0.0.2 mailhog.internal"
+    local-data: "git.internal A 127.0.0.3"
+    local-data-ptr: "127.0.0.3 git.internal"
     
 ```
 
