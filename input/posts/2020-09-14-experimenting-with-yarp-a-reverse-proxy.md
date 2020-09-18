@@ -38,6 +38,19 @@ A Route is the inbound URL which the reverse proxy is going to act on. The clust
   }
 ```
 
+This would be the equivalent of the NGINX virtual server
+
+``` nginx
+server {
+    listen 80;
+    server_name example.com;
+
+    location /work/ {
+        proxy_pass              http://10.255.8.77:8065;
+    }
+  }
+```
+
 Take care when adding a transformation to a route, **do not** add a single transformation, it must be wrapped in [] or you will get no transformations and lots of confusion.
 
 My mistake looked like this and took debugging into the YARP source to figure out my mistake which resulted in 503 and 404 errors due to URLs like `https://localhost:1116/loginservice/hc` instead of the correct `https://localhost:1116//loginservice/hc`.
