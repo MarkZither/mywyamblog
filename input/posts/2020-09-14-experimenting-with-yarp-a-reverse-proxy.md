@@ -39,7 +39,7 @@ A Route is the inbound URL which the reverse proxy is going to act on. The clust
   }
 ```
 
-This would be the equivalent of the NGINX virtual server
+This would be similar to this NGINX virtual server configuration.
 
 ``` nginx
 server {
