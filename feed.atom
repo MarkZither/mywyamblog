@@ -4,7 +4,7 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="http://blog.mark-burton.com/" />
 	<rights>2020</rights>
-	<updated>2020-09-19T19:11:30Z</updated>
+	<updated>2020-09-19T19:12:54Z</updated>
 	<subtitle>Burton Blogs</subtitle>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2020-09-14-experimenting-with-yarp-a-reverse-proxy</id>
@@ -360,6 +360,39 @@ netsh interface portproxy add v4tov4 listenport=80 listenaddress=git.local conne
 		<summary>&lt;p&gt;How I setup &lt;a href="https://github.com/mailhog/MailHog"&gt;mailhog&lt;/a&gt; to run in docker with exposed port 8025 to be accessible on http://mailhog and a local &lt;a href="https://gitea.io/en-us/"&gt;Gitea&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<id>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</id>
+		<title>Using Netlify Identity with NetlifyCMS and Wyam</title>
+		<link href="http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4" />
+		<updated>2018-03-09T00:00:00Z</updated>
+		<content>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;
+&lt;h2 id="set-registration-preference-and-external-providers"&gt;Set registration preference and external providers&lt;/h2&gt;
+&lt;p&gt;Registration settings and External providers are located in settings under Identity
+&lt;img src="../assets/Images/Netlify_Site_Settings.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Reg_pref_providers.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;h3 id="enable-git-gateway-in-netlify"&gt;Enable Git Gateway in Netlify&lt;/h3&gt;
+&lt;p&gt;Your CMS users are likely to not have Github logins, so enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github.
+It is explained further in the &lt;a href="https://www.netlify.com/docs/git-gateway/"&gt;Netlify Docs on Git Gateway&lt;/a&gt;
+The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings.
+&lt;img src="../assets/Images/Netlify_Git_Gateway.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;h2 id="make-it-easy-for-user-to-complete-signup-by-adding-netlify-identity-widget-to-the-site"&gt;Make it easy for user to complete signup by adding Netlify Identity Widget to the site&lt;/h2&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-xs-12 col-sm-8"&gt;&lt;p&gt;The email inviting a user to use the CMS links to the homepage with a invite token in the URL, if you do not follow this step the user will be left looking at the homepage not understanding why they are there or what they should do next.&lt;/p&gt;
+&lt;p&gt;Add the &lt;a href="https://github.com/netlify/netlify-identity-widget"&gt;netlify-identity-widget&lt;/a&gt;
+to your layout/homepage, you can just add the following to the body of your layout page&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://identity.netlify.com/v1/netlify-identity-widget.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now when the user hits the homepage with the &lt;code&gt;/#invite_token=&lt;/code&gt; in the URL the complete signup modal will appear.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 col-sm-4"&gt;&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Complete_Signup.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id="invite-some-users"&gt;Invite some users&lt;/h3&gt;
+&lt;p&gt;Might be best to come back to this step after setting the registration preferences
+&lt;img src="../assets/Images/Netlify_Identity_Invite_Users.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;</summary>
+	</entry>
+	<entry>
 		<id>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3</id>
 		<title>Setting up NetlifyCMS with Wyam - Part 3</title>
 		<link href="http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-3" />
@@ -414,39 +447,6 @@ Command exited with code 128
 &lt;/ul&gt;
 </content>
 		<summary>&lt;p&gt;To get started with a simple NetlifyCMS setup without the editorial workflow you can use the &lt;a href="https://wyam.io/docs/deployment/appveyor"&gt;AppVeyor for Continuous Integration&lt;/a&gt; Wyam document.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<id>http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4</id>
-		<title>Using Netlify Identity with NetlifyCMS and Wyam</title>
-		<link href="http://blog.mark-burton.com/posts/Setting-up-NetlifyCMS-with-Wyam---Part-4" />
-		<updated>2018-03-09T00:00:00Z</updated>
-		<content>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;
-&lt;h2 id="set-registration-preference-and-external-providers"&gt;Set registration preference and external providers&lt;/h2&gt;
-&lt;p&gt;Registration settings and External providers are located in settings under Identity
-&lt;img src="../assets/Images/Netlify_Site_Settings.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Reg_pref_providers.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;h3 id="enable-git-gateway-in-netlify"&gt;Enable Git Gateway in Netlify&lt;/h3&gt;
-&lt;p&gt;Your CMS users are likely to not have Github logins, so enable the Git Gateway to allow them to save and publish posts to GitHub without having to setup an account on Github.
-It is explained further in the &lt;a href="https://www.netlify.com/docs/git-gateway/"&gt;Netlify Docs on Git Gateway&lt;/a&gt;
-The Git Gateway option is in settings under Identity, further down than the Registration preferences and external providers settings.
-&lt;img src="../assets/Images/Netlify_Git_Gateway.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;h2 id="make-it-easy-for-user-to-complete-signup-by-adding-netlify-identity-widget-to-the-site"&gt;Make it easy for user to complete signup by adding Netlify Identity Widget to the site&lt;/h2&gt;
-&lt;div class="row"&gt;
-&lt;div class="col-xs-12 col-sm-8"&gt;&lt;p&gt;The email inviting a user to use the CMS links to the homepage with a invite token in the URL, if you do not follow this step the user will be left looking at the homepage not understanding why they are there or what they should do next.&lt;/p&gt;
-&lt;p&gt;Add the &lt;a href="https://github.com/netlify/netlify-identity-widget"&gt;netlify-identity-widget&lt;/a&gt;
-to your layout/homepage, you can just add the following to the body of your layout page&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://identity.netlify.com/v1/netlify-identity-widget.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now when the user hits the homepage with the &lt;code&gt;/#invite_token=&lt;/code&gt; in the URL the complete signup modal will appear.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="col-xs-12 col-sm-4"&gt;&lt;p&gt;&lt;img src="../assets/Images/Netlify_Identity_Complete_Signup.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id="invite-some-users"&gt;Invite some users&lt;/h3&gt;
-&lt;p&gt;Might be best to come back to this step after setting the registration preferences
-&lt;img src="../assets/Images/Netlify_Identity_Invite_Users.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<id>http://blog.mark-burton.com/posts/2018-02-11-test-blog-post-for-docs</id>
