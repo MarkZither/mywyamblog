@@ -5,8 +5,8 @@
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
 		<copyright>2020</copyright>
-		<pubDate>Sat, 19 Sep 2020 14:35:39 GMT</pubDate>
-		<lastBuildDate>Sat, 19 Sep 2020 14:35:39 GMT</lastBuildDate>
+		<pubDate>Sat, 19 Sep 2020 14:46:59 GMT</pubDate>
+		<lastBuildDate>Sat, 19 Sep 2020 14:46:59 GMT</lastBuildDate>
 		<item>
 			<title>Experimenting with YARP: A Reverse Proxy</title>
 			<link>http://blog.mark-burton.com/posts/2020-09-14-experimenting-with-yarp-a-reverse-proxy</link>
@@ -40,7 +40,7 @@
     }
   }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This would be the equivalent of the NGINX virtual server&lt;/p&gt;
+&lt;p&gt;This would be similar to this NGINX virtual server configuration.&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-nginx"&gt;server {
     listen 80;
     server_name localhost;
