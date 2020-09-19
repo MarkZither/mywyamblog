@@ -127,7 +127,6 @@ Published on Wednesday, September 16, 2020<br>        <a href="http://blog.mark-
     </div>
         <div class="tags">
                     <a role="button" href="/tags/ASPNET-Core" class="btn btn-default btn-xs">ASP.NET Core</a>
-                    <a role="button" href="/tags/NGINX" class="btn btn-default btn-xs">NGINX</a>
                     <a role="button" href="/tags/Reverse-Proxy" class="btn btn-default btn-xs">Reverse Proxy</a>
                     <a role="button" href="/tags/YARP" class="btn btn-default btn-xs">YARP</a>
         </div>     
@@ -170,58 +169,17 @@ Published on Wednesday, September 16, 2020<br>        <a href="http://blog.mark-
     }
   }
 </code></pre>
-<p>This would be similar to this NGINX virtual server configuration.</p>
-<pre><code class="language-nginx">server {
-    listen 80;
-    server_name localhost;
-
-    location /loginservice/ {
-        proxy_pass              https://localhost:1116;
-    }
-  }
-</code></pre>
 <p>Take care when adding a transformation to a route, <strong>do not</strong> add a single transformation, it must be wrapped in [] or you will get no transformations and lots of confusion.</p>
-<p>My mistake looked like this</p>
-<pre><code class="language-json">{
-  &quot;RouteId&quot;: &quot;TestServiceRoute&quot;,
-  &quot;ClusterId&quot;: &quot;clusterTestService&quot;,
-  &quot;Match&quot;: {
-    &quot;Path&quot;: &quot;/testservice/{*remainder}&quot;
-  },
-  &quot;Transforms&quot;: 
-  {
-    &quot;PathRemovePrefix&quot;: &quot;/testservice&quot;
-  }
-},
-</code></pre>
-<p>It took debugging into the YARP source to figure out my mistake which resulted in 503 and 404 errors due to URLs like <code>https://localhost:1116/loginservice/hc</code> instead of the correct <code>https://localhost:1116/hc</code>.</p>
-<pre><code class="language-json">{
-  &quot;RouteId&quot;: &quot;TestServiceRoute&quot;,
-  &quot;ClusterId&quot;: &quot;clusterTestService&quot;,
-  &quot;Match&quot;: {
-    &quot;Path&quot;: &quot;/testservice/{*remainder}&quot;
-  },
-  &quot;Transforms&quot;:  [ // &lt;-- was missing
-    {
-      &quot;PathRemovePrefix&quot;: &quot;/testservice&quot;
-    }
-  ] // &lt;-- was missing
-},
-</code></pre>
-<p>It is easier to see the issue as soon as you start adding additional transformations. In preview 5 for example it is possible to transform route values to querystring parameters, now it is clear that <code>Transformations</code> must be an array.</p>
+<p>My mistake looked like this and took debugging into the YARP source to figure out my mistake which resulted in 503 and 404 errors due to URLs like <code>https://localhost:1116/loginservice/hc</code> instead of the correct <code>https://localhost:1116//loginservice/hc</code>.</p>
 <pre><code class="language-json">      {
-        &quot;RouteId&quot;: &quot;TestPatternServiceRoute&quot;,
-        &quot;ClusterId&quot;: &quot;clusterTestService&quot;,
+        &quot;RouteId&quot;: &quot;NotificationServiceRoute&quot;,
+        &quot;ClusterId&quot;: &quot;clusterNotificationService&quot;,
         &quot;Match&quot;: {
-          &quot;Path&quot;: &quot;/testpatternservice/{*remainder}&quot;
+          &quot;Path&quot;: &quot;/notificationservice/{*remainder}&quot;
         },
         &quot;Transforms&quot;: [
           {
-            &quot;PathPattern&quot;: &quot;/search/&quot;
-          },
-          {
-            &quot;QueryRouteParameter&quot;: &quot;q&quot;,
-            &quot;Append&quot;: &quot;remainder&quot;
+            &quot;PathRemovePrefix&quot;: &quot;/notificationservice&quot;
           }
         ]
       },
