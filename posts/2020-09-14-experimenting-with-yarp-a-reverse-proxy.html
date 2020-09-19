@@ -208,6 +208,24 @@ Published on Wednesday, September 16, 2020<br>        <a href="http://blog.mark-
   ] // &lt;-- was missing
 },
 </code></pre>
+<p>It is easier to see the issue as soon as you start adding additional transformations. In preview 5 for example it is possible to transform route values to querystring parameters, now it is clear that <code>Transformations</code> must be an array.</p>
+<pre><code class="language-json">      {
+        &quot;RouteId&quot;: &quot;TestPatternServiceRoute&quot;,
+        &quot;ClusterId&quot;: &quot;clusterTestService&quot;,
+        &quot;Match&quot;: {
+          &quot;Path&quot;: &quot;/testpatternservice/{*remainder}&quot;
+        },
+        &quot;Transforms&quot;: [
+          {
+            &quot;PathPattern&quot;: &quot;/search/&quot;
+          },
+          {
+            &quot;QueryRouteParameter&quot;: &quot;q&quot;,
+            &quot;Append&quot;: &quot;remainder&quot;
+          }
+        ]
+      },
+</code></pre>
 
 
 <ul class="share-buttons">

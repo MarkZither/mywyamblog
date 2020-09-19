@@ -5,8 +5,8 @@
 		<link>http://blog.mark-burton.com/</link>
 		<description>Burton Blogs</description>
 		<copyright>2020</copyright>
-		<pubDate>Sat, 19 Sep 2020 14:32:35 GMT</pubDate>
-		<lastBuildDate>Sat, 19 Sep 2020 14:32:35 GMT</lastBuildDate>
+		<pubDate>Sat, 19 Sep 2020 14:35:39 GMT</pubDate>
+		<lastBuildDate>Sat, 19 Sep 2020 14:35:39 GMT</lastBuildDate>
 		<item>
 			<title>Experimenting with YARP: A Reverse Proxy</title>
 			<link>http://blog.mark-burton.com/posts/2020-09-14-experimenting-with-yarp-a-reverse-proxy</link>
@@ -77,6 +77,24 @@
     }
   ] // &amp;lt;-- was missing
 },
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is easier to see the issue as soon as you start adding additional transformations. In preview 5 for example it is possible to transform route values to querystring parameters, now it is clear that &lt;code&gt;Transformations&lt;/code&gt; must be an array.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;      {
+        &amp;quot;RouteId&amp;quot;: &amp;quot;TestPatternServiceRoute&amp;quot;,
+        &amp;quot;ClusterId&amp;quot;: &amp;quot;clusterTestService&amp;quot;,
+        &amp;quot;Match&amp;quot;: {
+          &amp;quot;Path&amp;quot;: &amp;quot;/testpatternservice/{*remainder}&amp;quot;
+        },
+        &amp;quot;Transforms&amp;quot;: [
+          {
+            &amp;quot;PathPattern&amp;quot;: &amp;quot;/search/&amp;quot;
+          },
+          {
+            &amp;quot;QueryRouteParameter&amp;quot;: &amp;quot;q&amp;quot;,
+            &amp;quot;Append&amp;quot;: &amp;quot;remainder&amp;quot;
+          }
+        ]
+      },
 &lt;/code&gt;&lt;/pre&gt;
 </content:encoded>
 		</item>
