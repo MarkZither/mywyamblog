@@ -85,3 +85,24 @@ It took debugging into the YARP source to figure out my mistake which resulted i
   ] // <-- was missing
 },
 ```
+
+It is easier to see the issue as soon as you start adding additional transformations. In preview 5 for example it is possible to transform route values to querystring parameters, now it is clear that `Transformations` must be an array.
+
+``` json
+      {
+        "RouteId": "TestPatternServiceRoute",
+        "ClusterId": "clusterTestService",
+        "Match": {
+          "Path": "/testpatternservice/{*remainder}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/search/"
+          },
+          {
+            "QueryRouteParameter": "q",
+            "Append": "remainder"
+          }
+        ]
+      },
+```
