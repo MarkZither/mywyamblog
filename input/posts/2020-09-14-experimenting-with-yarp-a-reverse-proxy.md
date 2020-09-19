@@ -7,6 +7,7 @@ Tags:
   - ASP.NET Core
   - YARP
   - Reverse Proxy
+  - NGINX
 ---
 A Route is the inbound URL which the reverse proxy is going to act on. The cluster is a list of potential destination URLs.
 
@@ -43,29 +44,44 @@ This would be the equivalent of the NGINX virtual server
 ``` nginx
 server {
     listen 80;
-    server_name example.com;
+    server_name localhost;
 
-    location /work/ {
-        proxy_pass              http://10.255.8.77:8065;
+    location /loginservice/ {
+        proxy_pass              https://localhost:1116;
     }
   }
 ```
 
 Take care when adding a transformation to a route, **do not** add a single transformation, it must be wrapped in [] or you will get no transformations and lots of confusion.
 
-My mistake looked like this and took debugging into the YARP source to figure out my mistake which resulted in 503 and 404 errors due to URLs like `https://localhost:1116/loginservice/hc` instead of the correct `https://localhost:1116//loginservice/hc`.
+My mistake looked like this 
+``` json
+{
+  "RouteId": "TestServiceRoute",
+  "ClusterId": "clusterTestService",
+  "Match": {
+    "Path": "/testservice/{*remainder}"
+  },
+  "Transforms": 
+  {
+    "PathRemovePrefix": "/testservice"
+  }
+},
+```
+
+It took debugging into the YARP source to figure out my mistake which resulted in 503 and 404 errors due to URLs like `https://localhost:1116/loginservice/hc` instead of the correct `https://localhost:1116/hc`.
 
 ``` json
-      {
-        "RouteId": "NotificationServiceRoute",
-        "ClusterId": "clusterNotificationService",
-        "Match": {
-          "Path": "/notificationservice/{*remainder}"
-        },
-        "Transforms": [
-          {
-            "PathRemovePrefix": "/notificationservice"
-          }
-        ]
-      },
+{
+  "RouteId": "TestServiceRoute",
+  "ClusterId": "clusterTestService",
+  "Match": {
+    "Path": "/testservice/{*remainder}"
+  },
+  "Transforms":  [ // <-- was missing
+    {
+      "PathRemovePrefix": "/testservice"
+    }
+  ] // <-- was missing
+},
 ```
