@@ -221,3 +221,6 @@ ModelManifest.xml
 
 #App_data
 [Aa]pp_[Dd]ata/
+
+# Local Netlify folder
+.netlify

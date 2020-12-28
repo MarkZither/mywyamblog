@@ -1,10 +1,10 @@
 <ul class="navbar-nav ml-auto">
-    <li class="dropdown"> 
+    <li class="dropdown nav-item"> 
                                         <a href="/projects" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item"><a href="https://noknok.pl" class="nav-link">LuxBus</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="https://noknok.pl">NokNok</a></li>
+                                            <li class="nav-item"><a href="https://noknok.pl" class="nav-link">NokNok</a></li>
                                         </ul>
     </li>
     @foreach(IDocument doc in OutputPages.GetChildrenOf("index.html").Where(x => x.GetBool("ShowInNavbar", true)).OrderBy(x => x.GetInt(Keys.Order)))

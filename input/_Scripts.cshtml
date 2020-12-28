@@ -8,7 +8,7 @@
 <script src="@Context.GetLink("/assets/js/Please-compressed.js")"></script>
 <script src="@Context.GetLink("/assets/js/background-check.min.js")"></script>
 
-@if (!Document.ContainsKey(WebKeys.Image) || string.IsNullOrWhiteSpace(WebKeys.Image))
+@if (!Document.ContainsKey(WebKeys.Image) || string.IsNullOrWhiteSpace(Document.GetString(WebKeys.Image)))
 {
     <script type="text/javascript">                
             // Header background                        
