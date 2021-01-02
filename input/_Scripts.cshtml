@@ -3,3 +3,25 @@
 <script src="https://unpkg.com/lunr@1.0.0/lunr.js"></script>
 <script src="@Context.GetLink("assets/js/lunr.unicodeNormalizer.js")"></script>
 <script src="@Context.GetLink("assets/js/searchindex.js")"></script>
+<script src="@Context.GetLink("/assets/js/d3.v3.min.js")"></script>
+<script src="@Context.GetLink("/assets/js/trianglify.min.js")"></script>
+<script src="@Context.GetLink("/assets/js/Please-compressed.js")"></script>
+<script src="@Context.GetLink("/assets/js/background-check.min.js")"></script>
+
+@if (!Document.ContainsKey(WebKeys.Image) || string.IsNullOrWhiteSpace(Document.GetString(WebKeys.Image)))
+{
+    <script type="text/javascript">                
+            // Header background                        
+            var colors = Please.make_color({
+                    colors_returned: 3,
+                    saturation: .6
+            });
+            var t = new Trianglify({
+                    x_gradient: colors,
+                    y_gradient: ["#FFFFFF"]
+            });
+            var header = document.getElementsByClassName("masthead")[0];
+            var pattern = t.generate(header.clientWidth, header.clientHeight);
+            header.setAttribute('style', 'background-image: ' + pattern.dataUrl);                        
+    </script>
+}
