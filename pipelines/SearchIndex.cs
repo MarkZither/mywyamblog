@@ -23,7 +23,6 @@ namespace mywyamblog
                 nameof(Archives),
                 nameof(Data));
 
-            var settings = IExecutionContext.Current;
             var docs = new GetPipelineDocuments(ContentType.Content);
 
             ProcessModules = new ModuleList
