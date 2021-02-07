@@ -60,7 +60,7 @@ As the blog is a static site and the backend is hosted in azure it is neccessary
 
 don't forget to do the CORS section in Azure if you are using that.
 
-
+<script src="../assets/js/push-notifications.js"></script>
 <script>
 
   window.addEventListener('load', function() {

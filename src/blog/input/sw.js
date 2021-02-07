@@ -1,5 +1,5 @@
 //self.importScripts('');
-const CACHE_NAME = 'my-site-cache-v3';
+const CACHE_NAME = 'my-site-cache-v5';
 self.addEventListener('install', function(event) {
     // Perform install steps
     var urlsToCache = [
@@ -7,9 +7,8 @@ self.addEventListener('install', function(event) {
         '/index.html',
         '/offline.html',
         '/manifest.json',
-        '/assets/css/bootstrap.min.css',
-        '/assets/css/override.css',
-        '/assets/css/bootstrap.min.css',
+        '/vendor/bootstrap/scss/bootstrap.css',
+        '/scss/clean-blog.css',
         '/assets/Images/Empty Test Explorer.png',
         '/assets/Images/GitHub fork Repository add origin.png',
         '/assets/Images/GitHub fork Repository change push upstream.png',
@@ -23,15 +22,15 @@ self.addEventListener('install', function(event) {
         '/assets/Images/push-notification-icon.png',
         '/assets/Images/Tools Extensions and Updates Menu.png',
         '/assets/Images/Tools Extensions and Updates.png',
-        '/posts/Playing%20with%20Service%20Workers',
-        '/posts/exception using .net core',
-        '/posts/Fork a cloned git repository',
-        '/posts',
-        '/posts/Job-Interview-Technical-Test-Preparation',
-        '/posts/Nunit-Tests-Not-Showing-In-Test-Explorer',
+        '/posts/playing-with-service-workers',
+        '/posts/notsupportedexception-exception-using-encoding-in-.net-core',
+        '/posts/fork-a-cloned-git-repository',
+        //'/posts',
+        '/posts/job-interview-technical-test-preparation',
+        '/posts/nunit-tests-not-showing-in-test-explorer',
         '/posts/running-asp.net-core-on-a-raspberrypi-2-with-nginx',
-        '/posts/Setting-up-NetlifyCMS-with-Wyam--Part-1',
-        '/posts/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack',
+        '/posts/setting-up-netlifycms-with-wyam-part-1',
+        '/posts/setting-raspberry-pi-nginx-php-mysql-lemp-stack',
     ];
 
     caches.delete(CACHE_NAME);
@@ -65,7 +64,7 @@ self.addEventListener('fetch', function(event) {
             console.log(`WORKER: Serving ${event.request.url} from CACHE`);
             return caches.open(CACHE_NAME).then(function(cache) {
                 return cache.match(event.request).then(function(matching) {
-                    if (!matching || matching.status == 404) {
+                    if (!matching || matching.status === 404) {
                         console.log(`WORKER: Offline as ${event.request.url} not in CACHE`);
                         return cache.match('offline.html')
                     } else {
