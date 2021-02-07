@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NetlifySharp" Version="1.1.0" />
     <PackageReference Include="Nuke.Common" Version="5.0.2" />
     <PackageDownload Include="GitVersion.Tool" Version="[5.5.1]" />
   </ItemGroup>
