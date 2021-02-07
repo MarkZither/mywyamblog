@@ -52,3 +52,5 @@ Finding the right software to sign an XML file is not easy, the following is a l
 [XMLDSig]: https://en.wikipedia.org/wiki/XML_Signature
 [NexU]: https://nowina.lu/solutions/java-less-browser-signing-nexu/
 [Nexu Open Source on GitHub]: https://github.com/nowina-solutions/nexu
+[Counter sign a signature with Nowina]: https://dss.nowina.lu/counter-sign
+[XML signing in Java]: https://ec.europa.eu/cefdigital/DSS/webapp-demo/doc/dss-documentation.html#xmlSecurities
