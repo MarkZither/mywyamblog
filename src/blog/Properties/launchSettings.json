@@ -2,7 +2,7 @@
   "profiles": {
     "mywyamblog": {
       "commandName": "Project",
-      "commandLineArgs": "-l Information"
+      "commandLineArgs": "deploy -l Information"
     }
   }
 }

@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>0a9e0e9d-5fcb-4b05-be2e-adfcd94e7c4c</UserSecretsId>
   </PropertyGroup>
 
     <Choose>
@@ -21,7 +22,17 @@
     </Choose>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
       <None Update="input\**">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="appsettings.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
