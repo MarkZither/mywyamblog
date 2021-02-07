@@ -61,7 +61,7 @@ namespace mywyamblog
                     },
 
                     new GenerateLunrIndex("LunrIndexItem", "stopwords.txt", true)
-                        .WithDestination("assets/js/SearchIndex.js")
+                        .WithDestination("assets/js/searchindex.js")
                 }
             };
 
