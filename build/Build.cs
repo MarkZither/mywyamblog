@@ -4,6 +4,7 @@ using System.Net.Http;
 using NetlifySharp;
 using Nuke.Common;
 using Nuke.Common.CI;
+using Nuke.Common.CI.AppVeyor;
 using Nuke.Common.Execution;
 using Nuke.Common.Git;
 using Nuke.Common.IO;
@@ -19,6 +20,12 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
+[AppVeyor(
+    AppVeyorImage.VisualStudio2019,
+    AppVeyorImage.Ubuntu1804,
+    //AutoGenerate = false,
+    SkipTags = true,
+    InvokedTargets = new[] { nameof(Deploy) })]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -122,13 +129,8 @@ class Build : NukeBuild
         DotNetRun(s => s
             .SetNoBuild(true)
             .SetProjectFile(SourceDirectory / "blog")
+            .SetApplicationArguments("deploy")
             );
-
-
-        if (string.IsNullOrEmpty(netlifyToken))
-        {
-            throw new Exception("Could not get Netlify token environment variable");
-        }
 
         Logger.Info("Deploying to Netlify");
     });
