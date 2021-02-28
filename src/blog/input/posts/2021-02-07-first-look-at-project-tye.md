@@ -102,3 +102,6 @@ kubectl controls the Kubernetes cluster manager.
 
  Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
 ```
+
+Tye picked random ports while the project app config already specified ports.
+https://github.com/dotnet/tye/issues/178
