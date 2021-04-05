@@ -22,3 +22,12 @@ The basic mistakes I made were:
 So there was no reason to find myself in this position really, but having ended up there and having found [Robs post](https://robbeekmans.net/euc/reset-your-domain-admin-password/) it looked like the solution was still quite easy, however I am running Windows Server 2019 Core, so there is not GUI and therefore no UTILMAN.exe.
 
 ## The Recovery
+
+## Other options
+It is possible to get to safe mode using Ctrl+Shift+Alt+F8 from a cold boot.
+https://www.surfacetablethelp.com/2018/01/how-to-use-f8-key-to-boot-hyper-v-vm-into-safe-mode-on-windows-10.html
+
+It is then possible to login with the 
+
+Test it, shut it down, cold boot it, test it again
+https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/reset-directory-services-restore-mode-admin-pwd
