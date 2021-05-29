@@ -11,3 +11,4 @@ Tags:
   - Chaos
 ---
 
+https://github.com/vany0114/chaos-injection-using-simmy/blob/596206c475b2bd0d5af4e9d065897f4554852cb6/src/Infrastructure/Duber.Infrastructure.Chaos/Extensions/SimmyExtensions.cs
