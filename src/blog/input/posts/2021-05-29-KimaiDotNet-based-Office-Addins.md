@@ -12,3 +12,6 @@ Tags:
 Until I get a real certificate you will need to install [this self-signed certificate](../../assets/KimaiExcel/mburton_cert.cer) as a `trusted root certification authority` to be able to install the addin.
 
 [Download Excel Addin](../../assets/KimaiExcel/MarkZither.KimaiDotNet.ExcelAddin.vsto)
+
+## Create an API password in Kimai
+![Create an API Password in Kimai](../assets/images/kimai_set_api_password.png)
