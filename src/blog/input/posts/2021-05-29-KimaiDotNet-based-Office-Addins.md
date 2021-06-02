@@ -18,3 +18,6 @@ Until I get a real certificate you will need to install [this self-signed certif
 
 ## Set the API credentials in the Excel Addin
 ![Set the API credentials in the Excel Addin](../assets/images/set_the_api_credentials_in_the_excel_addin.png)
+
+## Questions and suggestions
+[KimaiDotNet on GitHub](https://github.com/MarkZither/KimaiDotNet)
