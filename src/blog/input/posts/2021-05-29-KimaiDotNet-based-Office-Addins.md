@@ -22,5 +22,18 @@ Until I get a real certificate you will need to install [this self-signed certif
 ## Save the API credentials to activate the sync
 ![Set the API credentials in the Excel Addin](../assets/images/kimai_first_sync.png)
 
+## Usage of the Addin
+For now the Addin only supports reading existing timesheets and adding new ones, and editing of timesheets will need to be done in Kimai.
+
 ## Questions and suggestions
-[KimaiDotNet on GitHub](https://github.com/MarkZither/KimaiDotNet)
+The GitHub repo can be found at the
+[KimaiDotNet on GitHub](https://github.com/MarkZither/KimaiDotNet).
+
+### Milestones
+Follow the [Milestones](https://github.com/MarkZither/KimaiDotNet/milestones).
+
+### Issues
+Create any bugs or suggestions on [GitHub Issues](https://github.com/MarkZither/KimaiDotNet/issues).
+
+### Discussions
+Start a discussion on the [GitHub Discussions](https://github.com/MarkZither/KimaiDotNet/discussions).
