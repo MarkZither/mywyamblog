@@ -1,8 +1,8 @@
 ---
 Title: KimaiDotNet based Office Add-ins
 Lead: "Bringing Kimai into the tools you spend your time in"
-Published: 2021-05-29T01:-2:00.814Z
-Date: 2021-05-29T01:-2:00.814Z
+Published: 2021-05-29T01:12:00.814Z
+Date: 2021-05-29T01:12:00.814Z
 Image: ""
 Tags:
   - VSTO
