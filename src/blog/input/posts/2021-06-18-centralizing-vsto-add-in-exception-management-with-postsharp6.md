@@ -1,7 +1,7 @@
 ---
 Title: Centralizing VSTO add in exception management with postsharp 6
 Lead: "After much reading it seems you cannot handle exceptions globally in an Office add-in"
-Published: 2021-06-19T15:23:12.976Z
+Published: 2021-06-22T15:23:12.976Z
 Date: 2021-06-18T15:23:12.976Z
 Image: ""
 Tags:

@@ -1,7 +1,7 @@
 ---
 Title: My First Skydive @ LuxFly
 Lead: "All the fun of skydiving without the danger of jumping out of a plane?"
-Published: 2021-06-11T15:23:12.976Z
+Published: 2021-06-22T15:23:12.976Z
 Date: 2021-06-11T15:23:12.976Z
 Image: "/assets/Images/Luxfly_First_Flight.jpg"
 Tags:

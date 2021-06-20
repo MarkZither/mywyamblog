@@ -14,6 +14,8 @@ Until I get a real certificate you will need to install [this self-signed certif
 [Download Excel Add-in](../assets/KimaiExcel/MarkZither.KimaiDotNet.ExcelAddin.vsto)
 
 ## Create an API password in Kimai
+WARNING!!! If you try and login with your normal password it will fail! {.alert .alert-warning}
+
 ![Create an API Password in Kimai](../assets/images/kimai_set_api_password.png)
 
 ## Set the API credentials in the Excel Add-in
