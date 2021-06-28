@@ -8,7 +8,7 @@ Tags:
   - Swagger
   - Swashbuckle
 ---
-This follows on from my previous post [Secure ASP.NET Core Health Checks to a specific port](2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port) and assumes that you already have your service running over 2 port and have specified a `ManagementPort` in the appsettings.json file.
+This follows on from my previous post [Secure ASP.NET Core Health Checks to a specific port](2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port) and assumes that you already have your service running over 2 ports and have specified a `ManagementPort` in the appsettings.json file.
 
 Swagger is a powerful tool to test your APIs and allow users to easily discover how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.
 
