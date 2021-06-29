@@ -42,6 +42,16 @@ info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 ```
 
+<div class="alert alert-primary">
+<h3>Special note if you are using http.sys </h3>
+<p>
+If you want to run this over https you will need to take care of the port reservation and certification binding. 
+</p>
+<p>
+I have a explanation of that in the <a href="https://github.com/MarkZither/SwaggerAndHealthCheckBlog#using-httpsys" target="_blank">GitHub Repo README</a>.
+</p>
+</div>
+
 Now that we have the service listening on 2 addresses we can specify one of them will serve up the Health Checks by setting the `ManagementPort`.
 
 In `startup.cs` we can use the `ManagementPort` to secure the Health Check endpoint

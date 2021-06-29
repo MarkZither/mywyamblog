@@ -10,6 +10,16 @@ Tags:
 ---
 This follows on from my previous post [Secure ASP.NET Core Health Checks to a specific port](2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port) and assumes that you already have your service running over 2 ports and have specified a `ManagementPort` in the appsettings.json file.
 
+<div class="alert alert-primary">
+<h3>Special note if you are using http.sys </h3>
+<p>
+If you want to run this over https you will need to take care of the port reservation and certification binding. 
+</p>
+<p>
+I have a explanation of that in the <a href="https://github.com/MarkZither/SwaggerAndHealthCheckBlog#using-httpsys" target="_blank">GitHub Repo README</a>.
+</p>
+</div>
+
 Swagger is a powerful tool to test your APIs and allow users to easily discover how to consume your APIs, but it can also open up security issues and make it easier for attackers to access your data.
 
 Best practice is to [secure access to your Swagger pages using OAuth as described by Scott Brady](https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4) but in some scenarios it would be better if the Swagger pages are not be accessible externally at all.
