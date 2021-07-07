@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="MarkZither.KimaiDotNet.ExcelAddin.dll" version="0.0.0.6" publicKeyToken="b8edc48add06d8ab" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="MarkZither.KimaiDotNet.ExcelAddin.dll" version="0.1.0.1" publicKeyToken="b8edc48add06d8ab" language="neutral" processorArchitecture="msil" type="win32" />
   <description xmlns="urn:schemas-microsoft-com:asm.v1">MarkZither.KimaiDotNet.ExcelAddin</description>
   <application />
   <entryPoint>
@@ -248,6 +248,11 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="System.DirectoryServices" version="4.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="System.Drawing" version="4.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
     </dependentAssembly>
   </dependency>
@@ -274,6 +279,11 @@
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="System.Globalization.Extensions" version="4.1.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="System.IdentityModel" version="4.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" />
     </dependentAssembly>
   </dependency>
   <dependency>
@@ -538,6 +548,11 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="System.Security" version="4.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="System.Security.Claims" version="4.0.3.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
     </dependentAssembly>
   </dependency>
@@ -574,6 +589,11 @@
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="System.Security.SecureString" version="4.1.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="System.ServiceModel" version="4.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" />
     </dependentAssembly>
   </dependency>
   <dependency>
@@ -668,6 +688,11 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="System.Web.Extensions" version="4.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="System.Windows" version="4.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
     </dependentAssembly>
   </dependency>
@@ -739,38 +764,62 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="InfluxDB.Client.dll" size="2172928">
-      <assemblyIdentity name="InfluxDB.Client" version="1.16.0.0" publicKeyToken="2FFDB0E6EBDE0D3F" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Flurl.dll" size="37376">
+      <assemblyIdentity name="Flurl" version="3.0.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>m9zpC8o4ZU7hlQz5kDHU/VVb9z9VC5eSTVibjGsC7tM=</dsig:DigestValue>
+        <dsig:DigestValue>HCXw39/jl2iWG8mSignG98xmORSttLXs/pZ1awL3Ppk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="InfluxDB.Client.Core.dll" size="44032">
-      <assemblyIdentity name="InfluxDB.Client.Core" version="1.16.0.0" publicKeyToken="2FFDB0E6EBDE0D3F" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gu.Wpf.Adorners.dll" size="52736">
+      <assemblyIdentity name="Gu.Wpf.Adorners" version="2.1.1.0" publicKeyToken="6DFB64F9972BD31D" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MymDqlTa1etj3/BkvIXE3UOQuXjH4MADkE4Eb2qqrPg=</dsig:DigestValue>
+        <dsig:DigestValue>kcBWCLxoOtT0bhMiUjzRd5/TeDGzyZlgt1V8QtmQsfw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JsonSubTypes.dll" size="12800">
-      <assemblyIdentity name="JsonSubTypes" version="1.5.2.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="InfluxDB.Client.dll" size="2231296">
+      <assemblyIdentity name="InfluxDB.Client" version="1.19.0.0" publicKeyToken="2FFDB0E6EBDE0D3F" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>eecVhbF1Z1jttDANTP5PwnhMavAWZ5PQmdL6c9fHPU0=</dsig:DigestValue>
+        <dsig:DigestValue>M3ctl8on7UEwveHIwu1ApE4ZpMkp/KB2b3RSTSZxhRg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="InfluxDB.Client.Core.dll" size="48128">
+      <assemblyIdentity name="InfluxDB.Client.Core" version="1.19.0.0" publicKeyToken="2FFDB0E6EBDE0D3F" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>V9p2n91TxprvcW5QN742dTkhif3PBf5A+sXFB2t0IXI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JsonSubTypes.dll" size="19968">
+      <assemblyIdentity name="JsonSubTypes" version="1.8.0.0" publicKeyToken="EE75FC290DBC1176" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>D1vRrLxs5Upxx7IreDB1Lf6Yg1nmBWPh/FxoGdHd6T8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -782,19 +831,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HaR3QkuZaLbk2HY9TlFmE+6oic47T94rCzTRIrphO5E=</dsig:DigestValue>
+        <dsig:DigestValue>X7Tadpb2afv5VpJ79iwTE0gnXoTrSZAP8PPifPyRoFc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MarkZither.KimaiDotNet.ExcelAddin.dll" size="195072">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MarkZither.KimaiDotNet.ExcelAddin.dll" size="348160">
       <assemblyIdentity name="MarkZither.KimaiDotNet.ExcelAddin" version="0.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MlBdb9NVjIICSM7ARtlh6X6f+J0shgsI3523jVjYnws=</dsig:DigestValue>
+        <dsig:DigestValue>VwnozbN2kTdjJmS/la9GtZzou4LuTbs7AJOIBWAT8o8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -807,6 +856,30 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>B1znnoQEETfHiIWzc4wbWgNUfQrip5kW6EQZap0Owds=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Exchange.WebServices.dll" size="1130264">
+      <assemblyIdentity name="Microsoft.Exchange.WebServices" version="15.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>D+gCW5puaQfQvkgQ+/vGHxruO6FOhVu/XDXw87i5E84=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Exchange.WebServices.Auth.dll" size="43824">
+      <assemblyIdentity name="Microsoft.Exchange.WebServices.Auth" version="15.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>EMfR2Wp6XGwLxifeZJknsa5Mqi5Y3MieJLG3cWMHE5w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -859,14 +932,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Extensions.ObjectPool.dll" size="20352">
-      <assemblyIdentity name="Microsoft.Extensions.ObjectPool" version="3.1.4.0" publicKeyToken="ADB9793829DDAE60" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Extensions.ObjectPool.dll" size="22928">
+      <assemblyIdentity name="Microsoft.Extensions.ObjectPool" version="5.0.4.0" publicKeyToken="ADB9793829DDAE60" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VlgumryqkXiwovnuphdLZTbWVvdn1KB/OIISXxCbieo=</dsig:DigestValue>
+        <dsig:DigestValue>84SQCWI5ZOlaMkrll3YyCuYrsX7S/OhCFTYL1lJdV0w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -895,14 +968,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Net.Http.Headers.dll" size="74744">
-      <assemblyIdentity name="Microsoft.Net.Http.Headers" version="2.1.1.0" publicKeyToken="ADB9793829DDAE60" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Net.Http.Headers.dll" size="75128">
+      <assemblyIdentity name="Microsoft.Net.Http.Headers" version="2.2.8.0" publicKeyToken="ADB9793829DDAE60" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>01ToFvbB7cz6evBY6ICnWW7Tv8EiTZxMPXtdyLk81Qk=</dsig:DigestValue>
+        <dsig:DigestValue>dR5kk+bk7BlR+c17kSOIl5ylTvM+z68cOGVOC4ehOZM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -927,6 +1000,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>njKI6x9pSe2FlgaHO+nPYzFDrzXuds6KIw5jDHTEYoU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MvvmHelpers.dll" size="20480">
+      <assemblyIdentity name="MvvmHelpers" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>oiYj00kMN5BmsaKT8aBYlNvxA2SAL/QLynh/lurNIzs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -974,7 +1059,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ts6j2BGtS805PlvSlHR62RZeSjHT/TALSm+Z2h27tEs=</dsig:DigestValue>
+        <dsig:DigestValue>Frl15EH9RwrmRpBSstujtyvuAA1hp3JriJzcE7sV4hk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1099,14 +1184,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Serilog.Sinks.InfluxDB.dll" size="18432">
-      <assemblyIdentity name="Serilog.Sinks.InfluxDB" version="2.0.1.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Serilog.Sinks.InfluxDB.dll" size="18944">
+      <assemblyIdentity name="Serilog.Sinks.InfluxDB" version="2.0.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>eDWgcxJug9tuA89rjx7VuiZvDHFfydC4wQHAZEd4D3Y=</dsig:DigestValue>
+        <dsig:DigestValue>4WL+aNWmUVLDbammqOWn4+limfZ4q8EqDgxwHJqkXko=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1135,26 +1220,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Collections.Immutable.dll" size="180096">
-      <assemblyIdentity name="System.Collections.Immutable" version="1.2.5.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Collections.Immutable.dll" size="189312">
+      <assemblyIdentity name="System.Collections.Immutable" version="5.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Z3MJF7ToVuN6nXgkVSdYQIf6xrIKc3dney9ETNFduRg=</dsig:DigestValue>
+        <dsig:DigestValue>ZG07UqSJgHj0ZTRye9sG/yO3JSNEFFi59J7MMVvz71w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Configuration.ConfigurationManager.dll" size="92816">
-      <assemblyIdentity name="System.Configuration.ConfigurationManager" version="4.0.1.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Configuration.ConfigurationManager.dll" size="84872">
+      <assemblyIdentity name="System.Configuration.ConfigurationManager" version="5.0.0.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QKCU7dJ3IhpRQ9imasubRwAunHfgM/hpjCI0QF+FSpQ=</dsig:DigestValue>
+        <dsig:DigestValue>sCqoiJ/6Kbw/dzmHuaqalvni0B32qE005PYvp5cK9Ig=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1195,14 +1280,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Reactive.dll" size="1260984">
-      <assemblyIdentity name="System.Reactive" version="4.1.0.0" publicKeyToken="94BC3704CDDFC263" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Reactive.dll" size="1470416">
+      <assemblyIdentity name="System.Reactive" version="5.0.0.0" publicKeyToken="94BC3704CDDFC263" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>U4NrIcU6xTnculLtzpqGOIbbJMmYx8Wg1j+tqEScFok=</dsig:DigestValue>
+        <dsig:DigestValue>6mmuOvHP/V6JXHno++16sIhZEd9j8Yf/IGnGuOIjb84=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1219,38 +1304,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Security.AccessControl.dll" size="39048">
-      <assemblyIdentity name="System.Security.AccessControl" version="4.1.1.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Security.AccessControl.dll" size="33672">
+      <assemblyIdentity name="System.Security.AccessControl" version="5.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BafpYCLHby5rATpWS+uPPHldG4fpmAnu0qKaXTsL72E=</dsig:DigestValue>
+        <dsig:DigestValue>H9pJHuvbGeoKg89sFqtd0AShv9/IRe3gF+vglFvrkn8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Security.Permissions.dll" size="32912">
-      <assemblyIdentity name="System.Security.Permissions" version="4.0.1.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Security.Permissions.dll" size="26496">
+      <assemblyIdentity name="System.Security.Permissions" version="5.0.0.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CExGvhKa5TwWmz9hpjJTNmpPMovZ5NB+X8YJSrPc4w0=</dsig:DigestValue>
+        <dsig:DigestValue>UHSmYPMWRRNBLlDXON1qV5e4vBthszarmN/8cbDl2Es=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Security.Principal.Windows.dll" size="23688">
-      <assemblyIdentity name="System.Security.Principal.Windows" version="4.1.1.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Security.Principal.Windows.dll" size="18312">
+      <assemblyIdentity name="System.Security.Principal.Windows" version="5.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FDoYC5rBHLn4gUqK2nH20QG4zO3EQ1K6YMblI2mE1Dw=</dsig:DigestValue>
+        <dsig:DigestValue>tNjhWtwjXQ6Fjjm1Ez5dAKS6qMlPTznjteeRsPnAyAY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1278,13 +1363,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="MarkZither.KimaiDotNet.ExcelAddin.dll.config" size="2007">
+  <file name="MarkZither.KimaiDotNet.ExcelAddin.dll.config" size="2259">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>LptlSuD2JyOa0CyzNw9wdDH/VN1s9VIJSeL7cWDgbMk=</dsig:DigestValue>
+      <dsig:DigestValue>OvDgwbAchSaGiTxwXmd7BKTMGOPt3gr/+l6Fzyf57H4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="postsharp.config" size="176">
@@ -1294,15 +1379,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>PCS/GwE+rMAB95WpZxL/afo7v/TNLt++dElHLjlFabA=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\kimai_set_api_password.png" size="26352">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>pFnxGEO5KNv8itiSMd4VOyx6SwhkNyWoDRQdRdw+VpA=</dsig:DigestValue>
     </hash>
   </file>
   <vstav3:addIn xmlns:vstav3="urn:schemas-microsoft-com:vsta.v3">
@@ -1328,4 +1404,4 @@
       </vstov4:customizations>
     </vstav3:application>
   </vstav3:addIn>
-<publisherIdentity name="CN=burton\mburton" issuerKeyHash="fbcbff19f06b6fd5dbbeaa2fa4bd1011fc6d03b7" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>TaB8YmsigW9CevTfm5BaRfNltmtN/Na5Kg1YMg+th+s=</DigestValue></Reference></SignedInfo><SignatureValue>Sznw39LG7EtYZV+whW+jlBgEpUwlohBVbl5Jj84swn62xxWNl5gUnGfsP5SKdLlaibAKekd4LbRiFEmEwaLvRuJ1S7tEMXSxRBkSSB1Pt9wJUeASPt42Uh2DKIo0QkYOmWidBBdt7XViMAtL4xM0jJK/4aVSvCIys/TYZJIle2A=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>uJiHIHxAuAUYgbWoIqU/EY3VoL9RW8l2/hUpoy1Y5gWSrbSaUWUSmW56VovftZuQQfJNzIiO64Ir0sdrRZq3vJ1UTheL015e5EoF0pcwklAirDTE+UO3q5BK6Ljyj1ymTMtKUs0wE6CAsw/oRXXn9GxN1tOEQBWUmEcR80VFLJk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="eb87ad0f32580d2ab9d6fc4d6bb665f3455a909bdff47a426f81226b627ca04d" Description="" Url=""><as:assemblyIdentity name="MarkZither.KimaiDotNet.ExcelAddin.dll" version="0.0.0.6" publicKeyToken="b8edc48add06d8ab" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=burton\mburton</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>I6/P9DC2ZTeDCYC0k/z5T0sxZi42+vcoyu3rdMIsnHk=</DigestValue></Reference></SignedInfo><SignatureValue>RnUqSHZH5LJNqujJTa4V1kY3Yuxmj+mZTCbol1y2eyOrZ4NxjMXAa08ykQbHqAEdqjb4vWohQYTwCurgQkKv1pCb4AWGmlpF1YFmHBhma+CkWtEjmh9MdskHOKLvDF98foEEiw3UOLfRNArfc3YYLHicrA3o9rUvOJv04MfvM5w=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>uJiHIHxAuAUYgbWoIqU/EY3VoL9RW8l2/hUpoy1Y5gWSrbSaUWUSmW56VovftZuQQfJNzIiO64Ir0sdrRZq3vJ1UTheL015e5EoF0pcwklAirDTE+UO3q5BK6Ljyj1ymTMtKUs0wE6CAsw/oRXXn9GxN1tOEQBWUmEcR80VFLJk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB0TCCATqgAwIBAgIQf7ryRuYB0rtFqrg7ZY7rNTANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDHhwAYgB1AHIAdABvAG4AXABtAGIAdQByAHQAbwBuMB4XDTIxMDUyMDIwMzMzNVoXDTIyMDUyMTAyMzMzNVowJzElMCMGA1UEAx4cAGIAdQByAHQAbwBuAFwAbQBiAHUAcgB0AG8AbjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAuJiHIHxAuAUYgbWoIqU/EY3VoL9RW8l2/hUpoy1Y5gWSrbSaUWUSmW56VovftZuQQfJNzIiO64Ir0sdrRZq3vJ1UTheL015e5EoF0pcwklAirDTE+UO3q5BK6Ljyj1ymTMtKUs0wE6CAsw/oRXXn9GxN1tOEQBWUmEcR80VFLJkCAwEAATANBgkqhkiG9w0BAQsFAAOBgQB78LrGDe1YDHb4t0cuBnfjduBjjuvGBepP4jwrgGLm6q/hj1pH/39odz4CjaioFwOiGt8VTQ4Ayukb5pYZGpQBKlZFPwwN1Ut2GcXSI7qqWohvc7apeB7rO6UkwmOkQl5K7Mnl58euZuYUtrzJ1vezxBJfldk3tG44OvS8WrJVKQ==</X509Certificate></X509Data></KeyInfo><Object><as:Timestamp>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</as:Timestamp></Object></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=burton\mburton" issuerKeyHash="fbcbff19f06b6fd5dbbeaa2fa4bd1011fc6d03b7" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>7Y8+EvvdAQC+EwEJNW2Tv4kwowit9IvauZtFTZZbmqQ=</DigestValue></Reference></SignedInfo><SignatureValue>pWy3/7eievk/fTo9IGW6Tp5U2/g3y6N06DDdRf1jeR2yMgIEovoW2UolZz12w5ELP9LVnEgEKAJ6jceK6UXVOKC0Bvm/PhdBnBMFqK1QNHaWFLLup9KCier20pbbQxb1JJpFO7oE+d/9cC8rM2Vflu42YN7vVkQjiDJG8yTpzko=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>uJiHIHxAuAUYgbWoIqU/EY3VoL9RW8l2/hUpoy1Y5gWSrbSaUWUSmW56VovftZuQQfJNzIiO64Ir0sdrRZq3vJ1UTheL015e5EoF0pcwklAirDTE+UO3q5BK6Ljyj1ymTMtKUs0wE6CAsw/oRXXn9GxN1tOEQBWUmEcR80VFLJk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a49a5b964d459bb9da8bf4ad08a33089bf936d35090113be0001ddfb123e8fed" Description="" Url=""><as:assemblyIdentity name="MarkZither.KimaiDotNet.ExcelAddin.dll" version="0.1.0.1" publicKeyToken="b8edc48add06d8ab" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=burton\mburton</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>cdSVA4xGdbO8i7bmfg23CEzacsveOCIjx4tSszDdCj0=</DigestValue></Reference></SignedInfo><SignatureValue>De6h7FtN/TiRHmSOlMvnf94A59LJp6t5vLQ0GadKKNKz97Zuejhw4tVjW816JxJCdJbPafbI54aFOUSdvdutYA3CDBeshVx6P5EnXCc1y2d/j7Nss5P9JJ4X5q9phrYa1XlmTRNzDUxEp2x/280ePIOI3aqlNES+8qg5ClZ01+U=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>uJiHIHxAuAUYgbWoIqU/EY3VoL9RW8l2/hUpoy1Y5gWSrbSaUWUSmW56VovftZuQQfJNzIiO64Ir0sdrRZq3vJ1UTheL015e5EoF0pcwklAirDTE+UO3q5BK6Ljyj1ymTMtKUs0wE6CAsw/oRXXn9GxN1tOEQBWUmEcR80VFLJk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB0TCCATqgAwIBAgIQf7ryRuYB0rtFqrg7ZY7rNTANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDHhwAYgB1AHIAdABvAG4AXABtAGIAdQByAHQAbwBuMB4XDTIxMDUyMDIwMzMzNVoXDTIyMDUyMTAyMzMzNVowJzElMCMGA1UEAx4cAGIAdQByAHQAbwBuAFwAbQBiAHUAcgB0AG8AbjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAuJiHIHxAuAUYgbWoIqU/EY3VoL9RW8l2/hUpoy1Y5gWSrbSaUWUSmW56VovftZuQQfJNzIiO64Ir0sdrRZq3vJ1UTheL015e5EoF0pcwklAirDTE+UO3q5BK6Ljyj1ymTMtKUs0wE6CAsw/oRXXn9GxN1tOEQBWUmEcR80VFLJkCAwEAATANBgkqhkiG9w0BAQsFAAOBgQB78LrGDe1YDHb4t0cuBnfjduBjjuvGBepP4jwrgGLm6q/hj1pH/39odz4CjaioFwOiGt8VTQ4Ayukb5pYZGpQBKlZFPwwN1Ut2GcXSI7qqWohvc7apeB7rO6UkwmOkQl5K7Mnl58euZuYUtrzJ1vezxBJfldk3tG44OvS8WrJVKQ==</X509Certificate></X509Data></KeyInfo><Object><as:Timestamp>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</as:Timestamp></Object></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
