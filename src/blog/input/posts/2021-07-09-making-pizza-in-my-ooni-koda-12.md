@@ -21,11 +21,13 @@ The proportions remain the same, but the accuracy of the proportions are all imp
 
 
 <div class="alert alert-primary">
-* 242g “00” flour
-* 2.8g instant dried yeast  (3.7g active dried yeast, 8g fresh yeast)
-* 48.5ml boiled water
-* 97ml cold water
-* 7.2g salt
+<ul>
+<li>242g “00” flour
+<li>2.8g instant dried yeast  (3.7g active dried yeast, 8g fresh yeast)
+<li>48.5ml boiled water
+<li>97ml cold water
+<li>7.2g salt
+</ul>
 </div>
 
-For everything else follow the [Classic Pizza Dough](https://eu.ooni.com/blogs/recipes/classic-pizza-dough) instructions for 2 perfectrly sized pizzas for your Ooni Koda 12.
+For everything else follow the [Classic Pizza Dough](https://eu.ooni.com/blogs/recipes/classic-pizza-dough) instructions for 2 perfectly sized pizzas for your Ooni Koda 12.
