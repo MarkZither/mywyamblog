@@ -20,10 +20,6 @@ I was early so had time to watch some experienced people flying around, hovering
 
 I remember it something like this...
 
-<div style="width:100%;height:0;padding-bottom:41%;position:relative;"><iframe src="https://giphy.com/embed/3otOKVdVCVajLBSGMU" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/crouchingtigerhiddendragon-crouching-tiger-hidden-dragon-3otOKVdVCVajLBSGMU">via GIPHY</a></p>
-
-and
-
 <div class="tenor-gif-embed" data-postid="9992881" data-share-method="host" data-width="100%" data-aspect-ratio="1.4953271028037383"><a href="https://tenor.com/view/miss-me-with-the-bs-gif-9992881">Matrix GIF</a> from <a href="https://tenor.com/search/matrix-gifs">Matrix GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
 or more far fetched a bit of Money Magic
@@ -51,7 +47,7 @@ In truth that also included belly flopping into the floor and crashing into the 
 Somehow when you are in free fall those simple instructions I mentioned earlier become much more difficult, my eyes saw 2 straight fingers, but it took an age to convince my legs to move.
 
 ## The Grand Finale
-The HighFly
+The HighFly, this was truly a heart in mouth stomach turning experience which I can't wait to do again.
 
 <video src="/assets/videos/Luxfly51MarkburtonTopHighFly.m4v" width="75%" controls>
 <p>If you are reading this, it is because your browser does not support the HTML5 video element.</p>
