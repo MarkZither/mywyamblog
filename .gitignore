@@ -224,3 +224,5 @@ ModelManifest.xml
 
 # Local Netlify folder
 .netlify
+
+cache/
