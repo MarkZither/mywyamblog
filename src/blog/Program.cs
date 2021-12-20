@@ -8,7 +8,7 @@ using MyStatiq.SearchIndex;
 using Statiq.App;
 using Statiq.Common;
 using Statiq.Core;
-using Statiq.SearchIndex;
+using Statiq.Lunr;
 using Statiq.Web;
 using Statiq.Web.Pipelines;
 using Statiq.Yaml;
