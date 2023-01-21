@@ -13,7 +13,10 @@ Tags:
 
 # Understanding Penetration Test Reports as a developer
 
-# Final git config
+## Install GnuPG
+`choco install gnupg` or https://gpg4win.org/get-gpg4win.html 
+
+## Final git config
 
 ``` powershell
 
