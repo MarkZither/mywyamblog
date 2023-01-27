@@ -11,7 +11,7 @@ Tags:
   - gpg
 ---
 
-# Understanding Penetration Test Reports as a developer
+# Siging git commits in VS Code and Visual Studio
 
 ## Install GnuPG
 `choco install gnupg` or https://gpg4win.org/get-gpg4win.html 
