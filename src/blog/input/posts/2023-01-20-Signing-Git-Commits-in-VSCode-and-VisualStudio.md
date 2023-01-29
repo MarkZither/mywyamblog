@@ -54,7 +54,7 @@ Requested keysize is 4096 bits
 
 ```
 
-finally, choose how long the key should be valid for, again following [the GitHub docs](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key) choose the default, which is no expiration
+Next, choose how long the key should be valid for, again following [the GitHub docs](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key) choose the default, which is no expiration
 
 ``` powershell
 Please specify how long the key should be valid.
@@ -66,6 +66,8 @@ Please specify how long the key should be valid.
 Key is valid for? (0)
 ```
 
+Finally, add your user identity, it is important that the email address matches the git repo email.
+
 ``` powerhsell
 
 We need to generate a lot of random bytes. It is a good idea to perform
@@ -76,8 +78,8 @@ We need to generate a lot of random bytes. It is a good idea to perform
 some other action (type on the keyboard, move the mouse, utilize the
 disks) during the prime generation; this gives the random number
 generator a better chance to gain enough entropy.
-gpg: directory 'C:\\Users\\mburton\\AppData\\Roaming\\gnupg\\openpgp-revocs.d' created
-gpg: revocation certificate stored as 'C:\\Users\\mburton\\AppData\\Roaming\\gnupg\\openpgp-revocs.d\\36E97B0FB71E5EEEC2244F4AFDE4A9B5B04820D7.rev'
+gpg: directory 'C:\\Users\\xxxxx\\AppData\\Roaming\\gnupg\\openpgp-revocs.d' created
+gpg: revocation certificate stored as 'C:\\Users\\xxxxxx\\AppData\\Roaming\\gnupg\\openpgp-revocs.d\\36E97B0FB71E5EEEC2244F4AFDE4A9B5B04820D7.rev'
 public and secret key created and signed.
 
 pub   rsa4096 2023-01-29 [SC]
