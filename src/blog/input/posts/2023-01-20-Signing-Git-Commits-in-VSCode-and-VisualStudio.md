@@ -68,7 +68,7 @@ Key is valid for? (0)
 
 Finally, add your user identity, it is important that the email address matches the git repo email.
 
-``` powerhsell
+``` powershell
 
 We need to generate a lot of random bytes. It is a good idea to perform
 some other action (type on the keyboard, move the mouse, utilize the
@@ -102,3 +102,6 @@ commit.gpgsign=true
 ...snip...
 
 ```
+
+## Usage in VS Code
+![gpg prompt in VS Code](/assets/images/VSCode_Sign_Commit.png)
