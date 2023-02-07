@@ -108,3 +108,7 @@ commit.gpgsign=true
 Continue to use VS Code normally, when you do a commit you will be prompted for the passphrase for the gpg key.
 
 ![gpg prompt in VS Code](/assets/images/VSCode_Sign_Commit.png)
+
+## How often to sign the commits?
+
+Signing every commit can be tedious.
