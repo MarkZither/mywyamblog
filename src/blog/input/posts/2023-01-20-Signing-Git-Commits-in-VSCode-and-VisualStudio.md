@@ -113,4 +113,18 @@ Continue to use VS Code normally, when you do a commit you will be prompted for 
 
 Signing every commit can be tedious, the default cache time is 1800 seconds (30 minutes) as per the [Agent Options documentation](https://www.gnupg.org/documentation/manuals/gnupg/Agent-Options.html).
 
+Although this is not the same answer as running `gpgconf.exe --list-options gpg-agent` which returns 600 seconds.
+
+``` cmd
+
+PS C:\Users\mburton\.gnupg> gpgconf.exe --list-options gpg-agent
+...
+default-cache-ttl:24:0:expire cached PINs after N seconds:3:3:N:600::
+max-cache-ttl:24:2:set maximum PIN cache lifetime to N seconds:3:3:N:7200::
+max-cache-ttl-ssh:24:2:set maximum SSH key lifetime to N seconds:3:3:N:7200::
+ignore-cache-for-signing:8:0:do not use the PIN cache when signing:0:0::::
+...
+
+```
+
 The options to change the cache are discussed in this [Super User](https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session) question. Extending the `default-cache-ttl` and `max-cache-ttl` will mean entering the signing key phrase less often.
