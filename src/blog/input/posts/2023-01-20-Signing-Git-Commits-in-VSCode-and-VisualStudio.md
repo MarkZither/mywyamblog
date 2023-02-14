@@ -113,7 +113,7 @@ Continue to use VS Code normally, when you do a commit you will be prompted for 
 
 Signing every commit can be tedious, the default cache time is 1800 seconds (30 minutes) as per the [Agent Options documentation](https://www.gnupg.org/documentation/manuals/gnupg/Agent-Options.html).
 
-Although this is not the same answer as running `gpgconf.exe --list-options gpg-agent` which returns 600 seconds.
+Although this is not the same answer as running `gpgconf.exe --list-options gpg-agent` which returns 600 seconds and is backed up by a local test.
 
 ``` cmd
 
