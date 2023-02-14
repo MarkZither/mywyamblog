@@ -112,3 +112,5 @@ Continue to use VS Code normally, when you do a commit you will be prompted for 
 ## How often to sign the commits?
 
 Signing every commit can be tedious, the default cache time is 1800 seconds (30 minutes) as per the [Agent Options documentation](https://www.gnupg.org/documentation/manuals/gnupg/Agent-Options.html).
+
+The options to change the cache are discussed in this [Super User](https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session) question. Extending the `default-cache-ttl` and `max-cache-ttl` will mean entering the signing key phrase less often.
