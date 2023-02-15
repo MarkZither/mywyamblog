@@ -128,3 +128,9 @@ ignore-cache-for-signing:8:0:do not use the PIN cache when signing:0:0::::
 ```
 
 The options to change the cache are discussed in this [Super User](https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session) question. Extending the `default-cache-ttl` and `max-cache-ttl` will mean entering the signing key phrase less often.
+
+https://superuser.com/questions/1068980/where-is-my-gpgconf-file-on-windows
+
+2 gpg installations because git comes with its own.
+
+14400 is a compromise at 4 hours.
