@@ -23,4 +23,3 @@ skip_tags: true
 build_script:
   - cmd: .\build.cmd Deploy
   - sh: ./build.cmd Deploy
-
