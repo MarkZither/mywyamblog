@@ -31,7 +31,74 @@ I have a book with a wide range of pizza styles and types of bases, which I have
     </div>
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-        bases go herex  , enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-2">
+                    <input type="checkbox" id="chk00">
+                  </div>
+                  <div class="col-lg-10">
+                    <label for="chk00">My Typo 00 Ooni Classic</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-2">
+                    <input type="checkbox" id="chkRoman">
+                  </div>
+                  <div class="col-lg-10">
+                    <label for="chkRoman">Roman</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-2">
+                    <input type="checkbox" id="chkNapoletana">
+                  </div>
+                  <div class="col-lg-10">
+                    <label for="chkNapoletana">Napoletana</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-2">
+                  <input type="checkbox" id="chkSpecial">
+                </div>
+                <div class="col-lg-10">
+                  <label for="chkSpecial">My Own Dough with extra course Odlums wholemeal</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-2">
+                    <input type="checkbox" id="chkSourdough">
+                  </div>
+                  <div class="col-lg-10">
+                    <label for="chkSourdough">Untested Sourdough</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -65,10 +132,36 @@ I have a book with a wide range of pizza styles and types of bases, which I have
         <div class="container">
           <div class="row">
             <div class="col-sm">
-              <label for="chk404"><a href="https://untp.beer/zBrr3" target="_blank">Cha Blonde404</a></label><input type="checkbox" id="chk404">
+              <input type="checkbox" id="chk404"><label for="chk404"><a href="https://untp.beer/zBrr3" target="_blank">Cha Blonde404</a></label>
             </div>
             <div class="col-sm">
-              <label for="chkNegroni">Mezcal Negroni</label><input type="checkbox" id="chkNegroni">
+              <input type="checkbox" id="chkNegroni"><label for="chkNegroni">Mezcal Negroni</label>
+            </div>
+            <div class="col-sm">
+              <input type="checkbox" id="chkMule"><label for="chkMule">Mule</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Other Stuff
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <input type="checkbox" id="chkUgly"><label for="chkUgly"><a href="https://untp.beer/zBrr3" target="_blank">Crazy Bastard Carolina Reaper & Blueberry Sauce</a></label>
+            </div>
+            <div class="col-sm">
+              <label for="chkFoccacia">foccacia</label><input type="checkbox" id="chkFoccacia">
             </div>
             <div class="col-sm">
               <label for="chkMule">Mule</label><input type="checkbox" id="chkMule">
