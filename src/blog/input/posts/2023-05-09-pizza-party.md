@@ -90,7 +90,10 @@ I have a book with a wide range of pizza styles and types of bases, which I have
                     <input type="checkbox" id="chkSourdough">
                   </div>
                   <div class="col-lg-10">
-                    <label for="chkSourdough">Untested Sourdough</label>
+                    <label for="chkSourdough" >Untested Sourdough<i data-toggle="tooltip" data-html="true" data-placement="right" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor">
+        <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+        <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"></path>
+    </svg></i></label>
                   </div>
                 </div>
               </div>
@@ -178,6 +181,13 @@ I have a book with a wide range of pizza styles and types of bases, which I have
 </div>
 
 <script>
+  window.onload = (event) => {
+  console.log("page is fully loaded");
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+};
+
 const myButton = document.querySelector(".my-button");
 const pineapple = document.querySelector("input[id=chkPineapple]");
 const pineappleNo = document.querySelector("#pineappleNo");
