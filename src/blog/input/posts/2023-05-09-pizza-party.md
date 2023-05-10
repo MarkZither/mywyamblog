@@ -177,7 +177,7 @@ I have a book with a wide range of pizza styles and types of bases, which I have
 </div>
 </div>
 <div>
-  <button id="btnSubmit" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Button</button>
+  <button id="btnSubmit" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Order</button>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -199,6 +199,7 @@ I have a book with a wide range of pizza styles and types of bases, which I have
             <textarea class="form-control" id="message-text"></textarea>
           </div>
         </form>
+        <img src="../assets/Images/qr-code-hw.png" class="img-fluid">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
