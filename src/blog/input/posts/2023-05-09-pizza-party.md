@@ -116,8 +116,17 @@ I have a book with a wide range of pizza styles and types of bases, which I have
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
         <div>
-          <label for="chkPineapple">Pineapple</label><input type="checkbox" id="chkPineapple">
-          <span id="pineappleNo" class="invisible">NO!</span>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-2">
+                <input type="checkbox" id="chkPineapple">
+              </div>
+              <div class="col-lg-10">
+                <label for="chkPineapple">Pineapple</label>
+                <span id="pineappleNo" class="invisible">NO!</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
