@@ -8,6 +8,8 @@ window.onload = (event) => {
 const myButton = document.querySelector("#btnSubmit");
 const pineapple = document.querySelector("input[id=chkPineapple]");
 const pineappleNo = document.querySelector("#pineappleNo");
+const abalone = document.querySelector("input[id=chkAbalone]");
+const abaloneNo = document.querySelector("#abaloneNo");
 
 function onFooClick() {
   myButton.innerText = "button clicked";
@@ -25,6 +27,20 @@ pineapple.addEventListener('change', function() {
 function uncheckPineapple(){
   pineapple.checked = false;
   pineappleNo.classList.add("invisible")
+  console.log('Howdy!');
+}
+
+abalone.addEventListener('change', function() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+    abaloneNo.classList.remove("invisible")
+    setTimeout(uncheckAbalone, 2000);
+  }
+});
+
+function uncheckAbalone(){
+  abalone.checked = false;
+  abaloneNo.classList.add("invisible")
   console.log('Howdy!');
 }
 
