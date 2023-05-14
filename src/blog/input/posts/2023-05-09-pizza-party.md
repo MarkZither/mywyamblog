@@ -118,17 +118,37 @@ I have a book with a wide range of pizza styles and types of bases, which I have
         <div>
           <div class="container">
             <div class="row">
-              <div class="col-lg-2">
-                <input type="checkbox" id="chkPineapple">
+              <div class="col-sm">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-2">
+                      <input type="checkbox" id="chkPineapple">
+                    </div>
+                    <div class="col-lg-10">
+                      <label for="chkPineapple">Pineapple</label>
+                      <span id="pineappleNo" class="invisible">NO!</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-lg-10">
-                <label for="chkPineapple">Pineapple</label>
-                <span id="pineappleNo" class="invisible">NO!</span>
+              <div class="col-sm">
+              <div class="container">
+                  <div class="row">
+                    <div class="col-lg-2">
+                      <input type="checkbox" id="chkAbalone ">
+                    </div>
+                    <div class="col-lg-10">
+                      <label for="chkAbalone ">Abalone </label>
+                      <span id="Abalone No" class="invisible">NO!</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
               </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
   </div>
   <div class="card">
