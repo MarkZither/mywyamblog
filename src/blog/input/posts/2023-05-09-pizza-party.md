@@ -132,7 +132,7 @@ I have a book with a wide range of pizza styles and types of bases, which I have
                 </div>
               </div>
               <div class="col-sm">
-              <div class="container">
+                <div class="container">
                   <div class="row">
                     <div class="col-lg-2">
                       <input type="checkbox" id="chkAbalone">
@@ -145,6 +145,16 @@ I have a book with a wide range of pizza styles and types of bases, which I have
                 </div>
               </div>
               <div class="col-sm">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-2">
+                      <input type="checkbox" id="chkCharcuterie">
+                    </div>
+                    <div class="col-lg-10">
+                      <label for="chkCharcuterie ">Charcuterie Luxembourgeoise Artisanale</label>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
