@@ -138,7 +138,7 @@ I have a book with a wide range of pizza styles and types of bases, which I have
                       <input type="checkbox" id="chkAbalone">
                     </div>
                     <div class="col-lg-10">
-                      <label for="chkAbalone ">Abalone </label>
+                      <label for="chkAbalone ">Abalone</label>
                       <span id="abaloneNo" class="invisible">NO!</span>
                     </div>
                   </div>
