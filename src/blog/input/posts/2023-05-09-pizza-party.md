@@ -122,6 +122,44 @@ I have a book with a wide range of pizza styles and types of bases, which I have
                 <div class="container">
                   <div class="row">
                     <div class="col-lg-2">
+                      <input type="checkbox" id="chkTomato">
+                    </div>
+                    <div class="col-lg-10">
+                      <label for="chkTomato">Pineapple</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-2">
+                      <input type="checkbox" id="chkWeiße">
+                    </div>
+                    <div class="col-lg-10">
+                      <label for="chkWeiße ">Weiße Pizza</label>
+                      <span id="weißeNo" class="invisible">NO!</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-2">
+                      <input type="checkbox" id="chkArrabbiata">
+                    </div>
+                    <div class="col-lg-10">
+                      <label for="chkArrabbiata">sugo all'arrabbiata</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+              <div class="col-sm">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-2">
                       <input type="checkbox" id="chkPineapple">
                     </div>
                     <div class="col-lg-10">
