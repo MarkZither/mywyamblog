@@ -10,3 +10,9 @@ Tags:
 ---
 
 ## Snort Challenge - The Basics
+
+This is the first time I have written up a Try Hack Me challenge, it is primarily to keep track of the challenge as i work through it, if you find this i hope it helps.
+
+### Task 1 - Introduction
+
+Start the machine, that's it.
