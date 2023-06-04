@@ -25,3 +25,9 @@ ul.share-buttons .sr-only {
 .no-serviceworker .serviceworker-warning {
     color: red;
 }
+
+.text-blur {
+    font-size: 1.3rem;
+    filter: blur(3px);
+        -webkit-filter: blur(3px);
+  }
