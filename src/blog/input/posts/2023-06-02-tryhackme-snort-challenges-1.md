@@ -50,3 +50,10 @@ Action Stats:
 
 > 328 {.text-blur}
 
+Investigate the log file.
+
+What is the destination address of packet 63?
+
+``` bash
+snort -c local.rules -r mx-3.pcap -A console -n 63
+```
