@@ -52,7 +52,7 @@ Action Stats:
 #### Answer
 > 328 {.answer .blur} 
 
-[Reveal Answer](/#) {.reveal-answer}
+[Reveal Answer](#) {.reveal-answer}
 
 ### Question 2
 Investigate the log file.
@@ -69,5 +69,6 @@ snort -c local.rules -r mx-3.pcap -A console -n 63
 
 #### Answer
 > 145.254.160.237 {.answer .blur} 
-[Reveal Answer](/#) {.reveal-answer}
+
+[Reveal Answer](#) {.reveal-answer}
 

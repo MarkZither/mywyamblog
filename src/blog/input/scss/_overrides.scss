@@ -26,7 +26,24 @@ ul.share-buttons .sr-only {
     color: red;
 }
 
+$font-stack: Helvetica, sans-serif;
+
+.answer {
+    font: 2.5rem $font-stack;
+}
+
+.blur {
+    filter: blur(9px);
+    -webkit-filter: blur(9px);
+}
+
 .text-blur {
+    font-size: 1.3rem;
+    filter: blur(3px);
+        -webkit-filter: blur(3px);
+  }
+
+.text-blur2 {
     font-size: 1.3rem;
     filter: blur(3px);
         -webkit-filter: blur(3px);
