@@ -27,6 +27,7 @@ Use the given pcap file.
 
 Write rules to detect "all TCP port 80 traffic" packets in the given pcap file. 
 
+### Question 1
 What is the number of detected packets?
 
 Note: You must answer this question correctly before answering the rest of the questions in this task.
@@ -48,8 +49,12 @@ Action Stats:
      Logged:          ??? ( 71.304%)
 ```
 
-> 328 {.text-blur}
+#### Answer
+> 328 {.answer .blur} 
 
+[Reveal Answer](/#) {.reveal-answer}
+
+### Question 2
 Investigate the log file.
 
 What is the destination address of packet 63?
@@ -57,3 +62,12 @@ What is the destination address of packet 63?
 ``` bash
 snort -c local.rules -r mx-3.pcap -A console -n 63
 ```
+
+``` bash
+05/13-10:17:10.205385  [**] [1:100001:1] port 80 origin [**] [Priority: 0] {TCP} 65.208.228.223:80 -> 145.254.160.237:3372
+```
+
+#### Answer
+> 145.254.160.237 {.answer .blur} 
+[Reveal Answer](/#) {.reveal-answer}
+
