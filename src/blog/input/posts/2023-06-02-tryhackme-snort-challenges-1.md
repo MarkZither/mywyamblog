@@ -90,7 +90,29 @@ sudo snort -r snort.log.1686080304 -n 64
 WARNING: No preprocessors configured for policy 0.
 05/13-10:17:09.123830 65.208.228.223:80 -> 145.254.160.237:3372
 TCP TTL:47 TOS:0x0 ID:49312 IpLen:20 DgmLen:1420 DF
-***A**** Seq: 0x114C66F0  Ack: 0x???????  Win: 0x1920  TcpLen: 20
+***A**** Seq: 0x114C66F0  Ack: 0x????????  Win: 0x1920  TcpLen: 20
+```
+
+#### Answer
+> 0x38AFFFF3 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Question 4
+
+Investigate the log file.
+
+What is the SEQ number of packet 62?
+
+``` bash
+sudo snort -r snort.log.1686080304 -n 62
+```
+
+``` bash
+WARNING: No preprocessors configured for policy 0.
+05/13-10:17:09.123830 145.254.160.237:3372 -> 65.208.228.223:80
+TCP TTL:128 TOS:0x0 ID:3910 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0x????????  Ack: 0x114C66F0  Win: 0x25BC  TcpLen: 20
 ```
 
 #### Answer
