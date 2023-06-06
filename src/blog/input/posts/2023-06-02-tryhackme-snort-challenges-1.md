@@ -52,7 +52,7 @@ Action Stats:
 #### Answer
 > 328 {.answer .blur} 
 
-[Reveal Answer](#) {.reveal-answer}
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
 ### Question 2
 Investigate the log file.
@@ -64,11 +64,36 @@ snort -c local.rules -r mx-3.pcap -A console -n 63
 ```
 
 ``` bash
+sudo snort -r snort.log.1680776108 -n 64
+```
+
+``` bash
 05/13-10:17:10.205385  [**] [1:100001:1] port 80 origin [**] [Priority: 0] {TCP} 65.208.228.223:80 -> 145.254.160.237:3372
 ```
 
 #### Answer
 > 145.254.160.237 {.answer .blur} 
 
-[Reveal Answer](#) {.reveal-answer}
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
+### Question 3
+
+Investigate the log file.
+
+What is the ACK number of packet 64?
+
+``` bash
+sudo snort -r snort.log.1686080304 -n 64
+```
+
+``` bash
+WARNING: No preprocessors configured for policy 0.
+05/13-10:17:09.123830 65.208.228.223:80 -> 145.254.160.237:3372
+TCP TTL:47 TOS:0x0 ID:49312 IpLen:20 DgmLen:1420 DF
+***A**** Seq: 0x114C66F0  Ack: 0x???????  Win: 0x1920  TcpLen: 20
+```
+
+#### Answer
+> 0x38AFFFF3 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
