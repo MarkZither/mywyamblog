@@ -119,3 +119,26 @@ TCP TTL:128 TOS:0x0 ID:3910 IpLen:20 DgmLen:40 DF
 > 0x38AFFFF3 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Question 5
+
+Investigate the log file.
+
+What is the TTL number of packet 65?
+
+``` bash
+sudo snort -r snort.log.1686080304 -n 52
+```
+
+``` bash
+WARNING: No preprocessors configured for policy 0.
+05/13-10:17:09.324118 145.254.160.237:3372 -> 65.208.228.223:80
+TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0x38AFFFF3  Ack: 0x114C6C54  Win: 0x25BC  TcpLen: 20
+
+```
+
+#### Answer
+> 128 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
