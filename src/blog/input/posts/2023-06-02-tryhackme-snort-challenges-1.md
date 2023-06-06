@@ -127,12 +127,12 @@ Investigate the log file.
 What is the TTL number of packet 65?
 
 ``` bash
-sudo snort -r snort.log.1686080304 -n 52
+sudo snort -r snort.log.1686080304 -n 65
 ```
 
 ``` bash
 WARNING: No preprocessors configured for policy 0.
-05/13-10:17:09.324118 145.254.160.237:3372 -> 65.208.228.223:80
+05/13-10:17:09.324118 ???.???.???.???:???? -> 65.208.228.223:80
 TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
 ***A**** Seq: 0x38AFFFF3  Ack: 0x114C6C54  Win: 0x25BC  TcpLen: 20
 
@@ -140,5 +140,49 @@ TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
 
 #### Answer
 > 128 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Question 6
+
+Investigate the log file.
+
+What is the source IP number of packet 65?
+
+``` bash
+sudo snort -r snort.log.1686080304 -n 65
+```
+
+``` bash
+WARNING: No preprocessors configured for policy 0.
+05/13-10:17:09.324118 ???.???.???.???:???? -> 65.208.228.223:80
+TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0x38AFFFF3  Ack: 0x114C6C54  Win: 0x25BC  TcpLen: 20
+```
+
+#### Answer
+> 145.254.160.237 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Question 7
+
+Investigate the log file.
+
+What is the source port of packet 65?
+
+``` bash
+sudo snort -r snort.log.1686080304 -n 65
+```
+
+``` bash
+WARNING: No preprocessors configured for policy 0.
+05/13-10:17:09.324118 ???.???.???.???:???? -> 65.208.228.223:80
+TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0x38AFFFF3  Ack: 0x114C6C54  Win: 0x25BC  TcpLen: 20
+```
+
+#### Answer
+> 3372 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
