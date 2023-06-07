@@ -17,7 +17,7 @@ This is the first time I have written up a Try Hack Me challenge on day 161 of m
 
 Start the machine, that's it.
 
-### Task 2 - HTTP
+### Task 2 - Writing IDS Rules (HTTP)
 
 Let's create IDS Rules for HTTP traffic!
 Answer the questions below
