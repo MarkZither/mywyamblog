@@ -17,7 +17,7 @@ This is the first time I have written up a Try Hack Me challenge on day 161 of m
 
 Start the machine, that's it.
 
-### Task 2 - 
+### Task 2 - HTTP
 
 Let's create IDS Rules for HTTP traffic!
 Answer the questions below
@@ -27,7 +27,7 @@ Use the given pcap file.
 
 Write rules to detect "all TCP port 80 traffic" packets in the given pcap file. 
 
-### Question 1
+#### Question 1
 What is the number of detected packets?
 
 Note: You must answer this question correctly before answering the rest of the questions in this task.
@@ -54,7 +54,7 @@ Action Stats:
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
-### Question 2
+#### Question 2
 Investigate the log file.
 
 What is the destination address of packet 63?
@@ -76,7 +76,7 @@ sudo snort -r snort.log.1680776108 -n 64
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
-### Question 3
+#### Question 3
 
 Investigate the log file.
 
@@ -98,7 +98,7 @@ TCP TTL:47 TOS:0x0 ID:49312 IpLen:20 DgmLen:1420 DF
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
-### Question 4
+#### Question 4
 
 Investigate the log file.
 
@@ -120,7 +120,7 @@ TCP TTL:128 TOS:0x0 ID:3910 IpLen:20 DgmLen:40 DF
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
-### Question 5
+#### Question 5
 
 Investigate the log file.
 
@@ -143,7 +143,7 @@ TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
-### Question 6
+#### Question 6
 
 Investigate the log file.
 
@@ -165,7 +165,7 @@ TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
-### Question 7
+#### Question 7
 
 Investigate the log file.
 
