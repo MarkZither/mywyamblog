@@ -186,3 +186,32 @@ TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
 > 3372 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 3 - Writing IDS Rules (FTP)
+
+Let's create IDS Rules for FTP traffic!
+Answer the questions below
+Navigate to the task folder.
+
+Use the given pcap file.
+
+Write rules to detect "all TCP port 21"  traffic in the given pcap.
+
+``` bash
+alert tcp any 21 <> any any (msg: "port 21 origin"; sid: 100001; rev: 1;)
+alert tcp any any <> any 21 (msg: "port 21 destination"; sid: 100002; rev:1;)
+```
+
+``` bash
+snort -c local.rules -A full -l . -r mx-3.pcap
+```
+
+#### Question 1
+
+What is the number of detected packets?
+
+#### Answer
+> 614 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
