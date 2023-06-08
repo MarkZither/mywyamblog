@@ -241,3 +241,41 @@ What is the FTP service name?
 > Microsoft FTP Service {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 3
+
+**Clear the previous log and alarm files.**
+
+Deactivate/comment on the old rules.
+
+Write a rule to detect failed FTP login attempts in the given pcap.
+
+What is the number of detected packets?
+
+##### notes
+
+I know from mistyping a FTP login enough times that 530 is the code for a failed FTP login.
+
+Looking at the previous log I can see entries like `530 User admin cannot log in.`
+
+So from the previous channel, **Payload Detection Rule Options**, it looks like I can use the `content:` to search for the 530.
+
+``` bash
+alert tcp any 21 <> any any (msg: "port 21 origin"; content:"530 "; sid: 100001; rev: 1;)
+alert tcp any any <> any 21 (msg: "port 21 destination"; content:"530 "; sid: 100002; rev:1;)
+```
+
+This gives the answer 82 which is not correct.
+
+Hint: Each failed FTP login attempt prompts a default message with the pattern; "530 User". Try to filter the given pattern in the inbound FTP traffic. {.alert .alert-info}
+
+So the hint helps, the rule should only be for inbound.
+
+``` bash
+alert tcp any 21 <> any any (msg: "port 21 origin"; content:"530 "; sid: 100001; rev: 1;)
+```
+
+#### Answer
+> 41 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
