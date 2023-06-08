@@ -215,3 +215,13 @@ What is the number of detected packets?
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
+#### Question 2
+
+Investigate the log file.
+
+What is the FTP service name?
+
+#### Answer
+> Microsoft FTP Service {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
