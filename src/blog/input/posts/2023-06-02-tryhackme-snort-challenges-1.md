@@ -275,7 +275,40 @@ So the hint helps, the rule should only be for inbound.
 alert tcp any 21 <> any any (msg: "port 21 origin"; content:"530 "; sid: 100001; rev: 1;)
 ```
 
+Run snort again to read the pcap with the new rule
+``` bash
+snort -c local.rules -A full -l . -r mx-3.pcap
+```
+
 #### Answer
 > 41 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 4
+
+**Clear the previous log and alarm files.**
+
+Deactivate/comment on the old rule.
+
+Write a rule to detect successful FTP logins in the given pcap.
+
+What is the number of detected packets?
+
+##### Notes
+
+Similar to the last quesiton but the code is 230
+
+``` bash
+alert tcp any 21 <> any any (msg: "port 21 origin"; content:"230 "; sid: 100001; rev: 1;)
+```
+
+Run snort again to read the pcap with the new rule
+``` bash
+snort -c local.rules -A full -l . -r mx-3.pcap
+```
+
+#### Answer
+> 1 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
