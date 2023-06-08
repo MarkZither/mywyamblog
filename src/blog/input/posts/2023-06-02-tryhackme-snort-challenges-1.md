@@ -32,7 +32,23 @@ What is the number of detected packets?
 
 Note: You must answer this question correctly before answering the rest of the questions in this task.
 
-Hint: You need to investigate inbound and outbound traffic on port 80. Writing two simple rules will help you.
+Hint: You need to investigate inbound and outbound traffic on port 80. Writing two simple rules will help you. {.alert .alert-info}
+
+#### Notes
+
+In the previous channel task 9 covers the structure of a snort rule which is summarized as
+
+ Action | Protocol | Source IP | Source Port | Direction | Dest IP | Dest Port | Options   
+--------|----------|-----------|-------------|-----------|---------|-----------|-----------
+ Alert  | TCP      |           |             |           |         |           | Msg       
+ Drop   | UDP      |    ANY    |    ANY      |    <>     |    ANY  |    ANY    | Reference      
+ Reject | IMCP     |           |             |           |         |           | SID        
+        |          |           |             |           |         |           | Rev       
+--------|----------|-----------|-------------|-----------|---------|-----------|-----------
+                             Rule Header                                       | Rule Options 
+
+
+The hint says to make 2 rules, 1 rule for port 80 source and port 80 destination, 
 
 ``` bash
 alert tcp any 80 <> any any (msg: "port 80 origin"; sid: 100001; rev: 1;)
