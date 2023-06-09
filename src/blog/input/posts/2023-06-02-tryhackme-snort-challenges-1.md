@@ -25,7 +25,7 @@ Navigate to the task folder.
 
 Use the given pcap file.
 
-Write rules to detect "all TCP port 80 traffic" packets in the given pcap file. 
+Write rules to detect "all TCP port 80 traffic" packets in the given pcap file.
 
 #### Question 1
 What is the number of detected packets?
@@ -55,6 +55,7 @@ alert tcp any 80 <> any any (msg: "port 80 origin"; sid: 100001; rev: 1;)
 alert tcp any any <> any 80 (msg: "port 80 destination"; sid: 100002; rev:1;)
 ```
 
+Then run snort with the local rules
 ``` bash
 snort -c local.rules -A full -l . -r mx-3.pcap
 ```
@@ -75,9 +76,13 @@ Investigate the log file.
 
 What is the destination address of packet 63?
 
+I got to the answer using the following snort command.
+
 ``` bash
 snort -c local.rules -r mx-3.pcap -A console -n 63
 ```
+
+But that isn't what the question asks, it specifically says `Investigate the log file.` so to read the log file instead use the command below. 
 
 ``` bash
 sudo snort -r snort.log.1680776108 -n 64
@@ -98,9 +103,15 @@ Investigate the log file.
 
 What is the ACK number of packet 64?
 
+##### Notes
+
+Similar to the previous question.
+
 ``` bash
 sudo snort -r snort.log.1686080304 -n 64
 ```
+
+
 
 ``` bash
 WARNING: No preprocessors configured for policy 0.
