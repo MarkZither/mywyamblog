@@ -230,7 +230,7 @@ alert tcp any any <> any 21 (msg: "port 21 destination"; sid: 100002; rev:1;)
 ```
 
 ``` bash
-snort -c local.rules -A full -l . -r mx-3.pcap
+snort -c local.rules -A full -l . -r ftp-png-gif.pcap
 ```
 
 #### Question 1
@@ -288,7 +288,7 @@ alert tcp any 21 <> any any (msg: "port 21 origin"; content:"530 "; sid: 100001;
 
 Run snort again to read the pcap with the new rule
 ``` bash
-snort -c local.rules -A full -l . -r mx-3.pcap
+snort -c local.rules -A full -l . -r ftp-png-gif.pcap
 ```
 
 #### Answer
@@ -316,10 +316,37 @@ alert tcp any 21 <> any any (msg: "port 21 origin"; content:"230 "; sid: 100001;
 
 Run snort again to read the pcap with the new rule
 ``` bash
-snort -c local.rules -A full -l . -r mx-3.pcap
+snort -c local.rules -A full -l . -r ftp-png-gif.pcap
 ```
 
 #### Answer
 > 1 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 5
+
+**Clear the previous log and alarm files.**
+
+Deactivate/comment on the old rule.
+
+Write a rule to detect failed FTP login attempts with a valid username but a bad password or no password.
+
+What is the number of detected packets?
+
+##### Notes
+Looking at the output from the rule in question 1 there are several entries for `331 Password required for fred.` so I tried a rule for 331 in the body, same as the previous question it only makes sense to look for inbound traffic.
+
+``` bash
+alert tcp any 21 <> any any (msg: "port 21 origin"; content:"331 "; sid: 100001; rev: 1;)
+```
+
+Run snort again to read the pcap with the new rule
+``` bash
+snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+```
+
+#### Answer
+> 42 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
