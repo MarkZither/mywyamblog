@@ -425,3 +425,34 @@ snort -c local.rules -A full -l . -r ftp-png-gif.pcap
 > adobe imageready {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+
+#### Question 2
+
+**Clear the previous log and alarm files.**
+
+Deactivate/comment on the old rule.
+
+Write a rule to detect the GIF file in the given pcap.
+
+Investigate the logs and identify the image format embedded in the packet.
+
+##### Notes
+
+Based on the previous question I assume we are looking for the magic bytes for gif, that can be `47 49 46 38 37 61` for GIF87a or `47 49 46 38 39 61` for GIF89a.
+
+Change the previous rule slightly and 
+
+``` bash
+alert tcp any any -> any any (content:"|47 49 46 38 39 61|"; msg:"PNG";sid:10002)
+```
+
+With that rule in place run snort to read the pcap with the new rule
+``` bash
+snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+```
+
+#### Answer
+> GIF89a {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
