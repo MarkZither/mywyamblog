@@ -350,3 +350,78 @@ snort -c local.rules -A full -l . -r ftp-png-gif.pcap
 > 42 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 6
+
+**Clear the previous log and alarm files.**
+
+Deactivate/comment on the old rule.
+
+Write a rule to detect failed FTP login attempts with "Administrator" username but a bad password or no password.
+
+What is the number of detected packets?
+
+##### Notes
+
+This builds on the previous answers, so a rule like this could work
+
+``` bash
+alert tcp any any <> any 21 (msg: "port 21 destination"; content:"331 Password required for Administrator"; sid: 100001; rev: 1;)
+```
+
+But that is a kind of basic inflexible way to achieve it, lets make it more complex with the aid of a regex
+
+``` bash
+alert tcp any any <> any 21 (msg: "port 21 destination"; pcre:"/(331).*(administrator)/ix"; sid: 100001; rev: 1;)
+```
+
+Run snort again to read the pcap with the new rule
+``` bash
+snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+```
+
+#### Answer
+> 7 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+
+### Task 3 - Writing IDS Rules (FTP)
+
+Let's create IDS Rules for PNG files in the traffic!
+
+#### Question 1
+
+Use the given pcap file.
+
+Write a rule to detect the PNG file in the given pcap.
+
+Investigate the logs and identify the software name embedded in the packet.
+
+##### Notes
+
+I could not figure this out from the channel, I tried a simple rule like
+
+``` bash
+alert tcp any any -> any any (content:"png"; msg:"PNG";sid:10002; rev:1;)
+```
+
+It gave some results but nothing useful to answer the question.
+
+After some googling and trying to avoid other writeups I came across this article on [asecuritysite.com](https://asecuritysite.com/forensics/snort?fname=with_pdf.pcap&rulesname=rulessig.rules) which included the rule
+
+``` bash
+alert tcp any any -> any any (content:"|89 50 4E 47|"; msg:"PNG";sid:10002)
+```
+
+I remember from a previous channel that the more certain way to identify a file rather then trusting the file extension is the files magic number or magic bytes, for png that is `89 50 4E 47`.
+
+With that rule in place run snort to read the pcap with the new rule
+``` bash
+snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+```
+
+#### Answer
+> adobe imageready {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
