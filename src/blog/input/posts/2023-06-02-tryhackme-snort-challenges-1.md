@@ -718,3 +718,41 @@ alert tcp any 80,443 -> any any (msg: "HTTPX Packet Found"; sid:1000001; rev:1;)
 > 90 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 5
+
+Fix the syntax error in local-4.rules file and make it work smoothly.
+
+What is the number of the detected packets?
+
+##### Notes
+
+The rule defined in `local-5.rules` is;
+
+``` bash
+alert icmp any any <> any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
+alert icmp any any <- any any (msg: "Inbound ICMP Packet Found"; sid;1000002; rev:1;)
+alert tcp any any -> any 80,443 (msg: "HTTPX Packet Found": sid:1000003; rev:1;)
+
+```
+
+Running snort with the provided command gives the following error;
+
+``` bash
+Initializing rule chains...
+ERROR: local-5.rules(9) Illegal direction specifier: <-
+Fatal Error, Quitting..
+```
+
+From the previous channel I know that snort does not have a `<-` operator, since rule 2 is any ip and port in either direction is assume `<>` is the correct operator. There is a second problem in the second rule, the separator between the sid name and the value is a semi-colon instead of a colon. Finally a third problem in the 3rd rule, the separator between msg and sid is again a colon rather than semi-colon, the fix rule is;
+
+``` bash
+alert icmp any any <> any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
+alert icmp any any <> any any (msg: "Inbound ICMP Packet Found"; sid:1000002; rev:1;)
+alert tcp any any -> any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; rev:1;)
+```
+
+#### Answer
+> 155 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
