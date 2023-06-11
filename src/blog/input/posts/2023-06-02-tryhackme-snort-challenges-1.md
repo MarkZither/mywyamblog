@@ -386,7 +386,7 @@ snort -c local.rules -A full -l . -r ftp-png-gif.pcap
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
 
-### Task 3 - Writing IDS Rules (FTP)
+### Task 3 - Writing IDS Rules (PNG)
 
 Let's create IDS Rules for PNG files in the traffic!
 
@@ -458,7 +458,7 @@ snort -c local.rules -A full -l . -r ftp-png-gif.pcap
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
-### Task 4 - Writing IDS Rules (Torrent Metafile)
+### Task 5 - Writing IDS Rules (Torrent Metafile)
 
 Let's create IDS Rules for torrent metafiles in the traffic!
 
@@ -569,3 +569,50 @@ Connection: Keep-Alive
 > tracker2.torrentbox.com {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 6 - Troubleshooting Rule Syntax Errors
+
+Let's troubleshoot rule syntax errors!
+Answer the questions below
+In this section, you need to fix the syntax errors in the given rule files. 
+
+You can test each ruleset with the following command structure;
+
+``` bash
+sudo snort -c local-X.rules -r mx-1.pcap -A console
+```
+
+#### Question 1
+
+Fix the syntax error in local-1.rules file and make it work smoothly.
+
+What is the number of the detected packets?
+
+##### Notes
+
+The rule defined in `local-1.rules` is;
+
+``` bash
+alert tcp any 3372 -> any any(msg: "Troubleshooting 1"; sid:1000001; rev:1;)
+```
+
+Running snort with the provided command gives the following error;
+
+``` bash
+Initializing rule chains...
+ERROR: local-1.rules(8) ***Rule--PortVar Parse error: (pos=1,error=not a number)
+>>any(msg:
+>>^
+```
+
+This is a missing space between any and the opening bracket, the fixed rule is;
+
+``` bash
+alert tcp any 3372 -> any any(msg: "Troubleshooting 1"; sid:1000001; rev:1;)
+```
+
+#### Answer
+> 16 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
