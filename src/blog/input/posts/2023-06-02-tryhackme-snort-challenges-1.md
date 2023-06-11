@@ -657,7 +657,7 @@ What is the number of the detected packets?
 
 ##### Notes
 
-The rule defined in `local-2.rules` is;
+The rule defined in `local-3.rules` is;
 
 ``` bash
 alert icmp any any -> any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
@@ -681,5 +681,40 @@ alert tcp any any -> any 80,443 (msg: "HTTPX Packet Found"; sid:1000002; rev:1;)
 
 #### Answer
 > 87 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 4
+
+Fix the syntax error in local-4.rules file and make it work smoothly.
+
+What is the number of the detected packets?
+
+##### Notes
+
+The rule defined in `local-4.rules` is;
+
+``` bash
+alert icmp any any -> any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
+alert tcp any 80,443 -> any any (msg: "HTTPX Packet Found": sid:1000001; rev:1;)
+```
+
+Running snort with the provided command gives the following error;
+
+``` bash
+Initializing rule chains...
+ERROR: local-4.rules(9) Unmatch quote in rule option 'msg'.
+Fatal Error, Quitting..
+```
+
+The error is a little misleading and it is easier to see the problem with the syntax highlighting, rather than it being an unmatched quote it is a colon instead of a semi-colon after msg in the second rule. There is a second issue which is the same as the previous question, the SID is the same in both rules, the fixed rule is;
+
+``` bash
+alert icmp any any -> any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
+alert tcp any 80,443 -> any any (msg: "HTTPX Packet Found"; sid:1000001; rev:1;)
+```
+
+#### Answer
+> 90 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
