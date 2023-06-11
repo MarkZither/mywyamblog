@@ -648,3 +648,38 @@ alert tcp any any -> any any(msg: "Troubleshooting 2"; sid:1000001; rev:1;)
 > 68 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 3
+
+Fix the syntax error in local-3.rules file and make it work smoothly.
+
+What is the number of the detected packets?
+
+##### Notes
+
+The rule defined in `local-2.rules` is;
+
+``` bash
+alert icmp any any -> any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
+alert tcp any any -> any 80,443 (msg: "HTTPX Packet Found"; sid:1000001; rev:1;)
+```
+
+Running snort with the provided command gives the following error;
+
+``` bash
+Initializing rule chains...
+ERROR: local-3.rules(9) GID 1 SID 1000001 in rule duplicates previous rule, with different protocol.
+Fatal Error, Quitting..
+```
+
+This time the tells us the same SID is used in 2 different rules, the fixed rule is;
+
+``` bash
+alert icmp any any -> any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
+alert tcp any any -> any 80,443 (msg: "HTTPX Packet Found"; sid:1000002; rev:1;)
+```
+
+#### Answer
+> 87 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
