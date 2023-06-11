@@ -733,7 +733,6 @@ The rule defined in `local-5.rules` is;
 alert icmp any any <> any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
 alert icmp any any <- any any (msg: "Inbound ICMP Packet Found"; sid;1000002; rev:1;)
 alert tcp any any -> any 80,443 (msg: "HTTPX Packet Found": sid:1000003; rev:1;)
-
 ```
 
 Running snort with the provided command gives the following error;
@@ -754,5 +753,46 @@ alert tcp any any -> any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; rev:1;)
 
 #### Answer
 > 155 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 6
+
+Fix the logical error in local-6.rules file and make it work smoothly to create alerts.
+
+What is the number of the detected packets?
+
+##### Notes
+
+The rule defined in `local-6.rules` is;
+
+``` bash
+alert tcp any any <> any 80  (msg: "GET Request Found"; content:"|67 65 74|"; sid: 100001; rev:1;)
+```
+
+This time there is no error, but the rule returns no alerts.
+
+The rule looks simple enough, any request to a remote ip on port 80, but what is the content part of the rule? Putting `67 65 74` into a hex to ascii convertor returns `get`.
+
+I didn't see the answer so used the hint.
+
+Hint: Case sensitivity matters! Use the capitals or nocase! {.alert .alert-info}
+
+Now the logical error is a little clearer, the content is looking for `get` but http verbs are generally uppercase `GET`.
+
+The hint explains to add the nocase or use uppercase letters in the content, so there are 2 possible rules that can be used;
+
+``` bash
+alert tcp any any <> any 80  (msg: "GET Request Found"; content:"|67 65 74|"; nocase; sid: 100001; rev:1;)
+```
+
+or
+
+``` bash
+alert tcp any any <> any 80  (msg: "GET Request Found"; content:"|47 45 54|"; sid: 100001; rev:1;)
+```
+
+#### Answer
+> 2 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
