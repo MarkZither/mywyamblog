@@ -616,3 +616,35 @@ alert tcp any 3372 -> any any(msg: "Troubleshooting 1"; sid:1000001; rev:1;)
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
+#### Question 2
+
+Fix the syntax error in local-2.rules file and make it work smoothly.
+
+What is the number of the detected packets?
+
+##### Notes
+
+The rule defined in `local-2.rules` is;
+
+``` bash
+alert icmp any -> any any (msg: "Troubleshooting 2"; sid:1000001; rev:1;)
+```
+
+Running snort with the provided command gives the following error;
+
+``` bash
+Initializing rule chains...
+ERROR: local-2.rules(8) Port value missing in rule!
+Fatal Error, Quitting..
+```
+
+This time the port number is missing from the origin part of the rule, the fixed rule is;
+
+``` bash
+alert tcp any any -> any any(msg: "Troubleshooting 2"; sid:1000001; rev:1;)
+```
+
+#### Answer
+> 68 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
