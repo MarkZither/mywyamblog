@@ -488,3 +488,30 @@ Seems to work.
 > 2 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 2
+
+Investigate the log/alarm files.
+
+What is the name of the torrent application?
+
+##### Notes
+
+This is just a `nano snort.log.1686496369` your log file name will be different.
+
+The output will be something like
+
+``` bash
+�ò�^B^@^D^@^@^@^@^@^@^@^@^@�^E^@^@^A^@^@^@���B�0^N^@�^A^@^@�^A^@^@�� ^@^>
+�饐^V�^K�rP^X"8�^@^@^@GET /announce?info_hash=%01d%FE%7E%F1%10%5CWvAp%ED>
+Accept: application/?-??????????
+Accept-Encoding: gzip
+User-Agent: RAZA 2.1.0.0
+Host: ????????.??????????.???:2710
+Connection: Keep-Alive
+```
+
+#### Answer
+> bittorrent {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
