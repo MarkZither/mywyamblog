@@ -448,11 +448,43 @@ alert tcp any any -> any any (content:"|47 49 46 38 39 61|"; msg:"PNG";sid:10002
 ```
 
 With that rule in place run snort to read the pcap with the new rule
+
 ``` bash
 snort -c local.rules -A full -l . -r ftp-png-gif.pcap
 ```
 
 #### Answer
 > GIF89a {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 4 - Writing IDS Rules (Torrent Metafile)
+
+Let's create IDS Rules for torrent metafiles in the traffic!
+
+#### Question 1
+
+Use the given pcap file.
+
+Write a rule to detect the torrent metafile in the given pcap.
+
+##### Notes
+
+A torrent meta file has an extension of `.torrent` lets see if that finds anything.
+
+``` bash
+alert tcp any any -> any any (content:".torrent"; msg:"PNG";sid:10002)
+```
+
+With that rule in place run snort to read the pcap with the new rule
+
+``` bash
+snort -c local.rules -A full -l . -r torrent.pcap
+```
+
+Seems to work.
+
+#### Answer
+> 2 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
