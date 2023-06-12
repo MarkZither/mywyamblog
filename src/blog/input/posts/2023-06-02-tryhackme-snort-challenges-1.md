@@ -867,3 +867,22 @@ alert tcp any any <> any any  (msg: "\IPC$"; content:"|5c 49 50 43 24|"; sid: 10
 > 12 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 3
+
+Investigate the log/alarm files.
+
+What is the requested path?
+
+##### Notes
+
+The snort log has entries like
+
+```
+^@^@^@^@^@[�SMBu^@^@^@^@^X^A ^@^@^@^@^@^@^@^@^@^@/K^@^H�^^D�^@^@^@^@^@^A^@^\^@^@\\192.168.116.138\IPC$^@????^@TH_REPLACE
+```
+
+#### Answer
+> smb\\192.168.116.138\IPC$ {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
