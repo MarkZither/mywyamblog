@@ -573,7 +573,7 @@ Connection: Keep-Alive
 ### Task 6 - Troubleshooting Rule Syntax Errors
 
 Let's troubleshoot rule syntax errors!
-Answer the questions below
+
 In this section, you need to fix the syntax errors in the given rule files. 
 
 You can test each ruleset with the following command structure;
@@ -827,5 +827,22 @@ alert tcp any any <> any 80  (msg: "HTML file"; content:"|2E 68 74 6D 6C|"; sid:
 
 #### Answer
 > msg {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 7 - Using External Rules (MS17-010)
+
+Using External Rules (MS17-010)
+
+Use the given pcap file.
+
+#### Question 1
+
+Use the given rule file (local.rules) to investigate the ms1710 exploitation.
+
+What is the number of detected packets?
+
+#### Answer
+> 25154 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
