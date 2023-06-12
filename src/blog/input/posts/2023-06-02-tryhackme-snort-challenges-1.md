@@ -886,3 +886,16 @@ The snort log has entries like
 > smb\\192.168.116.138\IPC$ {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 4
+
+What is the CVSS v2 score of the MS17-010 vulnerability?
+
+##### Notes
+
+https://www.cvedetails.com/cve/CVE-2017-0144/
+
+#### Answer
+> 9.3 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
