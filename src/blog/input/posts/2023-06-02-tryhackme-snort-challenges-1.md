@@ -796,3 +796,36 @@ alert tcp any any <> any 80  (msg: "GET Request Found"; content:"|47 45 54|"; si
 > 2 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 7
+
+Fix the logical error in local-7.rules file and make it work smoothly to create alerts.
+
+What is the name of the required option:
+
+##### Notes
+
+The rule defined in `local-7.rules` is;
+
+``` bash
+alert tcp any any <> any 80  (content:"|2E 68 74 6D 6C|"; sid: 100001; rev:1;)
+```
+
+Again there is no error, but the rule returns 9 alerts while the answer is 3 digits.
+
+The rule looks simple enough, any request to a remote ip on port 80, but what is the content part of the rule? Putting `2E 68 74 6D 6C` into a hex to ascii convertor returns `.html`.
+
+I didn't see the answer so used the hint.
+
+Hint: Rules without messages doesn't make sense! {.alert .alert-info}
+
+That is annoying, all it needs is a message.
+
+``` bash
+alert tcp any any <> any 80  (msg: "HTML file"; content:"|2E 68 74 6D 6C|"; sid: 100001; rev:1;)
+```
+
+#### Answer
+> msg {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
