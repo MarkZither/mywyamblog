@@ -846,3 +846,24 @@ What is the number of detected packets?
 > 25154 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 2
+
+**Clear the previous log and alarm files.**
+
+Use local-1.rules empty file to write a new rule to detect payloads containing the "\IPC$" keyword.
+
+What is the number of detected packets?
+
+##### Notes
+
+The backslash causes problems, so once the string has been converted to hex I had the following rule:
+
+``` bash
+alert tcp any any <> any any  (msg: "\IPC$"; content:"|5c 49 50 43 24|"; sid: 100001; rev:1;)
+```
+
+#### Answer
+> 12 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
