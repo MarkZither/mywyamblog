@@ -916,3 +916,14 @@ What is the number of detected packets?
 > 26 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 2
+
+Investigate the log/alarm files.
+
+How many rules were triggered?.
+
+#### Answer
+> 4 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
