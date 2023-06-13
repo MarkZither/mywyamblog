@@ -927,3 +927,14 @@ How many rules were triggered?.
 > 4 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 3
+
+Investigate the log/alarm files.
+
+What are the first six digits of the triggered rule sids?
+
+#### Answer
+> What are the first six digits of the triggered rule sids? {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
