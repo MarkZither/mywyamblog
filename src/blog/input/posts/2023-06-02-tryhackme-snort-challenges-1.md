@@ -832,7 +832,7 @@ alert tcp any any <> any 80  (msg: "HTML file"; content:"|2E 68 74 6D 6C|"; sid:
 
 ### Task 7 - Using External Rules (MS17-010)
 
-Using External Rules (MS17-010)
+Let's use external rules to fight against the latest threats!
 
 Use the given pcap file.
 
@@ -897,5 +897,22 @@ https://www.cvedetails.com/cve/CVE-2017-0144/
 
 #### Answer
 > 9.3 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 8 - Using External Rules (Log4j)
+
+Let's use external rules to fight against the latest threats!
+
+Use the given pcap file.
+
+#### Question 1
+
+Use the given rule file (local.rules) to investigate the log4j exploitation.
+
+What is the number of detected packets?
+
+#### Answer
+> 26 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
