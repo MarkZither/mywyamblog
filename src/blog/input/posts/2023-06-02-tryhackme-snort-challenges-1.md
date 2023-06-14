@@ -935,6 +935,35 @@ Investigate the log/alarm files.
 What are the first six digits of the triggered rule sids?
 
 #### Answer
-> What are the first six digits of the triggered rule sids? {.answer .blur} 
+> 210037 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 4
+
+Use local-1.rules empty file to write a new rule to detect packet payloads between 770 and 855 bytes.
+
+What is the number of detected packets?
+
+##### Notes
+
+Hint: The "dsize" option will help you to filter the payload size. {.alert .alert-info}
+
+A little more info on [dsize syntax](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node33.html#SECTION00467000000000000000)
+
+The rule can look like the below;
+
+``` bash
+alert tcp any any <> any any (msg: "Between 770 and 885 bytes"; dsize:770<>855; sid: 100001; rev:1;)
+```
+
+Run snort
+
+``` bash
+snort -c local-1.rules -A full -l . -r log4j.pcap
+```
+
+#### Answer
+> 41 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
