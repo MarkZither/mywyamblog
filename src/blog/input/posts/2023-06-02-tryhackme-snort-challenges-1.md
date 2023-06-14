@@ -984,3 +984,18 @@ Quick read of the log file and I noticed this
 > Base64 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 6
+
+Investigate the log/alarm files.
+
+What is the IP ID of the corresponding packet?
+
+##### Notes
+
+I don't know why this is the answer, it is one of the many entries in the alert file.
+
+#### Answer
+> 62808 {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
