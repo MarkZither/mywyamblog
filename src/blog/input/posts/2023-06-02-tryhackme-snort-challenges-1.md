@@ -1021,6 +1021,10 @@ The Base64 encoded string is part of the url in question 5 `KGN1cmwgLXMgNDUuMTU1
 
 What is the CVSS v2 score of the Log4j vulnerability?
 
+##### Notes
+
+[NIST cve-2021-44228](https://nvd.nist.gov/vuln/detail/cve-2021-44228)
+
 #### Answer
 > 9.3
 
