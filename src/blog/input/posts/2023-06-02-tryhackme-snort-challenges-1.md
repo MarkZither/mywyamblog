@@ -1029,3 +1029,9 @@ What is the CVSS v2 score of the Log4j vulnerability?
 > 9.3
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Conclusion
+
+Congratulations! Are you brave enough to stop a live attack in the [Snort2 Challenge 2](https://tryhackme.com/room/snortchallenges2) room?
+
+Check back soon for my write up of Snort Challenge 2.
