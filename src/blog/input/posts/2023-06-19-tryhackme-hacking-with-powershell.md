@@ -17,3 +17,28 @@ This is a Try Hack Me premium room so to access it you will need a subscription,
 
 Start the machine, that's it.
 
+### Task 2 - What is Powershell?
+
+[PowerShell verbs](https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7)
+
+
+#### Question 1
+
+What is the command to get a new object?
+
+##### Notes
+
+This confused me because the command is not a real command, just an example of how command naming works in PowerShell.
+
+Running the command in PowerShell results in
+
+``` powershell
+PS C:\Users\mburton> ???-???
+???-???: The term '???-???' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```
+
+#### Answer
+> Get-New {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
