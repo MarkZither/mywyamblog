@@ -193,3 +193,12 @@ True|False
 > N {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 7
+
+What command would you use to make a request to a web server?
+
+#### Answer
+> Invoke-WebRequest {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
