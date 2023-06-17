@@ -42,3 +42,34 @@ Check the spelling of the name, or if a path was included, verify that the path 
 > Get-New {.answer .blur} 
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+
+### Task 3 - Basic Powershell Commands
+
+[PowerShell verbs](https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7)
+
+
+#### Question 1
+
+What is the location of the file "interesting-file.txt"
+
+##### Notes
+
+The Microsoft Scripting Blog has lots of useful articles on working with PowerShell to answer this question you can read "[Use Windows PowerShell to search for files](https://devblogs.microsoft.com/scripting/use-windows-powershell-to-search-for-files/)".
+
+``` powershell
+Get-Childitem –Path C:\ -Include interesting-file.txt -Recurse -ErrorAction SilentlyContinue
+
+    Directory: C:\??????? ?????
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        10/3/2019  11:38 PM             23 interesting-file.txt
+```
+
+#### Answer
+> C:\Program Files {.answer .blur} 
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
