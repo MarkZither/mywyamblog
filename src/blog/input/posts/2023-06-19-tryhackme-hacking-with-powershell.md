@@ -202,3 +202,28 @@ What command would you use to make a request to a web server?
 > Invoke-WebRequest {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 8
+
+Base64 decode the file b64.txt on Windows.
+
+##### Notes
+
+Nice explanation by Joshua Wright on the [Sans Blog - Month of PowerShell](https://www.sans.org/blog/month-of-powershell-profile-hack-base64-encoding-decoding/), including adding the command to your profile so it can be called easily without having to remember the whole command.
+
+``` powershell
+> $base64 = Get-Content .\b64.txt
+> [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($base64))
+this is the flag - ????????????????????????
+the rest is garbage
+the rest is garbage
+the rest is garbage
+the rest is garbage
+the rest is garbage
+the rest is garbage
+```
+
+#### Answer
+> ihopeyoudidthisonwindows {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
