@@ -73,3 +73,17 @@ Mode                LastWriteTime         Length Name
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
+#### Question 2
+
+Specify the contents of this file
+
+##### Notes
+
+``` powershell
+Get-Content 'C:\Program Files\interesting-file.txt'
+```
+
+#### Answer
+> notsointerestingcontent {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
