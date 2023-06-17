@@ -137,3 +137,34 @@ One of the parameters is `-CommandType` which accepts specific values from a lis
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
+#### Question 4
+
+Get the MD5 hash of interesting-file.txt
+
+##### Notes
+
+``` powershell
+> Get-Help Get-FileHash
+
+NAME
+    Get-FileHash
+
+SYNTAX
+    Get-FileHash [-Path] <string[]> [-Algorithm {SHA1 | SHA256 | SHA384 | SHA512 | MACTripleDES | MD5 | RIPEMD160}]
+    [<CommonParameters>]
+
+    Get-FileHash -LiteralPath <string[]> [-Algorithm {SHA1 | SHA256 | SHA384 | SHA512 | MACTripleDES | MD5 |
+    RIPEMD160}]  [<CommonParameters>]
+
+    Get-FileHash -InputStream <Stream> [-Algorithm {SHA1 | SHA256 | SHA384 | SHA512 | MACTripleDES | MD5 | RIPEMD160}]
+     [<CommonParameters>]
+```
+
+``` powershell
+> Get-FileHash 'C:\Program Files\interesting-file.txt -Algorithm MD5 
+```
+
+#### Answer
+> 49A586A2A9456226F8A1B4CEC6FAB329 {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
