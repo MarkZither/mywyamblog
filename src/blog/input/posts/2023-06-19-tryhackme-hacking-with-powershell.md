@@ -177,3 +177,19 @@ What is the command to get the current working directory?
 > Get-Location {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 6
+
+Does the path "C:\Users\Administrator\Documents\Passwords" Exist (Y/N)?
+
+##### Notes
+
+``` powershell
+> Test-Path 'C:\Users\Administrator\Documents\Passwords'
+True|False
+```
+
+#### Answer
+> N {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
