@@ -168,3 +168,12 @@ SYNTAX
 > 49A586A2A9456226F8A1B4CEC6FAB329 {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 5
+
+What is the command to get the current working directory?
+
+#### Answer
+> Get-Location {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
