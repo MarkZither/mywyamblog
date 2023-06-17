@@ -87,3 +87,53 @@ Get-Content 'C:\Program Files\interesting-file.txt'
 > notsointerestingcontent {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 3
+
+How many cmdlets are installed on the system(only cmdlets, not functions and aliases)?
+
+##### Notes
+
+The task intro shows that `Get-Command` can be used to get this information, but it returns `Cmdlets`, `Functions` and `Alias`, so how to filter only `Cmdlets`?
+
+First check the help, examples and use the [online help](https://learn.microsoft.com/en-gb/powershell/module/microsoft.powershell.core/get-command?view=powershell-7.3&viewFallbackFrom=powershell-6) if it is not available locally 
+
+``` powershell
+> Get-Help Get-Command
+
+NAME
+    Get-Command
+
+SYNTAX
+    Get-Command [[-ArgumentList] <Object[]>] [-Verb <string[]>] [-Noun <string[]>] [-Module <string[]>]
+    [-FullyQualifiedModule <ModuleSpecification[]>] [-TotalCount <int>] [-Syntax] [-ShowCommandInfo] [-All]
+    [-ListImported] [-ParameterName <string[]>] [-ParameterType <PSTypeName[]>]  [<CommonParameters>]
+
+    Get-Command [[-Name] <string[]>] [[-ArgumentList] <Object[]>] [-Module <string[]>] [-FullyQualifiedModule
+    <ModuleSpecification[]>] [-CommandType {Alias | Function | Filter | Cmdlet | ExternalScript | Application | Script
+    | Workflow | Configuration | All}] [-TotalCount <int>] [-Syntax] [-ShowCommandInfo] [-All] [-ListImported]
+    [-ParameterName <string[]>] [-ParameterType <PSTypeName[]>]  [<CommonParameters>]
+
+
+ALIASES
+    gcm
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+        -- To view the Help topic for this cmdlet online, type: "Get-Help Get-Command -Online" or
+           go to https://go.microsoft.com/fwlink/?LinkID=113309.
+```
+
+One of the parameters is `-CommandType` which accepts specific values from a list including `Cmdlet` so last step is to get a count, which can be done by piping it to `Measure-Object`.
+
+``` powershell
+> Get-Command -Type cmdlet | Measure-Object
+```
+
+#### Answer
+> 9673 {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
