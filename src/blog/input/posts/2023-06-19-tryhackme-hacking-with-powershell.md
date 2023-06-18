@@ -227,3 +227,31 @@ the rest is garbage
 > ihopeyoudidthisonwindows {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 4 - Enumeration
+
+The first step when you have gained initial access to any machine would be to enumerate. We'll be enumerating the following:
+
+* users
+* basic networking information
+* file permissions
+* registry permissions
+* scheduled and running tasks
+* insecure files
+
+Your task will be to answer the following questions to enumerate the machine using Powershell commands!
+
+#### Question 1
+
+How many users are there on the machine?
+
+##### Notes
+
+``` powershell
+> Get-LocalUser
+```
+
+#### Answer
+> ihopeyoudidthisonwindows {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
