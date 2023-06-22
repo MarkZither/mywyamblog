@@ -20,7 +20,7 @@ Read tasks 1 - 6 for an introduction to OpenVAS and instructions on setting it u
 As I already have a dedicated Kali VM running I went for the Install from Kali/OpenVAS repositories approach and use the [Install from Kali/OpenVAS repositories](https://www.agix.com.au/installing-openvas-on-kali-in-2020/) guide, as of June 2023 it seems to just about work, I found some extra details on [Ceos3c - Install OpenVAS on Kali Linux] (https://www.ceos3c.com/security/install-openvas-kali-linux/).
 
 Additional steps were
-* create a user with `sudo runuser -u _gvm -- gvmd --create-user=admin --password=admin`
+* create a user with `sudo runuser -u _gvm -- gvmd --create-user=admin --password=admin`, more details on the [Greenbone Forum](https://forum.greenbone.net/t/error-no-users-found-you-need-to-create-at-least-one-user-to-log-in/10528).
 * reboot, without this I was getting a strange permissions error on my home directory.
 
 These issues were highlighted by running `sudo gvm-check-setup`
