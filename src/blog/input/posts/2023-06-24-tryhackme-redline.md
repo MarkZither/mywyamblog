@@ -52,3 +52,12 @@ What script would you run to initiate the data collection process? Please includ
 > runredlineaudit.bat {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 4
+
+If you want to collect the data on Disks and Volumes, under which option can you find it? 
+
+#### Answer
+> disk enumeration {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
