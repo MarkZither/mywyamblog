@@ -43,3 +43,12 @@ You are reading a research paper on a new strain of ransomware. You want to run 
 > IOC Search collector {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 3
+
+What script would you run to initiate the data collection process? Please include the file extension.
+
+#### Answer
+> runredlineaudit.bat {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
