@@ -13,7 +13,7 @@ Tags:
 
 This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my [Referral Link](https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e)
 
-### Task 1 Introduction
+### Task 1 - Introduction
 
 #### Question 1
 
@@ -21,5 +21,16 @@ Who created Redline?
 
 #### Answer
 > FireEye  {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 2 - Data Collection
+
+#### Question 1
+
+What data collection method takes the least amount of time?
+
+#### Answer
+> standard collector {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
