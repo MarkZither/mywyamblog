@@ -34,3 +34,12 @@ What data collection method takes the least amount of time?
 > standard collector {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 2
+
+You are reading a research paper on a new strain of ransomware. You want to run the data collection on your computer based on the patterns provided, such as domains, hashes, IP addresses, filenames, etc. What method would you choose to run a granular data collection against the known indicators?
+
+#### Answer
+> IOC Search collector {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
