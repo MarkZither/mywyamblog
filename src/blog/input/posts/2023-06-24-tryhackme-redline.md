@@ -61,3 +61,16 @@ If you want to collect the data on Disks and Volumes, under which option can you
 > disk enumeration {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 5
+
+What cache does Windows use to maintain a preference for recently executed code? 
+
+##### Notes
+In the [Redline User Guide](https://fireeye.market/assets/apps/211364/documents/877936_en.pdf)
+Cache is mentioned 13 times, there is a section dedicated to the cache which answers this question.
+
+#### Answer
+> prefetch {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
