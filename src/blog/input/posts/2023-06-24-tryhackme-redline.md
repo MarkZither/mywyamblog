@@ -74,3 +74,14 @@ Cache is mentioned 13 times, there is a section dedicated to the cache which ans
 > prefetch {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 3 - The Redline Interface
+
+#### Question 1
+
+Where in the Redline UI can you view information about the Logged in User?
+
+#### Answer
+> System Information {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
