@@ -85,3 +85,18 @@ Where in the Redline UI can you view information about the Logged in User?
 > System Information {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 4 - Standard Collector Analysis
+
+#### Question 1
+
+Provide the Operating System detected for the workstation.
+
+##### Notes
+
+There is a bug in this room which is discussed in the [forum](https://tryhackme.com/forum/thread/61687020174c422766d10d7d#30), the System Information in Redline shows the OS to be Windows 7 Home Basic Service Pack 1, but that is not the answer.
+
+#### Answer
+> Windows Server 2019 Standard 17763 {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
