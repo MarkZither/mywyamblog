@@ -100,3 +100,7 @@ There is a bug in this room which is discussed in the [forum](https://tryhackme.
 > Windows Server 2019 Standard 17763 {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 2
+
+Provide the Operating System detected for the workstation.
