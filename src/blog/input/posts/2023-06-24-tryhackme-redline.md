@@ -94,7 +94,10 @@ Provide the Operating System detected for the workstation.
 
 ##### Notes
 
-There is a bug in this room which is discussed in the [forum](https://tryhackme.com/forum/thread/61687020174c422766d10d7d#30), the System Information in Redline shows the OS to be Windows 7 Home Basic Service Pack 1, but that is not the answer.
+~~There is a bug in this room which is discussed in the [forum](https://tryhackme.com/forum/thread/61687020174c422766d10d7d#30), the System Information in Redline shows the OS to be Windows 7 Home Basic Service Pack 1, but that is not the answer.~~
+Read the instructions carefully, if you analyse the wrong file you will get the wrong answer!
+Be sure you did the previous task to setup the standard collector, ran the analysis and you have opened that file to get the answers.
+I added my [reply in the forum](https://tryhackme.com/forum/thread/61687020174c422766d10d7d#35).
 
 #### Answer
 > Windows Server 2019 Standard 17763 {.answer .blur}
@@ -103,4 +106,13 @@ There is a bug in this room which is discussed in the [forum](https://tryhackme.
 
 #### Question 2
 
-Provide the Operating System detected for the workstation.
+Be sure to check the rest of the System Information section for other useful data.
+
+#### Question 3
+
+What is the suspicious scheduled task that got created on the victim's computer? 
+
+#### Answer
+> MSOfficeUpdateFa.ke {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
