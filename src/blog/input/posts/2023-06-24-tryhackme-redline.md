@@ -125,3 +125,12 @@ Find the message that the intruder left for you in the task.
 > THM-p3R5IStENCe-m3Chani$m {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 5
+
+There is a new System Event ID created by an intruder with the source name "THM-Redline-User" and the Type "ERROR". Find the Event ID #.
+
+#### Answer
+> 546 {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
