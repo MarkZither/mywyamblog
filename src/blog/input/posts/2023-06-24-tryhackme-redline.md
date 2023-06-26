@@ -134,3 +134,12 @@ There is a new System Event ID created by an intruder with the source name "THM-
 > 546 {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 6
+
+Provide the message for the Event ID.
+
+#### Answer
+> Someone cracked my password. Now I need to rename my puppy-++- {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
