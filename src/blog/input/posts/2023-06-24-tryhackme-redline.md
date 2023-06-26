@@ -116,3 +116,12 @@ What is the suspicious scheduled task that got created on the victim's computer?
 > MSOfficeUpdateFa.ke {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 4
+
+Find the message that the intruder left for you in the task.
+
+#### Answer
+> THM-p3R5IStENCe-m3Chani$m {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
