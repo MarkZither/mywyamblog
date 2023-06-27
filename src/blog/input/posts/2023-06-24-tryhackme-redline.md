@@ -143,3 +143,12 @@ Provide the message for the Event ID.
 > Someone cracked my password. Now I need to rename my puppy-++- {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 7
+
+It looks like the intruder downloaded a file containing the flag for Question 8. Provide the full URL of the website.
+
+#### Answer
+> https://wormhole.app/download-stream/gI9vQtChjyYAmZ8Ody0AuA {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
