@@ -152,3 +152,12 @@ It looks like the intruder downloaded a file containing the flag for Question 8.
 > https://wormhole.app/download-stream/gI9vQtChjyYAmZ8Ody0AuA {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 8
+
+Provide the full path to where the file was downloaded to including the filename.
+
+#### Answer
+> C:\Program Files (x86)\Windows Mail\SomeMailFolder\flag.txt {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
