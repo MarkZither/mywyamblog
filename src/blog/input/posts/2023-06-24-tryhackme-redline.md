@@ -161,3 +161,12 @@ Provide the full path to where the file was downloaded to including the filename
 > C:\Program Files (x86)\Windows Mail\SomeMailFolder\flag.txt {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 9
+
+Provide the message the intruder left for you in the file.
+
+#### Answer
+> THM{600D-C@7cH-My-FR1EnD} {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
