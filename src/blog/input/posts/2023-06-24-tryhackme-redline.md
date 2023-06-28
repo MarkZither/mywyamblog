@@ -181,3 +181,12 @@ What is the actual filename of the Keylogger?
 > psylog.exe {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 2
+
+What filename is the file masquerading as? 
+
+#### Answer
+> thm1768.exe {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
