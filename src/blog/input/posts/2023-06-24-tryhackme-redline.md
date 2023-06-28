@@ -170,3 +170,14 @@ Provide the message the intruder left for you in the file.
 > THM{600D-C@7cH-My-FR1EnD} {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 5 - IOC Search Collector
+
+#### Question 1
+
+What is the actual filename of the Keylogger? 
+
+#### Answer
+> psylog.exe {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
