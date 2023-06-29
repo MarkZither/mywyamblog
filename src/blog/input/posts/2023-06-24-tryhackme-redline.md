@@ -190,3 +190,13 @@ What filename is the file masquerading as?
 > thm1768.exe {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 3
+
+Who is the owner of the file?
+
+#### Answer
+> WIN-2DET5DP0NPT\charles {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
