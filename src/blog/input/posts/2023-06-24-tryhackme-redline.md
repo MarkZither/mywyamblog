@@ -200,3 +200,12 @@ Who is the owner of the file?
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
+#### Question 4
+
+What is the file size in bytes? 
+
+#### Answer
+> 35400 {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
