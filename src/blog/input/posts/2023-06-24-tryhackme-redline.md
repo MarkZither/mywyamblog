@@ -209,3 +209,12 @@ What is the file size in bytes?
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
 
+#### Question 5
+
+Provide the full path of where the .ioc file was placed after the Redline analysis, include the .ioc filename as well
+
+#### Answer
+> C:\Users\charles\Desktop\Keylogger-IOCSearch\IOCs\keylogger.ioc
+ {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
