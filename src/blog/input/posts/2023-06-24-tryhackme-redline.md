@@ -3,7 +3,7 @@ Title: Try Hack Me - Redline
 Lead: "Learn how to use Redline to perform memory analysis and to scan for IOCs on an endpoint."
 Published: 2023-06-24T15:23:12.976Z
 Date: 2023-06-24T15:23:12.976Z
-Image: "/assets/Images/snort.png"
+Image: "/assets/Images/redline.jpg"
 Tags:
   - tryhackme
   - Redline
