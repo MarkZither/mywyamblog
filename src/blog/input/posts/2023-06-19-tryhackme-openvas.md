@@ -28,3 +28,14 @@ These issues were highlighted by running `sudo gvm-check-setup`
 * start redis with `sudo systemctl start redis-server@openvas.service`
 
 With that I was able to login.
+
+### Task 7 - Practical Vulnerability Management
+
+#### Question 1
+
+When did the scan start in Case 001?
+
+#### Answer
+> Feb 28, 00:04:46 {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
