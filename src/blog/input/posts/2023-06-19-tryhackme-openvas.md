@@ -39,3 +39,12 @@ When did the scan start in Case 001?
 > Feb 28, 00:04:46 {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 2
+
+When did the scan end in Case 001?
+
+#### Answer
+> Feb 28, 00:21:02 {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
