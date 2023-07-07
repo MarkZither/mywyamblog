@@ -48,3 +48,12 @@ When did the scan end in Case 001?
 > Feb 28, 00:21:02 {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 3
+
+How many ports are open in Case 001?
+
+#### Answer
+> 3 {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
