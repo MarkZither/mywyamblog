@@ -57,3 +57,12 @@ How many ports are open in Case 001?
 > 3 {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 4
+
+How many total vulnerabilities were found in Case 001?
+
+#### Answer
+> 5 {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
