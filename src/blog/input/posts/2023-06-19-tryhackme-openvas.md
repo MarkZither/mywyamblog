@@ -66,3 +66,12 @@ How many total vulnerabilities were found in Case 001?
 > 5 {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 5
+
+What is the highest severity vulnerability found? (MSxx-xxx)
+
+#### Answer
+> MS17-010 {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
