@@ -75,3 +75,12 @@ What is the highest severity vulnerability found? (MSxx-xxx)
 > MS17-010 {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 6
+
+What is the first affected OS to this vulnerability?
+
+#### Answer
+> Microsoft Windows 10 x32/x64 Edition {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
