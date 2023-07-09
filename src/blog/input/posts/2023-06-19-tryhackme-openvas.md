@@ -84,3 +84,12 @@ What is the first affected OS to this vulnerability?
 > Microsoft Windows 10 x32/x64 Edition {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+#### Question 7
+
+What is the recommended vulnerability detection method?
+
+#### Answer
+> Send the crafted SMB transaction request with fid = 0 and check the response to confirm the vulnerability. {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
