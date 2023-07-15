@@ -20,3 +20,14 @@ This room is an introduction to the types and techniques used in password attack
 * Password profiling
 * Password attacks techniques
 * Online password attacks
+
+### Task 2 - Password Attacking Techniques
+
+#### Question 1
+
+Which type of password attack is performed locally?
+
+#### Answer
+> Password cracking {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
