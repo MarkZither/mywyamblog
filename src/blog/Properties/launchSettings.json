@@ -3,6 +3,10 @@
     "mywyamblog": {
       "commandName": "Project",
       "commandLineArgs": "deploy -l Information"
+    },
+    "mywayamblog preview": {
+      "commandName": "Project",
+      "commandLineArgs": "preview -l Information"
     }
   }
 }

@@ -37,9 +37,22 @@ namespace mywyamblog
                 .AddSetting(
                 CustomKeys.GenerateSearchIndex,
                 true)
-                .AddSettings(settings)
-                .DeployToNetlify(Config.FromSetting<string>("NetlifySiteId"),
+                .AddSettings(settings);
+                
+if(!string.IsNullOrEmpty(Configuration.GetValue<string>("NetlifyAccessToken"))){
+    bootstrapper.DeployToNetlify(Config.FromSetting<string>("NetlifySiteId"),
                     Configuration.GetValue<string>("NetlifyAccessToken"));
+}
+
+if(!string.IsNullOrEmpty(Configuration.GetValue<string>("GITHUB_TOKEN"))){
+    bootstrapper.AddSetting("LinkRoot", "mywyamblog");
+    bootstrapper.DeployToGitHubPages(
+                    "markzither",
+                    "statiqdev.github.io",
+                    Config.FromSetting<string>("GITHUB_TOKEN"));
+}
+                
+                
 
             return await bootstrapper
                 .RunAsync();

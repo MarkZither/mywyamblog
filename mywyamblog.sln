@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30509.190
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.33711.374
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mywyamblog", "src\blog\mywyamblog.csproj", "{F433B799-1203-4FF1-AEC2-365262BA9CF2}"
 EndProject
@@ -10,17 +10,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		.gitmodules = .gitmodules
-		appveyor.yml = appveyor.yml
 		Directory.Build.props = Directory.Build.props
 		GitVersion.yml = GitVersion.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{BA710550-3B2A-4CB2-A9B3-0321B5835C07}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B23EA858-DCF5-4CA0-A4E3-6B1CB01FEBCA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{F7D48988-8CAE-4602-8A5C-2C061BA927CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,15 +27,12 @@ Global
 		{F433B799-1203-4FF1-AEC2-365262BA9CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F433B799-1203-4FF1-AEC2-365262BA9CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F433B799-1203-4FF1-AEC2-365262BA9CF2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA710550-3B2A-4CB2-A9B3-0321B5835C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA710550-3B2A-4CB2-A9B3-0321B5835C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F433B799-1203-4FF1-AEC2-365262BA9CF2} = {B23EA858-DCF5-4CA0-A4E3-6B1CB01FEBCA}
-		{BA710550-3B2A-4CB2-A9B3-0321B5835C07} = {F7D48988-8CAE-4602-8A5C-2C061BA927CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58BB369B-BCF7-4B06-80C2-E9865C1E19D3}
