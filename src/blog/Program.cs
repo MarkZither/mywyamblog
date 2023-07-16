@@ -39,10 +39,10 @@ namespace mywyamblog
                 true)
                 .AddSettings(settings);
                 
-if(Configuration.GetValue<bool>("DeployNetlify") && !string.IsNullOrEmpty(Configuration.GetValue<string>("NetlifyAccessToken"))){
+/*if(Configuration.GetValue<bool>("DeployNetlify") && !string.IsNullOrEmpty(Configuration.GetValue<string>("NetlifyAccessToken"))){
     bootstrapper.DeployToNetlify(Config.FromSetting<string>("NetlifySiteId"),
                     Configuration.GetValue<string>("NetlifyAccessToken"));
-}
+}*/
 
 if(!string.IsNullOrEmpty(Configuration.GetValue<string>("GITHUB_TOKEN"))){
     bootstrapper.AddSetting("LinkRoot", "mywyamblog");
