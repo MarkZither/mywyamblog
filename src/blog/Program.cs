@@ -45,14 +45,12 @@ namespace mywyamblog
                 CustomKeys.GenerateSearchIndex,
                 true)
                 .AddSettings(settings);
-                
             /*if(Configuration.GetValue<bool>("DeployNetlify") && !string.IsNullOrEmpty(Configuration.GetValue<string>("NetlifyAccessToken"))){
                 bootstrapper.DeployToNetlify(Config.FromSetting<string>("NetlifySiteId"),
                                 Configuration.GetValue<string>("NetlifyAccessToken"));
             }*/
-
             if(!string.IsNullOrEmpty(Configuration.GetValue<string>("GITHUB_TOKEN"))){
-                bootstrapper.AddSetting(Keys.LinkRoot, "mywyamblog");
+                bootstrapper.AddSetting(Keys.LinkRoot, "/mywyamblog");
                 bootstrapper.DeployToGitHubPages(
                                 "MarkZither",
                                 "mywyamblog",

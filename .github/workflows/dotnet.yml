@@ -29,6 +29,6 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Deploy
-      run: dotnet run --project src/blog/mywyamblog.csproj -- deploy -l Information
+      run: dotnet run --project src/blog/mywyamblog.csproj -- deploy -l Warning
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
