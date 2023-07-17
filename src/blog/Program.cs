@@ -52,9 +52,9 @@ namespace mywyamblog
             }*/
 
             if(!string.IsNullOrEmpty(Configuration.GetValue<string>("GITHUB_TOKEN"))){
-                bootstrapper.AddSetting("LinkRoot", "mywyamblog");
+                bootstrapper.AddSetting(Keys.LinkRoot, "mywyamblog");
                 bootstrapper.DeployToGitHubPages(
-                                "markzither",
+                                "MarkZither",
                                 "markzither.github.io",
                                 Config.FromSetting<string>("GITHUB_TOKEN"));
             }
