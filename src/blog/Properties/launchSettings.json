@@ -6,7 +6,7 @@
     },
     "mywyamblog deploy": {
       "commandName": "Project",
-      "commandLineArgs": "deploy -l Information"
+      "commandLineArgs": "-- deploy -l Information"
     }
   }
 }

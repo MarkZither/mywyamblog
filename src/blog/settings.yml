@@ -14,3 +14,5 @@ ValidateLinksAsError: true
 InputFiles: "**/{!_,}*"
 LinksUseHttps: true
 GenerateSearchIndex: true
+GitHubOwner: markzither
+GitHubName: markzither.github.io
