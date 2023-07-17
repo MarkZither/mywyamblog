@@ -55,7 +55,7 @@ namespace mywyamblog
                 bootstrapper.AddSetting(Keys.LinkRoot, "mywyamblog");
                 bootstrapper.DeployToGitHubPages(
                                 "MarkZither",
-                                "markzither.github.io",
+                                "mywyamblog",
                                 Config.FromSetting<string>("GITHUB_TOKEN"));
             }
                 
