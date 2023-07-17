@@ -2,90 +2,90 @@
     "short_name": "Burtons blog",
     "name": "Mark Burton's blog",
     "icons": [{
-            "src": "/assets/Images/dcd9a145-d97a-205c-7c36-f88c9a9e0136.webPlatform.png",
+            "src": "/assets/Images/manifest/dcd9a145-d97a-205c-7c36-f88c9a9e0136.webPlatform.png",
             "sizes": "48x48",
             "type": "image/png"
         },
-        {
-            "src": "/assets/Images/windows10/SplashScreen.scale-200.png.png",
-            "sizes": "1240x600",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/75de9064-89f6-b969-be85-da6a7c553854.webPlatform.png",
-            "sizes": "300x300",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/98e223de-14dd-6a9e-be46-5dc67464ca4c.webPlatform.png",
-            "sizes": "88x88",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/4d14fd91-cb3e-1bad-6f16-6cf70e1b1f01.webPlatform.png",
-            "sizes": "24x24",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/92c48efb-b6ef-19a1-09fa-67960a62c58a.webPlatform.png",
-            "sizes": "50x50",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/a5f79dc2-911f-a645-b88a-180a0b5e2527.webPlatform.png",
-            "sizes": "620x300",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/567c24e4-0c2b-23ba-2323-ab454c993870.webPlatform.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/e1ca16e4-2cc2-c437-5c3d-01c7ae129bb6.webPlatform.png",
-            "sizes": "144x144",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/eca7e7ce-40ae-5bcf-a9ab-7ba86c5856a0.webPlatform.png",
-            "sizes": "96x96",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/2c694fa1-d296-c3cb-536f-32b7954e0573.webPlatform.png",
-            "sizes": "72x72",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/b0feb57f-1237-6744-d300-e9a245cf8fdc.webPlatform.png",
-            "sizes": "36x36",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/ios/ios-appicon-1024-1024.png",
-            "sizes": "1024x1024",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/50a4d220-0776-b418-d87f-b32ac2ec226d.webPlatform.png",
-            "sizes": "180x180",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/b846005c-e174-8499-6ca7-1235b47ceecd.webPlatform.png",
-            "sizes": "152x152",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/321aec0b-b415-b454-72fb-d3fdf6ca4846.webPlatform.png",
-            "sizes": "120x120",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/Images/b66623ce-2985-9169-214a-f6c23d0ca6f2.webPlatform.png",
-            "sizes": "76x76",
-            "type": "image/png"
-        }
+      {
+        "src": "/assets/Images/manifest/windows10/SplashScreen.scale-200.png.png",
+        "sizes": "1240x600",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/75de9064-89f6-b969-be85-da6a7c553854.webPlatform.png",
+        "sizes": "300x300",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/98e223de-14dd-6a9e-be46-5dc67464ca4c.webPlatform.png",
+        "sizes": "88x88",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/4d14fd91-cb3e-1bad-6f16-6cf70e1b1f01.webPlatform.png",
+        "sizes": "24x24",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/92c48efb-b6ef-19a1-09fa-67960a62c58a.webPlatform.png",
+        "sizes": "50x50",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/a5f79dc2-911f-a645-b88a-180a0b5e2527.webPlatform.png",
+        "sizes": "620x300",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/567c24e4-0c2b-23ba-2323-ab454c993870.webPlatform.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/e1ca16e4-2cc2-c437-5c3d-01c7ae129bb6.webPlatform.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/eca7e7ce-40ae-5bcf-a9ab-7ba86c5856a0.webPlatform.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/2c694fa1-d296-c3cb-536f-32b7954e0573.webPlatform.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/b0feb57f-1237-6744-d300-e9a245cf8fdc.webPlatform.png",
+        "sizes": "36x36",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/ios/ios-appicon-1024-1024.png",
+        "sizes": "1024x1024",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/50a4d220-0776-b418-d87f-b32ac2ec226d.webPlatform.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/b846005c-e174-8499-6ca7-1235b47ceecd.webPlatform.png",
+        "sizes": "152x152",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/321aec0b-b415-b454-72fb-d3fdf6ca4846.webPlatform.png",
+        "sizes": "120x120",
+        "type": "image/png"
+      },
+      {
+        "src": "/assets/Images/manifest/b66623ce-2985-9169-214a-f6c23d0ca6f2.webPlatform.png",
+        "sizes": "76x76",
+        "type": "image/png"
+      }
     ],
     "display": "minimal-ui",
     "background_color": "#FAFAFA",
