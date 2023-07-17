@@ -15,4 +15,4 @@ InputFiles: "**/{!_,}*"
 LinksUseHttps: true
 GenerateSearchIndex: true
 GitHubOwner: MarkZither
-GitHubName: markzither.github.io
+GitHubName: mywyamblog
