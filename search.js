@@ -1,9 +1,9 @@
 const search = {
     initialized: false,
-    indexFile: '/search.index.gz',
+    indexFile: '/mywyamblog/search.index.gz',
     index: null,
     indexInitialized: false,
-    resultsFile: '/search.results.gz',
+    resultsFile: '/mywyamblog/search.results.gz',
     results: null,
     resultsInitialized: false,
     initialize: function() {
