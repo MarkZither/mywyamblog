@@ -4,11 +4,12 @@
 name: .NET
 
 on:
-  pull_request:
+  push:
     branches: [ "main" ]
 
 jobs:
-  deploy-test:
+
+  deploy-prod:
 
     runs-on: windows-latest
 
@@ -30,3 +31,4 @@ jobs:
       run: dotnet run --project src/blog/mywyamblog.csproj -- deploy -l Warning
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    

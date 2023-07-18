@@ -12,6 +12,7 @@ using Statiq.Lunr;
 using Statiq.Web;
 using Statiq.Web.Pipelines;
 using Statiq.Yaml;
+using Statiq.Yaml.Dynamic;
 
 namespace mywyamblog
 {
@@ -50,7 +51,7 @@ namespace mywyamblog
                                 Configuration.GetValue<string>("NetlifyAccessToken"));
             }*/
             bootstrapper.AddSetting(Keys.LinkRoot, "/mywyamblog");
-            if (!string.IsNullOrEmpty(Configuration.GetValue<string>("GITHUB_TOKEN"))){
+            if (Configuration.GetValue<bool>("deploygithub")){
                 bootstrapper.AddSetting(Keys.LinkRoot, "/mywyamblog");
                 bootstrapper.DeployToGitHubPages(
                                 "MarkZither",
