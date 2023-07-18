@@ -49,7 +49,8 @@ namespace mywyamblog
                 bootstrapper.DeployToNetlify(Config.FromSetting<string>("NetlifySiteId"),
                                 Configuration.GetValue<string>("NetlifyAccessToken"));
             }*/
-            if(!string.IsNullOrEmpty(Configuration.GetValue<string>("GITHUB_TOKEN"))){
+            bootstrapper.AddSetting(Keys.LinkRoot, "/mywyamblog");
+            if (!string.IsNullOrEmpty(Configuration.GetValue<string>("GITHUB_TOKEN"))){
                 bootstrapper.AddSetting(Keys.LinkRoot, "/mywyamblog");
                 bootstrapper.DeployToGitHubPages(
                                 "MarkZither",
