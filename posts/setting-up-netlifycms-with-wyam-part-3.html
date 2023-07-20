@@ -8,37 +8,37 @@
 
     <title>Mark Burton - Setting up NetlifyCMS with Wyam - Part 3</title>
 
-    <link rel="canonical" href="https://blog.mark-burton.com/mywyamblog/posts/setting-up-netlifycms-with-wyam-part-3">
+    <link rel="canonical" href="https://blog.mark-burton.com/posts/setting-up-netlifycms-with-wyam-part-3">
 
-            <link type="application/rss+xml" rel="alternate" href="/mywyamblog/feed.rss" />
-            <link type="application/atom+xml" rel="alternate" href="/mywyamblog/feed.atom" />
+            <link type="application/rss+xml" rel="alternate" href="/feed.rss" />
+            <link type="application/atom+xml" rel="alternate" href="/feed.atom" />
 
     <meta name="application-name" content="Mark Burton" />
     <meta name="msapplication-tooltip" content="Mark Burton" />
-    <meta name="msapplication-starturl" content="/mywyamblog/" />
+    <meta name="msapplication-starturl" content="/" />
 
     <meta property="og:title" content="Mark Burton - Setting up NetlifyCMS with Wyam - Part 3" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://blog.mark-burton.com/mywyamblog/posts/setting-up-netlifycms-with-wyam-part-3" />
+    <meta property="og:url" content="https://blog.mark-burton.com/posts/setting-up-netlifycms-with-wyam-part-3" />
 
-    <link rel="shortcut icon" href="/mywyamblog/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/mywyamblog/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap core CSS -->
-    <link href="/mywyamblog/vendor/bootstrap/scss/bootstrap.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/scss/bootstrap.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="/mywyamblog/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="/mywyamblog/vendor/fontawesome-free/css/brands.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/fontawesome-free/css/brands.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css' data-no-mirror>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' data-no-mirror>
 
     <!-- Custom styles for this template -->
-    <link href="/mywyamblog/scss/clean-blog.css" rel="stylesheet">
+    <link href="/scss/clean-blog.css" rel="stylesheet">
     
     <!-- Bootstrap core JavaScript -->
-    <script src="/mywyamblog/vendor/jquery/jquery.min.js"></script>
-    <script src="/mywyamblog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
@@ -78,7 +78,7 @@ if ('serviceWorker' in navigator) {
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="container">
-    <a class="navbar-brand" href="/mywyamblog/">Mark Burton</a>
+    <a class="navbar-brand" href="/">Mark Burton</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
       <i class="fas fa-bars"></i>
@@ -94,13 +94,13 @@ if ('serviceWorker' in navigator) {
                                         </ul>
     </li>
             <li class="nav-item">
-                <a class="nav-link" href="/mywyamblog/posts">Posts</a>
+                <a class="nav-link" href="/posts">Posts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/mywyamblog/tags">Tags</a>
+                <a class="nav-link" href="/tags">Tags</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/mywyamblog/search">Search</a>
+                <a class="nav-link" href="/search">Search</a>
             </li>
 </ul>
     </div>
@@ -120,10 +120,10 @@ if ('serviceWorker' in navigator) {
             <h2 class="subheading">Configuring a simple single user mode NetlifyCMS with Wyam</h2>
               <div class="meta">Published on Friday, March 9, 2018</div>
                 <div class="mt-3">
-                      <a href="/mywyamblog/tags/wyam" class="badge badge-light"> Wyam</a>
-                      <a href="/mywyamblog/tags/appveyor" class="badge badge-light"> AppVeyor</a>
-                      <a href="/mywyamblog/tags/netlifycms" class="badge badge-light"> NetlifyCMS</a>
-                      <a href="/mywyamblog/tags/netlify" class="badge badge-light"> Netlify</a>
+                      <a href="/tags/wyam" class="badge badge-light"> Wyam</a>
+                      <a href="/tags/appveyor" class="badge badge-light"> AppVeyor</a>
+                      <a href="/tags/netlifycms" class="badge badge-light"> NetlifyCMS</a>
+                      <a href="/tags/netlify" class="badge badge-light"> Netlify</a>
                 </div>
         </div>
       </div>
@@ -186,11 +186,11 @@ Command exited with code 128
 
 
 <ul class="share-buttons">
-  <li><a href="https://www.facebook.com/sharer/sharer.php?u=/mywyamblog/posts/setting-up-netlifycms-with-wyam-part-3&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
-  <li><a href="https://twitter.com/intent/tweet?source=/mywyamblog/posts/setting-up-netlifycms-with-wyam-part-3&text=:%20@Model.String(BlogKeys.Title)&via=mark__burton" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
-  <li><a href="http://pinterest.com/pin/create/button/?url=/mywyamblog/posts/setting-up-netlifycms-with-wyam-part-3&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
-  <li><a href="http://www.reddit.com/submit?url=/mywyamblog/posts/setting-up-netlifycms-with-wyam-part-3&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-reddit-square fa-2x" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a></li>
-  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=/mywyamblog/posts/setting-up-netlifycms-with-wyam-part-3&title=&summary=&source=https://blog.mark-burton.com/mywyamblog/posts/setting-up-netlifycms-with-wyam-part-3" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=/posts/setting-up-netlifycms-with-wyam-part-3&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+  <li><a href="https://twitter.com/intent/tweet?source=/posts/setting-up-netlifycms-with-wyam-part-3&text=:%20@Model.String(BlogKeys.Title)&via=mark__burton" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+  <li><a href="http://pinterest.com/pin/create/button/?url=/posts/setting-up-netlifycms-with-wyam-part-3&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
+  <li><a href="http://www.reddit.com/submit?url=/posts/setting-up-netlifycms-with-wyam-part-3&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-reddit-square fa-2x" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a></li>
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=/posts/setting-up-netlifycms-with-wyam-part-3&title=&summary=&source=https://blog.mark-burton.com/posts/setting-up-netlifycms-with-wyam-part-3" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
   <li><a href="mailto:?subject=&body=:%20@Context.GetLink(Model)" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
 </ul>
 
@@ -200,7 +200,7 @@ Command exited with code 128
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_identifier = 'setting-up-netlifycms-with-wyam-part-3';
     var disqus_title = 'Setting up NetlifyCMS with Wyam - Part 3';
-    var disqus_url = 'https://blog.mark-burton.com/mywyamblog/posts/setting-up-netlifycms-with-wyam-part-3';
+    var disqus_url = 'https://blog.mark-burton.com/posts/setting-up-netlifycms-with-wyam-part-3';
 
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -249,10 +249,10 @@ s.setAttribute('data-timestamp', +new Date());
                         </a>
                         </li>
                             <li class="list-inline-item">
-                                <a href="/mywyamblog/feed.rss"><i class="fas fa-rss"></i> RSS Feed</a>
+                                <a href="/feed.rss"><i class="fas fa-rss"></i> RSS Feed</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="/mywyamblog/feed.atom"><i class="fas fa-rss"></i> Atom Feed</a>
+                                <a href="/feed.atom"><i class="fas fa-rss"></i> Atom Feed</a>
                             </li>
                     </ul>
                     <br />
@@ -278,16 +278,16 @@ s.setAttribute('data-timestamp', +new Date());
 <!-- End Piwik Code -->
 
 
-  <script src="/mywyamblog/assets/js/modernizr.3.5.0.custom.js"></script>
+  <script src="/assets/js/modernizr.3.5.0.custom.js"></script>
 <script src="https://unpkg.com/lunr@1.0.0/lunr.js"></script>
-<script src="/mywyamblog/assets/js/lunr.unicodeNormalizer.js"></script>
-<script src="/mywyamblog/assets/js/searchindex.js"></script>
-<script src="/mywyamblog/assets/js/d3.v3.min.js"></script>
-<script src="/mywyamblog/assets/js/trianglify.min.js"></script>
-<script src="/mywyamblog/assets/js/Please-compressed.js"></script>
-<script src="/mywyamblog/assets/js/background-check.min.js"></script>
-<script src="/mywyamblog/assets/js/pizzamenu.js"></script>
-<script src="/mywyamblog/assets/js/thm-walkthrough.js"></script>
+<script src="/assets/js/lunr.unicodeNormalizer.js"></script>
+<script src="/assets/js/searchindex.js"></script>
+<script src="/assets/js/d3.v3.min.js"></script>
+<script src="/assets/js/trianglify.min.js"></script>
+<script src="/assets/js/Please-compressed.js"></script>
+<script src="/assets/js/background-check.min.js"></script>
+<script src="/assets/js/pizzamenu.js"></script>
+<script src="/assets/js/thm-walkthrough.js"></script>
 
     <script type="text/javascript">                
             // Header background                        
@@ -308,7 +308,7 @@ s.setAttribute('data-timestamp', +new Date());
   
 
   <!-- Custom scripts for this template -->
-  <script src="/mywyamblog/js/clean-blog.js"></script>
+  <script src="/js/clean-blog.js"></script>
 
 </body>
 
