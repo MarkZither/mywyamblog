@@ -16,3 +16,4 @@ LinksUseHttps: true
 GenerateSearchIndex: true
 GitHubOwner: MarkZither
 GitHubName: mywyamblog
+DeployNetlifySiteId: 25c7e6cf-8858-4ee1-a32f-56b7b879e52d

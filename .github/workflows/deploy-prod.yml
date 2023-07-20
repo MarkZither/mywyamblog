@@ -28,7 +28,8 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Deploy
-      run: dotnet run --project src/blog/mywyamblog.csproj -- deploy -l Warning --deploynetlify=true
+      run: dotnet run --project src/blog/mywyamblog.csproj -- deploy -l Warning --DeployNetlify=true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DeployNetlifySiteId: ${{ secrets.DeployNetlifySiteId }}
+        DeployNetlifyAccessToken: ${{ secrets.DeployNetlifyAccessToken }}
     

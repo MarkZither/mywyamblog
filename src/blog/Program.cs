@@ -29,6 +29,7 @@ namespace mywyamblog
             .SetBasePath(AppContext.BaseDirectory)
             .AddJsonFile("appsettings.json", false)
             .AddUserSecrets<Program>()
+            .AddEnvironmentVariables()
             .AddCommandLine(args)
             .Build();
 
@@ -46,10 +47,11 @@ namespace mywyamblog
                 CustomKeys.GenerateSearchIndex,
                 true)
                 .AddSettings(settings);
-            /*if(Configuration.GetValue<bool>("DeployNetlify") && !string.IsNullOrEmpty(Configuration.GetValue<string>("NetlifyAccessToken"))){
-                bootstrapper.DeployToNetlify(Config.FromSetting<string>("NetlifySiteId"),
-                                Configuration.GetValue<string>("NetlifyAccessToken"));
-            }*/
+
+            if(Configuration.GetValue<bool>("DeployNetlify") && !string.IsNullOrEmpty(Configuration.GetValue<string>("DeployNetlifyAccessToken"))){
+                bootstrapper.DeployToNetlify(Configuration.GetValue<string>("DeployNetlifySiteId"),
+                                Configuration.GetValue<string>("DeployNetlifyAccessToken"));
+            }
 
             if (Configuration.GetValue<bool>("deploygithub")){
                 bootstrapper.AddSetting(Keys.LinkRoot, "/mywyamblog");
