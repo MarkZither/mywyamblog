@@ -4,11 +4,12 @@
 name: .NET
 
 on:
-  pull_request:
+  push:
     branches: [ "main" ]
 
 jobs:
-  deploy-test:
+
+  deploy-prod:
 
     runs-on: windows-latest
 
@@ -27,6 +28,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Deploy
-      run: dotnet run --project src/blog/mywyamblog.csproj -- deploy -l Warning --deploygithub=true
+      run: dotnet run --project src/blog/mywyamblog.csproj -- deploy -l Warning --deploynetlify=true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    

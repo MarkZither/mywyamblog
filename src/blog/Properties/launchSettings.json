@@ -1,8 +1,12 @@
 {
   "profiles": {
-    "mywyamblog": {
+    "mywayamblog preview": {
       "commandName": "Project",
-      "commandLineArgs": "deploy -l Information"
+      "commandLineArgs": "preview -l Information"
+    },
+    "mywyamblog deploy": {
+      "commandName": "Project",
+      "commandLineArgs": "--var2=test --deploygithub=true -- deploy -l Information"
     }
   }
 }

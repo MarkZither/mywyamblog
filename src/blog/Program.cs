@@ -12,18 +12,26 @@ using Statiq.Lunr;
 using Statiq.Web;
 using Statiq.Web.Pipelines;
 using Statiq.Yaml;
+using Statiq.Yaml.Dynamic;
 
 namespace mywyamblog
 {
     class Program
     {
-        public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
+        public static IConfiguration Configuration { get; private set; } = new ConfigurationBuilder()
             .SetBasePath(AppContext.BaseDirectory)
             .AddUserSecrets<Program>()
             .Build();
 
         public static async Task<int> Main(string[] args)
         {
+            Configuration = new ConfigurationBuilder()
+            .SetBasePath(AppContext.BaseDirectory)
+            .AddJsonFile("appsettings.json", false)
+            .AddUserSecrets<Program>()
+            .AddCommandLine(args)
+            .Build();
+
             var config = Configuration;
             List<KeyValuePair<string, object>> settings = new List<KeyValuePair<string, object>>();
             foreach (var conf in Configuration.AsEnumerable())
@@ -37,10 +45,16 @@ namespace mywyamblog
                 .AddSetting(
                 CustomKeys.GenerateSearchIndex,
                 true)
-                .AddSettings(settings)
-                .DeployToNetlify(Config.FromSetting<string>("NetlifySiteId"),
-                    Configuration.GetValue<string>("NetlifyAccessToken"));
+                .AddSettings(settings);
+            /*if(Configuration.GetValue<bool>("DeployNetlify") && !string.IsNullOrEmpty(Configuration.GetValue<string>("NetlifyAccessToken"))){
+                bootstrapper.DeployToNetlify(Config.FromSetting<string>("NetlifySiteId"),
+                                Configuration.GetValue<string>("NetlifyAccessToken"));
+            }*/
 
+            if (Configuration.GetValue<bool>("deploygithub")){
+                bootstrapper.AddSetting(Keys.LinkRoot, "/mywyamblog");
+            }
+                
             return await bootstrapper
                 .RunAsync();
         }
