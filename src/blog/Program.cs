@@ -55,6 +55,11 @@ namespace mywyamblog
 
             if (Configuration.GetValue<bool>("deploygithub")){
                 bootstrapper.AddSetting(Keys.LinkRoot, "/mywyamblog");
+                bootstrapper.DeployToGitHubPages(
+                    Config.FromSetting<string>("DeployGitHubOwner"),
+                    Config.FromSetting<string>("DeployGitHubName"),
+                    Configuration.GetValue<string>("GITHUB_TOKEN")
+                );
             }
                 
             return await bootstrapper
