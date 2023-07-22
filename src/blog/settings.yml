@@ -14,5 +14,6 @@ ValidateLinksAsError: true
 InputFiles: "**/{!_,}*"
 LinksUseHttps: true
 GenerateSearchIndex: true
-GitHubOwner: MarkZither
-GitHubName: mywyamblog
+DeployGitHubOwner: MarkZither
+DeployGitHubName: mywyamblog
+DeployNetlifySiteId: 25c7e6cf-8858-4ee1-a32f-56b7b879e52d

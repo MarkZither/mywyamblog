@@ -1,7 +1,7 @@
 ---
 Title: Try Hack Me - Hacking with PowerShell
 Lead: "Learn the basics of PowerShell and PowerShell Scripting"
-Published: 2023-06-19T15:23:12.976Z
+Published: 2024-08-19T15:23:12.976Z
 Date: 2023-06-19T15:23:12.976Z
 Image: "/assets/Images/snort.png"
 Tags:

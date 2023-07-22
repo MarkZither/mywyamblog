@@ -4,9 +4,13 @@
       "commandName": "Project",
       "commandLineArgs": "preview -l Information"
     },
-    "mywyamblog deploy": {
+    "mywyamblog deploy gh": {
       "commandName": "Project",
       "commandLineArgs": "--var2=test --deploygithub=true -- deploy -l Information"
+    },
+    "mywyamblog deploy netlify": {
+      "commandName": "Project",
+      "commandLineArgs": "-- deploy -l Information --var2=test --deploynetlify=true "
     }
   }
 }
