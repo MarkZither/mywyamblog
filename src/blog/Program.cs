@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+
 using MyStatiq.SearchIndex;
 using Statiq.App;
 using Statiq.Common;
@@ -25,6 +27,22 @@ namespace mywyamblog
 
         public static async Task<int> Main(string[] args)
         {
+            // create a logger factory
+            var loggerFactory = LoggerFactory.Create(
+                builder => builder
+                            // add console as logging target
+                            .AddConsole()
+                            // add debug output as logging target
+                            .AddDebug()
+                            // set minimum level to log
+                            .SetMinimumLevel(LogLevel.Debug)
+            );
+            var logger = loggerFactory.CreateLogger<Program>();
+            logger.LogCritical("critical");
+            logger.LogWarning("warning");
+            logger.LogInformation("info");
+            logger.LogDebug("debug");
+
             Configuration = new ConfigurationBuilder()
             .SetBasePath(AppContext.BaseDirectory)
             .AddJsonFile("appsettings.json", false)
@@ -48,7 +66,10 @@ namespace mywyamblog
                 true)
                 .AddSettings(settings);
 
-            if(Configuration.GetValue<bool>("DeployNetlify") && !string.IsNullOrEmpty(Configuration.GetValue<string>("DeployNetlifyAccessToken"))){
+            logger.LogInformation("DeployNetlify {0}", Configuration.GetValue<bool>("DeployNetlify"));
+            if (Configuration.GetValue<bool>("DeployNetlify") && !string.IsNullOrEmpty(Configuration.GetValue<string>("DeployNetlifyAccessToken"))){
+                logger.LogInformation("DeployNetlifySiteId {0}", Configuration.GetValue<string>("DeployNetlifySiteId").Substring(0,4));
+                logger.LogInformation("DeployNetlifyAccessToken {0}", Configuration.GetValue<string>("DeployNetlifyAccessToken").Substring(0,4));
                 bootstrapper.DeployToNetlify(Configuration.GetValue<string>("DeployNetlifySiteId"),
                                 Configuration.GetValue<string>("DeployNetlifyAccessToken"));
             }
