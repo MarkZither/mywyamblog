@@ -7,9 +7,9 @@ Tags:
   - ASP.NET Core
   - Health Checks
 ---
-In [Part one](2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port) we setup the health check endpoints, now to add a frontend.
+In [Part one](2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port) we setup the health check endpoints, now to add a frontend.
 
-The [Health Checks UI](2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port) is best hosted in its own service as it can consolidate health checks for a number of services.
+The [Health Checks UI](2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port) is best hosted in its own service as it can consolidate health checks for a number of services.
 
 ![Swagger CORS error](/assets/Images/HealthChecksUI.png){.img-fluid .img-responsive}
 
@@ -43,7 +43,8 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     app.UseHealthChecksUI();
     
-    app.UseEndpoints(endpoints =>        
+    app.UseEndpoints(endpoints =>
+        
     {
         endpoints.MapControllers();
         endpoints.MapHealthChecksUI(config => {

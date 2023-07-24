@@ -8,7 +8,7 @@ Tags:
   - Swagger
   - Swashbuckle
 ---
-This follows on from my previous post [Secure ASP.NET Core Health Checks to a specific port](2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port) and assumes that you already have your service running over 2 ports and have specified a `ManagementPort` in the appsettings.json file.
+This follows on from my previous post [Secure ASP.NET Core Health Checks to a specific port](2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port) and assumes that you already have your service running over 2 ports and have specified a `ManagementPort` in the appsettings.json file.
 
 <div class="alert alert-primary">
 <h3>Special note if you are using http.sys </h3>
