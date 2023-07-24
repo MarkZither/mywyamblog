@@ -5,8 +5,35 @@
 		<link>https://blog.mark-burton.com/mywyamblog</link>
 		<description />
 		<copyright>2023</copyright>
-		<pubDate>Sun, 23 Jul 2023 21:41:19 GMT</pubDate>
-		<lastBuildDate>Sun, 23 Jul 2023 21:41:19 GMT</lastBuildDate>
+		<pubDate>Mon, 24 Jul 2023 21:46:37 GMT</pubDate>
+		<lastBuildDate>Mon, 24 Jul 2023 21:46:37 GMT</lastBuildDate>
+		<item>
+			<title>Try Hack Me - Password Attacks</title>
+			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-07-12-tryhackme-password-attacks</link>
+			<description>&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;</description>
+			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" length="0" type="image" />
+			<guid>https://blog.mark-burton.com/mywyamblog/posts/2023-07-12-tryhackme-password-attacks</guid>
+			<pubDate>Mon, 24 Jul 2023 15:23:12 GMT</pubDate>
+			<content:encoded>&lt;h2 id="password-attacks"&gt;Password Attacks&lt;/h2&gt;
+&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="task-1-introduction"&gt;Task 1 - Introduction&lt;/h3&gt;
+&lt;p&gt;This room is an introduction to the types and techniques used in password attacks. We will discuss the ways to get and generate custom password lists. The following are some of the topics we will discuss:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Password profiling&lt;/li&gt;
+&lt;li&gt;Password attacks techniques&lt;/li&gt;
+&lt;li&gt;Online password attacks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="task-2-password-attacking-techniques"&gt;Task 2 - Password Attacking Techniques&lt;/h3&gt;
+&lt;h4 id="question-1"&gt;Question 1&lt;/h4&gt;
+&lt;p&gt;Which type of password attack is performed locally?&lt;/p&gt;
+&lt;h4 id="answer"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;Password cracking &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+</content:encoded>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
 		<item>
 			<title>Try Hack Me - OpenVAS</title>
 			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-06-19-tryhackme-openvas</link>
@@ -1615,46 +1642,6 @@ using PostSharp.Extensibility;
 [assembly: Log(AttributePriority = 2, AttributeExclude = true, AttributeTargetMembers = &amp;quot;get_*&amp;quot;)]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now the logging will contain all the entry and exits from methods along with the parameters which were passed, providing valuable debug information for free for a whole day after pushing out and update to the Add-In.&lt;/p&gt;
-</content:encoded>
-			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
-		</item>
-		<item>
-			<title>My First Skydive @ LuxFly</title>
-			<link>https://blog.mark-burton.com/mywyamblog/posts/2021-06-11-my-first-skydive</link>
-			<description>&lt;p&gt;For a birthday present I received a voucher to do an indoor skydive at &lt;a href="https://indoorskydive.lu/en"&gt;LuxFly&lt;/a&gt; at the Luxembourg and Belgium border.&lt;/p&gt;</description>
-			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/Luxfly_First_Flight.jpg" length="0" type="image" />
-			<guid>https://blog.mark-burton.com/mywyamblog/posts/2021-06-11-my-first-skydive</guid>
-			<pubDate>Tue, 22 Jun 2021 15:23:12 GMT</pubDate>
-			<content:encoded>&lt;p&gt;For a birthday present I received a voucher to do an indoor skydive at &lt;a href="https://indoorskydive.lu/en"&gt;LuxFly&lt;/a&gt; at the Luxembourg and Belgium border.&lt;/p&gt;
-&lt;p&gt;Thanks to Covid 19 lockdowns I had another birthday before I could actually make use of the &lt;a href="https://shop.indoorskydive.lu/catalog_66"&gt;Falcon9&lt;/a&gt; experience.&lt;/p&gt;
-&lt;h2 id="arrival"&gt;Arrival&lt;/h2&gt;
-&lt;p&gt;As Covid restrictions were still in place there were not many people there when I arrived, but the staff were very welcoming and efficient finding my booking, checking me in and explaining how things would work.&lt;/p&gt;
-&lt;p&gt;I was early so had time to watch some experienced people flying around, hovering in a seated position, doing headstands and slow motion backflips, sometimes it reminded me of wire work in a Wuxia movie.&lt;/p&gt;
-&lt;p&gt;I remember it something like this...&lt;/p&gt;
-&lt;div class="tenor-gif-embed" data-postid="9992881" data-share-method="host" data-width="100%" data-aspect-ratio="1.4953271028037383"&gt;&lt;a href="https://tenor.com/view/miss-me-with-the-bs-gif-9992881"&gt;Matrix GIF&lt;/a&gt; from &lt;a href="https://tenor.com/search/matrix-gifs"&gt;Matrix GIFs&lt;/a&gt;&lt;/div&gt;&lt;script type="text/javascript" async src="https://tenor.com/embed.js"&gt;&lt;/script&gt;
-&lt;p&gt;or more far fetched a bit of Money Magic&lt;/p&gt;
-&lt;div class="tenor-gif-embed" data-postid="13873193" data-share-method="host" data-width="100%" data-aspect-ratio="1.7808219178082192"&gt;&lt;a href="https://tenor.com/view/monkey-magic-flying-wow-gif-13873193"&gt;Monkey Magic Flying GIF&lt;/a&gt; from &lt;a href="https://tenor.com/search/monkeymagic-gifs"&gt;Monkeymagic GIFs&lt;/a&gt;&lt;/div&gt;&lt;script type="text/javascript" async src="https://tenor.com/embed.js"&gt;&lt;/script&gt;
-&lt;h2 id="the-group"&gt;The group&lt;/h2&gt;
-&lt;p&gt;I was surprised when I noticed that an RTL camera crew had turned up for my skydive. Unfortunately, despite the fact that there only being 2 of us in the group at that point, the camera was for the other person, who, based on the car outside was there for &amp;quot;de Journal&amp;quot;.&lt;/p&gt;
-&lt;h2 id="the-briefing"&gt;The Briefing&lt;/h2&gt;
-&lt;p&gt;After being greeted by our instructor, Lane, we were shown a short video explaining the basics of the skydive, the &amp;quot;simple instructions&amp;quot; were:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;relax, Lane will help guide you into the correct position.&lt;/li&gt;
-&lt;li&gt;2 straight fingers means straighten your legs&lt;/li&gt;
-&lt;li&gt;bent fingers means bend your legs&lt;/li&gt;
-&lt;li&gt;finger pointing up means look upwards&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;That's it! Simple, right?&lt;/p&gt;
-&lt;h2 id="the-reality"&gt;The Reality&lt;/h2&gt;
-&lt;p&gt;I was assured I was good for a first timer, after 3 flights of 1 minute 20 seconds each I was able to hover without assistance, spin left and right by moving my hands a little, move forward and back by straightening and bending my legs and control myself up and down to some extent by pushing my hips through or straightening my body.&lt;/p&gt;
-&lt;p&gt;In truth that also included belly flopping into the floor and crashing into the window and crumpling a little which caused me to drop quickly and get caught by Lane before I hit the floor again, not to mention the far from elegant wrestling to get me to the door at the end of my first go.&lt;/p&gt;
-&lt;p&gt;Somehow when you are in free fall those simple instructions I mentioned earlier become much more difficult, my eyes saw 2 straight fingers, but it took an age to convince my legs to move.&lt;/p&gt;
-&lt;h2 id="the-grand-finale"&gt;The Grand Finale&lt;/h2&gt;
-&lt;p&gt;The HighFly, this was truly a heart in mouth stomach turning experience which I can't wait to do again.&lt;/p&gt;
-&lt;video src="/assets/videos/Luxfly51MarkburtonTopHighFly.m4v" width="75%" controls&gt;
-&lt;p&gt;If you are reading this, it is because your browser does not support the HTML5 video element.&lt;/p&gt;
-&lt;/video&gt;
-&lt;p&gt;&lt;a href="https://www.tvlux.be/video/info/arlon-le-luxfly-skydive-a-ouvert-ses-portes_34978.html"&gt;https://www.tvlux.be/video/info/arlon-le-luxfly-skydive-a-ouvert-ses-portes_34978.html&lt;/a&gt;&lt;/p&gt;
 </content:encoded>
 			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
 		</item>

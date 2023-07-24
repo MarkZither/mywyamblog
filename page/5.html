@@ -86,7 +86,7 @@ if ('serviceWorker' in navigator) {
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
     <li class="dropdown nav-item"> 
-                                        <a href="/projects" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+                                        <a href='/mywyamblog/projects' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item"><a href="https://noknok.pl" class="nav-link">LuxBus</a></li>
                                             <li role="separator" class="divider"></li>
@@ -94,13 +94,16 @@ if ('serviceWorker' in navigator) {
                                         </ul>
     </li>
             <li class="nav-item">
+                <a class="nav-link" href="/mywyamblog/projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/mywyamblog/search">Search</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/mywyamblog/posts">Posts</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/mywyamblog/tags">Tags</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/mywyamblog/search">Search</a>
             </li>
 </ul>
     </div>
@@ -135,6 +138,13 @@ if ('serviceWorker' in navigator) {
 
 
 <div class="post-preview">
+    <h2 class="post-title"><a href="/mywyamblog/posts/2021-04-03-adding-chaos-and-resiliency-to-aspnet-services">Adding Chaos and Resiliency to asp.net Service with Polly and Simmy</a></h2>
+        <div class="post-subtitle">With many connected services there will be exceptions, the should be known, tested and handled in a resilient way</div>
+    <p class="post-meta">Published on Sunday, February 28, 2021</p>                
+<p><a href="https://github.com/vany0114/chaos-injection-using-simmy/blob/596206c475b2bd0d5af4e9d065897f4554852cb6/src/Infrastructure/Duber.Infrastructure.Chaos/Extensions/SimmyExtensions.cs">https://github.com/vany0114/chaos-injection-using-simmy/blob/596206c475b2bd0d5af4e9d065897f4554852cb6/src/Infrastructure/Duber.Infrastructure.Chaos/Extensions/SimmyExtensions.cs</a></p>        <p class="small"><a href="/mywyamblog/posts/2021-04-03-adding-chaos-and-resiliency-to-aspnet-services">Read more...</a></p>
+</div>
+
+<div class="post-preview">
     <h2 class="post-title"><a href="/mywyamblog/posts/2021-02-28-reset-forgotten-domain-admin-password">Reset Forgotten Domain Admin Password</a></h2>
         <div class="post-subtitle">Having failed to press save in my password manager I soon found out I didn&#x27;t know my only domain admin password</div>
     <p class="post-meta">Published on Sunday, February 28, 2021</p>                
@@ -147,13 +157,6 @@ if ('serviceWorker' in navigator) {
     <p class="post-meta">Published on Tuesday, February 9, 2021</p>                
 <p>Tye picked random ports while the project app config already specified ports.
 <a href="https://github.com/dotnet/tye/issues/178">https://github.com/dotnet/tye/issues/178</a></p>        <p class="small"><a href="/mywyamblog/posts/2021-02-07-first-look-at-project-tye">Read more...</a></p>
-</div>
-
-<div class="post-preview">
-    <h2 class="post-title"><a href="/mywyamblog/posts/2020-10-04-signing-documents-with-luxtrust-signing-stick">Signing Documents With a LuxTrust Signing Stick</a></h2>
-        <div class="post-subtitle">It is not as easy as it should be to sign documents with a LuxTrust Signing Stick, after much trial and error this is what worked for me.</div>
-    <p class="post-meta">Published on Wednesday, December 23, 2020</p>                
-<p>Installation is easy enough, download the correct installer from the <a href="https://www.luxtrust.lu/simple/189">LuxTrust Middleware Download</a> page and install.</p>        <p class="small"><a href="/mywyamblog/posts/2020-10-04-signing-documents-with-luxtrust-signing-stick">Read more...</a></p>
 </div>
     <div>
         <div class="float-sm-left">
@@ -174,9 +177,9 @@ if ('serviceWorker' in navigator) {
                             <a href="/mywyamblog/tags/netlifycms" class="badge badge-light"> NetlifyCMS (5)</a>
                             <a href="/mywyamblog/tags/appveyor" class="badge badge-light"> AppVeyor (4)</a>
                             <a href="/mywyamblog/tags/netlify" class="badge badge-light"> Netlify (4)</a>
+                            <a href="/mywyamblog/tags/tryhackme" class="badge badge-light"> tryhackme (3)</a>
                             <a href="/mywyamblog/tags/vsto" class="badge badge-light"> VSTO (3)</a>
                             <a href="/mywyamblog/tags/nginx" class="badge badge-light"> NGINX (3)</a>
-                            <a href="/mywyamblog/tags/tryhackme" class="badge badge-light"> tryhackme (2)</a>
                             <a href="/mywyamblog/tags/beer" class="badge badge-light"> beer (2)</a>
                             <a href="/mywyamblog/tags/pizza" class="badge badge-light"> pizza (2)</a>
                         <div class="mt-3">

@@ -86,7 +86,7 @@ if ('serviceWorker' in navigator) {
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
     <li class="dropdown nav-item"> 
-                                        <a href="/projects" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+                                        <a href='/mywyamblog/projects' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item"><a href="https://noknok.pl" class="nav-link">LuxBus</a></li>
                                             <li role="separator" class="divider"></li>
@@ -94,13 +94,16 @@ if ('serviceWorker' in navigator) {
                                         </ul>
     </li>
             <li class="nav-item">
+                <a class="nav-link" href="/mywyamblog/projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/mywyamblog/search">Search</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/mywyamblog/posts">Posts</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/mywyamblog/tags">Tags</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/mywyamblog/search">Search</a>
             </li>
 </ul>
     </div>
@@ -135,6 +138,13 @@ if ('serviceWorker' in navigator) {
 
 
 <div class="post-preview">
+    <h2 class="post-title"><a href="/mywyamblog/posts/2022-04-11-notes-from-addressing-pentest-results">Notes From Addressing Penetration Test Findings</a></h2>
+        <div class="post-subtitle">I have recently read a number of PenTest reports and investigated and fixed the vulnerabilities.</div>
+    <p class="post-meta">Published on Monday, April 11, 2022</p>                
+<p>In the Pentest reports I have read it has been common for the first section to be about identifying the technology the application is written in, this is used to make some initial suggestions on shortcomings in the application.</p>        <p class="small"><a href="/mywyamblog/posts/2022-04-11-notes-from-addressing-pentest-results">Read more...</a></p>
+</div>
+
+<div class="post-preview">
     <h2 class="post-title"><a href="/mywyamblog/posts/2021-12-20-create-a-custom-userstore-net6">How To Create a Custom UserStore in ASP.NET Core 6</a></h2>
         <div class="post-subtitle">UserStore with complex IdentityServer and AzMan permissions</div>
     <p class="post-meta">Published on Monday, December 20, 2021</p>                
@@ -146,13 +156,6 @@ if ('serviceWorker' in navigator) {
         <div class="post-subtitle">For Christmas I received a Ooni Koda 12 gas fuelled pizza oven, making fresh pizza is more challenging than it might seem</div>
     <p class="post-meta">Published on Thursday, July 8, 2021</p>                
 <p>I love pizza but nothing you can buy from the shop comes close to freshly made pizza and delivery is usually getting cold by the time it arrives.</p>        <p class="small"><a href="/mywyamblog/posts/2021-07-09-making-pizza-in-my-ooni-koda-12">Read more...</a></p>
-</div>
-
-<div class="post-preview">
-    <h2 class="post-title"><a href="/mywyamblog/posts/2021-06-18-centralizing-vsto-add-in-exception-management-with-postsharp6">Centralizing VSTO add in exception management with postsharp 6</a></h2>
-        <div class="post-subtitle">After much reading it seems you cannot handle exceptions globally in an Office add-in</div>
-    <p class="post-meta">Published on Tuesday, June 22, 2021</p>                
-<p>After much reading around trying to find the best way to implement a global exception handler for a VSTO add-in on <a href="https://social.msdn.microsoft.com/Forums/vstudio/en-US/c37599d9-21e8-4c32-b00e-926f97c8f639/global-exception-handler-for-vs-2008-excel-addin?forum=vsto">social msdn</a>, <a href="https://stackoverflow.com/questions/12115030/catch-c-sharp-wpf-unhandled-exception-in-word-add-in-before-microsoft-displays-e">stackoverflow</a> and the <a href="https://www.add-in-express.com/forum/read.php?FID=5&amp;amp;TID=12667">Add-in Express forum</a> I came across this solution <a href="https://exceptionalcode.wordpress.com/2010/02/17/centralizing-vsto-add-in-exception-management-with-postsharp/">using postsharp</a>, this was the best solution I found but was 11 years old and relevant to postsharp 2, the library has changed a lot since then and the <code>PostSharp.Laos</code> namespace no longer exists as explained the <a href="https://support.postsharp.net/request/21870-postshaplaos-in-version-41">postsharp support forum</a>.</p>        <p class="small"><a href="/mywyamblog/posts/2021-06-18-centralizing-vsto-add-in-exception-management-with-postsharp6">Read more...</a></p>
 </div>
     <div>
         <div class="float-sm-left">
@@ -173,9 +176,9 @@ if ('serviceWorker' in navigator) {
                             <a href="/mywyamblog/tags/netlifycms" class="badge badge-light"> NetlifyCMS (5)</a>
                             <a href="/mywyamblog/tags/appveyor" class="badge badge-light"> AppVeyor (4)</a>
                             <a href="/mywyamblog/tags/netlify" class="badge badge-light"> Netlify (4)</a>
+                            <a href="/mywyamblog/tags/tryhackme" class="badge badge-light"> tryhackme (3)</a>
                             <a href="/mywyamblog/tags/vsto" class="badge badge-light"> VSTO (3)</a>
                             <a href="/mywyamblog/tags/nginx" class="badge badge-light"> NGINX (3)</a>
-                            <a href="/mywyamblog/tags/tryhackme" class="badge badge-light"> tryhackme (2)</a>
                             <a href="/mywyamblog/tags/beer" class="badge badge-light"> beer (2)</a>
                             <a href="/mywyamblog/tags/pizza" class="badge badge-light"> pizza (2)</a>
                         <div class="mt-3">

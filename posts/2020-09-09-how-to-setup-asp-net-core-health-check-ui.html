@@ -87,7 +87,7 @@ if ('serviceWorker' in navigator) {
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
     <li class="dropdown nav-item"> 
-                                        <a href="/projects" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+                                        <a href='/mywyamblog/projects' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item"><a href="https://noknok.pl" class="nav-link">LuxBus</a></li>
                                             <li role="separator" class="divider"></li>
@@ -95,13 +95,16 @@ if ('serviceWorker' in navigator) {
                                         </ul>
     </li>
             <li class="nav-item">
+                <a class="nav-link" href="/mywyamblog/projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/mywyamblog/search">Search</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/mywyamblog/posts">Posts</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/mywyamblog/tags">Tags</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/mywyamblog/search">Search</a>
             </li>
 </ul>
     </div>
@@ -133,8 +136,8 @@ if ('serviceWorker' in navigator) {
   <div class="container"> 
     <div class="row">
       <div id="content" class="col-md-12">  
-        <p>In <a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port">Part one</a> we setup the health check endpoints, now to add a frontend.</p>
-<p>The <a href="2020-09-08-secure-asp.net-core-health-checks-to-a-specific-port">Health Checks UI</a> is best hosted in its own service as it can consolidate health checks for a number of services.</p>
+        <p>In <a href="2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port">Part one</a> we setup the health check endpoints, now to add a frontend.</p>
+<p>The <a href="2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port">Health Checks UI</a> is best hosted in its own service as it can consolidate health checks for a number of services.</p>
 <p><img src="/assets/Images/HealthChecksUI.png" class="img-fluid img-responsive" alt="Swagger CORS error" /></p>
 <p>Adding the HealthChecks UI to the service involves adding 2 nuget packages, the main <code>AspNetCore.HealthChecks.UI</code> package and a storage provider, initially I have used the InMemory storage provider as I do not have the need to see historical data. There are also providers various databases including SqlServer and SQLite which can be used to persist the data.</p>
 <pre><code class="language-xml">    &lt;PackageReference Include=&quot;AspNetCore.HealthChecks.UI&quot; Version=&quot;$(AspNetCoreHealthChecksUIVersion)&quot; /&gt;

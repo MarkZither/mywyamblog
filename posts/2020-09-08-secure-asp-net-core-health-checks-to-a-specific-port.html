@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Mark Burton - Test blog post for docs</title>
+    <title>Mark Burton - Secure ASP.NET Core Health Checks to a specific port</title>
 
-    <link rel="canonical" href="https://blog.mark-burton.com/mywyamblog/posts/2018-02-11-test-blog-post-for-docs">
+    <link rel="canonical" href="https://blog.mark-burton.com/mywyamblog/posts/2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port">
 
             <link type="application/rss+xml" rel="alternate" href="/mywyamblog/feed.rss" />
             <link type="application/atom+xml" rel="alternate" href="/mywyamblog/feed.atom" />
@@ -17,10 +17,10 @@
     <meta name="msapplication-tooltip" content="Mark Burton" />
     <meta name="msapplication-starturl" content="/mywyamblog/" />
 
-    <meta property="og:title" content="Mark Burton - Test blog post for docs" />
-        <meta property="og:image" content="/mywyamblog/input/assets/NetlifyCMS_Missing_Posts.PNG" />
+    <meta property="og:title" content="Mark Burton - Secure ASP.NET Core Health Checks to a specific port" />
+        <meta property="og:image" content="/mywyamblog/assets/Images/hc_sample.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://blog.mark-burton.com/mywyamblog/posts/2018-02-11-test-blog-post-for-docs" />
+    <meta property="og:url" content="https://blog.mark-burton.com/mywyamblog/posts/2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port" />
 
     <link rel="shortcut icon" href="/mywyamblog/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/mywyamblog/favicon.ico" type="image/x-icon">
@@ -112,21 +112,20 @@ if ('serviceWorker' in navigator) {
 </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url(&quot;/mywyamblog/input/assets/NetlifyCMS_Missing_Posts.PNG&quot;)">
+  <header class="masthead" style="background-image: url(&quot;/mywyamblog/assets/Images/hc_sample.png&quot;)">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="post-heading">
           <h1>
-            Test blog post for docs
+            Secure ASP.NET Core Health Checks to a specific port
           </h1>
-            <h2 class="subheading">This blog post was written in NetlifyCMS</h2>
-              <div class="meta">Published on Sunday, February 11, 2018</div>
+            <h2 class="subheading">Health Checks in ASP.NET Core can give valuable insights into the health of services, but that includes sensitive data that should not be leaked externally.</h2>
+              <div class="meta">Published on Tuesday, September 8, 2020</div>
                 <div class="mt-3">
-                      <a href="/mywyamblog/tags/netlifycms" class="badge badge-light"> NetlifyCMS</a>
-                      <a href="/mywyamblog/tags/test" class="badge badge-light"> Test</a>
-                      <a href="/mywyamblog/tags/docs" class="badge badge-light"> Docs</a>
+                      <a href="/mywyamblog/tags/asp.net-core" class="badge badge-light"> ASP.NET CORE</a>
+                      <a href="/mywyamblog/tags/health-checks" class="badge badge-light"> Health Checks</a>
                 </div>
         </div>
       </div>
@@ -138,18 +137,66 @@ if ('serviceWorker' in navigator) {
   <div class="container"> 
     <div class="row">
       <div id="content" class="col-md-12">  
-        <h1 id="test-blog-post">Test Blog Post</h1>
-<p>this is a test post created in <strong>NetlifyCMS</strong></p>
-<p><a href="https://wyam.io/">Wyam</a></p>
-<p>checking this is still working, need to add Editorial Workflow.</p>
+        <p>To secure Health Checks it is possible to make them available on internal addresses only and on a different port to the publicly served pages/API endpoints.</p>
+<p>First we need to make the service available over 2 different ports, this can be achieved by adding a Urls value to the appsettings.config.</p>
+<pre><code class="language-json">  &quot;Logging&quot;: {
+    &quot;IncludeScopes&quot;: false,
+    &quot;LogLevel&quot;: {
+      &quot;Default&quot;: &quot;Debug&quot;,
+      &quot;System&quot;: &quot;Information&quot;,
+      &quot;Microsoft&quot;: &quot;Information&quot;
+    }
+  },
+  &quot;Urls&quot;: &quot;http://localhost:1114;http://localhost:1115&quot;,
+  &quot;ManagementPort&quot;: &quot;1115&quot;,
+  &quot;ConnectionStrings&quot;: {
+    &quot;LoginServiceDb&quot;: &quot;Data Source=.,11433;Initial Catalog=LoginServiceDatabase;Integrated Security=true;&quot;
+  },
+</code></pre>
+<p>This can be done in several ways, and is described in more detail by Andrew Lock in his post <a href="https://andrewlock.net/5-ways-to-set-the-urls-for-an-aspnetcore-app/">5 ways to set the URLs for an ASP.NET Core app</a>.</p>
+<p>Now when you debug the service you should see in the log that it is listening on 2 ports</p>
+<pre><code>info: Microsoft.Hosting.Lifetime[0]
+      Now listening on: http://localhost:1114
+info: Microsoft.Hosting.Lifetime[0]
+      Now listening on: http://localhost:1115
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+</code></pre>
+<div class="alert alert-primary">
+<h3>Special note if you are using http.sys </h3>
+<p>
+If you want to run this over https you will need to take care of the port reservation and certification binding. 
+</p>
+<p>
+I have a explanation of that in the <a href="https://github.com/MarkZither/SwaggerAndHealthCheckBlog#using-httpsys" target="_blank">GitHub Repo README</a>.
+</p>
+</div>
+<p>Now that we have the service listening on 2 addresses we can specify one of them will serve up the Health Checks by setting the <code>ManagementPort</code>.</p>
+<p>In <code>startup.cs</code> we can use the <code>ManagementPort</code> to secure the Health Check endpoint</p>
+<pre><code class="language-C#">   // HealthCheck middleware
+   app.UseHealthChecks(&quot;/hc&quot;, $&quot;{Configuration[&quot;ManagementPort&quot;]}&quot;, new HealthCheckOptions() {
+    Predicate = _ =&gt; true,
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+   });
+
+   app.UseEndpoints(endpoints =&gt; {
+    endpoints.MapControllerRoute(&quot;default&quot;, &quot;{controller=Home}/{action=Index}/{id?}&quot;);
+    endpoints.MapHealthChecks(&quot;/health&quot;).RequireHost($&quot;*:{Configuration[&quot;ManagementPort&quot;]}&quot;);
+   });
+</code></pre>
+<p>If you debug now you will have access to the <code>/health</code> endpoint only on the <code>ManagementPort</code> and not on the public facing URL.</p>
+<p><img src="/assets/Images/health_endpoint.png" class="img-fluid img-responsive" alt="HealthCheck external shows 404 while internal shows overall health status" /></p>
+<p>More interestingly you can also go to the <code>/hc</code> endpoint, this contains more detailed information about the state of the service and therefore needs to be secured.</p>
+<p><img src="/assets/Images/hc_endpoint.png" class="img-fluid img-responsive" alt="HealthCheck external shows 404 while internal shows detailed health status" /></p>
+<p>Now you can safely get the status of your services reported as json, but there are 2 further aspects of ASP.NET Core Health Checks, the UI and push-based monitoring, i will cover those in parts 2 and 3.</p>
 
 
 <ul class="share-buttons">
-  <li><a href="https://www.facebook.com/sharer/sharer.php?u=/mywyamblog/posts/2018-02-11-test-blog-post-for-docs&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
-  <li><a href="https://twitter.com/intent/tweet?source=/mywyamblog/posts/2018-02-11-test-blog-post-for-docs&text=:%20@Model.String(BlogKeys.Title)&via=mark__burton" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
-  <li><a href="http://pinterest.com/pin/create/button/?url=/mywyamblog/posts/2018-02-11-test-blog-post-for-docs&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
-  <li><a href="http://www.reddit.com/submit?url=/mywyamblog/posts/2018-02-11-test-blog-post-for-docs&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-reddit-square fa-2x" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a></li>
-  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=/mywyamblog/posts/2018-02-11-test-blog-post-for-docs&title=&summary=&source=https://blog.mark-burton.com/mywyamblog/posts/2018-02-11-test-blog-post-for-docs" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=/mywyamblog/posts/2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+  <li><a href="https://twitter.com/intent/tweet?source=/mywyamblog/posts/2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port&text=:%20@Model.String(BlogKeys.Title)&via=mark__burton" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+  <li><a href="http://pinterest.com/pin/create/button/?url=/mywyamblog/posts/2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
+  <li><a href="http://www.reddit.com/submit?url=/mywyamblog/posts/2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-reddit-square fa-2x" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a></li>
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=/mywyamblog/posts/2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port&title=&summary=&source=https://blog.mark-burton.com/mywyamblog/posts/2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
   <li><a href="mailto:?subject=&body=:%20@Context.GetLink(Model)" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
 </ul>
 
@@ -157,9 +204,9 @@ if ('serviceWorker' in navigator) {
 <script type="text/javascript">
 
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_identifier = '2018-02-11-test-blog-post-for-docs';
-    var disqus_title = 'Test blog post for docs';
-    var disqus_url = 'https://blog.mark-burton.com/mywyamblog/posts/2018-02-11-test-blog-post-for-docs';
+    var disqus_identifier = '2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port';
+    var disqus_title = 'Secure ASP.NET Core Health Checks to a specific port';
+    var disqus_url = 'https://blog.mark-burton.com/mywyamblog/posts/2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port';
 
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
