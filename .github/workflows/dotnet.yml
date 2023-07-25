@@ -31,4 +31,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DeployNetlifySiteId: test
-        DeployNetlifyAccessToken: testacc
+        DeployNetlifyAccessToken: ${{ DEPLOYNETLIFYACCESSTOKEN }}
