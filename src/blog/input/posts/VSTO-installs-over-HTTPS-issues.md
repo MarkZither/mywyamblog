@@ -9,7 +9,7 @@ Tags:
 ---
 
 # Are Envrionmental?
-Test with this [setup.exe](../assets/testvsto/setup.exe).
+Test with this [setup.exe](/assets/testvsto/setup.exe).
 
 ## The Problem
 Setup runs sucessfully over http, but switch to https by publishing again with the https url or by using `setup.exe -url="https://myurl.com/MyAppFolder/setup.exe"`
