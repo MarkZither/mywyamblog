@@ -67,7 +67,7 @@ namespace mywyamblog
                 .AddSettings(settings);
 
             logger.LogInformation("DeployNetlify {0}", Configuration.GetValue<bool>("DeployNetlify"));
-            logger.LogInformation("DeployNetlify {0}", Configuration.GetValue<string>("DeployNetlifyAccessToken").Substring(0,4));
+            logger.LogInformation("DeployNetlifyAccessToken {0}", Configuration.GetValue<string>("DeployNetlifyAccessToken").Substring(0,4));
             if (Configuration.GetValue<bool>("DeployNetlify") && !string.IsNullOrEmpty(Configuration.GetValue<string>("DeployNetlifyAccessToken"))){
                 logger.LogInformation("DeployNetlifySiteId {0}", Configuration.GetValue<string>("DeployNetlifySiteId").Substring(0,4));
                 logger.LogInformation("DeployNetlifyAccessToken {0}", Configuration.GetValue<string>("DeployNetlifyAccessToken").Substring(0,4));
