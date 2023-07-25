@@ -30,5 +30,3 @@ jobs:
       run: dotnet run --project src/blog/mywyamblog.csproj -- deploy -l Warning --deploygithub=true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DeployNetlifySiteId: test
-        DeployNetlifyAccessToken: ${{ secrets.DEPLOYNETLIFYACCESSTOKEN }}
