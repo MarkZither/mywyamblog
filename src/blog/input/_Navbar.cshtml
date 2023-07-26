@@ -5,6 +5,8 @@
                                             <li class="nav-item"><a href="https://noknok.pl" class="nav-link">LuxBus</a></li>
                                             <li role="separator" class="divider"></li>
                                             <li class="nav-item"><a href="https://noknok.pl" class="nav-link">NokNok</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li class="nav-item"><a href='@Context.GetLink("/warkenbeerfestival2023")' class="nav-link">Warken</a></li>
                                         </ul>
     </li>
     @foreach(IDocument doc in OutputPages.GetChildrenOf("index.html").Where(x => x.GetBool("ShowInNavbar", true)).OrderBy(x => x.GetInt(Keys.Order)))
