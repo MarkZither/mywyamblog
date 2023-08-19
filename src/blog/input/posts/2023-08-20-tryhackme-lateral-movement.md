@@ -31,3 +31,14 @@ In this room, we will look at lateral movement, a group of techniques used by at
 >  {.answer .blur}
 
 [Reveal Answer](#) {.reveal-answer .btn .btn-primary}
+
+### Task 3 - Spawning Processes Remotely
+
+#### Question 1
+
+
+
+#### Answer
+>  {.answer .blur}
+
+[Reveal Answer](#) {.reveal-answer .btn .btn-primary}
