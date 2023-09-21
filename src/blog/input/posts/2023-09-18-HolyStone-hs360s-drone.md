@@ -6,8 +6,10 @@
  Image: "/assets/Images/snort.png" 
  Tags: 
    - HolyStone 
-   - HS360s SPYDI
+   - HS360S SPYDI
 ---
 
 ## Initial setup
 
+
+## 2nd Try!
