@@ -10,6 +10,6 @@
 ---
 
 ## Initial setup
-
+Red lights flashing seem to be undocumented errors.
 
 ## 2nd Try!
