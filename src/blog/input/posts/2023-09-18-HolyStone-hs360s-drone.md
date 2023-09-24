@@ -12,4 +12,7 @@
 ## Initial setup
 Red lights flashing seem to be undocumented errors.
 
+## HolyStone support
+
+
 ## 2nd Try!
