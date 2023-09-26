@@ -11,3 +11,4 @@
 
 ## C# SAST with Semgrep
 
+https://semgrep.dev/docs/getting-started/
