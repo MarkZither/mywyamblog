@@ -12,3 +12,7 @@
 ## C# SAST with Semgrep
 
 https://semgrep.dev/docs/getting-started/
+
+## The command
+
+`semgrep scan --config=auto`
