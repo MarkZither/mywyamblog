@@ -16,3 +16,7 @@ Red lights flashing seem to be undocumented errors.
 
 
 ## 2nd Try!
+
+## Drone registration
+
+https://dac.gouvernement.lu/en/drones/where-when-register.html
