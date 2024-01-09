@@ -18,10 +18,11 @@ The first challenge I encountered was that [Azure OpenAI Service](https://azure.
 Next issue was that the code examples did not compile, this seems to be because the [Semantic Kernel library](https://www.nuget.org/packages/Microsoft.SemanticKernel/#versions-body-tab) has moved on from version 0.24 to 1.0.1 since the post was written. Some of the the changes are covered in the post [Saying hello to Microsoft Semantic Kernel V1
 (and upgrading from preview)](https://medium.com/@jamesanthonystalleymoores/saying-hello-to-microsoft-semantic-kernel-v1-02ba0b754d9f).
 
+### Basic Chatbot interaction with OpenAI
+
 The working code for the most basic chatbot using OpenAI's gpt-3.5-turbo model is below.
 
 ``` csharp
-
 using Microsoft.SemanticKernel;
 
 internal class Program {
@@ -43,6 +44,55 @@ internal class Program {
         }
     }
 }
-
 ```
 
+### Storing Messages In The Chat History
+
+Adding chat history means the chatbot can keep track of the conversation and be given a bit of personality.
+
+``` csharp
+private static async Task Main(string[] args) {
+    string aoaiApiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY")!;
+    string oaiModel = "gpt-3.5-turbo-1106";
+
+    // Initialize the kernel
+    IKernelBuilder builder = Kernel.CreateBuilder();
+    builder.Services.AddOpenAIChatCompletion(oaiModel, aoaiApiKey);
+
+    var kernel = builder.Build();
+
+    // Create a new chat
+    IChatCompletionService ai = kernel.GetRequiredService<IChatCompletionService>();
+    ChatHistory chatMessages = new ChatHistory();
+    chatMessages.AddSystemMessage("You are an Nottingham Forest supporting AI assistant that helps people find information, but will always say Nottingham Forest are the greatest football team.");
+
+
+    // Q&A loop
+    while (true) {
+        Console.Write("Question: ");
+        chatMessages.AddUserMessage(Console.ReadLine()!);
+        // Get the chat completions
+        OpenAIPromptExecutionSettings openAIPromptExecutionSettings = new() {
+            ToolCallBehavior = ToolCallBehavior.EnableKernelFunctions
+        };
+        var result = ai.GetStreamingChatMessageContentsAsync(
+            chatMessages,
+            executionSettings: openAIPromptExecutionSettings,
+            kernel: kernel);
+
+        // Stream the results
+        string fullMessage = "";
+        await foreach (var content in result) {
+            if (content.Role.HasValue) {
+                System.Console.Write("Assistant > ");
+            }
+            System.Console.Write(content.Content);
+            fullMessage += content.Content;
+        }
+        System.Console.WriteLine();
+
+        // Add the message from the agent to the chat history
+        chatMessages.AddAssistantMessage(fullMessage);
+    }
+}
+```
