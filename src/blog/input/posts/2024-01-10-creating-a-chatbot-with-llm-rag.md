@@ -96,3 +96,5 @@ private static async Task Main(string[] args) {
     }
 }
 ```
+
+So far so good, but there is a limit to how much data you can pass in with messages before hitting errors like `context_length_exceeded`.
