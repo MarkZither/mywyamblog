@@ -11,8 +11,12 @@
 
 ## C# SAST with Semgrep
 
+### Installation
+
+Run `sudo apt-get update && sudo apt-get upgrade` because it is good for you.
+
 https://semgrep.dev/docs/getting-started/
 
-## The command
+### The command
 
 `semgrep scan --config=auto`
