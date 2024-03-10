@@ -10,8 +10,8 @@
 
     <link rel="canonical" href="https://blog.mark-burton.com/mywyamblog/posts/2020-09-17-local-hostname-resolution-to-port">
 
-            <link type="application/rss+xml" rel="alternate" href="/mywyamblog/feed.rss" />
-            <link type="application/atom+xml" rel="alternate" href="/mywyamblog/feed.atom" />
+            <link type="application/rss+xml" rel="alternate" title="Mark Burton" href="/mywyamblog/feed.rss" />
+            <link type="application/atom+xml" rel="alternate" title="Mark Burton" href="/mywyamblog/feed.atom" />
 
     <meta name="application-name" content="Mark Burton" />
     <meta name="msapplication-tooltip" content="Mark Burton" />
@@ -96,16 +96,16 @@ if ('serviceWorker' in navigator) {
                                         </ul>
     </li>
             <li class="nav-item">
-                <a class="nav-link" href="/mywyamblog/posts">Posts</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/mywyamblog/tags">Tags</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/mywyamblog/search">Search</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/mywyamblog/warkenbeerfestival2023">Warken Beer Festival 2023</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/mywyamblog/posts">Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/mywyamblog/tags">Tags</a>
             </li>
 </ul>
     </div>
@@ -154,8 +154,7 @@ if ('serviceWorker' in navigator) {
 <p>Install <a href="https://nlnetlabs.nl/projects/unbound/download/">Unbound</a>.</p>
 <p>Add entries to <code>service.conf</code> by default on Windows that is in <code>C:\Program Files\Unbound</code></p>
 <h3 id="local-vs.localhost-vs.test-vs.internal">.local vs .localhost vs .test vs .internal</h3>
-<p>After reading round in circles about reserved TLDs such as <a href="https://tools.ietf.org/html/rfc2606#page-2">rfc2606</a> which lists <code>.test</code>, <code>.example</code>, <code>.invalid</code>, <code>.localhost</code> as reserved domain names. This stackoverflow on <a href="https://stackoverflow.com/questions/19016553/add-subdomain-to-localhost-url">best practices for internal domain and network names</a> This <a href="https://social.technet.microsoft.com/wiki/contents/articles/34981.active-directory-best-practices-for-internal-domain-and-network-names.aspx">TechNet article</a> which goes back on previous advice about the use of <code>.local</code> and <code>.internal</code>.The risks of using my initial choice of <code>.local</code> due to possible clashes with mDNS and Zero Configuration Networking. Trying to use servicename.localhost with mixed results (works with hosts file but causes Unbound to throw and error and fail to start) and noticing that docker uses <code>.internal</code> I finally found <a href="https://tools.ietf.org/html/rfc6762#appendix-G">RFC6762#appendix-G</a> which lists <code>.intranet.</code>, <code>.internal.</code>, <code>.private.</code>,  <code>.corp.</code>, <code>.home.</code> and <code>.lan.</code> as proposed reserved domain names, I settled on using .internal.
-</p>
+<p>After reading round in circles about reserved TLDs such as <a href="https://tools.ietf.org/html/rfc2606#page-2">rfc2606</a> which lists <code>.test</code>, <code>.example</code>, <code>.invalid</code>, <code>.localhost</code> as reserved domain names. This stackoverflow on <a href="https://stackoverflow.com/questions/19016553/add-subdomain-to-localhost-url">best practices for internal domain and network names</a> This <a href="https://social.technet.microsoft.com/wiki/contents/articles/34981.active-directory-best-practices-for-internal-domain-and-network-names.aspx">TechNet article</a> which goes back on previous advice about the use of <code>.local</code> and <code>.internal</code>.The risks of using my initial choice of <code>.local</code> due to possible clashes with mDNS and Zero Configuration Networking. Trying to use servicename.localhost with mixed results (works with hosts file but causes Unbound to throw and error and fail to start) and noticing that docker uses <code>.internal</code> I finally found <a href="https://tools.ietf.org/html/rfc6762#appendix-G">RFC6762#appendix-G</a> which lists <code>.intranet.</code>, <code>.internal.</code>, <code>.private.</code>,  <code>.corp.</code>, <code>.home.</code> and <code>.lan.</code> as proposed reserved domain names, I settled on using .internal.</p>
 <pre><code class="language-cmd">server:
     
     local-data: &quot;mailhog.internal A 127.0.0.2&quot;
@@ -229,7 +228,7 @@ s.setAttribute('data-timestamp', +new Date());
         <div class="row">
                 <div class="col-md-12 text-center">
                     <ul class="list-inline text-center small">
-                        <li class="list-inline-item copyright text-muted m-0">Copyright © 2023</li>                          
+                        <li class="list-inline-item copyright text-muted m-0">Copyright © 2024</li>                          
                         <li class="list-inline-item">
                         <a href="https://twitter.com/mark__burton" aria-label="Twitter">
                             <i class="fab fa-twitter"> Twitter</i>

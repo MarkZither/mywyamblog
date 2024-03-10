@@ -1,12 +1,276 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <rss xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
 	<channel>
-		<title />
+		<title>Mark Burton</title>
 		<link>https://blog.mark-burton.com/mywyamblog</link>
 		<description />
-		<copyright>2023</copyright>
-		<pubDate>Sat, 05 Aug 2023 08:22:18 GMT</pubDate>
-		<lastBuildDate>Sat, 05 Aug 2023 08:22:18 GMT</lastBuildDate>
+		<copyright>2024</copyright>
+		<pubDate>Sun, 10 Mar 2024 15:32:52 GMT</pubDate>
+		<lastBuildDate>Sun, 10 Mar 2024 15:32:52 GMT</lastBuildDate>
+		<item>
+			<title>Teenager Dog Training Session 1</title>
+			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-02-05-teenager-dog-training-session-1</link>
+			<description>&lt;p&gt;The first day of the teenager dog training was mainly a recap of previous training and to check level of the dogs and trainers.&lt;/p&gt;</description>
+			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/VSCode_Sign_Commit.png" length="0" type="image" />
+			<guid>https://blog.mark-burton.com/mywyamblog/posts/2023-02-05-teenager-dog-training-session-1</guid>
+			<pubDate>Wed, 17 Jan 2024 15:23:12 GMT</pubDate>
+			<content:encoded>&lt;h1 id="teenager-dog-training-session-1"&gt;Teenager Dog Training Session 1&lt;/h1&gt;
+&lt;p&gt;The first day of the teenager dog training was mainly a recap of previous training and to check level of the dogs and trainers.&lt;/p&gt;
+&lt;h2 id="sitting-while-trainer-walks-around"&gt;Sitting while trainer walks around&lt;/h2&gt;
+&lt;h2 id="walking-forward-and-turning"&gt;Walking forward and turning&lt;/h2&gt;
+&lt;p&gt;With the dog on your left, lead in right hand and treat in left hand. Always lead of with left leg, this will become a signal for the dog to walk with you, while leading with the right leg can be a signal the dog is to stay.&lt;/p&gt;
+&lt;p&gt;Only turn right, lead the dog with the treat, as the dog starts to come naturally slightly withhold the treat.&lt;/p&gt;
+&lt;p&gt;It is important to be careful with the timing of the delivery of the treat, only give the treat when the dog has all 4 paws on the ground in the correct position to your left&lt;/p&gt;
+&lt;h2 id="playing-with-pull-toy"&gt;Playing with pull toy&lt;/h2&gt;
+&lt;p&gt;Move the pull toy across the ground to trigger the dogs chase instinct/prey drive.&lt;/p&gt;
+&lt;p&gt;Let the dog take the toy, now, the important part is that the dog brings the pull toy back to play more. Do not leave the pull toy with the dog to destroy.&lt;/p&gt;
+&lt;h2 id="playing-with-tennis-balls"&gt;Playing with tennis balls&lt;/h2&gt;
+&lt;p&gt;Roll the balls across each other in front of the dog to see if they are interested.&lt;/p&gt;
+&lt;h2 id="walking-in-a-figure-of-8"&gt;Walking in a figure of 8&lt;/h2&gt;
+&lt;p&gt;With the dog on your left, lead in right hand and treat in left hand.&lt;/p&gt;
+</content:encoded>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
+		<item>
+			<title>HolyStone HS360S Drone</title>
+			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-09-18-holystone-hs360s-drone</link>
+			<description>&lt;p&gt;Red lights flashing seem to be undocumented errors.&lt;/p&gt;</description>
+			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" length="0" type="image" />
+			<guid>https://blog.mark-burton.com/mywyamblog/posts/2023-09-18-holystone-hs360s-drone</guid>
+			<pubDate>Mon, 25 Sep 2023 15:23:12 GMT</pubDate>
+			<content:encoded>&lt;h2 id="initial-setup"&gt;Initial setup&lt;/h2&gt;
+&lt;p&gt;Red lights flashing seem to be undocumented errors.&lt;/p&gt;
+&lt;h2 id="holystone-support"&gt;HolyStone support&lt;/h2&gt;
+&lt;h2 id="nd-try"&gt;2nd Try!&lt;/h2&gt;
+</content:encoded>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
+		<item>
+			<title>C# SAST with Semgrep</title>
+			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-09-22-c-sast-with-semgrep</link>
+			<description>&lt;p&gt;&lt;a href="https://semgrep.dev/docs/getting-started/"&gt;https://semgrep.dev/docs/getting-started/&lt;/a&gt;&lt;/p&gt;</description>
+			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" length="0" type="image" />
+			<guid>https://blog.mark-burton.com/mywyamblog/posts/2023-09-22-c-sast-with-semgrep</guid>
+			<pubDate>Fri, 15 Sep 2023 15:23:12 GMT</pubDate>
+			<content:encoded>&lt;h2 id="c-sast-with-semgrep"&gt;C# SAST with Semgrep&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://semgrep.dev/docs/getting-started/"&gt;https://semgrep.dev/docs/getting-started/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="the-command"&gt;The command&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;semgrep scan --config=auto&lt;/code&gt;&lt;/p&gt;
+</content:encoded>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
+		<item>
+			<title>Try Hack Me - Lateral Movement and Pivoting</title>
+			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-09-15-security-engineer-learning-path-and-prizes</link>
+			<description>&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;</description>
+			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" length="0" type="image" />
+			<guid>https://blog.mark-burton.com/mywyamblog/posts/2023-09-15-security-engineer-learning-path-and-prizes</guid>
+			<pubDate>Fri, 15 Sep 2023 15:23:12 GMT</pubDate>
+			<content:encoded>&lt;h2 id="security-engineer-learning-path"&gt;Security Engineer learning path&lt;/h2&gt;
+&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;
+</content:encoded>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
+		<item>
+			<title>Try Hack Me - Redline</title>
+			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-06-24-tryhackme-redline</link>
+			<description>&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;</description>
+			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/redline.jpg" length="0" type="image" />
+			<guid>https://blog.mark-burton.com/mywyamblog/posts/2023-06-24-tryhackme-redline</guid>
+			<pubDate>Thu, 24 Aug 2023 15:23:12 GMT</pubDate>
+			<content:encoded>&lt;h2 id="redline"&gt;Redline&lt;/h2&gt;
+&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="task-1-introduction"&gt;Task 1 - Introduction&lt;/h3&gt;
+&lt;h4 id="question-1"&gt;Question 1&lt;/h4&gt;
+&lt;p&gt;Who created Redline?&lt;/p&gt;
+&lt;h4 id="answer"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;FireEye  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h3 id="task-2-data-collection"&gt;Task 2 - Data Collection&lt;/h3&gt;
+&lt;h4 id="question-1-1"&gt;Question 1&lt;/h4&gt;
+&lt;p&gt;What data collection method takes the least amount of time?&lt;/p&gt;
+&lt;h4 id="answer-1"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;standard collector &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-2"&gt;Question 2&lt;/h4&gt;
+&lt;p&gt;You are reading a research paper on a new strain of ransomware. You want to run the data collection on your computer based on the patterns provided, such as domains, hashes, IP addresses, filenames, etc. What method would you choose to run a granular data collection against the known indicators?&lt;/p&gt;
+&lt;h4 id="answer-2"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;IOC Search collector &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-3"&gt;Question 3&lt;/h4&gt;
+&lt;p&gt;What script would you run to initiate the data collection process? Please include the file extension.&lt;/p&gt;
+&lt;h4 id="answer-3"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;runredlineaudit.bat &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-4"&gt;Question 4&lt;/h4&gt;
+&lt;p&gt;If you want to collect the data on Disks and Volumes, under which option can you find it?&lt;/p&gt;
+&lt;h4 id="answer-4"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;disk enumeration &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-5"&gt;Question 5&lt;/h4&gt;
+&lt;p&gt;What cache does Windows use to maintain a preference for recently executed code?&lt;/p&gt;
+&lt;h5 id="notes"&gt;Notes&lt;/h5&gt;
+&lt;p&gt;In the &lt;a href="https://fireeye.market/assets/apps/211364/documents/877936_en.pdf"&gt;Redline User Guide&lt;/a&gt;
+Cache is mentioned 13 times, there is a section dedicated to the cache which answers this question.&lt;/p&gt;
+&lt;h4 id="answer-5"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;prefetch &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h3 id="task-3-the-redline-interface"&gt;Task 3 - The Redline Interface&lt;/h3&gt;
+&lt;h4 id="question-1-2"&gt;Question 1&lt;/h4&gt;
+&lt;p&gt;Where in the Redline UI can you view information about the Logged in User?&lt;/p&gt;
+&lt;h4 id="answer-6"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;System Information &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h3 id="task-4-standard-collector-analysis"&gt;Task 4 - Standard Collector Analysis&lt;/h3&gt;
+&lt;h4 id="question-1-3"&gt;Question 1&lt;/h4&gt;
+&lt;p&gt;Provide the Operating System detected for the workstation.&lt;/p&gt;
+&lt;h5 id="notes-1"&gt;Notes&lt;/h5&gt;
+&lt;p&gt;&lt;del&gt;There is a bug in this room which is discussed in the &lt;a href="https://tryhackme.com/forum/thread/61687020174c422766d10d7d#30"&gt;forum&lt;/a&gt;, the System Information in Redline shows the OS to be Windows 7 Home Basic Service Pack 1, but that is not the answer.&lt;/del&gt;
+Read the instructions carefully, if you analyse the wrong file you will get the wrong answer!
+Be sure you did the previous task to setup the standard collector, ran the analysis and you have opened that file to get the answers.
+I added my &lt;a href="https://tryhackme.com/forum/thread/61687020174c422766d10d7d#35"&gt;reply in the forum&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id="answer-7"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;Windows Server 2019 Standard 17763 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-2-1"&gt;Question 2&lt;/h4&gt;
+&lt;p&gt;Be sure to check the rest of the System Information section for other useful data.&lt;/p&gt;
+&lt;h4 id="question-3-1"&gt;Question 3&lt;/h4&gt;
+&lt;p&gt;What is the suspicious scheduled task that got created on the victim's computer?&lt;/p&gt;
+&lt;h4 id="answer-8"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;MSOfficeUpdateFa.ke &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-4-1"&gt;Question 4&lt;/h4&gt;
+&lt;p&gt;Find the message that the intruder left for you in the task.&lt;/p&gt;
+&lt;h4 id="answer-9"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;THM-p3R5IStENCe-m3Chani$m &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-5-1"&gt;Question 5&lt;/h4&gt;
+&lt;p&gt;There is a new System Event ID created by an intruder with the source name "THM-Redline-User" and the Type "ERROR". Find the Event ID #.&lt;/p&gt;
+&lt;h4 id="answer-10"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;546 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-6"&gt;Question 6&lt;/h4&gt;
+&lt;p&gt;Provide the message for the Event ID.&lt;/p&gt;
+&lt;h4 id="answer-11"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;Someone cracked my password. Now I need to rename my puppy-++- &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-7"&gt;Question 7&lt;/h4&gt;
+&lt;p&gt;It looks like the intruder downloaded a file containing the flag for Question 8. Provide the full URL of the website.&lt;/p&gt;
+&lt;h4 id="answer-12"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;&lt;a href="https://wormhole.app/download-stream/gI9vQtChjyYAmZ8Ody0AuA"&gt;https://wormhole.app/download-stream/gI9vQtChjyYAmZ8Ody0AuA&lt;/a&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-8"&gt;Question 8&lt;/h4&gt;
+&lt;p&gt;Provide the full path to where the file was downloaded to including the filename.&lt;/p&gt;
+&lt;h4 id="answer-13"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;C:\Program Files (x86)\Windows Mail\SomeMailFolder\flag.txt &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-9"&gt;Question 9&lt;/h4&gt;
+&lt;p&gt;Provide the message the intruder left for you in the file.&lt;/p&gt;
+&lt;h4 id="answer-14"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;THM{600D-C@7cH-My-FR1EnD} &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h3 id="task-5-ioc-search-collector"&gt;Task 5 - IOC Search Collector&lt;/h3&gt;
+&lt;h4 id="question-1-4"&gt;Question 1&lt;/h4&gt;
+&lt;p&gt;What is the actual filename of the Keylogger?&lt;/p&gt;
+&lt;h4 id="answer-15"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;psylog.exe &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-2-2"&gt;Question 2&lt;/h4&gt;
+&lt;p&gt;What filename is the file masquerading as?&lt;/p&gt;
+&lt;h4 id="answer-16"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;thm1768.exe &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-3-2"&gt;Question 3&lt;/h4&gt;
+&lt;p&gt;Who is the owner of the file?&lt;/p&gt;
+&lt;h4 id="answer-17"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;WIN-2DET5DP0NPT\charles &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-4-2"&gt;Question 4&lt;/h4&gt;
+&lt;p&gt;What is the file size in bytes?&lt;/p&gt;
+&lt;h4 id="answer-18"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;35400 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h4 id="question-5-2"&gt;Question 5&lt;/h4&gt;
+&lt;p&gt;Provide the full path of where the .ioc file was placed after the Redline analysis, include the .ioc filename as well&lt;/p&gt;
+&lt;h4 id="answer-19"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;C:\Users\charles\Desktop\Keylogger-IOCSearch\IOCs\keylogger.ioc&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+</content:encoded>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
+		<item>
+			<title>Try Hack Me - Lateral Movement and Pivoting</title>
+			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-08-20-tryhackme-lateral-movement</link>
+			<description>&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;</description>
+			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" length="0" type="image" />
+			<guid>https://blog.mark-burton.com/mywyamblog/posts/2023-08-20-tryhackme-lateral-movement</guid>
+			<pubDate>Sun, 20 Aug 2023 15:23:12 GMT</pubDate>
+			<content:encoded>&lt;h2 id="lateral-movement-and-pivoting"&gt;Lateral Movement and Pivoting&lt;/h2&gt;
+&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="task-1-introduction"&gt;Task 1 - Introduction&lt;/h3&gt;
+&lt;p&gt;In this room, we will look at lateral movement, a group of techniques used by attackers to move around the network while creating as few alerts as possible. We'll learn about several common techniques used in the wild for this end and the tools involved.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Familiarise yourself with the lateral movement techniques used by attackers.&lt;/li&gt;
+&lt;li&gt;Learn how to use alternative authentication material to move laterally.&lt;/li&gt;
+&lt;li&gt;Learn different methods to use compromised hosts as pivots.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="task-2-moving-through-the-network"&gt;Task 2 - Moving Through the Network&lt;/h3&gt;
+&lt;h4 id="question-1"&gt;Question 1&lt;/h4&gt;
+&lt;h4 id="answer"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+&lt;h3 id="task-3-spawning-processes-remotely"&gt;Task 3 - Spawning Processes Remotely&lt;/h3&gt;
+&lt;h4 id="question-1-1"&gt;Question 1&lt;/h4&gt;
+&lt;h4 id="answer-1"&gt;Answer&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p class="answer blur"&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
+</content:encoded>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
 		<item>
 			<title>Try Hack Me - Password Attacks</title>
 			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-07-12-tryhackme-password-attacks</link>
@@ -1280,369 +1544,6 @@ alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; 
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</content:encoded>
-			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
-		</item>
-		<item>
-			<title>Brew Day</title>
-			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-04-22-brew-day</link>
-			<description>&lt;p&gt;As a birthday present Christophe, the lead brewer at &lt;a href="https://untappd.com/chabrew"&gt;cha&lt;/a&gt;, gave me the chance to have my very own beer created.&lt;/p&gt;</description>
-			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/milling.jpg" length="0" type="image" />
-			<guid>https://blog.mark-burton.com/mywyamblog/posts/2023-04-22-brew-day</guid>
-			<pubDate>Sat, 01 Apr 2023 15:23:12 GMT</pubDate>
-			<content:encoded>&lt;h1 id="brew-day"&gt;Brew Day&lt;/h1&gt;
-&lt;p&gt;As a birthday present Christophe, the lead brewer at &lt;a href="https://untappd.com/chabrew"&gt;cha&lt;/a&gt;, gave me the chance to have my very own beer created.&lt;/p&gt;
-&lt;p&gt;Since I moved to Luxembourg I have grown to like Belgian Blondes like &lt;a href="https://www.brugsezot.be/en/our-beers/brugse-zot-blond"&gt;Brugse Zot&lt;/a&gt; and Trappist ales like &lt;a href="https://homebrewanswers.com/orval-clone-recipe/"&gt;Orval&lt;/a&gt;, so with my preferred flavour profile Christophe created a &lt;a href="https://community.grainfather.com/recipes/950024"&gt;recipe on GrainFather&lt;/a&gt;, a Belgian Blonde inspired beer with a higher &lt;a href="https://en.wikipedia.org/wiki/Standard_Reference_Method#EBC"&gt;EBC&lt;/a&gt; and hopefully not too much banana.&lt;/p&gt;
-&lt;h2 id="the-welcome"&gt;The welcome&lt;/h2&gt;
-&lt;p&gt;Before brewing we were treated to home made bread, honey from &lt;a href="https://bybei.lu/"&gt;&lt;/a&gt;, ham, cheese, fruits and yoghurts, important to have a good feed before brewing, it is a not a short process and it is important to eat before trying the previous brews for future inspiration.&lt;/p&gt;
-&lt;h2 id="hydration-and-energy"&gt;Hydration and energy&lt;/h2&gt;
-&lt;p&gt;It is important to keep hydrated and energised while doing doing taxing jobs like water chemistry calculations and cranking the handle on the grain mill, we started that with a &lt;a href="https://untappd.com/b/cha-david629801/5312571"&gt;david629801&lt;/a&gt;, one of &lt;a href="https://untappd.com/chabrew"&gt;cha's&lt;/a&gt; previous brews, a fine West coast IPA to wake up the taste buds.&lt;/p&gt;
-&lt;h2 id="the-water"&gt;The water&lt;/h2&gt;
-&lt;p&gt;Water makes up over 90% of beer and the levels of sulphates and chloride in the water will in part dictate the dryness, roundness and fullness of the beer.&lt;/p&gt;
-&lt;p&gt;This goes into the GrainMaster to come up to 66c ready for the mash.&lt;/p&gt;
-&lt;h2 id="the-milling"&gt;The milling&lt;/h2&gt;
-&lt;p&gt;The recipe calls for 4 &lt;code&gt;fermentables&lt;/code&gt;, that is a grain which will provide the sugars for the yeast to ferment, we used;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Pale Ale Malt - 3.330 kg&lt;/li&gt;
-&lt;li&gt;Pilsner Malt - 3.330 kg&lt;/li&gt;
-&lt;li&gt;Munich Malt - Dark - 0.700 kg&lt;/li&gt;
-&lt;li&gt;Caramel 100 - 38L - 0.150 kg&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Each bring different different characteristics to the beer.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.mark-burton.com/assets/Images/milling.jpg" class="img-fluid" alt="Network settings with 127.0.0.1 as DNS server"&gt;&lt;/p&gt;
-&lt;h2 id="brew-day-1-fermentation"&gt;Brew Day +1 - Fermentation&lt;/h2&gt;
-&lt;p&gt;After 24 hours at 22c&lt;/p&gt;
-&lt;video controls="" width="250"&gt;
-    &lt;source src="https://blog.mark-burton.com/assets/videos/fermentation_bucket_with_airlock.mp4" type="video/mp4"&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;a href="../assets/videos/fermentation_bucket_with_airlock.mp4"&amp;gt;MP4&amp;lt;/a&amp;gt;
-video.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/video&gt;
-&lt;h2 id="brew-day-5-cold-crash"&gt;Brew Day +5 - Cold Crash&lt;/h2&gt;
-&lt;p&gt;Fermentation is complete, the warm uncarbonated beer is giving off boozy banana and spicy notes.&lt;/p&gt;
-&lt;p&gt;Taste wise it has a first hit of sweetness with a medium body. Some banana, booze spice, followed by a slightly sour finish.&lt;/p&gt;
-&lt;p&gt;Time now to cool the beer to 2c which will stop any remaining yeast activity and cause the sediment to sink to the bottom.&lt;/p&gt;
-&lt;p&gt;As the cooling happens it is possible for the pressure differential between the fermentation bucket and the fridge to lead to air from the fridge being sucked through the air lock, this could lead to oxidization which could affect the taste of the beer, placing a balloon filled with CO2 over the air lock can protect against that.&lt;/p&gt;
-&lt;h2 id="brew-day-7-kegging"&gt;Brew Day +7 - Kegging&lt;/h2&gt;
-&lt;p&gt;Sanitization! Sanitization! Sanitization!&lt;/p&gt;
-&lt;p&gt;Sanitize everything, every connection, the keg, the tap on the fermentation bucket, the pipes and use CO2 to purge the keg.&lt;/p&gt;
-&lt;p&gt;Create a closed loop between the keg and the fermentation bucket.&lt;/p&gt;
-&lt;p&gt;The pressure in the keg and gravity will push the beer into the keg. It is important to have the right pressure in the keg, too much and the fermentation bucket could explode, too little and it will take a long time for the beer to flow into the keg, so not &lt;strong&gt;PPPPSSSSSTTTTT&lt;/strong&gt; and not pppssssstttt but PPPPPSSSTTTT!&lt;/p&gt;
-&lt;h2 id="carbonation"&gt;Carbonation&lt;/h2&gt;
-&lt;p&gt;Approaches to forced carbonation of beer can be categorized as;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Set &amp;amp; Forget Method&lt;/li&gt;
-&lt;li&gt;Semi-Speed Carbonation Method&lt;/li&gt;
-&lt;li&gt;Rapid Force Carbonation Method&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href="https://www.kegking.com.au/blog/post/how-to-carbonate-beer-in-a-keg"&gt;Keg King&lt;/a&gt;
-&lt;a href="https://jollygoodbeer.co.uk/wp-content/uploads/2016/03/JollyGoodBeer_PSI_Chart_for_60_40_Mixed_Gas.pdf"&gt;Jolly Good Beer&lt;/a&gt;&lt;/p&gt;
-</content:encoded>
-			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
-		</item>
-		<item>
-			<title>Signing Git Commits in VS Code and Visual Studio</title>
-			<link>https://blog.mark-burton.com/mywyamblog/posts/2023-01-20-signing-git-commits-in-vscode-and-visualstudio</link>
-			<description>&lt;p&gt;&lt;code&gt;choco install gnupg&lt;/code&gt; or &lt;a href="https://gpg4win.org/get-gpg4win.html"&gt;https://gpg4win.org/get-gpg4win.html&lt;/a&gt;&lt;/p&gt;</description>
-			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/VSCode_Sign_Commit.png" length="0" type="image" />
-			<guid>https://blog.mark-burton.com/mywyamblog/posts/2023-01-20-signing-git-commits-in-vscode-and-visualstudio</guid>
-			<pubDate>Tue, 17 Jan 2023 15:23:12 GMT</pubDate>
-			<content:encoded>&lt;h1 id="singing-git-commits-in-vs-code-and-visual-studio"&gt;Singing git commits in VS Code and Visual Studio&lt;/h1&gt;
-&lt;h2 id="install-gnupg"&gt;Install GnuPG&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;choco install gnupg&lt;/code&gt; or &lt;a href="https://gpg4win.org/get-gpg4win.html"&gt;https://gpg4win.org/get-gpg4win.html&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="generate-a-new-key"&gt;Generate a new key&lt;/h2&gt;
-&lt;p&gt;In PowerShell run&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-powershell"&gt;gpg --full-generate-key
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You will be asked 3 questions, the first is the kind of key, based on &lt;a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key"&gt;the GitHub docs&lt;/a&gt; choose option 1, RSA.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-powershell"&gt;gpg (GnuPG) 2.4.0; Copyright (C) 2021 g10 Code GmbH
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-
-Please select what kind of key you want:
-   (1) RSA and RSA
-   (2) DSA and Elgamal
-   (3) DSA (sign only)
-   (4) RSA (sign only)
-   (9) ECC (sign and encrypt) *default*
-  (10) ECC (sign only)
-  (14) Existing key from card
-Your selection?
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Again following &lt;a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key"&gt;the GitHub docs&lt;/a&gt; the key must be at least 4,096 bits long, so the maximum you can choose.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-powershell"&gt;
-RSA keys may be between 1024 and 4096 bits long.
-What keysize do you want? (3072) 4096
-Requested keysize is 4096 bits
-
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Next, choose how long the key should be valid for, again following &lt;a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key"&gt;the GitHub docs&lt;/a&gt; choose the default, which is no expiration&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-powershell"&gt;Please specify how long the key should be valid.
-         0 = key does not expire
-      &amp;lt;n&amp;gt;  = key expires in n days
-      &amp;lt;n&amp;gt;w = key expires in n weeks
-      &amp;lt;n&amp;gt;m = key expires in n months
-      &amp;lt;n&amp;gt;y = key expires in n years
-Key is valid for? (0)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Finally, add your user identity, it is important that the email address matches the git repo email.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-powershell"&gt;
-We need to generate a lot of random bytes. It is a good idea to perform
-some other action (type on the keyboard, move the mouse, utilize the
-disks) during the prime generation; this gives the random number
-generator a better chance to gain enough entropy.
-We need to generate a lot of random bytes. It is a good idea to perform
-some other action (type on the keyboard, move the mouse, utilize the
-disks) during the prime generation; this gives the random number
-generator a better chance to gain enough entropy.
-gpg: directory 'C:\\Users\\xxxxx\\AppData\\Roaming\\gnupg\\openpgp-revocs.d' created
-gpg: revocation certificate stored as 'C:\\Users\\xxxxxx\\AppData\\Roaming\\gnupg\\openpgp-revocs.d\\36E97B0FB71E5EEEC2244F4AFDE4A9B5B04820D7.rev'
-public and secret key created and signed.
-
-pub   rsa4096 2023-01-29 [SC]
-      36E97B0FB71E5EEEC2244F4AFDE4A9B5B04820D7
-uid                      markb &amp;lt;mark@example.com&amp;gt;
-sub   rsa4096 2023-01-29 [E]
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="final-git-config"&gt;Final git config&lt;/h2&gt;
-&lt;pre&gt;&lt;code class="language-powershell"&gt;
-PS C:\Source\GitRepos\mywyamblog&amp;gt; git config --global -l
-...snip...
-user.signingkey=N07AR33A1S1GN1NGK3Y!
-gpg.program=c:/Program Files (x86)/GnuPG/bin/gpg.exe
-commit.gpgsign=true
-...snip...
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="usage-in-vs-code"&gt;Usage in VS Code&lt;/h2&gt;
-&lt;p&gt;Continue to use VS Code normally, when you do a commit you will be prompted for the passphrase for the gpg key.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.mark-burton.com/mywyamblog/assets/images/VSCode_Sign_Commit.png" alt="gpg prompt in VS Code"&gt;&lt;/p&gt;
-&lt;h2 id="how-often-to-sign-the-commits"&gt;How often to sign the commits?&lt;/h2&gt;
-&lt;p&gt;Signing every commit can be tedious, the default cache time is 1800 seconds (30 minutes) as per the &lt;a href="https://www.gnupg.org/documentation/manuals/gnupg/Agent-Options.html"&gt;Agent Options documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Although this is not the same answer as running &lt;code&gt;gpgconf.exe --list-options gpg-agent&lt;/code&gt; which returns 600 seconds and is backed up by a local test.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-cmd"&gt;
-PS C:\Users\mburton\.gnupg&amp;gt; gpgconf.exe --list-options gpg-agent
-...
-default-cache-ttl:24:0:expire cached PINs after N seconds:3:3:N:600::
-max-cache-ttl:24:2:set maximum PIN cache lifetime to N seconds:3:3:N:7200::
-max-cache-ttl-ssh:24:2:set maximum SSH key lifetime to N seconds:3:3:N:7200::
-ignore-cache-for-signing:8:0:do not use the PIN cache when signing:0:0::::
-...
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The options to change the cache are discussed in this &lt;a href="https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session"&gt;Super User&lt;/a&gt; question. Extending the &lt;code&gt;default-cache-ttl&lt;/code&gt; and &lt;code&gt;max-cache-ttl&lt;/code&gt; will mean entering the signing key phrase less often.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://superuser.com/questions/1068980/where-is-my-gpgconf-file-on-windows"&gt;https://superuser.com/questions/1068980/where-is-my-gpgconf-file-on-windows&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2 gpg installations because git comes with its own.&lt;/p&gt;
-&lt;p&gt;14400 is a compromise at 4 hours.&lt;/p&gt;
-</content:encoded>
-			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
-		</item>
-		<item>
-			<title>Notes From Addressing Penetration Test Findings</title>
-			<link>https://blog.mark-burton.com/mywyamblog/posts/2022-04-11-notes-from-addressing-pentest-results</link>
-			<description>&lt;p&gt;In the Pentest reports I have read it has been common for the first section to be about identifying the technology the application is written in, this is used to make some initial suggestions on shortcomings in the application.&lt;/p&gt;</description>
-			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/PizzaInOoniKoda12.png" length="0" type="image" />
-			<guid>https://blog.mark-burton.com/mywyamblog/posts/2022-04-11-notes-from-addressing-pentest-results</guid>
-			<pubDate>Mon, 11 Apr 2022 15:23:12 GMT</pubDate>
-			<content:encoded>&lt;h1 id="understanding-penetration-test-reports-as-a-developer"&gt;Understanding Penetration Test Reports as a developer&lt;/h1&gt;
-&lt;p&gt;In the Pentest reports I have read it has been common for the first section to be about identifying the technology the application is written in, this is used to make some initial suggestions on shortcomings in the application.&lt;/p&gt;
-&lt;p&gt;For me, as a .NET developer writing WPF applications, it was surprising to see it be reported repeatedly that our application was discovered to be written in Microsoft Visual C++ 8 and that we failed to implement protection like SafeSEH and ControlFlowGuard.&lt;/p&gt;
-&lt;p&gt;As much as I wanted to say wanted to say we don't write our software in C++ so these findings were not valid I dug deeper into the reports to understand why multiple pentests by multiple suppliers returned the same result.&lt;/p&gt;
-&lt;h2 id="binary-identification"&gt;Binary Identification&lt;/h2&gt;
-&lt;p&gt;I have seen a few methods of identifying the language used to develop an application, first of which is &lt;a href="https://ntcore.com/?page_id=388"&gt;CFF Explorer&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id="cff-explorer"&gt;CFF Explorer&lt;/h3&gt;
-&lt;p&gt;This has been used each time the binary has been misidentified as C++ when it was actually written in C#, however it is not a fault with CFF Explorer, it is simply that the wrong executable had been analysed.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.mark-burton.com/assets/Images/CFF_Explorer_Squirrel_Executable_Location.png" alt="Select file"&gt;
-&lt;img src="https://blog.mark-burton.com/assets/Images/CFF_Explorer_Squirrel_Executable_Details.png" alt="File Details"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.mark-burton.com/assets/Images/CFF_Explorer_WPFApp_Executable_Location.png" alt="Select file"&gt;
-&lt;img src="https://blog.mark-burton.com/assets/Images/CFF_Explorer_WPFApp_Executable_Details.png" alt="File Details"&gt;&lt;/p&gt;
-&lt;h3 id="grep-on-wsl"&gt;Grep on WSL&lt;/h3&gt;
-&lt;p&gt;While I am working Windows to build a WPF application I can still use useful Linux commands like &lt;code&gt;file&lt;/code&gt; and &lt;code&gt;grep&lt;/code&gt; through WSL to find out more about a file.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;mburton@zitherldwx01:/mnt/c/Users/anon/AppData/Local/WpfSampleAppFullFramework$ ls
-Update.exe  WpfApp2FullFramework.exe  app-1.0.0  packages
-
-mburton@zitherldwx01:/mnt/c/Users/anon/AppData/Local/WpfSampleAppFullFramework$ file WpfApp2FullFramework.exe
-WpfApp2FullFramework.exe: PE32 executable (GUI) Intel 80386, for MS Windows
-
-mburton@zitherldwx01:/mnt/c/Users/anon/AppData/Local/WpfSampleAppFullFramework$ cd app-1.0.0/
-
-mburton@zitherldwx01:/mnt/c/Users/anon/AppData/Local/WpfSampleAppFullFramework/app-1.0.0$ file WpfApp2FullFramework.exe
-WpfApp2FullFramework.exe: PE32 executable (GUI) Intel 80386 Mono/.Net assembly, for MS Windows
-
-mburton@zitherldwx01:/mnt/c/Users/anon/AppData/Local/WpfSampleAppFullFramework/app-1.0.0$ file *.dll | grep "Mono/.Net" | wc -l
-10
-
-mburton@zitherldwx01:/mnt/c/Users/anon/AppData/Local/WpfSampleAppFullFramework/app-1.0.0$ ls *.dll
-DeltaCompressionDotNet.MsDelta.dll   Mono.Cecil.Mdb.dll    Mono.Cecil.dll      Squirrel.dll
-DeltaCompressionDotNet.PatchApi.dll  Mono.Cecil.Pdb.dll    NuGet.Squirrel.dll
-DeltaCompressionDotNet.dll           Mono.Cecil.Rocks.dll  SharpCompress.dll
-
-mburton@zitherldwx01:/mnt/c/Users/anon/AppData/Local/WpfSampleAppFullFramework/app-1.0.0$ file *.dll | grep "Mono/.Net" | wc -l
-10
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="binary-security"&gt;Binary Security&lt;/h2&gt;
-&lt;p&gt;Having identified the binary the reports then flag security options which have not been used. This can be done using a PowerShell Module &lt;a href="https://github.com/NetSPI/PESecurity.git"&gt;PESecurity&lt;/a&gt;&lt;/p&gt;
-&lt;p class="alert alert-warning"&gt;WARNING!!! Use [PESecurity](https://github.com/NetSPI/PESecurity.git) at your own risk, read the code yourself before you use it! &lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-powershell"&gt;
-PS C:\Source\GitRepos\PESecurity&amp;gt; Get-PESecurity -file $env:LOCALAPPDATA\WpfSampleAppFullFramework\app-1.0.0\WpfApp2FullFramework.exe
-
-
-FileName         : $env:LOCALAPPDATA\WpfSampleAppFullFramework\app-1.0.0\WpfApp2FullFramework.exe
-ARCH             : I386
-DotNET           : True
-ASLR             : True
-DEP              : True
-Authenticode     : False
-StrongNaming     : False
-SafeSEH          : N/A
-ControlFlowGuard : N/A
-HighentropyVA    : N/A
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-powershell"&gt;PS C:\Source\GitRepos\PESecurity&amp;gt; Get-PESecurity -file $env:LOCALAPPDATA\WpfSampleAppFullFramework\WpfApp2FullFramework.exe
-
-
-FileName         : $env:LOCALAPPDATA\WpfSampleAppFullFramework\WpfApp2FullFramework.exe
-ARCH             : I386
-DotNET           : False
-ASLR             : True
-DEP              : True
-Authenticode     : False
-StrongNaming     : N/A
-SafeSEH          : True
-ControlFlowGuard : False
-HighentropyVA    : N/A
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="the-cause-of-the-misidentification"&gt;The Cause of the misidentification&lt;/h2&gt;
-&lt;p&gt;The application installer is built using &lt;a href="https://github.com/Squirrel/Squirrel.Windows"&gt;Squirrel&lt;/a&gt;, the file being opened in &lt;code&gt;CFF Explorer&lt;/code&gt; is part of the Squirrel installer as described in the &lt;a href="https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/getting-started/4-installing.md"&gt;Installing Documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The actual application executable is in the application version subdirectory &lt;code&gt;app-n.n.n&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id="how-to-fix-it"&gt;How to fix it?&lt;/h2&gt;
-&lt;p&gt;I had a very constructive discussion with &lt;a href="https://github.com/caesay"&gt;caesay&lt;/a&gt; who is one of the maintainers of &lt;a href="https://github.com/clowd/Clowd.Squirrel"&gt;Clowd.Squirrel&lt;/a&gt;, a fork of &lt;a href="https://github.com/Squirrel/Squirrel.Windows"&gt;Squirrel.Windows&lt;/a&gt; moments after our discussion this commit &lt;a href="https://github.com/clowd/Clowd.Squirrel/commit/5cb8fdd8be220167e65af5f43a521c4307bd783a"&gt;Enable ControlFlowGuard for Setup.exe&lt;/a&gt; was made.&lt;/p&gt;
-</content:encoded>
-			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
-		</item>
-		<item>
-			<title>How To Create a Custom UserStore in ASP.NET Core 6</title>
-			<link>https://blog.mark-burton.com/mywyamblog/posts/2021-12-20-create-a-custom-userstore-net6</link>
-			<description>&lt;p&gt;&lt;a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-custom-storage-providers?view=aspnetcore-6.0"&gt;https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-custom-storage-providers?view=aspnetcore-6.0&lt;/a&gt;&lt;/p&gt;</description>
-			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/PizzaInOoniKoda12.png" length="0" type="image" />
-			<guid>https://blog.mark-burton.com/mywyamblog/posts/2021-12-20-create-a-custom-userstore-net6</guid>
-			<pubDate>Mon, 20 Dec 2021 15:23:12 GMT</pubDate>
-			<content:encoded>&lt;h1 id="customer-userstore"&gt;Customer UserStore&lt;/h1&gt;
-&lt;pre&gt;&lt;code class="language-c#"&gt;builder.Services.AddDbContext&amp;lt;ApplicationDbContext&amp;gt;(options =&amp;gt;
-    options.UseSqlite(Configuration.GetConnectionString(&amp;quot;DefaultConnection&amp;quot;)));
-
-builder.Services.AddIdentity&amp;lt;ApplicationUser, IdentityRole&amp;gt;()
-    .AddEntityFrameworkStores&amp;lt;ApplicationDbContext&amp;gt;()
-    .AddDefaultTokenProviders();
-
-builder.Services.AddTransient&amp;lt;IUserStore&amp;lt;ApplicationUser&amp;gt;, DirectUserStore&amp;lt;ApplicationUser&amp;gt;&amp;gt;();
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-custom-storage-providers?view=aspnetcore-6.0"&gt;https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-custom-storage-providers?view=aspnetcore-6.0&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample"&gt;https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample&lt;/a&gt;&lt;/p&gt;
-</content:encoded>
-			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
-		</item>
-		<item>
-			<title>Making pizza in my Ooni Koda 12</title>
-			<link>https://blog.mark-burton.com/mywyamblog/posts/2021-07-09-making-pizza-in-my-ooni-koda-12</link>
-			<description>&lt;p&gt;I love pizza but nothing you can buy from the shop comes close to freshly made pizza and delivery is usually getting cold by the time it arrives.&lt;/p&gt;</description>
-			<enclosure url="https://blog.mark-burton.com/mywyamblog/assets/Images/PizzaInOoniKoda12.png" length="0" type="image" />
-			<guid>https://blog.mark-burton.com/mywyamblog/posts/2021-07-09-making-pizza-in-my-ooni-koda-12</guid>
-			<pubDate>Thu, 08 Jul 2021 15:23:12 GMT</pubDate>
-			<content:encoded>&lt;p&gt;I love pizza but nothing you can buy from the shop comes close to freshly made pizza and delivery is usually getting cold by the time it arrives.&lt;/p&gt;
-&lt;p&gt;Luckily for Christmas I received an Ooni Koda 12 (Thanks Caitriona), just connect the bottle of gas turn it on and after 15 minutes you have a 400°C oven ready to cook a pizza in only 90 seconds.&lt;/p&gt;
-&lt;p&gt;Ooni have great recipes on their website for &lt;a href="https://eu.ooni.com/blogs/recipes/classic-pizza-dough"&gt;Classic Pizza Dough&lt;/a&gt; and &lt;a href="https://eu.ooni.com/blogs/recipes/classic-pizza-sauce"&gt;Classic Pizza Sauce&lt;/a&gt; but the dough recipe doesn't seem to be quite right for the Ooni Koda 12, the bases just seem too big for the peels, but this could be my lack of knowledge with making bases, but I find a little less is better and I only usually want 2 pizzas each time I use the oven.&lt;/p&gt;
-&lt;h2 id="my-tweaked-recipe"&gt;My Tweaked Recipe&lt;/h2&gt;
-&lt;p&gt;The proportions remain the same, but the accuracy of the proportions are all important.&lt;/p&gt;
-&lt;div class="alert alert-primary"&gt;
-&lt;ul&gt;
-&lt;li&gt;242g “00” flour
-&lt;li&gt;2.8g instant dried yeast  (3.7g active dried yeast, 8g fresh yeast)
-&lt;li&gt;48.5ml boiled water
-&lt;li&gt;97ml cold water
-&lt;li&gt;7.2g salt
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;p&gt;For everything else follow the &lt;a href="https://eu.ooni.com/blogs/recipes/classic-pizza-dough"&gt;Classic Pizza Dough&lt;/a&gt; instructions for 2 perfectly sized pizzas for your Ooni Koda 12.&lt;/p&gt;
-</content:encoded>
-			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
-		</item>
-		<item>
-			<title>Centralizing VSTO add in exception management with postsharp 6</title>
-			<link>https://blog.mark-burton.com/mywyamblog/posts/2021-06-18-centralizing-vsto-add-in-exception-management-with-postsharp6</link>
-			<description>&lt;p&gt;After much reading around trying to find the best way to implement a global exception handler for a VSTO add-in on &lt;a href="https://social.msdn.microsoft.com/Forums/vstudio/en-US/c37599d9-21e8-4c32-b00e-926f97c8f639/global-exception-handler-for-vs-2008-excel-addin?forum=vsto"&gt;social msdn&lt;/a&gt;, &lt;a href="https://stackoverflow.com/questions/12115030/catch-c-sharp-wpf-unhandled-exception-in-word-add-in-before-microsoft-displays-e"&gt;stackoverflow&lt;/a&gt; and the &lt;a href="https://www.add-in-express.com/forum/read.php?FID=5&amp;amp;amp;TID=12667"&gt;Add-in Express forum&lt;/a&gt; I came across this solution &lt;a href="https://exceptionalcode.wordpress.com/2010/02/17/centralizing-vsto-add-in-exception-management-with-postsharp/"&gt;using postsharp&lt;/a&gt;, this was the best solution I found but was 11 years old and relevant to postsharp 2, the library has changed a lot since then and the &lt;code&gt;PostSharp.Laos&lt;/code&gt; namespace no longer exists as explained the &lt;a href="https://support.postsharp.net/request/21870-postshaplaos-in-version-41"&gt;postsharp support forum&lt;/a&gt;.&lt;/p&gt;</description>
-			<enclosure url="https://blog.mark-burton.com/mywyamblog/" length="0" type="image" />
-			<guid>https://blog.mark-burton.com/mywyamblog/posts/2021-06-18-centralizing-vsto-add-in-exception-management-with-postsharp6</guid>
-			<pubDate>Tue, 22 Jun 2021 15:23:12 GMT</pubDate>
-			<content:encoded>&lt;p&gt;After much reading around trying to find the best way to implement a global exception handler for a VSTO add-in on &lt;a href="https://social.msdn.microsoft.com/Forums/vstudio/en-US/c37599d9-21e8-4c32-b00e-926f97c8f639/global-exception-handler-for-vs-2008-excel-addin?forum=vsto"&gt;social msdn&lt;/a&gt;, &lt;a href="https://stackoverflow.com/questions/12115030/catch-c-sharp-wpf-unhandled-exception-in-word-add-in-before-microsoft-displays-e"&gt;stackoverflow&lt;/a&gt; and the &lt;a href="https://www.add-in-express.com/forum/read.php?FID=5&amp;amp;TID=12667"&gt;Add-in Express forum&lt;/a&gt; I came across this solution &lt;a href="https://exceptionalcode.wordpress.com/2010/02/17/centralizing-vsto-add-in-exception-management-with-postsharp/"&gt;using postsharp&lt;/a&gt;, this was the best solution I found but was 11 years old and relevant to postsharp 2, the library has changed a lot since then and the &lt;code&gt;PostSharp.Laos&lt;/code&gt; namespace no longer exists as explained the &lt;a href="https://support.postsharp.net/request/21870-postshaplaos-in-version-41"&gt;postsharp support forum&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="the-solution-in-postsharp-6"&gt;The Solution in PostSharp 6&lt;/h2&gt;
-&lt;p&gt;Happily this is still possible with &lt;a href="https://www.postsharp.net/get/community"&gt;PostSharp Community&lt;/a&gt; and is well documented in the &lt;a href="https://doc.postsharp.net/exception-handling"&gt;postsharp handling exceptions documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;First create a class which inherits from &lt;code&gt;OnExceptionAspect&lt;/code&gt; for example &lt;a href="https://github.com/MarkZither/KimaiDotNet/blob/main/src/MarkZither.KimaiDotNet.ExcelAddin/VstoUnhandledExceptionAttribute.cs"&gt;VstoUnhandledExceptionAttribute&lt;/a&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-c#"&gt;using Microsoft.Extensions.Logging;
-
-using PostSharp.Aspects;
-using PostSharp.Serialization;
-
-namespace MarkZither.KimaiDotNet.ExcelAddin
-{
-    [PSerializable]
-    public class VstoUnhandledExceptionAttribute : OnExceptionAspect
-    {
-        public override void OnException(MethodExecutionArgs args)
-        {
-            ExcelAddin.Globals.ThisAddIn.Logger.LogCritical(args.Exception, &amp;quot;Handled by postsharp OnExceptionAspect&amp;quot;);
-            args.FlowBehavior = FlowBehavior.Return;
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This step will vary depending on how you are doing logging in your VSTO Add-In, I chose to use &lt;a href="https://www.nuget.org/packages/Microsoft.Extensions.Logging/"&gt;Microsoft.Extensions.Logging&lt;/a&gt;, while it arrived with &lt;a href="https://en.wikipedia.org/wiki/.NET_Core"&gt;.NET Core&lt;/a&gt; it is a .NETStandard 2.0 library and compatible all the way back to .NETFramework 4.6.1.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-c#"&gt;private void ThisAddIn_Startup(object sender, System.EventArgs e)
-{
-  // instantiate and configure logging. Using serilog here, to log to console and a text-file.
-  var loggerFactory = new Microsoft.Extensions.Logging.LoggerFactory();
-  var loggerConfig = new LoggerConfiguration()
-    .MinimumLevel.Debug()
-    .WriteTo.File(&amp;quot;c:\\temp\\logs\\myapp.txt&amp;quot;, rollingInterval: RollingInterval.Day)
-    .CreateLogger();
-    loggerFactory.AddSerilog(loggerConfig);
-
-  // create logger and put it to work.
-  var logProvider = loggerFactory.CreateLogger&amp;lt;ThisAddIn&amp;gt;();
-  logProvider.LogDebug(&amp;quot;debiggung&amp;quot;);
-  Logger = logProvider;
-
-  // Configure PostSharp Logging to use Serilog
-  LoggingServices.DefaultBackend = new MicrosoftLoggingBackend(loggerFactory);
-
-  Globals.ThisAddIn.ApiUrl = Settings.Default?.ApiUrl;
-  Globals.ThisAddIn.ApiUsername = Settings.Default?.ApiUsername;
-
-  this.Application.WorkbookActivate += Application_WorkbookActivate;
-  this.Application.WorkbookOpen += Application_WorkbookOpen;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;There is one important line in the logging setup which differs to the &lt;a href="https://doc.postsharp.net/logging-aspnetcore"&gt;PostSharp Logging documentation&lt;/a&gt; at the time of writing, &lt;code&gt;  LoggingServices.DefaultBackend = new MicrosoftLoggingBackend(loggerFactory);&lt;/code&gt; which needs &lt;code&gt;using PostSharp.Patterns.Diagnostics.Backends.Microsoft;&lt;/code&gt;. This is also useful for trace logging which I will explain further in the next section.&lt;/p&gt;
-&lt;p&gt;Now decorate methods or entire classes with the &lt;code&gt;[VstoUnhandledException]&lt;/code&gt; attribute and every exception will be handled by the &lt;code&gt;OnException&lt;/code&gt; method.&lt;/p&gt;
-&lt;h2 id="bonus-functionality-in-postsharp-community"&gt;Bonus functionality in PostSharp community&lt;/h2&gt;
-&lt;p&gt;As I had logging working I also made use of the features of &lt;a href="https://www.postsharp.net/logging"&gt;PostSharp Logging&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;First add a &lt;code&gt;postsharp.config&lt;/code&gt; file, to comply with the license it is required to set the &lt;a href="https://doc.postsharp.net/logging-license"&gt;LoggingDeveloperMode to true&lt;/a&gt;. Be sure it has the Build Action set to Content so that it is copied to the output directory.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-xml"&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;Project xmlns=&amp;quot;http://schemas.postsharp.org/1.0/configuration&amp;quot;&amp;gt;
-  &amp;lt;Property Name=&amp;quot;LoggingDeveloperMode&amp;quot; Value=&amp;quot;True&amp;quot; /&amp;gt;
-&amp;lt;/Project&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This still gives you 24 hours of trace logging after every publish of your VSTO Add-In and full tracing while debugging.&lt;/p&gt;
-&lt;p&gt;To control what is logged create a class called &lt;code&gt;GlobalAspects&lt;/code&gt;, this is explained in the &lt;a href="https://doc.postsharp.net/add-logging"&gt;Adding logging to your projects&lt;/a&gt; section.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-c#"&gt;using PostSharp.Patterns.Diagnostics;
-using PostSharp.Extensibility;
-
-[assembly: Log(AttributePriority = 1, AttributeTargetMemberAttributes = MulticastAttributes.Protected | MulticastAttributes.Internal | MulticastAttributes.Public)]
-[assembly: Log(AttributePriority = 2, AttributeExclude = true, AttributeTargetMembers = &amp;quot;get_*&amp;quot;)]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now the logging will contain all the entry and exits from methods along with the parameters which were passed, providing valuable debug information for free for a whole day after pushing out and update to the Add-In.&lt;/p&gt;
-</content:encoded>
 			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
 		</item>
 	</channel>
