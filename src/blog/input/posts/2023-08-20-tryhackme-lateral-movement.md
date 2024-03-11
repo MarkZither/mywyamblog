@@ -1,7 +1,7 @@
 ---
  Title: Try Hack Me - Lateral Movement and Pivoting
  Lead: "Learn about common techniques used to move laterally across a Windows network." 
- Published: 2023-08-20T15:23:12.976Z 
+ Published: 2025-08-20T15:23:12.976Z 
  Date: 2023-08-23T15:23:12.976Z 
  Image: "/assets/Images/snort.png" 
  Tags: 
