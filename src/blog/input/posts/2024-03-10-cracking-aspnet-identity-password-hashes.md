@@ -19,9 +19,9 @@ I was reviewing, lets call it, a mature codebase which makes use of asp.net Iden
 
 This can be used to migrate from older versions of asp.net Identity and Identity Server using asp.net Identity to the latest version without needing to handle the migration of users passwords to the new hashing algorithm. That is good for ease of development, but should the hashes get into the wrong hands they will be easier to crack.
 
-The
+The PasswordHasher code can be read in the [AspNetCore GitHub repo](https://github.com/dotnet/AspNetCore/blob/main/src/Identity/Extensions.Core/src/PasswordHasher.cs).
 
-https://github.com/dotnet/AspNetCore/blob/main/src/Identity/Extensions.Core/src/PasswordHasher.cs
+The comments at the top of that file explain the 2 different hashing algorithms supported by the default password hasher implementation. This shows that V2 is a relatively weak hash with a small number of iterations, whereas V3 is now SHA-512 with 100,000 iterations.
 
 ``` csharp
     /* =======================
@@ -39,6 +39,21 @@ https://github.com/dotnet/AspNetCore/blob/main/src/Identity/Extensions.Core/src/
      * (All UInt32s are stored big-endian.)
      */
 ```
+
+In 2014 Brock Allen wrote the post [How MembershipReboot stores passwords properly](https://brockallen.com/2014/02/09/how-membershipreboot-stores-passwords-properly/) where it was written;
+
+> This means in 2012 we should have been using 64000 iterations and in 2014 we should be using 128000 iterations. As previously mentioned, this is hardware dependent and the real target is 500 to 1000 milliseconds.
+
+The code in the MembershipReboot repo suggests that did not remain correct and in 2018 the default was set to 50,000.
+
+In 2017 NIST published the following guidance [800-63B
+Digital Identity Guidelines - Authentication and Lifecycle Management](https://pages.nist.gov/800-63-3/sp800-63b.html)
+
+> The salt SHALL be at least 32 bits in length and be chosen arbitrarily so as to minimize salt value collisions among stored hashes. Both the salt value and the resulting hash SHALL be stored for each subscriber using a memorized secret authenticator.
+
+> For PBKDF2, the cost factor is an iteration count: the more times the PBKDF2 function is iterated, the longer it takes to compute the password hash. Therefore, the iteration count SHOULD be as large as verification server performance will allow, typically at least 10,000 iterations.
+
+With that, lets try and crack these password hashes.
 
 ## Replit base64 encoded V2 hash to hashcat format
 [Replit aspnet Identity V2 to Hashcat](https://replit.com/@markburton2/aspnetIdentityV2ToHashcat#main.py)
