@@ -21,7 +21,7 @@ This can be used to migrate from older versions of asp.net Identity and Identity
 
 The PasswordHasher code can be read in the [AspNetCore GitHub repo](https://github.com/dotnet/AspNetCore/blob/main/src/Identity/Extensions.Core/src/PasswordHasher.cs).
 
-The comments at the top of that file explain the 2 different hashing algorithms supported by the default password hasher implementation. This shows that V2 is a relatively weak hash with a small number of iterations, whereas V3 is now SHA-512 with 100,000 iterations.
+The comments at the top of that file explain the 2 different hashing algorithms supported by the default password hasher implementation. This shows that V2 is a relatively weak hash with a small number of iterations, whereas V3 is now SHA-512 with 100,000 iterations after being SHA-256 with . This is recent update
 
 ``` csharp
     /* =======================
@@ -33,11 +33,16 @@ The comments at the top of that file explain the 2 different hashing algorithms 
      * (See also: SDL crypto guidelines v5.1, Part III)
      * Format: { 0x00, salt, subkey }
      *
-     * Version 3:
+     * Version 3 (.net 7 and above):
      * PBKDF2 with HMAC-SHA512, 128-bit salt, 256-bit subkey, 100000 iterations.
      * Format: { 0x01, prf (UInt32), iter count (UInt32), salt length (UInt32), salt, subkey }
      * (All UInt32s are stored big-endian.)
      */
+
+     /* Version 3 (.net 6 and below):
+     * PBKDF2 with HMAC-SHA256, 128-bit salt, 256-bit subkey, 10000 iterations.
+     * Format: { 0x01, prf (UInt32), iter count (UInt32), salt length (UInt32), salt, subkey }
+     * (All UInt32s are stored big-endian.)
 ```
 
 In 2014 Brock Allen wrote the post [How MembershipReboot stores passwords properly](https://brockallen.com/2014/02/09/how-membershipreboot-stores-passwords-properly/) where it was written;
@@ -55,7 +60,13 @@ Digital Identity Guidelines - Authentication and Lifecycle Management](https://p
 
 With that, lets try and crack these password hashes.
 
-## Replit base64 encoded V2 hash to hashcat format
+## Converting the hash into hashcat format
+
+There are many tools in various languages to convert the base64 encoded password hash into a format hashcat can crack.
+
+Based on 2 different GitHub repos I created Replits.
+
+### Replit base64 encoded V2 hash to hashcat format
 [Replit aspnet Identity V2 to Hashcat](https://replit.com/@markburton2/aspnetIdentityV2ToHashcat#main.py)
 
 `python main.py -i base64hash -o out`
@@ -66,7 +77,7 @@ With that, lets try and crack these password hashes.
 
 `12000 PBKDF2-HMAC-SHA1`
 
-## Replit base64 encoded V3 hash to hashcat format
+### Replit base64 encoded V3 hash to hashcat format
 https://replit.com/@markburton2/aspnetIdentityToHashcat#main.cs
 
 
