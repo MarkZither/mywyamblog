@@ -58,13 +58,13 @@ Digital Identity Guidelines - Authentication and Lifecycle Management](https://p
 
 > For PBKDF2, the cost factor is an iteration count: the more times the PBKDF2 function is iterated, the longer it takes to compute the password hash. Therefore, the iteration count SHOULD be as large as verification server performance will allow, typically at least 10,000 iterations.
 
-With that, lets try and crack these password hashes.
+With that, lets try and crack these password hashes, we have a salted hash, so how easy can it be to crack such a password?
 
 ## Converting the hash into hashcat format
 
 There are many tools in various languages to convert the base64 encoded password hash into a format hashcat can crack.
 
-Based on 2 different GitHub repos I created Replits.
+Based on 2 different GitHub repos I created Replits to cover the V2 and V3 asp.net Identity hashing algorithms.
 
 ### Replit base64 encoded V2 hash to hashcat format
 [Replit aspnet Identity V2 to Hashcat](https://replit.com/@markburton2/aspnetIdentityV2ToHashcat#main.py)
@@ -96,3 +96,7 @@ https://github.com/NetDevPack/NetDevPack/blob/master/src/NetDevPack/Utilities/As
 https://hashcat.net/wiki/doku.php?id=example_hashes
 
 `10900	PBKDF2-HMAC-SHA256	sha256:1000:MTc3MTA0MTQwMjQxNzY=:PYjCU215Mi57AYPKva9j7mvF4Rc5bCnt`
+
+## Hashing rate on a VM on my laptop
+
+This is far from what a machine with a GPU could achieve.
