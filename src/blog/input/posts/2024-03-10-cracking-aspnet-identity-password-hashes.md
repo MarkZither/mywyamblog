@@ -9,7 +9,7 @@
    - hashcat
 ---
 
-I was reviewing, lets call it, a mature codebase which makes use of asp.net Identity for storage of users and passwords, in the startup I noticed the following code:
+I was reviewing one of my old sample projects [codebase which makes use of asp.net Identity](https://github.com/MarkZither/SwaggerAndHealthCheckBlog/blob/33d032bcc0a0fc7ee042f9059adb03088c540d99/src/LoginService/Startup.cs#L39) for storage of users and passwords, in the startup I noticed the following code:
 
 ``` csharp
   services.Configure<PasswordHasherOptions>(options => {
