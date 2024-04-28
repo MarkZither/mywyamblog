@@ -96,6 +96,8 @@ https://hashcat.net/wiki/doku.php?id=example_hashes
 
 `10900	PBKDF2-HMAC-SHA256	sha256:1000:MTc3MTA0MTQwMjQxNzY=:PYjCU215Mi57AYPKva9j7mvF4Rc5bCnt`
 
+`12100	PBKDF2-HMAC-SHA512	sha512:1000:ODQyMDEwNjQyODY=:MKaHNWXUsuJB3IEwBHbm3w==`
+
 ## Hashing rate on a VM on my laptop
 
 This is far from what a machine with a GPU could achieve.
