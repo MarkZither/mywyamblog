@@ -98,6 +98,15 @@ https://hashcat.net/wiki/doku.php?id=example_hashes
 
 `12100	PBKDF2-HMAC-SHA512	sha512:1000:ODQyMDEwNjQyODY=:MKaHNWXUsuJB3IEwBHbm3w==`
 
+## Dotnet Global tool
+
+I wanted to be able to look at my databases and check what the hashes were so I created a dotnet tool with the knowledge gained from the previous libraries. [](https://www.nuget.org/packages/Nallixion.ASPNET.Identity.HashDecoder/)
+
+``` powershell
+dotnet tool install --global Nallixion.ASPNET.Identity.HashDecoder --version 0.0.1-alpha.1
+```
+
+
 ## Hashing rate on a VM on my laptop
 
 This is far from what a machine with a GPU could achieve.
