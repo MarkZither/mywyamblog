@@ -1,0 +1,92 @@
+# This workflow builds both Statiq blog and Docusaurus and deploys to Netlify
+
+name: Deploy Hybrid Blog (Statiq + Docusaurus) to Netlify
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    # Setup .NET for Statiq
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    # Setup Node.js for Docusaurus
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: src/docs/package-lock.json
+
+    # Build Statiq blog
+    - name: Restore .NET dependencies
+      run: dotnet restore
+
+    - name: Build .NET project
+      run: dotnet build --no-restore
+
+    - name: Generate Statiq site
+      run: dotnet run --project src/blog/mywyamblog.csproj -- -l Information
+      env:
+        DeployNetlifySiteId: ${{ secrets.DEPLOYNETLIFYSITEID }}
+        DeployNetlifyAccessToken: ${{ secrets.DEPLOYNETLIFYACCESSTOKEN }}
+
+    # Build Docusaurus
+    - name: Install Docusaurus dependencies
+      working-directory: ./src/docs
+      run: npm ci
+
+    - name: Build Docusaurus site
+      working-directory: ./src/docs
+      run: npm run build
+
+    # Combine both sites
+    - name: Combine sites
+      run: |
+        # Create combined output directory
+        mkdir -p combined-site
+        
+        # Copy Statiq output (assuming it goes to output folder)
+        if [ -d "output" ]; then
+          cp -r output/* combined-site/
+        fi
+        
+        # Copy Docusaurus build to /docs subdirectory
+        if [ -d "src/docs/build" ]; then
+          mkdir -p combined-site/docs
+          cp -r src/docs/build/* combined-site/docs/
+        fi
+        
+        # Create a simple index redirect if needed
+        if [ ! -f "combined-site/index.html" ]; then
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/docs/"></head><body>Redirecting...</body></html>' > combined-site/index.html
+        fi
+
+    # Deploy to Netlify
+    - name: Deploy to Netlify
+      uses: nwtgck/actions-netlify@v3.0
+      with:
+        publish-dir: './combined-site'
+        production-branch: main
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions"
+        enable-pull-request-comment: true
+        enable-commit-comment: true
+        overwrites-pull-request-comment: true
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.DEPLOYNETLIFYACCESSTOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.DEPLOYNETLIFYSITEID }}

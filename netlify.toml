@@ -1,0 +1,37 @@
+[build]
+  # This is handled by GitHub Actions, but kept for reference
+  publish = "combined-site"
+  command = "echo 'Built by GitHub Actions'"
+
+[build.environment]
+  NODE_VERSION = "20"
+  DOTNET_VERSION = "8.0"
+
+# Redirect rules for the hybrid setup
+[[redirects]]
+  from = "/docs/*"
+  to = "/docs/:splat"
+  status = 200
+
+# Handle SPA routing for Docusaurus
+[[redirects]]
+  from = "/docs/*"
+  to = "/docs/index.html"
+  status = 200
+  conditions = {Role = ["admin"]}
+
+# Headers for better caching
+[[headers]]
+  for = "/docs/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

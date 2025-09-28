@@ -1,0 +1,56 @@
+---
+title: "Try Hack Me, Hacking with PowerShell"
+authors: ["mark-burton"]
+tags: ["tryhackme", "powershell"]
+description: "Learn the basics of PowerShell and PowerShell Scripting"
+date: "2023-06-19"
+---
+
+## Hacking with PowerShell  This is a Try Hack Me premium room so to access it you will need a subscription, if you don't have one go get one with my [Referral Link](https:/tryhackme.comsignup?referrer=638ca30a6675850049e4858e)  ### Task 1 -  Objectives  Start the machine, that's it.  ### Task 2 - What is Powershell?  [PowerShell verbs](https:/docs.microsoft.comen-uspowershellscriptingdevelopercmdletapproved-verbs-for-windows-powershell-commands?view=powershell-7)  #### Question 1  What is the command to get a new object?  ##### Notes  This confused me because the command is not a real command, just an example of how command naming works in PowerShell.  Running the command in PowerShell results in  ``` powershell
+PS C:\Users\mburton> ???-???
+???-???: The term '???-???' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```  #### Answer
+> Get-New [Reveal Answer](#) ### Task 3 - Basic Powershell Commands  [PowerShell verbs](https:/docs.microsoft.comen-uspowershellscriptingdevelopercmdletapproved-verbs-for-windows-powershell-commands?view=powershell-7)  #### Question 1  What is the location of the file "interesting-file.txt"  ##### Notes  The Microsoft Scripting Blog has lots of useful articles on working with PowerShell to answer this question you can read "[Use Windows PowerShell to search for files](https:/devblogs.microsoft.comscriptinguse-windows-powershell-to-search-for-files)".  ``` powershell
+Get-Childitem –Path C:\ -Include interesting-file.txt -Recurse -ErrorAction SilentlyContinue  Directory: C:\??????? ?????  Mode  LastWriteTime  Length Name
+----  -------------  ------ ----
+-a----  103/2019  11:38 PM  23 interesting-file.txt
+```  #### Answer
+> C:\Program Files [Reveal Answer](#) #### Question 2  Specify the contents of this file  ##### Notes  ``` powershell
+Get-Content 'C:\Program Files\interesting-file.txt'
+```  #### Answer
+> notsointerestingcontent [Reveal Answer](#) #### Question 3  How many cmdlets are installed on the system(only cmdlets, not functions and aliases)?  ##### Notes  The task intro shows that `Get-Command` can be used to get this information, but it returns `Cmdlets`, `Functions` and `Alias`, so how to filter only `Cmdlets`?  First check the help, examples and use the [online help](https:/learn.microsoft.comen-gbpowershellmodulemicrosoft.powershell.coreget-command?view=powershell-7.3&viewFallbackFrom=powershell-6) if it is not available locally  ``` powershell
+> Get-Help Get-Command  NAME  Get-Command  SYNTAX  Get-Command [[-ArgumentList] &lt;Object[]>] [-Verb <string[] />] [-Noun <string[] />] [-Module <string[] />]  [-FullyQualifiedModule <ModuleSpecification[] />] [-TotalCount <int />] [-Syntax] [-ShowCommandInfo] [-All]  [-ListImported] [-ParameterName <string[] />] [-ParameterType <PSTypeName[] />]  [<CommonParameters />]  Get-Command [[-Name] <string[] />] [[-ArgumentList] <Object[] />] [-Module <string[] />] [-FullyQualifiedModule  <ModuleSpecification[] />] [-CommandType \\{Alias | Function | Filter | Cmdlet | ExternalScript | Application | Script  | Workflow | Configuration | All\}] [-TotalCount <int />] [-Syntax] [-ShowCommandInfo] [-All] [-ListImported]  [-ParameterName <string[] />] [-ParameterType <PSTypeName[] />]  [<CommonParameters />]  ALIASES  gcm  REMARKS  Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.  -- To download and install Help files for the module that includes this cmdlet, use Update-Help.  -- To view the Help topic for this cmdlet online, type: "Get-Help Get-Command -Online" or  go to https:/go.microsoft.comfwlink?LinkID=113309.
+```  One of the parameters is `-CommandType` which accepts specific values from a list including `Cmdlet` so last step is to get a count, which can be done by piping it to `Measure-Object`.  ``` powershell
+&gt; Get-Command -Type cmdlet | Measure-Object
+> ```  #### Answer
+> 9673 [Reveal Answer](#) #### Question 4  Get the MD5 hash of interesting-file.txt  ##### Notes  ``` powershell
+> Get-Help Get-FileHash  NAME  Get-FileHash  SYNTAX  Get-FileHash [-Path] &lt;string[]> [-Algorithm \\{SHA1 | SHA256 | SHA384 | SHA512 | MACTripleDES | MD5 | RIPEMD160\}]  [<CommonParameters />]  Get-FileHash -LiteralPath <string[] /> [-Algorithm \\{SHA1 | SHA256 | SHA384 | SHA512 | MACTripleDES | MD5 |  RIPEMD160\}]  [<CommonParameters />]  Get-FileHash -InputStream <Stream /> [-Algorithm \\{SHA1 | SHA256 | SHA384 | SHA512 | MACTripleDES | MD5 | RIPEMD160\}]  [<CommonParameters />]
+```  ``` powershell
+&gt; Get-FileHash 'C:\Program Files\interesting-file.txt -Algorithm MD5  > ```  #### Answer
+> 49A586A2A9456226F8A1B4CEC6FAB329 [Reveal Answer](#) #### Question 5  What is the command to get the current working directory?  #### Answer
+> Get-Location [Reveal Answer](#) #### Question 6  Does the path "C:\Users\Administrator\Documents\Passwords" Exist (YN)?  ##### Notes  ``` powershell
+> Test-Path 'C:\Users\Administrator\Documents\Passwords'
+> True|False
+```  #### Answer
+> N [Reveal Answer](#) #### Question 7  What command would you use to make a request to a web server?  #### Answer
+> Invoke-WebRequest [Reveal Answer](#) #### Question 8  Base64 decode the file b64.txt on Windows.  ##### Notes  Nice explanation by Joshua Wright on the [Sans Blog - Month of PowerShell](https:/www.sans.orgblogmonth-of-powershell-profile-hack-base64-encoding-decoding), including adding the command to your profile so it can be called easily without having to remember the whole command.  ``` powershell
+> $base64 = Get-Content .\b64.txt
+> [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($base64))
+> this is the flag - ????????????????????????
+the rest is garbage
+the rest is garbage
+the rest is garbage
+the rest is garbage
+the rest is garbage
+the rest is garbage
+```  #### Answer
+> ihopeyoudidthisonwindows [Reveal Answer](#) ### Task 4 - Enumeration  The first step when you have gained initial access to any machine would be to enumerate. We'll be enumerating the following:  * users
+* basic networking information
+* file permissions
+* registry permissions
+* scheduled and running tasks
+* insecure files  Your task will be to answer the following questions to enumerate the machine using Powershell commands!  #### Question 1  How many users are there on the machine?  ##### Notes  ``` powershell
+> Get-LocalUser
+> ```  #### Answer
+> ihopeyoudidthisonwindows [Reveal Answer](#) 

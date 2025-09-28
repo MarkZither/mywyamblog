@@ -1,0 +1,233 @@
+# Technical Tags
+NetlifyCMS:
+  label: NetlifyCMS
+  permalink: /netlify-cms
+  description: NetlifyCMS headless CMS
+
+Test:
+  label: Test
+  permalink: /test
+  description: Test posts and examples
+
+Docs:
+  label: Documentation
+  permalink: /docs
+  description: Documentation and guides
+
+ASP.NET Core:
+  label: ASP.NET Core
+  permalink: /aspnet-core
+  description: Microsoft ASP.NET Core framework
+
+asp.net:
+  label: ASP.NET
+  permalink: /aspnet
+  description: Microsoft ASP.NET framework
+
+Health Checks:
+  label: Health Checks
+  permalink: /health-checks
+  description: Application health monitoring
+
+Swagger:
+  label: Swagger
+  permalink: /swagger
+  description: API documentation with Swagger
+
+Swashbuckle:
+  label: Swashbuckle
+  permalink: /swashbuckle
+  description: Swagger tools for .NET
+
+YARP:
+  label: YARP
+  permalink: /yarp
+  description: Yet Another Reverse Proxy
+
+Reverse Proxy:
+  label: Reverse Proxy
+  permalink: /reverse-proxy
+  description: Reverse proxy technologies
+
+NGINX:
+  label: NGINX
+  permalink: /nginx
+  description: NGINX web server
+
+netsh:
+  label: netsh
+  permalink: /netsh
+  description: Windows network shell
+
+unbound:
+  label: Unbound
+  permalink: /unbound
+  description: DNS resolver
+
+dns:
+  label: DNS
+  permalink: /dns
+  description: Domain Name System
+
+Wyam:
+  label: Wyam
+  permalink: /wyam
+  description: Static site generator
+
+Statiq:
+  label: Statiq
+  permalink: /statiq
+  description: Static site generator
+
+Configuration Options Pattern:
+  label: Configuration Options Pattern
+  permalink: /configuration-options-pattern
+  description: ASP.NET Core configuration patterns
+
+Project Tye:
+  label: Project Tye
+  permalink: /project-tye
+  description: Microsoft Project Tye
+
+Active Directory:
+  label: Active Directory
+  permalink: /active-directory
+  description: Microsoft Active Directory
+
+Windows Server 2019:
+  label: Windows Server 2019
+  permalink: /windows-server-2019
+  description: Microsoft Windows Server 2019
+
+Polly:
+  label: Polly
+  permalink: /polly
+  description: .NET resilience and transient-fault-handling library
+
+Simmy:
+  label: Simmy
+  permalink: /simmy
+  description: Chaos engineering library for .NET
+
+Chaos:
+  label: Chaos
+  permalink: /chaos
+  description: Chaos engineering
+
+VSTO:
+  label: VSTO
+  permalink: /vsto
+  description: Visual Studio Tools for Office
+
+Kimai:
+  label: Kimai
+  permalink: /kimai
+  description: Time tracking application
+
+PostSharp:
+  label: PostSharp
+  permalink: /postsharp
+  description: .NET aspect-oriented programming framework
+
+Identity:
+  label: Identity
+  permalink: /identity
+  description: ASP.NET Core Identity
+
+# Security & Cryptography
+LuxTrust Signing Stick:
+  label: LuxTrust Signing Stick
+  permalink: /luxtrust-signing-stick
+  description: Digital signature device
+
+Gemalto:
+  label: Gemalto
+  permalink: /gemalto
+  description: Digital security company
+
+eIDAS:
+  label: eIDAS
+  permalink: /eidas
+  description: Electronic identification and trust services
+
+Electronic Signature:
+  label: Electronic Signature
+  permalink: /electronic-signature
+  description: Digital signature technologies
+
+PAdES:
+  label: PAdES
+  permalink: /pades
+  description: PDF Advanced Electronic Signatures
+
+CAdES:
+  label: CAdES
+  permalink: /cades
+  description: CMS Advanced Electronic Signatures
+
+XAdES:
+  label: XAdES
+  permalink: /xades
+  description: XML Advanced Electronic Signatures
+
+# Personal & Hobbies
+Blue Angles:
+  label: Blue Angels
+  permalink: /blue-angels
+  description: US Navy flight demonstration squadron
+
+Red Arrows:
+  label: Red Arrows
+  permalink: /red-arrows
+  description: RAF aerobatic team
+
+RAF Hucknall:
+  label: RAF Hucknall
+  permalink: /raf-hucknall
+  description: Royal Air Force base
+
+LuxFly:
+  label: LuxFly
+  permalink: /luxfly
+  description: Luxembourg aviation
+
+Skydiving:
+  label: Skydiving
+  permalink: /skydiving
+  description: Parachuting and skydiving
+
+Pizza:
+  label: Pizza
+  permalink: /pizza
+  description: Pizza making and recipes
+
+Ooni:
+  label: Ooni
+  permalink: /ooni
+  description: Pizza oven brand
+
+Recipes:
+  label: Recipes
+  permalink: /recipes
+  description: Food and cooking recipes
+
+# Default Docusaurus tags
+docusaurus:
+  label: Docusaurus
+  permalink: /docusaurus
+  description: Docusaurus static site generator
+
+hello:
+  label: Hello
+  permalink: /hello
+  description: Hello world examples
+
+hola:
+  label: Hola
+  permalink: /hola
+  description: Spanish greeting examples
+
+facebook:
+  label: Facebook
+  permalink: /facebook
+  description: Facebook related content
