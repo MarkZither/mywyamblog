@@ -5,7 +5,7 @@ backend:
 publish_mode: editorial_workflow
 
 media_folder: "src/blog/input/assets/Images" # Media files will be stored in the repo under input/assets/Images
-public_folder: "/assets/Images" # public_folder indicates where they can be found in the published site. This path is used in image src attributes and is relative to the file where its called.  https://www.netlifycms.org/docs/add-to-your-site/
+public_folder: "/assets/Images" # public_folder indicates where they can be found in the published site. This path is used in image src attributes and is relative to the file where its called.  https://decapcms.org/docs/add-to-your-site/
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
