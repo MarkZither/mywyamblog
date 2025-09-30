@@ -24,4 +24,6 @@ The HighFly, this was truly a heart in mouth stomach turning experience which I 
 
 <video src="/img/videos/Luxfly51MarkburtonTopHighFly.m4v" width="75%" controls>
   <p>If you are reading this, it is because your browser does not support the HTML5 video element</p>
-</video>  https:/www.tvlux.bevideoinfoarlon-le-luxfly-skydive-a-ouvert-ses-portes_34978.html
+</video>
+
+https://www.tvlux.be/video/info/arlon-le-luxfly-skydive-a-ouvert-ses-portes_34978.html
