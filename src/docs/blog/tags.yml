@@ -211,6 +211,21 @@ Recipes:
   permalink: /recipes
   description: Food and cooking recipes
 
+history:
+  label: History
+  permalink: /history
+  description: Historical topics and research
+
+preparation:
+  label: Preparation
+  permalink: /preparation
+  description: Preparation and planning
+
+education:
+  label: Education
+  permalink: /education
+  description: Educational topics and learning
+
 # Default Docusaurus tags
 docusaurus:
   label: Docusaurus
