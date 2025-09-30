@@ -19,13 +19,41 @@ description: "Configuring a simple single user mode NetlifyCMS with Wyam"
 * You are happy pushing your changes directly to master (Part 3 will explain the editorial workflow, which saves drafts to feature branches, creates a PR and merges once the post is published)  ## Changes in your Wyam project
 ### Add an admin directory under your Wyam input directory
 The general instructions to [add NetlifyCMS to your site](https:/www.netlifycms.orgdocsadd-to-your-site) cover several static site generators but not Wyam (I have a PR in to add it to the table for App File Structure).  Assuming you are using the default Wyam input directory name and structure the setup is;  * add a folder called `admin` under your Wyam `input` directory  * add 2 files to it, `index.html` and `config.yml`.  In the `index.html` add the following,  ```html
-<head />  {*  Include the styles for the Netlify CMS UI, after your own styles  *}  <link rel="stylesheet" href="https:unpkg.comnetlify-cms@^1.0.0distcms.css" /><li&gt;&lt;head />
-<body />  {*  Include the script that builds the page and powers Netlify CMS  *}  <script src="https:unpkg.comnetlify-cms@^1.0.0distcms.js" /><script />  {*  Include the Netlify Identity  *}  <script src="https:identity.netlify.comv1netlify-identity-widget.js" /><script />
-<body />
+<head>
+  <!-- Include the styles for the Netlify CMS UI, after your own styles -->
+  <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^1.0.0/dist/cms.css" />
+</head>
+<body>
+  <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^1.0.0/dist/cms.js"></script>
+  <!-- Include the Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
 ```  **note** i also added the Netlify Identity script since we will be using that, which is not in the Netlify instructions at this point, you could also use [Netlify’s Script Injection](https:/www.netlify.comdocsinject-analytics-snippets) feature to achieve the same.  The second file, adminconfig.yml, is the heart of your Netlify CMS installation, and a bit more complex. It is explained in full in the [add NetlifyCMS to your site](https:/www.netlifycms.orgdocsadd-to-your-site) and [configuration options](https:/www.netlifycms.orgdocsconfiguration-options) documentation and I have added a working version below.  ### Example NetlifyCMS config file
-```
-backend:  name: git-gateway  branch: master # Branch to update (optional; defaults to master)  media_folder: "inputassetsImages" # Media files will be stored in the repo under inputassetsImages
-public_folder: "assetsImages" # public_folder indicates where they can be found in the published site. This path is used in image src attributes and is relative to the file where its called.  https:/www.netlifycms.orgdocsadd-to-your-site/  collections:  - name: "blog" # Used in routes, e.g., /admincollectionsblog  label: "Blog" # Used in the UI  folder: "inputposts" # The path to the folder where the documents are stored  create: true # Allow users to create new documents in this collection  slug: "\\{ \}-\{ \}-\\{ \}-\{ \}" # Filename template, e.g., YYYY-MM-DD-title.md  fields: # The fields for each document, usually in front matter  - \\{label: "Title", name: "Title", widget: "string"\}  - \\{label: "Lead", name: "Lead", widget: "string", optional: true, required: false\}  - \\{label: "Published", name: "Published", widget: "datetime"\}  - \\{label: "Featured Image", name: "Image", widget: "image",  optional: true, required: false, pattern: ['^\S*$', "Please rename your image remove any spaces from the filename"]\}  - label: Tags  name: Tags  widget: list  - \\{label: "Body", name: "body", widget: "markdown"\}
+
+```yaml
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+media_folder: "input/assets/Images" # Media files will be stored in the repo under input/assets/Images
+public_folder: "/assets/Images" # public_folder indicates where they can be found in the published site
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "input/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "Title", widget: "string"}
+      - {label: "Lead", name: "Lead", widget: "string", optional: true, required: false}
+      - {label: "Published", name: "Published", widget: "datetime"}
+      - {label: "Featured Image", name: "Image", widget: "image", optional: true, required: false, pattern: ['^\S*$', "Please rename your image remove any spaces from the filename"]}
+      - label: Tags
+        name: Tags
+        widget: list
+      - {label: "Body", name: "body", widget: "markdown"}
 ```
 ::::::row
 ::: A couple of things to note here are;
