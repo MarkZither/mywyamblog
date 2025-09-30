@@ -211,20 +211,25 @@ Recipes:
   permalink: /recipes
   description: Food and cooking recipes
 
-history:
-  label: History
-  permalink: /history
-  description: Historical topics and research
+health:
+  label: Health
+  permalink: /health
+  description: Health and medical topics
 
-preparation:
-  label: Preparation
-  permalink: /preparation
-  description: Preparation and planning
+surgery:
+  label: Surgery
+  permalink: /surgery
+  description: Surgical procedures and experiences
 
-education:
-  label: Education
-  permalink: /education
-  description: Educational topics and learning
+heart:
+  label: Heart
+  permalink: /heart
+  description: Cardiac health and heart-related topics
+
+medical:
+  label: Medical
+  permalink: /medical
+  description: Medical topics and healthcare
 
 # Default Docusaurus tags
 docusaurus:
