@@ -2,11 +2,11 @@
 title: "Preparation and Hospital Admission Day"
 authors: ["mark-burton"]
 tags: ["health", "surgery", "heart", "medical"]
-description: "Preparing for hospital admission and aortic valve replacement surgery."
+description: "My hospital admission experience and preparation for aortic valve replacement surgery."
 date: "2025-09-30"
 ---
 
-Today is the day before my hospital admission for aortic valve replacement surgery. After years of monitoring my bicuspid aortic valve and watching the stenosis gradually worsen, the time has come for the operation I've known was inevitable since childhood.
+Today I was admitted to hospital for aortic valve replacement surgery. After years of monitoring my bicuspid aortic valve and watching the stenosis gradually worsen, the time has come for the operation I've known was inevitable since childhood.
 
 <!--truncate-->
 
@@ -43,29 +43,62 @@ Perhaps the most important preparation is mental. I've watched the surgical vide
 
 The fact that this is now a routine procedure - performed thousands of times each year with excellent outcomes - is reassuring. Cardiac surgery has come such a long way, and the precision and skill involved is truly remarkable.
 
-## What Happens Tomorrow
+## Hospital Check-In - 13:00
 
-Tomorrow morning, I'll be admitted to the cardiac ward. The process typically involves:
+Check-in was prompt and efficient. The cardiac ward staff were welcoming and immediately got to work with the pre-operative assessments:
 
-1. **Admission and pre-op checks**: Final vitals, consent forms, meeting with the anaesthetist
-2. **Preparation**: Changed into surgical gown, IV line inserted, pre-medication if needed
-3. **Transfer to theatre**: Moving to the operating theatre when it's time
-4. **The operation**: 3-4 hours of surgery while on cardiopulmonary bypass
-5. **Recovery**: Waking up in ICU with various monitoring equipment
+* **Blood pressure**: 150/80 - slightly elevated but expected given the circumstances
+* **Blood tests**: Taken for final clotting factors and general health markers
+* **Chest X-ray**: Completed to check heart size and lung condition
 
-## The Surgery Itself
+Throughout the afternoon, I was visited by various members of the surgical team, each explaining their role in tomorrow's procedure:
 
-The aortic valve replacement procedure involves:
+* **Surgical assistant**: Walked through the procedure timeline and what to expect
+* **Anaesthesiologist**: Discussed anaesthesia plan and post-operative pain management
+* **Surgeon**: The most important conversation - explaining the surgical approach
 
-* Opening the chest through a median sternotomy (splitting the breastbone)
-* Connecting to the heart-lung bypass machine
-* Stopping the heart temporarily
-* Removing the diseased bicuspid valve
-* Sewing in the new prosthetic valve
-* Restarting the heart
-* Closing the chest
+## A Welcome Change in Surgical Plan
 
-If you're interested in the technical details, I linked to an excellent surgical animation in my [previous post](/blog/2025-09-28-getting-a-new-aortic-valve).
+The surgeon brought excellent news about the surgical approach. Instead of the full median sternotomy (completely splitting the breastbone) that I'd been preparing for, the plan is now:
+
+* **Smaller incision**: A more minimally invasive approach
+* **Partial sternotomy**: Only a partial cut of the sternum rather than the full split
+
+This is fantastic news because it means:
+
+* **Quicker healing**: Less trauma to the chest wall
+* **Reduced complications**: Lower risk of sternal instability during recovery
+* **Better outcomes**: Generally improved recovery experience
+
+I'm relieved and grateful that this less invasive option is possible in my case.
+
+## Pre-Surgery Meal Plan
+
+The nursing staff provided clear instructions for the hours leading up to surgery:
+
+* **18:00 (6 PM)**: Light meal - my last food before surgery
+* **22:00 (10 PM)**: Nothing to eat or drink after this time
+* **08:00 (8 AM)**: Planned surgery start time tomorrow morning
+
+I was given a bottle of water to stay hydrated through the evening, and I'm making the most of being able to have that light meal later.
+
+![Pre-surgery evening meal](placeholder-for-meal-image.jpg)
+
+*Placeholder for image of my pre-surgery meal*
+
+## The Surgery Tomorrow
+
+Tomorrow morning at 8:00 AM, I'll have the aortic valve replacement. The updated surgical approach involves:
+
+* **Smaller incision**: More minimally invasive than traditional approach
+* **Partial sternotomy**: Only a partial cut of the sternum instead of full median sternotomy
+* **Heart-lung bypass**: Connecting to the bypass machine
+* **Valve replacement**: Removing the diseased bicuspid valve and sewing in the new prosthetic valve
+* **Recovery start**: Waking up in ICU with monitoring equipment
+
+The benefits of this modified approach include quicker healing and less chance of complications with sternal instability.
+
+If you're interested in the technical details of traditional valve replacement, I linked to an excellent surgical animation in my [previous post](/blog/2025-09-28-getting-a-new-aortic-valve).
 
 ## Expected Recovery Timeline
 
@@ -83,10 +116,12 @@ I'll be documenting the recovery journey here on the blog as I'm able. My partne
 
 You can follow along by subscribing to the [RSS feed](/feed.rss) or checking back here for updates.
 
-## Final Thoughts
+## Reflections from the Hospital Ward
 
-It's a strange feeling knowing that tomorrow my heart will be stopped, my chest will be opened, and a skilled surgeon will replace a valve I was born with. But it's also exciting - after this, I'll have a properly functioning aortic valve for the first time in my life.
+It's now evening in the cardiac ward, and I'm feeling calm and ready. The fact that the surgical team has opted for the less invasive approach is reassuring - it speaks to their confidence in achieving a good outcome with reduced trauma to my chest.
 
-Modern cardiac surgery is truly miraculous. I'm grateful to live in an era where this procedure is not only possible but routine, and I have complete confidence in the medical team taking care of me.
+The nursing staff have been excellent, the ward is quiet and well-run, and I have complete confidence in tomorrow's procedure. The next update will likely come from my partner while I'm in recovery.
+
+Modern cardiac surgery truly is remarkable. I'm grateful for the skilled team, the advanced techniques that make this minimally invasive approach possible, and for living in an era where this life-changing procedure is routine.
 
 See you on the other side!
