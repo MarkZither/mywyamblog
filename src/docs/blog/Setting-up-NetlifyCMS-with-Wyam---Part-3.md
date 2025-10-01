@@ -8,7 +8,7 @@ description: "Configuring a simple single user mode NetlifyCMS with Wyam"
 ## Use AppVeyor for CI
 To get started with a simple NetlifyCMS setup without the editorial workflow you can use the [AppVeyor for Continuous Integration](https:/wyam.iodocsdeploymentappveyor) Wyam document.  # Enabling the editorial workflow  ## Turn off webhook for PR to prevent extra build being triggered in AppVeyor
 For more details see [Do not build virtual merge on Pull Requests #1636](https:/github.comappveyorciissues1636) and [Preventing master CI run when a commit a made on a feature branch](http:/help.appveyor.comdiscussionsquestions5082-preventing-master-ci-run-when-a-commit-a-made-on-a-feature-branch)
-![](/img/NetlifyCMS_Webhooks.png) If this is not done AppVeyor will run the master branch config when a draft is saved in NetlifyCMS as a PR is created, it will fail with
+![](/img/NetlifyCMS_Webhooks.PNG) If this is not done AppVeyor will run the master branch config when a draft is saved in NetlifyCMS as a PR is created, it will fail with
 ```
 git push
 remote: Anonymous access to MarkZitherProjectName.git denied.

@@ -89,7 +89,7 @@ The Git Gateway option is in settings under Identity, further down than the Regi
 ::::::row
 ::: If you are testing your site locally you can still use the Netlify Identity. You just need to specify the URL of your site on Netlify. This is explained in full in the [netlify identity widget docs](https:/github.comnetlifynetlify-identity-widget#localhost).  It does however seem to have a side effect of redirecting to your hosted site after login if you use the external provider, logging in with a Netlify Identity account works and leaves you on the same page, alternatively just correct the first part of the URL to https:/localhost:5080admin/ and be sure to keep the #access_token=eyj...lkdAGI&expires_in=3600&refresh_token=zEM...BQSw&token_type=bearer in the URL, this should log you in to your local instance. Sometimes it needs a refresh to load the actual CMS.
 :::
-::: ![](/img/Netlify_Identity_Local_Testing.png) :::
+::: ![](/img/Netlify_Identity_Local_Testing.PNG) :::
 ::::::  ### Front Matter syntax
 Initially i found that none of my existing posts were displaying any details at all in the CMS, it just showed up as a blank line, ![](/img/NetlifyCMS_Missing_Posts.PNG) you can click on the blank line and it will open a blank editor window ![](/img/NetlifyCMS_Missing_Post_Details.PNG) .
 Any new posts created by the CMS did display correctly.  The only difference i found between the existing posts and those created in NetlifyCMS was the leading `---` to start the front matter section. Once i added that in all posts displayed correctly in the CMS.  

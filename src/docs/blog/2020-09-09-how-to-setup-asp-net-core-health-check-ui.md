@@ -9,7 +9,7 @@ In [Part one](2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port) w
 
 The [Health Checks UI](2020-09-08-secure-asp-net-core-health-checks-to-a-specific-port) is best hosted in its own service as it can consolidate health checks for a number of services.
 
-![Swagger CORS error](/img/HealthChecksUI.png)
+![Swagger CORS error](/img/healthchecksui.png)
 
 Adding the HealthChecks UI to the service involves adding 2 nuget packages, the main `AspNetCore.HealthChecks.UI` package and a storage provider, initially I have used the InMemory storage provider as I do not have the need to see historical data. There are also providers various databases including SqlServer and SQLite which can be used to persist the data.
 

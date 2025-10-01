@@ -14,12 +14,14 @@ It is not mentioned anywhere in the [LuxTrust Middleware Installation Guide] (wa
 Finding the right software to sign an XML file is not easy, the following is a list of software I tried with mixed results;  * [Szafir] - Doesn't seem to recognise the LuxTrust Signing Stick or certificates. Does have a very nice validator.
 * [XML Signer] - Doesn't support [XAdES] only [XMLDSig]. Hangs if you have not logged in to the Gemalto Classic Client Toolbox to unlock the private keys.
 * [XML validator Buddy] - Doesn't support [XAdES] only [XMLDSig]
-* [DSS Demonstration WebApp Sign a Document] - Requires [NexU]  [LuxTrust Middleware Download]: https:/www.luxtrust.lusimple189
-[LuxTrust Middleware Installation Guide]: https:/www.luxtrust.luuploaddataguidesUG-0247-P-E-Install%20LuxTrust%20Middleware%20Windows_0.3.pdf
-[LuxTrust Pin Management Guide]: https:/www.luxtrust.ludownloadsguidesUG-0234-P-E-Gestion%20Pin%20Windows.pdf
-[Guichet.lu Technical Help]: https:/guichet.public.luensupportaideaides-techniques.html
-[LuxTrust Javaless]: https:/www.luxtrust.comthe-new-luxtrust-middleware-100-javaless/
-[Szafir]: https:/www.elektronicznypodpis.plenoffersoftware-for-the-e-signature/
+* [DSS Demonstration WebApp Sign a Document] - Requires [NexU]
+
+[LuxTrust Middleware Download]: https://www.luxtrust.lu/simple189
+[LuxTrust Middleware Installation Guide]: https://www.luxtrust.lu/upload/data/guides/UG-0247-P-E-Install%20LuxTrust%20Middleware%20Windows_0.3.pdf
+[LuxTrust Pin Management Guide]: https://www.luxtrust.lu/downloads/guides/UG-0234-P-E-Gestion%20Pin%20Windows.pdf
+[Guichet.lu Technical Help]: https://guichet.public.lu/en/support/aide/aides-techniques.html
+[LuxTrust Javaless]: https://www.luxtrust.com/the-new-luxtrust-middleware-100-javaless/
+[Szafir]: https://www.elektronicznypodpis.pl/en/offer/software-for-the-e-signature/
 [XML Signer]: https:/www.signfiles.comxml-signer/
 [XML validator Buddy]: https:/www.xml-buddy.comValidatorBuddy.htm
 [DSS Demonstration WebApp Sign a Document]: https:/ec.europa.eucefdigitalDSSwebapp-demosign-a-document
