@@ -18,30 +18,9 @@ The past few weeks have been filled with pre-operative assessments, consultation
 
 ## Pre-Operative Preparations
 
-### Medical Preparations
+In the weeks leading up to admission, I completed all the required preparations. The hospital bag was packed with comfortable clothing and essentials. Work was handed over to colleagues, meals were prepped and frozen at home, and all the important documents were organized.
 
-The hospital provided a comprehensive checklist of things to prepare:
-
-* **Final blood tests**: To check clotting factors and general health markers
-* **ECG and chest X-ray**: Last-minute checks on heart function and lung condition
-* **Medication adjustments**: Stopped certain medications as instructed, particularly blood thinners
-* **Fasting instructions**: Clear guidelines on when to stop eating and drinking before surgery
-* **COVID-19 and infection screening**: To ensure I'm fit for surgery
-
-### Practical Preparations
-
-Beyond the medical side, there's plenty of practical preparation:
-
-* **Hospital bag packed**: Loose, comfortable clothing, toiletries, phone charger, and entertainment for recovery
-* **House preparation**: Clean sheets ready for when I return, meals prepped and frozen
-* **Work arrangements**: Everything handed over to colleagues, out-of-office messages set
-* **Important documents**: Advanced directives, insurance information, emergency contacts all organized
-
-### Mental Preparation
-
-Perhaps the most important preparation is mental. I've watched the surgical videos, read the patient experiences, and spoken with others who've been through this procedure. While it's natural to feel some anxiety about major heart surgery, I'm feeling remarkably calm and confident in the surgical team.
-
-The fact that this is now a routine procedure - performed thousands of times each year with excellent outcomes - is reassuring. Cardiac surgery has come such a long way, and the precision and skill involved is truly remarkable.
+Mentally, I felt calm and confident. I'd watched surgical videos, read patient experiences, and spoken with others who'd been through this procedure. While it's natural to feel some anxiety about major heart surgery, knowing this is a routine procedure performed thousands of times each year with excellent outcomes was reassuring.
 
 ## Hospital Check-In - 13:00
 
@@ -92,17 +71,19 @@ For technical details on traditional valve replacement, see my [previous post](/
 
 ## Expected Recovery Timeline
 
-The cardiac team has outlined what to expect:
+The cardiac team outlined an ambitious recovery plan:
 
-* **Days 1-3**: ICU recovery, extubation, starting to sit up
-* **Days 4-7**: Move to cardiac ward, start walking with physiotherapy
-* **Week 2-6**: Home recovery, gradually increasing activity
-* **Week 6-12**: Cardiac rehabilitation program
-* **3+ months**: Return to normal activities, including work
+* **Day 1 (Post-op)**: In ICU, start rehabilitation - sit up and eat breakfast
+* **Days 2-3**: Continued ICU care, progressive mobilization
+* **Days 3-4**: Transfer to intermediate care
+* **Week 1**: Move to cardiac ward
+* **Day 10**: Transfer to cardiologist's care
+* **Days 10-14**: Final hospital days under cardiology
+* **Weeks 2+**: Home recovery, gradually increasing activity
 
 ## Following My Progress
 
-I'll be documenting the recovery journey here on the blog as I'm able. I won't have access to my phone tomorrow, so the next update will likely be in a couple of days from my partner while I'm in recovery.
+I won't have access to my phone during surgery and initial recovery. The next update will be in a few days once I'm able to write again.
 
 You can follow along by subscribing to the [RSS feed](/feed.rss) or checking back here for updates.
 
@@ -110,9 +91,9 @@ You can follow along by subscribing to the [RSS feed](/feed.rss) or checking bac
 This post and future recovery updates are being written with AI assistance to help me document the experience clearly and efficiently. While I strive for accuracy, some details may be imperfect or subject to my personal recollection.
 :::
 
-## Reflections from the Hospital Ward
+## Evening Reflections
 
-It's now evening in the cardiac ward. The nursing staff have been excellent, the ward is quiet and well-run, and I have complete confidence in tomorrow's procedure. The next update will likely come from my partner while I'm in recovery.
+It's now evening in the cardiac ward. The nursing staff have been excellent, the ward is quiet and well-run, and I have complete confidence in tomorrow's procedure.
 
 Modern cardiac surgery truly is remarkable. I'm grateful for the skilled team and for living in an era where this life-changing procedure is routine.
 
