@@ -63,9 +63,15 @@ Throughout the afternoon, I was visited by various members of the surgical team,
 
 The surgeon brought excellent news. Instead of the full median sternotomy I'd been preparing for, they'll use a partial sternotomy - a smaller incision with only a partial cut of the sternum. This minimally invasive approach means quicker healing and reduced risk of complications.
 
-## Pre-Surgery Schedule
+## Evening Preparations
 
-Clear instructions for the hours leading up to surgery:
+The pre-surgery preparations continued through the evening:
+
+* **Hair removal**: For cleanliness and surgical site preparation
+* **Microlax**: Bowel preparation to keep things comfortable post-surgery
+* **Xanax**: Prescribed to help ensure a good night's sleep before the operation
+
+## Pre-Surgery Schedule
 
 * **18:00**: Light meal - my last food before surgery
 * **22:00**: Nothing to eat or drink after this time
@@ -98,9 +104,11 @@ The cardiac team has outlined what to expect:
 
 ## Following My Progress
 
-I'll be documenting the recovery journey here on the blog as I'm able. My partner will post updates on the first few days when I'm still in ICU and unable to write myself.
+I'll be documenting the recovery journey here on the blog as I'm able. I won't have access to my phone tomorrow, so the next update will likely be in a couple of days from my partner while I'm in recovery.
 
 You can follow along by subscribing to the [RSS feed](/feed.rss) or checking back here for updates.
+
+> **Note:** This post and future recovery updates are being written with AI assistance to help me document the experience clearly and efficiently. While I strive for accuracy, some details may be imperfect or subject to my personal recollection.
 
 ## Reflections from the Hospital Ward
 
