@@ -5,7 +5,7 @@ date: "2018-03-09"
 tags: ["Wyam", "AppVeyor", "NetlifyCMS", "Netlify"]
 description: "test a lead"
 ---
-The following was setup in part 1, but it is worth reviewing again, i think more external providers will be available .
+The following was set up in part 1, but it is worth reviewing again. I think more external providers will be available.
 ## Set registration preference and external providers
 Registration settings and External providers are located in settings under Identity
 ![](/img/Netlify_Site_Settings.PNG)  ![](/img/Netlify_Identity_Reg_pref_providers.PNG)  ### Enable Git Gateway in Netlify
