@@ -82,9 +82,7 @@ The nursing staff provided clear instructions for the hours leading up to surger
 
 I was given a bottle of water to stay hydrated through the evening, and I'm making the most of being able to have that light meal later.
 
-![Pre-surgery evening meal](placeholder-for-meal-image.jpg)
-
-*Placeholder for image of my pre-surgery meal*
+<!-- Image placeholder: Pre-surgery evening meal -->
 
 ## The Surgery Tomorrow
 
