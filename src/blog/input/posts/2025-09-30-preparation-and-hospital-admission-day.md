@@ -59,46 +59,32 @@ Throughout the afternoon, I was visited by various members of the surgical team,
 * **Anaesthesiologist**: Discussed anaesthesia plan and post-operative pain management
 * **Surgeon**: The most important conversation - explaining the surgical approach
 
-## A Welcome Change in Surgical Plan
+## The Surgical Plan
 
-The surgeon brought excellent news about the surgical approach. Instead of the full median sternotomy (completely splitting the breastbone) that I'd been preparing for, the plan is now:
+The surgeon brought excellent news. Instead of the full median sternotomy I'd been preparing for, they'll use a partial sternotomy - a smaller incision with only a partial cut of the sternum. This minimally invasive approach means quicker healing and reduced risk of complications.
 
-* **Smaller incision**: A more minimally invasive approach
-* **Partial sternotomy**: Only a partial cut of the sternum rather than the full split
+## Pre-Surgery Schedule
 
-This is fantastic news because it means:
+Clear instructions for the hours leading up to surgery:
 
-* **Quicker healing**: Less trauma to the chest wall
-* **Reduced complications**: Lower risk of sternal instability during recovery
-* **Better outcomes**: Generally improved recovery experience
+* **18:00**: Light meal - my last food before surgery
+* **22:00**: Nothing to eat or drink after this time
+* **08:00**: Surgery start time tomorrow morning
 
-I'm relieved and grateful that this less invasive option is possible in my case.
-
-## Pre-Surgery Meal Plan
-
-The nursing staff provided clear instructions for the hours leading up to surgery:
-
-* **18:00 (6 PM)**: Light meal - my last food before surgery
-* **22:00 (10 PM)**: Nothing to eat or drink after this time
-* **08:00 (8 AM)**: Planned surgery start time tomorrow morning
-
-I was given a bottle of water to stay hydrated through the evening, and I'm making the most of being able to have that light meal later.
+I was given a bottle of water to stay hydrated through the evening.
 
 <!-- Image placeholder: Pre-surgery evening meal -->
 
-## The Surgery Tomorrow
+## Tomorrow's Procedure
 
-Tomorrow morning at 8:00 AM, I'll have the aortic valve replacement. The updated surgical approach involves:
+At 8:00 AM tomorrow, the team will:
 
-* **Smaller incision**: More minimally invasive than traditional approach
-* **Partial sternotomy**: Only a partial cut of the sternum instead of full median sternotomy
-* **Heart-lung bypass**: Connecting to the bypass machine
-* **Valve replacement**: Removing the diseased bicuspid valve and sewing in the new prosthetic valve
-* **Recovery start**: Waking up in ICU with monitoring equipment
+* Connect me to the heart-lung bypass machine
+* Remove the diseased bicuspid valve
+* Sew in the new prosthetic valve
+* Transfer me to ICU for initial recovery
 
-The benefits of this modified approach include quicker healing and less chance of complications with sternal instability.
-
-If you're interested in the technical details of traditional valve replacement, I linked to an excellent surgical animation in my [previous post](/posts/2025-09-28-getting-a-new-aortic-valve).
+For technical details on traditional valve replacement, see my [previous post](/posts/2025-09-28-getting-a-new-aortic-valve).
 
 ## Expected Recovery Timeline
 
@@ -118,10 +104,8 @@ You can follow along by subscribing to the [RSS feed](/feed.rss) or checking bac
 
 ## Reflections from the Hospital Ward
 
-It's now evening in the cardiac ward, and I'm feeling calm and ready. The fact that the surgical team has opted for the less invasive approach is reassuring - it speaks to their confidence in achieving a good outcome with reduced trauma to my chest.
+It's now evening in the cardiac ward. The nursing staff have been excellent, the ward is quiet and well-run, and I have complete confidence in tomorrow's procedure. The next update will likely come from my partner while I'm in recovery.
 
-The nursing staff have been excellent, the ward is quiet and well-run, and I have complete confidence in tomorrow's procedure. The next update will likely come from my partner while I'm in recovery.
-
-Modern cardiac surgery truly is remarkable. I'm grateful for the skilled team, the advanced techniques that make this minimally invasive approach possible, and for living in an era where this life-changing procedure is routine.
+Modern cardiac surgery truly is remarkable. I'm grateful for the skilled team and for living in an era where this life-changing procedure is routine.
 
 See you on the other side!
