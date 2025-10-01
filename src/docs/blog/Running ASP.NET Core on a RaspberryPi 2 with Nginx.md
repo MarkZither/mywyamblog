@@ -1,14 +1,11 @@
 ---
-Title: "Running ASP.NET Core On A RaspberryPi 2 With Nginx"
-Published: 2025-09-28
-Tags: [General]
+title: "Running ASP.NET Core on a RaspberryPi 2 with Nginx"
+authors: ["mark-burton"]
+date: "2017-02-21"
+tags: ["ASP.NET Core", "RaspberryPi", "Nginx"]
 ---
 
-﻿---
-Title: Running ASP.NET Core on a RaspberryPi 2 with Nginx
-Published: 2017-02-21
-Tags:  - ASP.NET Core  - RaspberryPi  - Nginx
----  # Running ASP.NET Core on a RaspberryPi 2 with Nginx  I followed the instructions from [Get Started](https:/blogs.msdn.microsoft.comdavid20170720setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi) and [docs.microsoft.com](https:/docs.microsoft.comen-usaspnetcorepublishinglinuxproduction?tabs=aspnetcore2x), and found that some additional configuration was required.  # prerequisites  the [prerequisites](https:/github.comdotnetcoreblobmasterDocumentationprereqs.md) are required or you will get an error like:  ```perl
+# Running ASP.NET Core on a RaspberryPi 2 with Nginx  I followed the instructions from [Get Started](https:/blogs.msdn.microsoft.comdavid20170720setting_up_raspian_and_dotnet_core_2_0_on_a_raspberry_pi) and [docs.microsoft.com](https:/docs.microsoft.comen-usaspnetcorepublishinglinuxproduction?tabs=aspnetcore2x), and found that some additional configuration was required.  # prerequisites  the [prerequisites](https:/github.comdotnetcoreblobmasterDocumentationprereqs.md) are required or you will get an error like:  ```perl
 Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or directory Failed to bind to CoreCLR at /varwwwPublishOutputlibcoreclr.so'
 ```  # Permissions
 `chmod 744?`  # Tell Kestrel to listen  If you are running headless you will need Kestrel to be listening for external requests to confirm the app is running, this can be done using the `ASPNETCORE_URLS environment variable`  ```perl  ASPNETCORE_URLS="http:/*:5000" dotnet Your.App.dll

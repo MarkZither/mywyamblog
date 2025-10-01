@@ -1,14 +1,10 @@
 ---
-Title: "First Post"
-Published: 2025-09-28
-Tags: [General]
+title: "First Post"
+authors: ["mark-burton"]
+date: "2018-01-12"
+tags: ["Introduction"]
 ---
 
-﻿---
-Title: First Post
-Published: 2018-01-12
-Tags: Introduction
----
 # Welcome to a MiniBlog clone on .net core  The initial idea behind this was to learn about the differences when building a website on ASP.net CORE so that i can run on a raspberry pi, i am sure there were much easier ways to achieve that.  I choose MiniBlog[^1] as a starting point so that i did not need a database and ended up with a sqlite database for the identity tables as it seems you can no longer specify users in web.config like in previous versions of ASP.net using forms authentication.  ###list of things i had to learnwork through
 * strongly typed configs (yay)  * sqlite in ef core - Julie Lerman and Geoffrey Grosenback have a nice introduction to [EF Core 1.0 on PluralSight](https:/www.pluralsight.comcoursesplay-by-play-ef-core-1-0-first-look-julie-lerman)[^2]
 * upgrading packages can have terrible side effects (IOptions from Microsoft.Framework.OptionsModelIOptions to Microsoft.Extensions.OptionsIOptions leaving a reference to Microsoft.Framework.OptionsModel)
