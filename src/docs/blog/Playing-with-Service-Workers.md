@@ -1,9 +1,9 @@
 ---
 title: "Playing with Service Workers"
 authors: ["mark-burton"]
+date: "2017-12-18"
 tags: ["Service Workers", "Notifications API", "Push API", "PWA", "Progressive Web Apps", "VAPID", "CORS"]
 ---
-
 # Service workers, Push API, Notifcations API and PWAs
 This will not work for you as service workers are not supported ## Location of the serviceworker.js file and scope matters
 I started with the sw.js file in the assetsscripts folder with the rest of the script files, but calls to ```navigator.serviceWorker.getRegistration()``` were never returning, this stackoverflow thread explains the issue.
