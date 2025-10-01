@@ -20,7 +20,7 @@ to your layouthomepage, you can just add the following to the body of your layou
 ```
 Now when the user hits the homepage with the `#invite_token=` in the URL the complete signup modal will appear.
 :::
-::: ![](/img/Netlify_Identity_Complete_Signup.png)
+::: ![](/img/Netlify_Identity_Complete_Signup.PNG)
 :::
 ::::::  ### Invite some users
 Might be best to come back to this step after setting the registration preferences

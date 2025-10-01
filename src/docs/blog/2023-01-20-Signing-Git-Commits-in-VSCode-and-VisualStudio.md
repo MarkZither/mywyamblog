@@ -28,9 +28,11 @@ disks) during the prime generation; this gives the random number
 generator a better chance to gain enough entropy.
 gpg: directory 'C:\\Users\\xxxxx\\AppData\\Roaming\\gnupg\\openpgp-revocs.d' created
 gpg: revocation certificate stored as 'C:\\Users\\xxxxxx\\AppData\\Roaming\\gnupg\\openpgp-revocs.d\\36E97B0FB71E5EEEC2244F4AFDE4A9B5B04820D7.rev'
-public and secret key created and signed.  pub  rsa4096 2023-01-29 [SC]  36E97B0FB71E5EEEC2244F4AFDE4A9B5B04820D7
-uid  markb <mark@example.com />
-sub  rsa4096 2023-01-29 [E]  ```  ## Final git config  ``` powershell  PS C:\Source\GitRepos\mywyamblog&gt; git config --global -l
+public and secret key created and signed.
+pub  rsa4096 2023-01-29 [SC]  36E97B0FB71E5EEEC2244F4AFDE4A9B5B04820D7
+uid  markb &lt;mark@example.com&gt;
+sub  rsa4096 2023-01-29 [E]
+```  ## Final git config  ``` powershell  PS C:\Source\GitRepos\mywyamblog&gt; git config --global -l
 ...snip...
 user.signingkey=N07AR33A1S1GN1NGK3Y!
 gpg.program=c:Program Files (x86)GnuPGbingpg.exe
