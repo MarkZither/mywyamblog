@@ -62,6 +62,8 @@ I was given a bottle of water to stay hydrated through the evening.
 ## Surgery Day Morning
 
 * **05:00**: Wake up for second isobetadine shower
+* **Blood pressure**: 123/78 - back to more normal levels for me
+* **More Xanax**: Additional dose for pre-surgery relaxation
 * **08:00**: Surgery start time
 
 ## The Procedure
@@ -94,7 +96,7 @@ I won't have access to my phone during surgery and initial recovery. The next up
 You can follow along by subscribing to the [RSS feed](/feed.rss) or checking back here for updates.
 
 :::note
-This post and future recovery updates are being written with AI assistance to help me document the experience clearly and efficiently. While I strive for accuracy, some details may be imperfect or subject to my personal recollection.
+This post and future recovery updates are being written with AI assistance (GitHub Copilot) to help me document the experience clearly and efficiently. Working with Copilot on my phone makes it difficult to make corrections myself, so some details may need refinement.
 :::
 
 ## Evening Reflections
