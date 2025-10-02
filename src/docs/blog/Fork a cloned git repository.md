@@ -1,9 +1,9 @@
 ---
 title: "How to fork a cloned repository in Visual Studio"
 authors: ["mark-burton"]
+date: "2018-01-27"
 tags: ["GitHub"]
 ---
-
 # How to fork a cloned repository in Visual Studio
 based on these gists
 https:/gist.github.comjpiersonb6c0815e9dd7078f6b8cc3cb9076ddf4

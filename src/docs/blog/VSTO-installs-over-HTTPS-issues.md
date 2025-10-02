@@ -1,14 +1,11 @@
 ---
-Title: "VSTO Installs Over HTTPS Issues"
-Published: 2025-09-28
-Tags: [General]
+title: "VSTO installs over HTTPS issues"
+authors: ["mark-burton"]
+date: "2019-02-25"
+tags: ["VSTO", "HTTPS", "GPO", "IE Security"]
 ---
 
-﻿---
-Title: VSTO installs over HTTPS issues
-Published: 2019-02-25
-Tags:  - VSTO  - HTTPS  - GPO  - IE Security
----  # Are Envrionmental?
+# Are Envrionmental?
 Test with this [setup.exe](assetstestvstosetup.exe).  ## The Problem
 Setup runs sucessfully over http, but switch to https by publishing again with the https url or by using `setup.exe -url="https:/myurl.comMyAppFoldersetup.exe"`
 ```

@@ -1,14 +1,11 @@
 ---
-Title: "Setting Raspberry Pi NGINX PHP MySQL LEMP Stack"
-Published: 2025-09-28
-Tags: [General]
+title: "Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack"
+authors: ["mark-burton"]
+date: "2017-02-21"
+tags: ["Raspberry Pi", "NGINX", "PHP", "MySQL", "LEMP"]
 ---
 
-﻿---
-Title: Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack
-Published: 2017-02-21
-Tags:  - Raspberry Pi  - NGINX  - PHP  - MySQL  - LEMP
----  # Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack  Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.  [Ste Wright - Turn your Raspberry Pi 3 into a PHP 7 powered web server](https:/www.stewright.me201603turn-raspberry-pi-3-php-7-powered-web-server)  Follow the blog except at step 2 run
+# Setting up a Raspberry Pi NGINX PHP MySQL LEMP Stack  Ste Wright has already written up how to install PHP 7 on a RPi3 the same works for RPi2 so i will not rewrite it here.  [Ste Wright - Turn your Raspberry Pi 3 into a PHP 7 powered web server](https:/www.stewright.me201603turn-raspberry-pi-3-php-7-powered-web-server)  Follow the blog except at step 2 run
 ```PERL
 sudo apt-get install php-fpm
 ```

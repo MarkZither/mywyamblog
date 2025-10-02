@@ -1,14 +1,11 @@
 ---
-Title: "Nunit Tests Not Showing In Test Explorer"
-Published: 2025-09-28
-Tags: [General]
+title: "NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer"
+authors: ["mark-burton"]
+date: "2017-02-21"
+tags: ["NUnit"]
 ---
 
-﻿---
-Title: NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer
-Published: 2017-02-21
-Tags: NUnit
----  # NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer  Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.
+# NUnit 3 Tests Are Not Showing In Visual Studio Test Explorer  Regularly when opening a solution containing a project with NUnit 3 tests Visual Studio Community 2015 the Test Explorer window does not show any tests.
 
 <div className="row" /><div /><div className="col-xs-12 col-md-4" />![](/img/Empty Test%20Explorer.png)  <div />
 <div />

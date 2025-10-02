@@ -1,9 +1,9 @@
 ---
 title: "Job Interview Technical Test Preparation"
 authors: ["mark-burton"]
+date: "2017-11-04"
 tags: ["ASP.NET Core", "Custom Model Binding", "CQRS", "Azure Service Bus", "AMQP"]
 ---
-
 # ASP.NET MVC Custom Model Binding
 [docs.microsoft.com](https:/docs.microsoft.comen-usaspnetcoremvcadvancedcustom-model-binding)  Apply to a controller action by specifying it in the signature `public IActionResult EncodedName([ModelBinder(typeof(Base64StringBinder))] string name)`.  Apply to a model using `[ModelBinder(BinderType = typeof(AuthorEntityBinder))]`  and register in startup.cs
 ``` csharp
