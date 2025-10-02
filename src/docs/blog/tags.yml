@@ -211,6 +211,26 @@ Recipes:
   permalink: /recipes
   description: Food and cooking recipes
 
+health:
+  label: Health
+  permalink: /health
+  description: Health and medical topics
+
+surgery:
+  label: Surgery
+  permalink: /surgery
+  description: Surgical procedures and experiences
+
+heart:
+  label: Heart
+  permalink: /heart
+  description: Cardiac health and heart-related topics
+
+medical:
+  label: Medical
+  permalink: /medical
+  description: Medical topics and healthcare
+
 # Default Docusaurus tags
 docusaurus:
   label: Docusaurus
