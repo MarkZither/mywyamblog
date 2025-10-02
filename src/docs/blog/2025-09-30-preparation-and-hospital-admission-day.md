@@ -44,12 +44,15 @@ The surgeon brought excellent news. Instead of the full median sternotomy I'd be
 
 The pre-surgery preparations continued through the evening:
 
+* **Isobetadine shower**: A thorough shower with isobetadine soap - dark red in colour but washes off without staining
+* **Dental hygiene**: Toothbrush and mouthwash for oral care
 * **Hair removal**: For cleanliness and surgical site preparation
 * **Microlax**: Bowel preparation to keep things comfortable post-surgery
 * **Xanax**: Prescribed to help ensure a good night's sleep before the operation
 
 ## Pre-Surgery Schedule
 
+* **05:00**: Wake up for second isobetadine shower
 * **18:00**: Light meal - my last food before surgery
 * **22:00**: Nothing to eat or drink after this time
 * **08:00**: Surgery start time tomorrow morning
