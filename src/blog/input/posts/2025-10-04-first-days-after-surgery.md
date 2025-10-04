@@ -1,9 +1,13 @@
 ---
-title: "First Days After Surgery"
-authors: ["mark-burton"]
-tags: ["Heart", "Surgery", "Recovery", "Aorta"]
-description: "The initial days of recovery following aortic valve replacement surgery."
-date: "2024-10-04"
+Title: First Days After Surgery
+Lead: The initial days of recovery following aortic valve replacement surgery.
+Published: 2025-10-04T10:00:00.000Z
+Image: 
+Tags:
+  - Heart
+  - Surgery
+  - Recovery
+  - Aorta
 ---
 
 ## Post-Operation Day: Thursday, 3rd October
