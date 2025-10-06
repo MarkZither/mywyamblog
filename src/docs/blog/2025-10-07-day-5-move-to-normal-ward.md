@@ -8,7 +8,7 @@ date: "2025-10-07"
 
 ## Morning Routine in Intermediate Care
 
-The pattern had become familiar by now - the night shift nurses arrived at 5:30 AM and had to wake me for the daily ECG. After another snooze, a whole new team of nurses arrived for the day shift. Unlike previous days, there was no X-ray scheduled today as far as I recall.
+The pattern had become familiar by now - the night shift nurses arrived at 5:30 AM and had to wake me for the daily ECG. After another snooze, a whole new team of nurses arrived for the day shift. Unlike previous days, there was no X-ray scheduled today.
 
 I was gotten ready for the surgeon's visit, who arrived with a big team of doctors and students in tow. He asked me if I needed the oxygen anymore. I gave an honest shrug - "I don't know." He told me he would check and, after confirming my oxygen levels were good, ordered the oxygen removed. Then came the good news: they were preparing a new room for me in the standard care ward.
 
