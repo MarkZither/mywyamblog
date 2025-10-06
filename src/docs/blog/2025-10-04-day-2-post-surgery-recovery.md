@@ -77,7 +77,3 @@ Each small step forward - the tube removal, improved breathing, standing up, wal
 :::note
 This post and future recovery updates are being written with AI assistance (GitHub Copilot) to help me document the experience clearly and efficiently. Working with Copilot on my phone makes it difficult to make corrections myself, so some details may need refinement.
 :::
-
-## Looking Forward
-
-The continued removal of medical devices and increasing mobility marks excellent progress. Each day brings new independence and moves me closer to transfer from ICU to intermediate care.
