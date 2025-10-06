@@ -61,6 +61,24 @@ The team at INCCI (Cardiac Intensive Care) at Strassen CHL have looked after me 
 
 Being free from all of the machines meant that I could go for my first walk. It was a very short one - maybe 20 metres there and back along the corridor - but it was a walk, and another significant milestone in my recovery. Every step, quite literally, was progress.
 
+## Evening Exhaustion
+
+At the end of the day, after the little walk, I very quickly got tired and was asleep by 21:00. I slept so soundly that I slept through at least three hourly automated blood pressure tests - which are noisy affairs - and even the visit of the night staff at shift change.
+
+## Middle of the Night Pain
+
+At 01:00, I woke up with quite intense pain. I pressed the buzzer and the nurse arrived quickly. She gave me a tiny chip of medicine to dissolve and told me everything was normal. Soon after, I was dozing again until it was shift change time.
+
+## Managing Water Retention
+
+During the day, I had been given a tablet-based dose of [Lasix](https://en.wikipedia.org/wiki/Furosemide) (furosemide), a diuretic medication. Like the night before, this had me regularly peeing into a measuring bottle so they could track how much of my retained water I was managing to eliminate. I was thankfully looking somewhat like myself by the end of the day.
+
+The previous night, whilst I still had the neck cannula in place, the doctor had decided to start me on an infusion of Lasix to address my water retention. That meant not much sleep that night as I kept filling the pee bottle and buzzing the nurses for new ones. Thankfully, from my perspective, that was planned better the following day with the tablet dosing approach.
+
+## The Potassium Problem
+
+One side effect of Lasix is losing potassium, so I had potassium drinks - tablets dissolved into water. Whatever they were, they had not bothered with the flavouring. Cold, fizzy horribleness. A bit like the first beer I tried to brew.
+
 ## Looking Forward
 
 The continued removal of medical devices and increasing mobility marks excellent progress. Each day brings new independence and moves me closer to transfer from ICU to intermediate care.
