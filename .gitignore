@@ -11,7 +11,8 @@ local.settings.json
 
 cache/
 
-# Docusaurus transpiled files (we have .ts/.tsx sources)
+# Docusaurus
+node_modules/
 src/docs/docusaurus.config.js
 src/docs/sidebars.js
 src/docs/src/**/*.js
