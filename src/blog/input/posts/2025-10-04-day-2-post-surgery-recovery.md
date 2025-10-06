@@ -35,23 +35,9 @@ Lunch came around at 12:30. Whilst the nurse helped me swing my legs off the bed
 
 The nursing staff were supportive throughout, ensuring I moved safely whilst encouraging independence where possible.
 
-## Managing Water Retention - Day 2
-
-During the day, I had been given a tablet-based dose of [Lasix](https://en.wikipedia.org/wiki/Furosemide) (furosemide), a diuretic medication. This had me regularly peeing into a measuring bottle so they could track how much of my retained water I was managing to eliminate. I was thankfully looking somewhat like myself by the end of the day.
-
-One side effect of Lasix is losing potassium, so I had potassium drinks - tablets dissolved into water. Whatever they were, they had not bothered with the flavouring. Cold, fizzy horribleness. A bit like the first beer I tried to brew.
-
 ## Saturday Night - Water Retention Management
 
-The previous night (whilst I still had the neck cannula in place), the doctor had decided to start me on an infusion of Lasix to address my water retention. That meant not much sleep as I kept filling the pee bottle and buzzing the nurses for new ones. Thankfully, from my perspective, that was planned better the following day with the tablet dosing approach.
-
-## Evening Exhaustion
-
-At the end of Saturday, I very quickly got tired and was asleep by 21:00. I slept so soundly that I slept through at least three hourly automated blood pressure tests - which are noisy affairs - and even the visit of the night staff at shift change.
-
-## Middle of the Night Pain
-
-At 01:00, I woke up with quite intense pain. I pressed the buzzer and the nurse arrived quickly. She gave me a tiny cup of medicine with a small amount of liquid in it to drink and told me everything was normal. Soon after, I was dozing again until it was shift change time.
+On Saturday night (whilst I still had the neck cannula in place), the doctor decided to start me on an infusion of [Lasix](https://en.wikipedia.org/wiki/Furosemide) (furosemide), a diuretic medication, to address my water retention. That meant not much sleep that night as I kept filling the pee bottle and buzzing the nurses for new ones.
 
 ## Day 3 - Sunday Morning - Freedom from Lines
 
@@ -60,6 +46,12 @@ On Sunday, the biggest milestone was the removal of the remaining cannula from m
 The nurse instructed me: "Count to three and breathe in, then hold your breath." No mean feat, holding your breath after open heart surgery, I can tell you. Then he pulled out what felt like a couple of centimetres. The sensation was quite remarkable.
 
 With that removal, I was finally totally free from all lines and tubes. All medication was now oral, except for anticoagulants and anti-thrombosis injections administered in my belly, and blood samples taken from my arm rather than through a central line.
+
+## Managing Water Retention - Day 3
+
+During Sunday, I was given a tablet-based dose of Lasix instead of the infusion. This had me regularly peeing into a measuring bottle so they could track how much of my retained water I was managing to eliminate. I was thankfully looking somewhat like myself by the end of the day. The tablet approach was much better planned - it allowed me to stop peeing by about 20:00 so I could sleep well.
+
+One side effect of Lasix is losing potassium, so I had potassium drinks - tablets dissolved into water. Whatever they were, they had not bothered with the flavouring. Cold, fizzy horribleness. A bit like the first beer I tried to brew.
 
 ## Overcoming Needle Anxiety
 
@@ -70,6 +62,14 @@ The team at INCCI (Cardiac Intensive Care) at Strassen CHL have looked after me 
 ## First Walk
 
 Being free from all of the machines meant that I could go for my first walk. It was a very short one - maybe 20 metres there and back along the corridor - but it was a walk, and another significant milestone in my recovery. Every step, quite literally, was progress.
+
+## Sunday Evening Exhaustion
+
+At the end of Sunday, I very quickly got tired and was asleep by 21:00. I slept so soundly that I slept through at least three hourly automated blood pressure tests - which are noisy affairs - and even the visit of the night staff at shift change.
+
+## Middle of the Night Pain
+
+At 01:00, I woke up with quite intense pain. I pressed the buzzer and the nurse arrived quickly. She gave me a tiny cup of medicine with a small amount of liquid in it to drink and told me everything was normal. Soon after, I was dozing again until it was shift change time.
 
 ## Recovery Progress
 
