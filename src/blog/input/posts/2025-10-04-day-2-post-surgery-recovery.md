@@ -1,6 +1,6 @@
 ---
-Title: Day 2 Post-Surgery - Standing Up
-Lead: "Early morning tests, drainage tube removal, and taking my first steps."
+Title: Days 2-3 Post-Surgery - Standing and Walking
+Lead: "Early morning tests, drainage tube removal, cannula removal, and my first walk."
 Published: 2025-10-04T12:30:00.000Z
 Date: 2025-10-04T12:30:00.000Z
 Tags:
@@ -11,7 +11,7 @@ Tags:
   - recovery
 ---
 
-Saturday, 4th October 2025 - Day 2 after my aortic valve replacement surgery. Today brought significant progress in my recovery, from early morning monitoring through to standing up under my own power for the first time.
+Saturday and Sunday, 4th-5th October 2025 - Days 2 and 3 after my aortic valve replacement surgery were remarkably similar, with continued progress in my recovery. From early morning monitoring through to standing up and eventually taking my first walk.
 
 ## Early Morning Routine
 
@@ -43,6 +43,24 @@ Each small step forward - the tube removal, improved breathing, standing up - bu
 
 > **Note:** This post and future recovery updates are being written with AI assistance (GitHub Copilot) to help me document the experience clearly and efficiently. Working with Copilot on my phone makes it difficult to make corrections myself, so some details may need refinement.
 
+## Day 3 - Freedom from Lines
+
+On Sunday, the biggest milestone was the removal of the remaining cannula from my neck. Based on how it felt coming out, I assume it was something quite sizeable - likely a [Central Venous Catheter (CVC)](https://en.wikipedia.org/wiki/Central_venous_catheter), which is typically inserted into the internal jugular vein in the neck to provide central venous access during and after cardiac surgery.
+
+The nurse instructed me: "Count to three and breathe in, then hold your breath." No mean feat, guiding your breath after open heart surgery, I can tell you. Then he pulled out what felt like a couple of centimetres. The sensation was quite remarkable.
+
+With that removal, I was finally totally free from all lines and tubes. All medication was now oral, except for anticoagulants and anti-thrombosis injections administered in my belly, and blood samples taken from my arm rather than through a central line.
+
+## Overcoming Needle Anxiety
+
+I must say, having been afraid of needles all my life - I blame a bad experience at the doctor's surgery with a doctor who went to the same church as us and lived on the same street, making them unavoidable - all of the tests over the last couple of years have been pretty much painless and mostly without so much as a bruise.
+
+The team at INCCI (Cardiac Intensive Care) at Strassen CHL have looked after me so well. I still close my eyes when there's a needle, but I'm not sure why anymore. The fear has diminished significantly through positive experiences.
+
+## First Walk
+
+Being free from all of the machines meant that I could go for my first walk. It was a very short one - maybe 20 metres there and back along the corridor - but it was a walk, and another significant milestone in my recovery. Every step, quite literally, was progress.
+
 ## Looking Forward
 
-The focus now is on continuing to improve breathing capacity, increasing mobility, and working towards transfer to intermediate care in the coming days. Each day should bring new progress and increased independence.
+The continued removal of medical devices and increasing mobility marks excellent progress. Each day brings new independence and moves me closer to transfer from ICU to intermediate care.
