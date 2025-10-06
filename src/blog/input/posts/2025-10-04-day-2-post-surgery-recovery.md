@@ -13,11 +13,11 @@ Tags:
 
 Saturday and Sunday, 4th-5th October 2025 - Days 2 and 3 after my aortic valve replacement surgery were remarkably similar, with continued progress in my recovery. From early morning monitoring through to standing up and eventually taking my first walk.
 
-## Early Morning Routine
+## Day 2 - Saturday Morning
 
 The day started early at 5:30 AM with an ECG whilst still in bed. This was followed by an X-ray around 7:00 AM, also conducted bedside. These morning tests are a routine part of post-operative monitoring to check heart function and lung condition after cardiac surgery.
 
-## Surgeon's Visit
+## Drainage Tube Removal
 
 The surgeon came to visit and confirmed that my drainage tube would be removed. The drainage tube had been collecting excess fluid from around the surgical site, and its removal is a significant milestone in the recovery process.
 
@@ -35,19 +35,29 @@ Lunch came around at 12:30. Whilst the nurse helped me swing my legs off the bed
 
 The nursing staff were supportive throughout, ensuring I moved safely whilst encouraging independence where possible.
 
-## Recovery Progress
+## Managing Water Retention - Day 2
 
-According to the expected timeline from my [pre-surgery post](/posts/2025-09-30-preparation-and-hospital-admission-day), Days 2-3 involve continued ICU care with progressive mobilisation. Standing up today marks excellent progress towards that goal.
+During the day, I had been given a tablet-based dose of [Lasix](https://en.wikipedia.org/wiki/Furosemide) (furosemide), a diuretic medication. This had me regularly peeing into a measuring bottle so they could track how much of my retained water I was managing to eliminate. I was thankfully looking somewhat like myself by the end of the day.
 
-Each small step forward - the tube removal, improved breathing, standing up - builds confidence and demonstrates that the recovery is progressing as planned.
+One side effect of Lasix is losing potassium, so I had potassium drinks - tablets dissolved into water. Whatever they were, they had not bothered with the flavouring. Cold, fizzy horribleness. A bit like the first beer I tried to brew.
 
-> **Note:** This post and future recovery updates are being written with AI assistance (GitHub Copilot) to help me document the experience clearly and efficiently. Working with Copilot on my phone makes it difficult to make corrections myself, so some details may need refinement.
+## Saturday Night - Water Retention Management
 
-## Day 3 - Freedom from Lines
+The previous night (whilst I still had the neck cannula in place), the doctor had decided to start me on an infusion of Lasix to address my water retention. That meant not much sleep as I kept filling the pee bottle and buzzing the nurses for new ones. Thankfully, from my perspective, that was planned better the following day with the tablet dosing approach.
+
+## Evening Exhaustion
+
+At the end of Saturday, I very quickly got tired and was asleep by 21:00. I slept so soundly that I slept through at least three hourly automated blood pressure tests - which are noisy affairs - and even the visit of the night staff at shift change.
+
+## Middle of the Night Pain
+
+At 01:00, I woke up with quite intense pain. I pressed the buzzer and the nurse arrived quickly. She gave me a tiny cup of medicine with a small amount of liquid in it to drink and told me everything was normal. Soon after, I was dozing again until it was shift change time.
+
+## Day 3 - Sunday Morning - Freedom from Lines
 
 On Sunday, the biggest milestone was the removal of the remaining cannula from my neck. Based on how it felt coming out, I assume it was something quite sizeable - likely a [Central Venous Catheter (CVC)](https://en.wikipedia.org/wiki/Central_venous_catheter), which is typically inserted into the internal jugular vein in the neck to provide central venous access during and after cardiac surgery.
 
-The nurse instructed me: "Count to three and breathe in, then hold your breath." No mean feat, guiding your breath after open heart surgery, I can tell you. Then he pulled out what felt like a couple of centimetres. The sensation was quite remarkable.
+The nurse instructed me: "Count to three and breathe in, then hold your breath." No mean feat, holding your breath after open heart surgery, I can tell you. Then he pulled out what felt like a couple of centimetres. The sensation was quite remarkable.
 
 With that removal, I was finally totally free from all lines and tubes. All medication was now oral, except for anticoagulants and anti-thrombosis injections administered in my belly, and blood samples taken from my arm rather than through a central line.
 
@@ -61,23 +71,13 @@ The team at INCCI (Cardiac Intensive Care) at Strassen CHL have looked after me 
 
 Being free from all of the machines meant that I could go for my first walk. It was a very short one - maybe 20 metres there and back along the corridor - but it was a walk, and another significant milestone in my recovery. Every step, quite literally, was progress.
 
-## Evening Exhaustion
+## Recovery Progress
 
-At the end of the day, after the little walk, I very quickly got tired and was asleep by 21:00. I slept so soundly that I slept through at least three hourly automated blood pressure tests - which are noisy affairs - and even the visit of the night staff at shift change.
+According to the expected timeline from my [pre-surgery post](/posts/2025-09-30-preparation-and-hospital-admission-day), Days 2-3 involve continued ICU care with progressive mobilisation. Standing up on day 2 and walking on day 3 marks excellent progress towards that goal.
 
-## Middle of the Night Pain
+Each small step forward - the tube removal, improved breathing, standing up, walking - builds confidence and demonstrates that the recovery is progressing as planned.
 
-At 01:00, I woke up with quite intense pain. I pressed the buzzer and the nurse arrived quickly. She gave me a tiny chip of medicine to dissolve and told me everything was normal. Soon after, I was dozing again until it was shift change time.
-
-## Managing Water Retention
-
-During the day, I had been given a tablet-based dose of [Lasix](https://en.wikipedia.org/wiki/Furosemide) (furosemide), a diuretic medication. Like the night before, this had me regularly peeing into a measuring bottle so they could track how much of my retained water I was managing to eliminate. I was thankfully looking somewhat like myself by the end of the day.
-
-The previous night, whilst I still had the neck cannula in place, the doctor had decided to start me on an infusion of Lasix to address my water retention. That meant not much sleep that night as I kept filling the pee bottle and buzzing the nurses for new ones. Thankfully, from my perspective, that was planned better the following day with the tablet dosing approach.
-
-## The Potassium Problem
-
-One side effect of Lasix is losing potassium, so I had potassium drinks - tablets dissolved into water. Whatever they were, they had not bothered with the flavouring. Cold, fizzy horribleness. A bit like the first beer I tried to brew.
+> **Note:** This post and future recovery updates are being written with AI assistance (GitHub Copilot) to help me document the experience clearly and efficiently. Working with Copilot on my phone makes it difficult to make corrections myself, so some details may need refinement.
 
 ## Looking Forward
 
