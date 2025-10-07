@@ -49,7 +49,7 @@ The Mediflo Duo is an incentive spirometer with adjustable resistance levels tha
 
 The "special braced position" I mention is essential for managing pain during coughing, standing up, or sitting down. They provided me with a recovery gilet (a padded vest), and the technique is to fold your arms across your body with your hands tucked into your armpits, essentially hugging yourself tightly. This braces and supports the chest incision area, reducing the stress on the sternum and making movements much more bearable. Without this bracing technique, even simple movements would be excruciating.
 
-<!-- TODO: Add illustrative image of bracing position with recovery gilet -->
+<!-- TODO: Add illustrative image of bracing position with recovery gilet. Planned for addition by 2025-10-15. -->
 
 Despite the pain, I'm committed to doing the breathing exercises regularly. They're an essential part of preventing complications.
 
