@@ -1,7 +1,8 @@
 ---
 Title: Day 5 of Recovery - Moving to the Normal Ward
-Lead: Day 5 post-surgery: transitioning from intermediate care to the normal ward and continuing recovery.
+Lead: "Day 5 post-surgery: transitioning from intermediate care to the normal ward and continuing recovery."
 Published: 2025-10-07T10:00:00.000Z
+Image: 
 Tags:
   - Heart
   - Surgery
