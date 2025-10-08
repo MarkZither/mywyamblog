@@ -1,5 +1,5 @@
 ---
-Title: Day 6 - Progress on the Normal Ward
+Title: Day 5 - Progress on the Normal Ward
 Lead: "First full day on the normal ward with walking exercises, echo results, and adjusting to new routines."
 Published: 2025-10-07T10:00:00.000Z
 Date: 2025-10-07T10:00:00.000Z
@@ -34,6 +34,18 @@ The breathing exercises included one new one: breathe in fully and hold it for 3
 Before I could even finish my shower, I had a knock on the door. It was time for an echo to have a look at how the new heart hardware was bedding in. Another positive outcome - the heart looks good and the valve looks good. It is a very different squelch sound now on the echocardiogram with the artificial valve.
 
 Not sure if it was something seen on the echo, but the doctor told me I should drink more. I thought it was a bit early in my recovery and the day for a drink. A moment later she clarified "water only".
+
+## Evening Challenges
+
+My wife came to visit with some supplies, which was lovely. I sat down to my dinner feeling a slightly elevated heart rate everywhere - this is something which will take time for my body to adjust to. My heart is beating more efficiently than it has for years, which makes it feel different in my head and chest, especially as it gets up to the 120 bpm level.
+
+Near the end of dinner, I felt a little strange for a moment. I heard the notifications go off in the nurses' station, looked down at my "continual monitor necklace" (the [Philips MX40-2C4](https://www.philips.co.uk/healthcare/product/HC865350/mx40-wearable-patient-monitor)) and saw my heart rate at 120 with a notification. The feeling passed very quickly and the nurse dismissed the notification, so nothing to worry about.
+
+There was no way I would be able to sleep like that though, with such a high heart rate creating the clattering and banging in my head and the feeling of my heart squirming around in my chest. I explained it all to the nurses, who again reassured me that this is common in younger aortic valve replacement patients. Research indicates that [tachycardia is expected post-operatively](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6016582/) as the heart adapts to improved haemodynamics, particularly in patients who had significant stenosis pre-operatively.
+
+In my nightly medicine I received something extra which brought my heart rate down, and I slept well aside from the toilet visits. The anaesthetic and water retention play havoc with routine for several days, however I'm just about able to get out of bed myself without too much pain, which is good progress.
+
+Waking up in pain during the night was sometimes confusing - it wasn't always clear whether the support jacket was sitting badly and pushing a sensor or wire into my skin, if muscles were doing something unusual, or if movement had annoyed the sternum. The sternum pain is the easiest to understand, particularly if I cough a little in the night, as this produces the sharpest and shortest pain.
 
 ## Progress Notes
 
