@@ -6,7 +6,7 @@ description: "Early morning tests, drainage tube removal, cannula removal, and m
 date: "2025-10-04"
 ---
 
-Saturday and Sunday, 4th-5th October 2025 - Days 2 and 3 after my aortic valve replacement surgery were remarkably similar, with continued progress in my recovery. From early morning monitoring through to standing up and eventually taking my first walk.
+Saturday and Sunday, 5th-6th October 2025 - Days 2 and 3 after my aortic valve replacement surgery were remarkably similar, with continued progress in my recovery. From early morning monitoring through to standing up and eventually taking my first walk.
 
 <!--truncate-->
 

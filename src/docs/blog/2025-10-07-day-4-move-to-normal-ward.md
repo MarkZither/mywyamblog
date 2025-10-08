@@ -1,13 +1,9 @@
 ---
-Title: Day 5 of Recovery - Moving to the Normal Ward
-Lead: "Day 5 post-surgery: transitioning from intermediate care to the normal ward and continuing recovery."
-Published: 2025-10-07T10:00:00.000Z
-Image: 
-Tags:
-  - Heart
-  - Surgery
-  - Recovery
-  - Aorta
+title: "Day 4 of Recovery - Moving to the Normal Ward"
+authors: ["mark-burton"]
+tags: ["Heart", "Surgery", "Recovery", "Aorta"]
+description: "Day 4 post-surgery: transitioning from intermediate care to the normal ward and continuing recovery."
+date: "2025-10-07"
 ---
 
 ## Morning Routine in Intermediate Care
@@ -44,13 +40,13 @@ The physio took me for a walk down the corridor, which went well. My mobility is
 
 She also gave me some more advanced breathing exercises to do, and I'm now using my Mediflo Duo respiratory exerciser at level 3 of 5. These exercises are crucial because of the discomfort and reduced activity - the temptation is to breathe superficially, which is bad for recovery. Shallow breathing allows bad stuff to build up, leading to coughing (which rates 10 out of 10 on the pain scale, even in the special braced position) and worse possibilities like infection if I don't do the breathing exercises properly and keep my airways clear.
 
-<!-- TODO: Add image of Mediflo Duo respiratory exerciser. Tracking issue: https://github.com/example/repo/issues/123. Target: by 2025-10-31 -->
+<!-- TODO: Add image of Mediflo Duo respiratory exerciser -->
 
 The Mediflo Duo is an incentive spirometer with adjustable resistance levels that helps improve lung capacity after surgery. Starting at level 3 indicates good progress - it provides enough resistance to challenge the lungs without being overwhelming during this early recovery phase.
 
 The "special braced position" I mention is essential for managing pain during coughing, standing up, or sitting down. They provided me with a recovery gilet (a padded vest), and the technique is to fold your arms across your body with your hands tucked into your armpits, essentially hugging yourself tightly. This braces and supports the chest incision area, reducing the stress on the sternum and making movements much more bearable. Without this bracing technique, even simple movements would be excruciating.
 
-<!-- TODO: Add illustrative image of bracing position with recovery gilet. Planned for addition by 2025-10-15. -->
+<!-- TODO: Add illustrative image of bracing position with recovery gilet -->
 
 Despite the pain, I'm committed to doing the breathing exercises regularly. They're an essential part of preventing complications.
 
