@@ -3,7 +3,7 @@ title: "Day 5 - Progress on the Normal Ward"
 authors: ["mark-burton"]
 tags: ["health", "surgery", "heart", "medical", "recovery"]
 description: "First full day on the normal ward with walking exercises, echo results, and adjusting to new routines."
-date: "2025-10-07"
+date: "2025-10-08"
 ---
 
 Monday, 7th October 2025 - My first full day on the normal ward brought different routines and expectations. The focus shifted to increased mobility and continued monitoring of my heart's adaptation to its new hardware.
