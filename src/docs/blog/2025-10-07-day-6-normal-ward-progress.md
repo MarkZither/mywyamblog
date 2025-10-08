@@ -6,7 +6,7 @@ description: "First full day on the normal ward with walking exercises, echo res
 date: "2025-10-08"
 ---
 
-Monday, 7th October 2025 - My first full day on the normal ward brought different routines and expectations. The focus shifted to increased mobility and continued monitoring of my heart's adaptation to its new hardware.
+Tuesday, 8th October 2025 - My first full day on the normal ward brought different routines and expectations. The focus shifted to increased mobility and continued monitoring of my heart's adaptation to its new hardware.
 
 <!--truncate-->
 
