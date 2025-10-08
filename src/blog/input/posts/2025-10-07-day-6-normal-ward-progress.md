@@ -15,7 +15,7 @@ Tuesday, 8th October 2025 - My first full day on the normal ward brought differe
 
 ## The Missing EEG
 
-On the normal ward, the day was quite different. At least on this first full day, I was waiting for my 5:30 EEG but nothing happened. Which was kind of annoying because I had not slept well and was ready to be helped out of bed. As it happened, I probably fell asleep for probably my best hour of sleep of the night. No idea what the lack of sleep was all about really.
+On the normal ward, the day was quite different. At least on this first full day, I was waiting for my 5:30 EEG but nothing happened. Which was kind of annoying because I had not slept well and was ready to be helped out of bed. As it happened, I fell asleep for probably my best hour of sleep of the night. No idea what the lack of sleep was all about really.
 
 ## Morning Visits
 
