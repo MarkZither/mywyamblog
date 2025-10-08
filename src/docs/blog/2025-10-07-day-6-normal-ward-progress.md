@@ -42,7 +42,13 @@ There was no way I would be able to sleep like that though, with such a high hea
 
 In my nightly medicine I received something extra which brought my heart rate down, and I slept well aside from the toilet visits. The anaesthetic and water retention play havoc with routine for several days, however I'm just about able to get out of bed myself without too much pain, which is good progress.
 
-Waking up in pain during the night was sometimes confusing - it wasn't always clear whether the support jacket was sitting badly and pushing a sensor or wire into my skin, if muscles were doing something unusual, or if movement had annoyed the sternum. The sternum pain is the easiest to understand, particularly if I cough a little in the night, as this produces the sharpest and shortest pain.
+Waking up in pain during the night was sometimes confusing - it wasn't always clear whether the support jacket was sitting badly and pushing a sensor or wire into my skin, if muscles were doing something unusual, or if movement had annoyed the sternum. 
+
+It's only really today that I figured out for sure that the support jacket can cause discomfort, and just opening it for 5 minutes brings relief. I must be careful though - I wouldn't want to be moving, and more importantly coughing, while it's open, as that could risk the sternum.
+
+Regarding the muscles, sometimes it feels like I don't have the muscle strength in my neck and upper chest to raise my head. This is no big surprise - they will have been impacted by the operation, with surgeons having to work around and through chest muscles to access the heart.
+
+The sternum pain is the easiest to understand, particularly if I cough a little in the night, as this produces the sharpest and shortest pain. While it remains intensely painful, it feels less than it was already - maybe partly because I know how to protect it better when coughing, maybe because as the swelling is reducing and healing is starting, or both.
 
 ## Progress Notes
 
