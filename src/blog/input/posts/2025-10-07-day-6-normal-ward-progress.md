@@ -1,7 +1,7 @@
 ---
 Title: Day 5 - Progress on the Normal Ward
 Lead: "First full day on the normal ward with walking exercises, echo results, and adjusting to new routines."
-Published: 2025-10-07T10:00:00.000Z
+Published: 2025-10-08T10:00:00.000Z
 Date: 2025-10-07T10:00:00.000Z
 Tags:
   - health
