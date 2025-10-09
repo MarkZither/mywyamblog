@@ -8,13 +8,13 @@ date: "2025-10-09"
 
 ## Days 5-6: Wednesday-Thursday, 8th-9th October 2025
 
-My first two full days on the normal ward were remarkably similar, establishing a new routine whilst the medical team continued to fine-tune my treatment.
+Days 2 and 3 on the normal ward were remarkably similar, establishing a new routine whilst the medical team continued to fine-tune my treatment.
 
 <!--truncate-->
 
 ## Daily Routine
 
-The pattern became familiar: wake at 5:30 for routine checks, breakfast, doctor's rounds, physiotherapy sessions, breathing exercises, and plenty of walking throughout the ward. On Day 5, I woke with a headache and needed paracetamol before going back to sleep.
+The normal ward routine is more relaxed than intensive or intermediate care. Nothing happens until 7:30 when breakfast arrives along with the standard observations - blood pressure, heart rate, temperature, and oxygen saturation. The doctor's team then comes round with updates. On Day 5, I woke earlier with a headache and buzzed for paracetamol before going back to sleep until breakfast time.
 
 The food has been pretty good since moving off the terrible no-residual diet - there's even a menu with a couple of choices and a vegetarian option, though breakfast remained uninspiring.
 
@@ -26,7 +26,7 @@ The X-ray was super quick, and the physio guided me back via a flight of stairs.
 
 Later that afternoon, after breathing exercises and lunch, the physio returned for another stairs session. Three of us from the ward congregated at the top for a rest. I won first place for highest heart rate, but my only prize was more loud heart noises in my head.
 
-Day 6 followed a similar pattern with continued physiotherapy sessions, walking exercises throughout the ward, and regular breathing exercises with the respiratory exerciser.
+Day 6 followed a similar pattern - the main difference being no X-ray scheduled. The routine of physiotherapy sessions, walking exercises throughout the ward, and regular breathing exercises with the respiratory exerciser continued.
 
 ## Ongoing Tachycardia Management
 
