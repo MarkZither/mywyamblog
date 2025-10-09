@@ -40,6 +40,39 @@ By Day 6, the team were still deciding on the correct medication to address my t
 
 The combination of elevated heart rate along with the single brief pause means the medical team need to balance the medication carefully - they want to control the rapid heart rate without potentially causing more pauses. The mobile pacemaker continues to provide reassurance and detailed monitoring data to help guide treatment decisions.
 
+## Anticoagulation Education
+
+On Day 5, I had an important discussion with the nurse about Sintrom (acenocoumarol), the anticoagulation medication I'll be taking long-term. This education session was crucial for understanding my post-discharge care.
+
+### Why Sintrom is Essential
+
+With a mechanical aortic valve, anticoagulation is vital to prevent blood clots from forming on the valve. The mechanical valve surfaces, whilst durable, can promote clot formation if the blood isn't properly thinned. Sintrom works by interfering with vitamin K-dependent clotting factors, reducing the blood's ability to clot.
+
+### INR Monitoring
+
+The International Normalised Ratio (INR) is the key metric for monitoring anticoagulation levels. I'll be able to monitor my INR at home using a portable testing device, similar to how diabetics monitor blood glucose. The target INR range for mechanical valve patients is typically 2.5-3.5, balancing clot prevention against bleeding risk.
+
+### Consistency is Critical
+
+The nurse emphasised two crucial timing considerations:
+
+* **Medication timing**: Take Sintrom in the evening, at the same time each day
+* **Testing timing**: Perform INR tests in the morning, consistently
+
+This consistency ensures accurate monitoring and stable anticoagulation levels. Irregular timing can lead to fluctuating INR values that don't truly reflect the medication's effects.
+
+### Dietary Considerations
+
+Sintrom works by antagonising vitamin K, which means dietary vitamin K intake needs to be consistent. The key isn't to avoid vitamin K entirely, but to maintain steady consumption levels. Foods particularly high in vitamin K include:
+
+* **Leafy greens**: Cabbage, spinach, kale, lettuce, Brussels sprouts
+* **Cruciferous vegetables**: Broccoli, cauliflower
+* **Herbs**: Parsley, coriander, basil
+* **Other vegetables**: Asparagus, spring onions
+* **Some oils**: Soybean oil, canola oil
+
+The nurse stressed that I don't need to eliminate these healthy foods - just maintain consistency. If I eat spinach regularly, I should continue to do so. The problem arises when someone dramatically changes their vitamin K intake, which can either reduce the medication's effectiveness (if intake increases) or increase bleeding risk (if intake decreases).
+
 ## Progress Summary
 
 Key developments over these two days:
@@ -49,6 +82,7 @@ Key developments over these two days:
 * ✅ Consistent physiotherapy and mobility work
 * ✅ Achieved first post-surgery fitness milestone (stair climbing and Google Fit heart point)
 * ✅ Improved dietary options
+* ✅ Comprehensive anticoagulation education session with nurse
 * ⏳ Medical team carefully evaluating medication options for tachycardia
 * ⏳ Additional monitoring due to single momentary pause event
 * ⏳ Continued mobile pacemaker monitoring
