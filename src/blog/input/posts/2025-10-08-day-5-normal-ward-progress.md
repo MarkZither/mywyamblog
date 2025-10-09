@@ -1,6 +1,6 @@
 ---
-Title: Days 5-6 of Recovery - Settling Into the Normal Ward
-Lead: "Days 5-6 post-surgery: settling into the normal ward routine, managing tachycardia, and continuing physiotherapy whilst the medical team determines the optimal medication approach."
+Title: Days 6-7 of Recovery - Settling Into the Normal Ward
+Lead: "Days 6-7 post-surgery: settling into the normal ward routine, managing tachycardia, and continuing physiotherapy whilst the medical team determines the optimal medication approach."
 Published: 2025-10-09T10:00:00.000Z
 Image: 
 Tags:
@@ -10,7 +10,7 @@ Tags:
   - Aorta
 ---
 
-## Days 5-6: Wednesday-Thursday, 8th-9th October 2025
+## Days 6-7: Wednesday-Thursday, 8th-9th October 2025
 
 Days 2 and 3 on the normal ward were remarkably similar, establishing a new routine whilst the medical team continued to fine-tune my treatment.
 
