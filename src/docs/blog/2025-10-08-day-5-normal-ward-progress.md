@@ -10,6 +10,8 @@ date: "2025-10-09"
 
 My first two full days on the normal ward were remarkably similar, establishing a new routine whilst the medical team continued to fine-tune my treatment.
 
+<!--truncate-->
+
 ## Daily Routine
 
 The pattern became familiar: wake at 5:30 for routine checks, breakfast, doctor's rounds, physiotherapy sessions, breathing exercises, and plenty of walking throughout the ward. On Day 5, I woke with a headache and needed paracetamol before going back to sleep.
