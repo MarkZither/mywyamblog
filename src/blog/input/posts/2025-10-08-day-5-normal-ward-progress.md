@@ -24,11 +24,11 @@ The food has been pretty good since moving off the terrible no-residual diet - t
 
 Day 5 brought a significant milestone. After getting ready, I headed for a short stroll and ran into the physio. Before we could start, I was called for an X-ray. The physio took over as my chaperone, and we walked to the X-ray department at quite a clip whilst I explained my elevated heart rate situation.
 
-The X-ray was super quick, and the physio guided me back via a flight of stairs. Made it all the way up today! Back in my room, I discovered I'd even scored one Google Fit heart point - my first one post-surgery!
+The X-ray was super quick, and the physio guided me back via a flight of stairs. Made it all the way up today! Back in my room, I discovered I'd even scored one Google Fit heart point - my first one post-surgery! Throughout the day, I achieved 3279 steps and climbed 2 flights of stairs in total.
 
 Later that afternoon, after breathing exercises and lunch, the physio returned for another stairs session. Three of us from the ward congregated at the top for a rest. I won first place for highest heart rate, but my only prize was more loud heart noises in my head.
 
-Day 6 followed a similar pattern - the main difference being no X-ray scheduled. The routine of physiotherapy sessions, walking exercises throughout the ward, and regular breathing exercises with the respiratory exerciser continued.
+Day 6 followed a similar pattern - the main difference being no X-ray scheduled. The routine of physiotherapy sessions, walking exercises throughout the ward, and regular breathing exercises with the respiratory exerciser continued. I managed approximately 3600 steps and 1 flight of stairs. On my last walk of the corridor, my heart rate hit 150+, which was concerning enough that I was prescribed half a pill of medication to help slow it down a bit.
 
 ## Ongoing Tachycardia Management
 
