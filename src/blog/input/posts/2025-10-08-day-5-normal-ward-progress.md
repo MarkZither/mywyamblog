@@ -1,7 +1,7 @@
 ---
-Title: Day 5 of Recovery - First Full Day on the Normal Ward
-Lead: "Day 5 post-surgery: settling into the normal ward routine, managing elevated heart rate, and increasing mobility with physiotherapy."
-Published: 2025-10-08T10:00:00.000Z
+Title: Days 5-6 of Recovery - Settling Into the Normal Ward
+Lead: "Days 5-6 post-surgery: settling into the normal ward routine, managing tachycardia, and continuing physiotherapy whilst the medical team determines the optimal medication approach."
+Published: 2025-10-09T10:00:00.000Z
 Image: 
 Tags:
   - Heart
@@ -10,9 +10,9 @@ Tags:
   - Aorta
 ---
 
-## Tuesday, 8th October 2025
+## Day 5: Wednesday, 8th October 2025
 
-The real day 5 of recovery - my first full day on the normal ward after yesterday's move.
+My first full day on the normal ward after yesterday's move.
 
 ## Early Morning Wake-Up
 
@@ -60,8 +60,45 @@ Day 5 on the normal ward:
 
 The elevated heart rate episodes are concerning but apparently normal for younger patients after valve replacement. The medical team's approach of increased hydration and walking, combined with pacemaker monitoring, provides reassurance that this is a manageable aspect of recovery.
 
+## Day 6: Thursday, 9th October 2025
+
+Day 6 was largely a continuation of Day 5's routine, with the medical team continuing to monitor and adjust my treatment plan.
+
+### Ongoing Tachycardia Management
+
+The team are still deciding on the correct medication to address my tachycardia. The situation is complicated by a one-off momentary pause that was caught on my continual monitoring. Whilst apparently not super uncommon in post-operative valve replacement patients, it does deserve additional monitoring. This is causing the decision-making process to take a bit longer than initially expected.
+
+The combination of elevated heart rate (tachycardia) along with the single brief pause means the medical team need to balance the medication carefully - they want to control the rapid heart rate without potentially causing more pauses.
+
+### Routine Continues
+
+The day followed a similar pattern to Day 5:
+
+* Morning checks and monitoring
+* Continued physiotherapy sessions
+* Walking exercises throughout the ward
+* Breathing exercises with the respiratory exerciser
+* Regular medication and vital sign monitoring
+
+The focus remains on maintaining mobility whilst the cardiac team fine-tunes the medication protocol. The mobile pacemaker continues to provide reassurance and detailed monitoring data to help guide treatment decisions.
+
+## Progress Summary Days 5-6
+
+Key developments over these two days:
+
+* ✅ Established routine on normal ward
+* ✅ Consistent physiotherapy and mobility work
+* ✅ Achieved first post-surgery fitness milestone
+* ⏳ Medical team carefully evaluating medication options for tachycardia
+* ⏳ Additional monitoring due to single momentary pause event
+* ⏳ Continued mobile pacemaker monitoring
+
+Whilst the medication decision is taking longer than expected, this careful approach demonstrates the thoroughness of the cardiac team in managing the nuances of post-operative recovery, particularly in younger valve replacement patients where heart rhythm variations can occur.
+
 ## Reflections on Progress
 
-It's encouraging to see daily improvements in mobility, even though the elevated heart rate is a reminder that recovery isn't always linear. The ability to climb a full flight of stairs and earn that first fitness point felt like a real achievement, even if it came with some uncomfortable sensations.
+Over Days 5 and 6, there's been steady progress in mobility and establishing a ward routine, even though the heart rhythm management is proving more complex than anticipated. The elevated heart rate coupled with the momentary pause requires careful medication balancing.
 
-The physiotherapy team's consistent attention and the surgeon's reassurance help maintain confidence that these temporary setbacks are part of the normal healing process for someone my age going through this procedure.
+The ability to climb a full flight of stairs and earn that first fitness point on Day 5 felt like a real achievement, even if it came with some uncomfortable sensations. The physiotherapy team's consistent attention and the medical team's thorough approach to medication selection help maintain confidence that these temporary challenges are part of the normal healing process for someone my age going through this procedure.
+
+The next updates may come after a few days, once there are significant developments - particularly regarding the move to Kirchberg and any new treatment decisions.
