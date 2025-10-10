@@ -47,7 +47,7 @@ const config: Config = {
             'https://github.com/MarkZither/mywyamblog/tree/main/docs/',
         },
         blog: {
-          routeBasePath: 'posts',  // Changes /blog to /posts to match Statiq
+          routeBasePath: '/',  // Blog listing at root path
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
@@ -88,7 +88,7 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        {to: '/posts', label: 'Blog', position: 'left'},
+        {to: '/', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/MarkZither/mywyamblog',
           label: 'GitHub',
@@ -130,7 +130,7 @@ const config: Config = {
           items: [
             {
               label: 'Blog',
-              to: '/posts',
+              to: '/',
             },
             {
               label: 'GitHub',

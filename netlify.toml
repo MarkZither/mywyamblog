@@ -7,29 +7,32 @@
   NODE_VERSION = "20"
   DOTNET_VERSION = "8.0"
 
-# Redirect old /docs/ URLs to new root URLs
+# Redirect old /docs/blog/ URLs to root (where blog now lives)
 [[redirects]]
   from = "/docs/blog/*"
-  to = "/posts/:splat"
+  to = "/:splat"
   status = 301
   force = true
 
+# Redirect old /posts/ URLs to root (where blog now lives)
+[[redirects]]
+  from = "/posts/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# Redirect /docs/docs/ to /docs/
 [[redirects]]
   from = "/docs/docs/*"
   to = "/docs/:splat"
   status = 301
   force = true
 
+# Redirect /docs to root
 [[redirects]]
   from = "/docs"
   to = "/"
   status = 301
-
-# Redirect old Statiq URLs to new blog
-[[redirects]]
-  from = "/posts/*"
-  to = "/posts/:splat"
-  status = 200
 
 # SPA routing for Docusaurus (must be last)
 [[redirects]]
