@@ -20,6 +20,9 @@ mywyamblog/
 │       ├── deploy-docusaurus.yml  # Hybrid deployment
 │       ├── deploy-prod.yml        # Statiq deployment
 │       └── dotnet.yml             # .NET build
+├── agent-docs/                    # AI agent-generated documentation
+│   ├── README.md                  # Index of agent documentation
+│   └── issue-{number}/            # Documentation organized by issue
 ├── src/
 │   ├── blog/                      # Statiq blog (.NET 8.0)
 │   │   ├── mywyamblog.csproj     # .NET project file
@@ -272,3 +275,45 @@ When working on this repository:
 6. **Test both builds**: Ensure neither system breaks with changes
 7. **Use the migration script**: Don't manually convert posts
 8. **Follow existing patterns**: Match the style of existing code/content
+
+## Documentation Organization
+
+### Agent-Generated Documentation
+
+When creating comprehensive documentation for issues or tasks:
+
+1. **Location**: Place all documentation in `agent-docs/issue-{number}/`
+   - Example: `agent-docs/issue-62/` for issue #62
+   - Keep repository root clean and organized
+
+2. **Structure**:
+   ```
+   agent-docs/
+   ├── README.md              # Index of all agent documentation
+   └── issue-{number}/        # One directory per issue
+       ├── README.md          # Entry point for that issue's docs
+       └── *.md              # Related documentation files
+   ```
+
+3. **File Naming**:
+   - Use descriptive, ALL_CAPS names with underscores
+   - Include the topic/purpose in filename
+   - Examples: `QUICK_IMPLEMENTATION_GUIDE.md`, `SOLUTION_SUMMARY.md`
+
+4. **Cross-References**:
+   - Use relative links (`./FILE.md`) within the same issue directory
+   - Use absolute paths (`/agent-docs/issue-X/FILE.md`) for cross-issue references
+   - Always verify links work after creating/moving files
+
+5. **Maintenance**:
+   - Update `agent-docs/README.md` when adding new issue documentation
+   - Create an index/README file in each issue directory
+   - Keep documentation discoverable and well-organized
+
+### Guidelines
+
+- **One issue = one directory**: Group all related docs together
+- **Make it discoverable**: Always include a README or index file
+- **Link appropriately**: Prefer relative links within same directory
+- **Document thoroughly**: Include context, examples, and implementation guides
+- **Keep root clean**: Never place extensive documentation directly in repository root
