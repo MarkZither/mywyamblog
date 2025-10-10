@@ -88,6 +88,7 @@ All documentation is in the repository root:
 - **[MOVE_BLOG_TO_ROOT_DESIGN.md](./MOVE_BLOG_TO_ROOT_DESIGN.md)** - Complete design (30-min read)
 - **[NETLIFY_REDIRECT_EXAMPLES.md](./NETLIFY_REDIRECT_EXAMPLES.md)** - Redirect patterns
 - **[DOCUSAURUS_CLIENT_REDIRECTS_GUIDE.md](./DOCUSAURUS_CLIENT_REDIRECTS_GUIDE.md)** - Plugin guide
+- **[DOCUSAURUS_URL_CUSTOMIZATION.md](./DOCUSAURUS_URL_CUSTOMIZATION.md)** - URL structure customization
 
 ## 🎬 Implementation Steps
 

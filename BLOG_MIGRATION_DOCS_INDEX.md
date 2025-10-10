@@ -52,6 +52,18 @@ This directory contains comprehensive documentation for moving the Docusaurus bl
      - Performance considerations
      - Troubleshooting
 
+### 5. **DOCUSAURUS_URL_CUSTOMIZATION.md** 🔧 URL STRUCTURE
+   - **Purpose:** Guide to customizing Docusaurus blog URLs
+   - **Audience:** Developers wanting to match Statiq URL structure
+   - **Time:** 10-minute read
+   - **Content:**
+     - URL structure configuration options
+     - Matching Statiq `/posts/YYYY-MM-DD-slug` format
+     - `routeBasePath` and `blogPostPermalink` settings
+     - Redirect strategies for URL changes
+     - Complete configuration examples
+     - Recommendations
+
 ## 🎯 Quick Start
 
 ### For Implementers
