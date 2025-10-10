@@ -17,8 +17,8 @@ const config: Config = {
   // Set the production url of your site here
   url: 'https://blog.mark-burton.com',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For Netlify deployment with subdirectory, we'll use /docs/
-  baseUrl: '/docs/',
+  // Changed from '/docs/' to '/' to serve blog at root
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -47,6 +47,7 @@ const config: Config = {
             'https://github.com/MarkZither/mywyamblog/tree/main/docs/',
         },
         blog: {
+          routeBasePath: 'posts',  // Changes /blog to /posts to match Statiq
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
@@ -87,7 +88,7 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/posts', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/MarkZither/mywyamblog',
           label: 'GitHub',
@@ -129,7 +130,7 @@ const config: Config = {
           items: [
             {
               label: 'Blog',
-              to: '/blog',
+              to: '/posts',
             },
             {
               label: 'GitHub',
