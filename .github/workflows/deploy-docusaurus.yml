@@ -60,20 +60,15 @@ jobs:
         # Create combined output directory
         mkdir -p combined-site
         
-        # Copy Statiq output (assuming it goes to output folder)
-        if [ -d "output" ]; then
-          cp -r output/* combined-site/
-        fi
-        
-        # Copy Docusaurus build to /docs subdirectory
+        # Copy Docusaurus build to root (changed from /docs subdirectory)
         if [ -d "src/docs/build" ]; then
-          mkdir -p combined-site/docs
-          cp -r src/docs/build/* combined-site/docs/
+          cp -r src/docs/build/* combined-site/
         fi
         
-        # Create a simple index redirect if needed
-        if [ ! -f "combined-site/index.html" ]; then
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/docs/"></head><body>Redirecting...</body></html>' > combined-site/index.html
+        # Copy Statiq output to /statiq subdirectory (if keeping it)
+        if [ -d "output" ]; then
+          mkdir -p combined-site/statiq
+          cp -r output/* combined-site/statiq/
         fi
 
     # Deploy to Netlify
