@@ -36,12 +36,14 @@ Compared to the major open-heart surgery I underwent eight days ago, pacemaker i
 The procedure involves:
 
 1. **Incision**: A small cut (typically 5-8 cm) is made just below the collarbone, usually on the left side
-2. **Lead insertion**: One or two thin, insulated wires (leads) are threaded through a vein and guided into position in the heart chambers using X-ray imaging
+2. **Lead insertion**: Two thin, insulated wires (leads) are threaded through a vein and guided into position in the heart chambers using X-ray imaging
 3. **Lead attachment**: The leads are attached to the heart muscle where they can sense the heart's electrical activity and deliver electrical impulses when needed
 4. **Pacemaker placement**: The pacemaker device itself - about the size of a large wristwatch - is inserted into a small pocket created under the skin beneath the collarbone
 5. **Connection**: The leads are connected to the pacemaker generator
 6. **Testing**: The system is tested to ensure proper functioning
 7. **Closure**: The incision is closed with dissolvable stitches
+
+In my case, due to being relatively young for a pacemaker recipient, the doctor opted for a cutting-edge approach: His bundle pacing (HBP) or left bundle branch area pacing (LBBAP). This technique provides more natural stimulation of the heart with less energy consumption, which translates to longer battery life for the pacemaker - an important consideration given my age.
 
 The pacemaker will monitor my heart rhythm continuously and provide electrical impulses to maintain a steady heartbeat whenever needed. Modern pacemakers are incredibly sophisticated, automatically adjusting to my activity levels and only intervening when necessary.
 
@@ -53,13 +55,17 @@ At 12:00, the pre-operative preparations began:
 * **Isobetadine wash**: The familiar dark red antiseptic wash I'd experienced before my valve surgery
 * **Mouthwash**: Part of the standard infection prevention protocol
 
+At 15:00, I was taken through to the surgical wing of the hospital for final preparation. I received my top-quality hospital bed socks - essential for keeping warm in the chilly operating theatre. An IV line was inserted, and with a hair net on, I was ready to go.
+
 The operation was scheduled for 16:00 (4:00 PM).
 
 ## Post-Procedure Update
 
-*[This section will be completed after the procedure]*
+The surgery started on time at 16:00, and the attempt to use the branch bundle approach was a success. By 17:15, I was back in my hospital room with my wife, sporting a brand new freshly stitched and glued wound. I'm now confined to bed until morning - somewhat more comfortable as I can't wear the post-thorax protective gilet.
 
-The operation is scheduled for 16:00. I'll update this post afterwards with details of how the procedure went and initial recovery observations.
+My shoulder started to wake up at about 19:30 - an interesting feeling. Not pain yet, but frozen, heavy, and I can't move it. Having explained this to the nurses, pain medicine was prescribed, as it will be pain before morning.
+
+Now, hopefully, on with the recovery!
 
 ## Reflections
 
