@@ -44,7 +44,7 @@ A nurse dropped off an information sheet about the limitations imposed by a pace
 * No martial arts, I'll have to finally give up on ever getting that Tae Kwon Do black belt.
 * No chopping wood, as enjoyable camping in Krynica Morska was (well we were in a hotel near the camp site) with my cousin in full Bear Grylls mode was next time sadly my wood chopping assistance won't be available
 
-Since the days are a little slower now I improved my entertainment setup, whilst CNBC Europe had provided some terrible repetitive English language TV for the last week and the Trounwiessel (the traditional Luxembourgish wine festival) had passed the time last weekend and RTL showed Luxembourg brave battling 4-0 defeat to Germany last night. My tablet arrived, part of my wife's epic journey, I'm all set, work crap removed and VPN installed along with iPlayer so I can join in the family strictly watching.
+Since the days are a little slower now I improved my entertainment setup, whilst CNBC Europe had provided some terrible repetitive English language TV for the last week and the Trounwiessel (the accession to the throne - the transition of the Crown from Grand Duke Henri to his son Guillaume) had passed the time last weekend and RTL showed Luxembourg brave battling 4-0 defeat to Germany last night. My tablet arrived, part of my wife's epic journey, I'm all set, work crap removed and VPN installed along with iPlayer so I can join in the family strictly watching.
 
 The day ended with the cannula put in for the IV drip yesterday being taken out. For the first time since the operation I am not punctured :) not sure that will last long though.
 
