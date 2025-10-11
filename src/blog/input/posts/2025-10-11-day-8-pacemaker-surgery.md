@@ -67,12 +67,12 @@ My shoulder started to wake up at about 19:30 - an interesting feeling. Not pain
 
 I was woken by the night shift nurses doing their check around 21:30, and there was pain - quite a lot of pain. They quickly fixed that with some analgesics, and thankfully I was able to sleep again. At 3:30, either noises in the corridor or the pain woke me - pretty bad again. I buzzed for the nurse and got more pain relief, and again, thankfully, quickly back to sleep, this time all the way until breakfast time.
 
-Now, hopefully, on with the recovery!
-
 ## Reflections
 
 Whilst an additional surgical procedure wasn't in the original recovery plan, it's reassuring to know the medical team is taking a proactive approach to ensure the best long-term outcome. The temporary pacemaker has been functional but cumbersome - having an internal, permanent solution will be a significant quality of life improvement.
 
 The fact that this is considered a relatively minor procedure compared to the valve replacement helps put it in perspective. Eight days ago, I underwent open-heart surgery with a heart-lung bypass machine. Today's procedure, whilst important, is far less invasive and carries significantly lower risks.
+
+I was awake throughout the pacemaker procedure. The worst pain was from the local anaesthetic injections. The surgeon warned me I might feel the cutting - I could, and I didn't like it. They gave me some more local anaesthetic, and after that, the only things I felt were the beating of my heart racing as they tested things and being pulled around as they stitched and glued me back together. I don't think I even got sedated - just an antibiotic drip.
 
 I'm grateful for the thorough monitoring that identified this need before discharge, and for the expertise of the cardiac rhythm team in making this decision.
