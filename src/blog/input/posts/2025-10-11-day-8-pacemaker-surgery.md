@@ -63,7 +63,9 @@ The operation was scheduled for 16:00 (4:00 PM).
 
 The surgery started on time at 16:00, and the attempt to use the branch bundle approach was a success. By 17:15, I was back in my hospital room with my wife, sporting a brand new freshly stitched and glued wound. I'm now confined to bed until morning - somewhat more comfortable as I can't wear the post-thorax protective gilet.
 
-My shoulder started to wake up at about 19:30 - an interesting feeling. Not pain yet, but frozen, heavy, and I can't move it. Having explained this to the nurses, pain medicine was prescribed, as it will be pain before morning.
+My shoulder started to wake up at about 19:30 - an interesting feeling. Not pain yet, but frozen, heavy, and I can't move it. Having explained this to the nurses, pain medicine was prescribed, as it will be pain before morning. I was able to get some sleep quite quickly.
+
+I was woken by the night shift nurses doing their check around 21:30, and there was pain - quite a lot of pain. They quickly fixed that with some analgesics, and thankfully I was able to sleep again. At 3:30, either noises in the corridor or the pain woke me - pretty bad again. I buzzed for the nurse and got more pain relief, and again, thankfully, quickly back to sleep, this time all the way until breakfast time.
 
 Now, hopefully, on with the recovery!
 
