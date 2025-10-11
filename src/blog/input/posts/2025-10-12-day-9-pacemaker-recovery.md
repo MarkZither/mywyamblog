@@ -13,7 +13,7 @@ Tags:
 
 ## Saturday, 12th October 2025
 
-Let's get started on Day 9, a fairly big day in some ways.
+Day 9 brought some pivotal moments in my recovery journey - pacemaker assessment results and news about the next stage of my care.
 
 I woke up, you guessed it, in pain, but my breakfast was there so the nurse helped me get upright. At this point I was allowed to stand up but until we had the results from the doctors I was still confined to my room.
 
