@@ -40,7 +40,7 @@ After that exciting morning my wife came to visit after circumnavigating Luxembo
 A nurse dropped off an information sheet about the limitations imposed by a pacemaker, not many of concern, this was written in French so my interpretation is mine and I'm sticking to it:
 * No more airports, the security scanners are no good for a pacemaker
 * No more going into shops with security scanners at the door, same reason as above basically
-* Keep a safe 30-40cm from induction hobs, eerrrr not then, this I was not aware of before the operation, this might have changed my whole decision making process, but hey I have arms which are longer than 40cm so hopefully this will be fine
+* Keep a safe 30-40cm from induction hobs, eerrrr not great then, this I was not aware of before the operation, this might have changed my whole decision making process, but hey I have arms which are longer than 40cm so hopefully this will be fine
 * No martial arts, I'll have to finally give up on ever getting that Tae Kwon Do black belt.
 * No chopping wood, as enjoyable camping in Krynica Morska was (well we were in a hotel near the camp site) with my cousin in full Bear Grylls mode was next time sadly my wood chopping assistance won't be available
 
