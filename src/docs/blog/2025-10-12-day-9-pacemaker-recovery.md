@@ -40,7 +40,9 @@ A nurse dropped off an information sheet about the limitations imposed by a pace
 * Keep a safe 30-40cm from induction hobs, eerrrr not then, this I was not aware of before the operation, this might have changed my whole decision making process, but hey I have arms which are longer than 40cm so hopefully this will be fine
 * No martial arts, I'll have to finally give up on ever getting that Tae Kwon Do black belt.
 
-Since the days are a little slower now I improved my entertainment setup, whilst CNBC Europe had provided some terrible repetitive English language TV for the last week and the troussweissel had passed the time last weekend and RTL showed Luxembourg brave battling 4-0 defeat to Germany last night. My tablet arrived, post of my wife's epic journey, I'm all set, work crap removed and VPN so to watch UK TV :)
+Since the days are a little slower now I improved my entertainment setup, whilst CNBC Europe had provided some terrible repetitive English language TV for the last week and the troussweissel had passed the time last weekend and RTL showed Luxembourg brave battling 4-0 defeat to Germany last night. My tablet arrived, post of my wife's epic journey, I'm all set, work crap removed and VPN installed along with iPlayer so I can join in the family strictly watching.
+
+The day ended with the cannula put in for the IV drip yesterday being taken out. For the first time since the operation I am not punctured :) not sure that will last long though.
 
 ## Progress Summary
 
@@ -53,5 +55,6 @@ Key developments on Day 9:
 * ✅ Cardiologist observation scheduled for next few days
 * ✅ Received pacemaker limitation information
 * ✅ Improved entertainment options with tablet and VPN
+* ✅ Cannula removed - first time not punctured since operation
 
 The pacemaker is working brilliantly and I'm progressing well enough to move to the next phase of recovery under my cardiologist's care at Kirchberg. The medical team's positive demeanour this morning was a clear indicator that things are going according to plan.
