@@ -24,6 +24,8 @@ Before breakfast, the blood pressure was taken and the mobile pacemaker disconne
 
 After breakfast I went for a short walk and nearly missed my physio. I was taken to the stairs where I walked half a flight of stairs basically unaided. I felt OK, but my heart rate had jumped to 125 from my current resting 95/100 (ish), so we left it there for today and descended the stairs and headed back to the room for breathing exercises.
 
+Throughout the day, I managed to achieve 3824 steps - a significant increase in mobility as I continued to walk the corridors and work on my recovery.
+
 The breathing exercises included one new one: breathe in fully and hold it for 3 seconds. Like most of the breathing exercises, it was extremely hard at first, but throughout the day it is getting less painful to do.
 
 ## Echocardiogram Results
