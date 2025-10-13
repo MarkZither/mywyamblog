@@ -142,11 +142,11 @@ const config: Config = {
           items: [
             {
               label: 'RSS Feed',
-              href: '/docs/blog/rss.xml',
+              href: '/docs/feed.rss',
             },
             {
               label: 'Atom Feed',
-              href: '/docs/blog/atom.xml',
+              href: '/docs/feed.atom',
             },
           ],
         },
