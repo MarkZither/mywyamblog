@@ -1,8 +1,8 @@
 ---
-title: "Days 10-11 of Recovery - Quiet Days and Transfer to Kirchberg"
+title: "Days 10-12 of Recovery - Transfer to Kirchberg and Cardiologist Care"
 authors: ["mark-burton"]
-tags: ["Heart", "Surgery", "Recovery", "Aorta", "Hospital", "Kirchberg"]
-description: "Days 10-11 post-surgery: a quiet Sunday waiting for transfer confirmation, and the move to Kirchberg hospital for continued care."
+tags: ["Heart", "Surgery", "Recovery", "Aorta", "Hospital", "Kirchberg", "INCCI"]
+description: "Days 10-12 post-surgery: quiet Sunday, transfer from INCCI to Kirchberg, and beginning specialised cardiac monitoring."
 date: "2025-10-14"
 ---
 
@@ -35,10 +35,35 @@ After the intensity of additional surgery, this quieter day was exactly what I n
 
 ## Monday, 14th October 2025 - Day 11
 
-[Content for Day 11 will be added shortly]
+As expected today, I moved from INCCI to Kirchberg after I had eaten my breakfast and had clean dressings put on.
+
+## The Last Walk and Sudden Departure
+
+The physio arrived for a last walk, but just as I said I think I have time, the transport arrived so we had to skip the walk. My belongings were stuffed into my bags and I was wheeled out of INCCI and into a luxambulance for my transfer to Kirchberg.
+
+## Transfer to Kirchberg
+
+Traffic wasn't terrible - 20 minutes later I was wheeled into the cardiology ward in Kirchberg hospital, a somewhat calmer vibe than INCCI. My vital stats were checked and tested to the mobile heart monitor. Today is for monitoring and continuation of the care from INCCI. Tomorrow morning I will meet my cardiologist, after which there should be a clearer plan for my stay and hopefully a confirmed day for returning home - please let it be Wednesday.
+
+## Day 11 Summary
+
+Key developments on Day 11:
+
+* ✅ Final breakfast and dressing change at INCCI
+* ✅ Planned physio walk cancelled due to early transport arrival
+* ✅ Successfully transferred to Kirchberg hospital via luxambulance (20 minutes)
+* ✅ Settled into cardiology ward with calmer atmosphere
+* ✅ Vital signs monitoring and mobile heart monitor setup
+* ✅ Awaiting cardiologist consultation on Day 12
+
+The move to Kirchberg marks a significant transition in my recovery - from the acute intensive care environment at INCCI to the specialist cardiac monitoring that will bridge the gap between hospital care and returning home.
+
+## Tuesday, 15th October 2025 - Day 12
+
+[Content for Day 12 will be added shortly - cardiologist consultation and discharge planning]
 
 ## Progress Summary
 
-Days 10-11 represent a transition phase in my recovery - from the acute care setting where I received my emergency pacemaker to the specialist cardiac care at Kirchberg where my cardiologist can provide ongoing monitoring and prepare me for discharge home.
+Days 10-12 represent a crucial transition phase in my recovery - from the quiet respite after pacemaker surgery, through the transfer from acute care at INCCI to specialist cardiac monitoring at Kirchberg, where my cardiologist will finalise the plan for discharge and return to normal life.
 
-The café visit on Day 10 was a poignant reminder that recovery isn't just about medical milestones, but also about reconnecting with normal life, one small step at a time.
+The café visit on Day 10 was a poignant reminder that recovery isn't just about medical milestones, but also about reconnecting with normal life, one small step at a time. The swift transfer on Day 11 demonstrated the excellent coordination between the two hospitals in my care.
