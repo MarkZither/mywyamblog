@@ -8,6 +8,18 @@
   DOTNET_VERSION = "8.0"
 
 # Redirect rules for the hybrid setup
+
+# Feed redirects for backward compatibility
+[[redirects]]
+  from = "/feed.rss"
+  to = "/docs/blog/rss.xml"
+  status = 200
+
+[[redirects]]
+  from = "/feed.atom"
+  to = "/docs/blog/atom.xml"
+  status = 200
+
 [[redirects]]
   from = "/docs/*"
   to = "/docs/:splat"
