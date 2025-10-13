@@ -7,22 +7,42 @@
   NODE_VERSION = "20"
   DOTNET_VERSION = "8.0"
 
-# Redirect rules for the hybrid setup
+# Redirect old /docs/blog/ URLs to root (where blog now lives)
 [[redirects]]
-  from = "/docs/*"
-  to = "/docs/:splat"
-  status = 200
+  from = "/docs/blog/*"
+  to = "/:splat"
+  status = 301
+  force = true
 
-# Handle SPA routing for Docusaurus
+# Redirect old /posts/ URLs to root (where blog now lives)
 [[redirects]]
-  from = "/docs/*"
-  to = "/docs/index.html"
+  from = "/posts/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# Redirect /docs/docs/ to /docs/
+[[redirects]]
+  from = "/docs/docs/*"
+  to = "/docs/:splat"
+  status = 301
+  force = true
+
+# Redirect /docs to root
+[[redirects]]
+  from = "/docs"
+  to = "/"
+  status = 301
+
+# SPA routing for Docusaurus (must be last)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
   status = 200
-  conditions = {Role = ["admin"]}
 
 # Headers for better caching
 [[headers]]
-  for = "/docs/static/*"
+  for = "/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
