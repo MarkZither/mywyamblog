@@ -11,12 +11,12 @@
 
 # Feed redirects for backward compatibility
 [[redirects]]
-  from = "/docs/feed.rss"
+  from = "/feed.rss"
   to = "/docs/blog/rss.xml"
   status = 200
 
 [[redirects]]
-  from = "/docs/feed.atom"
+  from = "/feed.atom"
   to = "/docs/blog/atom.xml"
   status = 200
 

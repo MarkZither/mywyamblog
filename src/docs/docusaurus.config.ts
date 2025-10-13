@@ -142,11 +142,11 @@ const config: Config = {
           items: [
             {
               label: 'RSS Feed',
-              href: '/docs/feed.rss',
+              href: 'https://blog.mark-burton.com/feed.rss',
             },
             {
               label: 'Atom Feed',
-              href: '/docs/feed.atom',
+              href: 'https://blog.mark-burton.com/feed.atom',
             },
           ],
         },
