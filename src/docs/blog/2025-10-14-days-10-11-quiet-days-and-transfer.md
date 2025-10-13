@@ -8,7 +8,7 @@ date: "2025-10-14"
 
 ## Sunday, 13th October 2025 - Day 10
 
-Day 10 was a very quiet day, a welcome respite after the intensity of the pacemaker surgery the day before. The focus was on waiting for news about the next stage of my recovery journey.
+Day 10 was a very quiet day, two days after the pacemaker surgery. The focus was on waiting for news about the next stage of my recovery journey, though the delay in transferring to Kirchberg felt frustrating as it meant another day before ultimately getting home.
 
 <!--truncate-->
 
@@ -31,7 +31,7 @@ Key developments on Day 10:
 * ✅ Successful café visit with friends - first time out in 11 days
 * ✅ Quiet day allowing continued recovery from pacemaker surgery
 
-After the intensity of additional surgery, this quieter day was exactly what I needed. The confirmation of tomorrow's transfer gives a clear path forward to the next phase of recovery under my cardiologist's care.
+Whilst the delay was frustrating as it meant spending another day in hospital and delaying my eventual return home, the confirmation of tomorrow's transfer at least provided certainty about the next step. The café visit offered a welcome break from the ward environment.
 
 ## Monday, 14th October 2025 - Day 11
 
@@ -64,6 +64,6 @@ The move to Kirchberg marks a significant transition in my recovery - from the a
 
 ## Progress Summary
 
-Days 10-12 represent a crucial transition phase in my recovery - from the quiet respite after pacemaker surgery, through the transfer from acute care at INCCI to specialist cardiac monitoring at Kirchberg, where my cardiologist will finalise the plan for discharge and return to normal life.
+Days 10-12 represent a crucial transition phase in my recovery - from the frustrating delay after pacemaker surgery, through the transfer from acute care at INCCI to specialist cardiac monitoring at Kirchberg, where my cardiologist will finalise the plan for discharge and return to normal life.
 
-The café visit on Day 10 was a poignant reminder that recovery isn't just about medical milestones, but also about reconnecting with normal life, one small step at a time. The swift transfer on Day 11 demonstrated the excellent coordination between the two hospitals in my care.
+The café visit on Day 10 was a poignant reminder that recovery isn't just about medical milestones, but also about reconnecting with normal life, one small step at a time. The transfer on Day 11 moved me to the next stage of care, though the overall handover process felt like it could have been smoother.
