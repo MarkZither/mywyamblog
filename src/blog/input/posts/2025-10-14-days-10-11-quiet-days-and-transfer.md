@@ -13,7 +13,7 @@ Tags:
   - INCCI
 ---
 
-## Sunday, 13th October 2025 - Day 10
+## Sunday, 12th October 2025 - Day 10
 
 Day 10 was a very quiet day, two days after the pacemaker surgery. The focus was on waiting for news about the next stage of my recovery journey, though the delay in transferring to Kirchberg felt frustrating as it meant another day before ultimately getting home.
 
@@ -38,7 +38,7 @@ Key developments on Day 10:
 
 Whilst the delay was frustrating as it meant spending another day in hospital and delaying my eventual return home, the confirmation of tomorrow's transfer at least provided certainty about the next step. The café visit offered a welcome break from the ward environment.
 
-## Monday, 14th October 2025 - Day 11
+## Monday, 13th October 2025 - Day 11
 
 As expected today, I moved from INCCI to Kirchberg after I had eaten my breakfast and had clean dressings put on.
 
@@ -61,9 +61,7 @@ Key developments on Day 11:
 * ✅ Vital signs monitoring and mobile heart monitor setup
 * ✅ Awaiting cardiologist consultation on Day 12
 
-The move to Kirchberg marks a significant transition in my recovery - from the acute intensive care environment at INCCI to the specialist cardiac monitoring that will bridge the gap between hospital care and returning home.
-
-## Tuesday, 15th October 2025 - Day 12
+## Tuesday, 14th October 2025 - Day 12
 
 Day 12 started early - very early. The nurse was in to take blood to get an INR at 4:50, followed by another nurse to do an ECG. I soon dropped off until 7:15, which felt like a better hour to wake up.
 
