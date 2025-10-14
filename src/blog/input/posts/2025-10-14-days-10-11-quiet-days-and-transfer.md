@@ -79,7 +79,7 @@ I did my first physio session which, like at INCCI, involved a walk on the ward 
 
 ## Planning Ahead
 
-I'll have some time to pass while I wait for my INR to come good, so it seems like a good opportunity to try out [spec-kit](https://github.com/khulnasoft/spec-kit) to do spec-driven development of an app to remind me to take my blood medicine in the evening and do a blood test and log my INR in the morning.
+I'll have some time to pass while I wait for my INR to come good, so it seems like a good opportunity to try out [spec-kit](https://github.com/github/spec-kit) to do spec-driven development of an app to remind me to take my blood medicine in the evening and do a blood test and log my INR in the morning, imaginatively titled [blood_thinner_INR_tracker] (https://GitHub.com/MarkZither/blood_thinner_INR_tracker).
 
 ## Day 12 Summary
 
