@@ -60,7 +60,36 @@ The move to Kirchberg marks a significant transition in my recovery - from the a
 
 ## Tuesday, 15th October 2025 - Day 12
 
-[Content for Day 12 will be added shortly - cardiologist consultation and discharge planning]
+Day 12 started early - very early. The nurse was in to take blood to get an INR at 4:50, followed by another nurse to do an ECG. I soon dropped off until 7:15, which felt like a better hour to wake up.
+
+## INR Results and Doctor's Rounds
+
+My INR was 1.4 - that is slightly higher than a normal person but lower than the 2-3 I am looking for to ensure there are no blood clots as a result of the mechanical aorta.
+
+The doctor did his rounds around 11:00 and the news was not what I wanted to hear. With the INR being low, he said I could be home by the end of the week. If the INR is better tomorrow, it could be Thursday.
+
+## First Physio Session at Kirchberg
+
+The physio introduced me to the 8-week rehabilitation course which will start a week or 2 after I return home, depending on a new group starting with a space. I will rehabilitate together with the same people for the 8 weeks.
+
+I did my first physio session which, like at INCCI, involved a walk on the ward and a flight of stairs, but then went on to various standing exercises like heel raises, toe raises and leg raises to the side and behind.
+
+## Planning Ahead
+
+I'll have some time to pass while I wait for my INR to come good, so it seems like a good opportunity to try out [spec-kit](https://github.com/khulnasoft/spec-kit) to do spec-driven development of an app to remind me to take my blood medicine in the evening and do a blood test and log my INR in the morning.
+
+## Day 12 Summary
+
+Key developments on Day 12:
+
+* ✅ Early morning blood draw (4:50 AM) for INR test
+* ✅ INR result: 1.4 (below target range of 2-3)
+* ✅ Discharge delayed - potentially end of week, Thursday if INR improves
+* ✅ Introduction to 8-week rehabilitation programme
+* ✅ First comprehensive physio session with exercises
+* ✅ Planning medication tracking app development
+
+The lower than expected INR means a few more days at Kirchberg, which is frustrating but necessary to ensure the blood is at the right consistency to prevent clots with the mechanical valve.
 
 ## Progress Summary
 
