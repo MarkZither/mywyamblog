@@ -6,7 +6,7 @@ description: "Day 8 post-surgery: heart rhythm concerns lead to permanent pacema
 date: "2025-10-11"
 ---
 
-## Day 8: Friday, 11th October 2025
+## Day 8: Friday, 10th October 2025
 
 My recovery took an unexpected turn today as persistent heart rhythm issues necessitated additional intervention - the implantation of a permanent pacemaker to replace the temporary external device I've been carrying since the valve replacement surgery.
 
