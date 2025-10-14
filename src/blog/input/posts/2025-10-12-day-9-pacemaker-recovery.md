@@ -11,7 +11,7 @@ Tags:
   - Pacemaker
 ---
 
-## Saturday, 12th October 2025
+## Saturday, 11th October 2025
 
 Day 9 brought some pivotal moments in my recovery journey - pacemaker assessment results and news about the next stage of my care.
 
