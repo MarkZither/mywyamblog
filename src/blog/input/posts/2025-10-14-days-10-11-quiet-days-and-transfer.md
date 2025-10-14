@@ -98,4 +98,4 @@ The lower than expected INR means a few more days at Kirchberg, which is frustra
 
 Days 10-12 represent a crucial transition phase in my recovery - from the frustrating delay after pacemaker surgery, through the transfer from acute care at INCCI to specialist cardiac monitoring at Kirchberg, where my cardiologist will finalise the plan for discharge and return to normal life.
 
-The café visit on Day 10 was a poignant reminder that recovery isn't just about medical milestones, but also about reconnecting with normal life, one small step at a time. The transfer on Day 11 moved me to the next stage of care, though the overall handover process felt like it could have been smoother.
+The café visit on Day 10 was a poignant reminder that recovery isn't just about medical milestones, but also about reconnecting with normal life, one small step at a time. The transfer on Day 11 moved me to the next stage of care.
