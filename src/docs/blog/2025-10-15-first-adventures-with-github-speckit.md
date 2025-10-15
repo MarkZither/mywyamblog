@@ -20,19 +20,21 @@ My ambitions for this project are rather comprehensive:
 
 1. **A MAUI Application** - For mobile access to track my medication and INR readings
 2. **A Blazor Web Application** - Because one should have proper web access as well
-3. **A Backend with Database** - To store all this vital medical data securely
-4. **Azure Hosting** - Properly hosted in the cloud, as befits a modern application
-5. **GitHub Actions** - For continuous integration and deployment, naturally
+3. **A Console Application** - Packaged as a .NET tool and published to NuGet, because CLI is best! :)
+4. **An MCP Server** - So Copilot can update the INR and taken dosage directly
+5. **A Backend with Database** - To store all this vital medical data securely
+6. **Azure Hosting** - Properly hosted in the cloud, as befits a modern application
+7. **GitHub Actions** - For continuous integration and deployment, naturally
 
 And here's the truly splendid bit - I intend to have Copilot, powered by Claude 4 and 4.5, write all the code. My role shall be primarily that of specification writer and architectural decision maker. Quite the experiment in modern AI-assisted development!
 
 ## The Setup and First Issues
 
-Not wanting to bring too much tech to the hospital with me, I have my phone (a Moto G42), a Lenovo Tab M8 with a 1200x800 display, and an Android app Bluetooth keyboard and mouse to free the tablet screen from the keyboard clutter.
+Not wanting to bring too much tech to the hospital with me, I have my phone (a Moto G42), a Lenovo Tab M8 with a 1200x800 display, and an Android app Bluetooth keyboard and mouse to free the tablet screen from the keyboard clutter. I also treated myself to one of Amazon's cheapest tablet stands just for a bit of comfort.
 
 I created a new repository on GitHub and opened it in a Codespace in a browser on the tablet in full-screen mode for maximum VS Code visibility!
 
-So far so good! :) The Bluetooth keyboard and mouse had some latency, and the keyboard sometimes writes gibberish - but that's the same with the on-screen keyboard on the tablet. Far from ideal, but workable.
+So far so good! :) The Bluetooth keyboard and mouse had some latency, and the keyboard sometimes writes gibberish - but that's the same with the on-screen keyboard on the tablet. Copy and paste is also a big challenge, especially into Codespace - some kind of browser clipboard Rust issue I need to read more about. Far from ideal, but workable.
 
 ## Getting Started with Spec-Kit
 
