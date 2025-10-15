@@ -34,7 +34,7 @@ Not wanting to bring too much tech to the hospital with me, I have my phone (a M
 
 I created a new repository on GitHub and opened it in a Codespace in a browser on the tablet in full-screen mode for maximum VS Code visibility!
 
-So far so good! :) The Bluetooth keyboard and mouse had some latency, and the keyboard sometimes writes gibberish - but that's the same with the on-screen keyboard on the tablet. Copy and paste is also a big challenge, especially into Codespace - some kind of browser clipboard Rust issue I need to read more about. Far from ideal, but workable.
+So far so good! :) The Bluetooth keyboard and mouse had some latency, and the keyboard sometimes writes gibberish - but that's the same with the on-screen keyboard on the tablet. Copy and paste is also a big challenge, especially into Codespace - some kind of browser clipboard Rust issue I need to read more about. Almost workable - no tab button to do tab completion, no arrow button to easily go back through commands and do small edits. Indeed, a very efficient way of passing the time if not getting an application built!
 
 ## Getting Started with Spec-Kit
 
@@ -43,6 +43,10 @@ I followed the getting started steps. Some new tooling was mentioned - `uv` and 
 Then I followed the steps, running commands like `/speckit.constitution`, `/speckit.spec`, and `/speckit.plan`. Whilst Copilot was writing output like it was doing something, I couldn't find any output anywhere. I asked Copilot about this, and it agreed that I was right - the output wasn't there. So it tried again, and again, and again. What could it be?
 
 After entirely too long trying to figure it out, and with the Copilot window fully expanded, it hit me: Copilot was in **ask mode**. The 1200x800 screen had hidden that critical setting from me, and Copilot wasn't able to figure out that problem itself. So, Copilot switched to **agent mode**, and now we're cooking!
+
+## The PowerShell Challenge
+
+The next challenge I created for myself in some ways. Spec-kit lets you choose between bash scripts and PowerShell. I prefer PowerShell, so that's what I chose. Codespaces, by default, doesn't have PowerShell installed. So I have two choices: throw away what I have so far (which is only the constitution) or get PowerShell onto the Codespace machine. I edited the devcontainer config to add PowerShell, which gets PowerShell in place but runs with an error.
 
 ## Why This Application?
 
