@@ -32,16 +32,32 @@ My ambitions for this project are rather comprehensive:
 
 And here's the truly splendid bit - I intend to have Copilot, powered by Claude 4 and 4.5, write all the code. My role shall be primarily that of specification writer and architectural decision maker. Quite the experiment in modern AI-assisted development!
 
+## The Setup and First Issues
+
+Not wanting to bring too much tech to the hospital with me, I have my phone (a Moto G42), a Lenovo Tab M8 with a 1200x800 display, and an Android app Bluetooth keyboard and mouse to free the tablet screen from the keyboard clutter.
+
+I created a new repository on GitHub and opened it in a Codespace in a browser on the tablet in full-screen mode for maximum VS Code visibility!
+
+So far so good! :) The Bluetooth keyboard and mouse had some latency, and the keyboard sometimes writes gibberish - but that's the same with the on-screen keyboard on the tablet. Far from ideal, but workable.
+
+## Getting Started with Spec-Kit
+
+I followed the getting started steps. Some new tooling was mentioned - `uv` and `uvx` - but fortunately that was available on the Codespace, so installing speckit was easy.
+
+Then I followed the steps, running commands like `/speckit.constitution`, `/speckit.spec`, and `/speckit.plan`. Whilst Copilot was writing output like it was doing something, I couldn't find any output anywhere. I asked Copilot about this, and it agreed that I was right - the output wasn't there. So it tried again, and again, and again. What could it be?
+
+After entirely too long trying to figure it out, and with the Copilot window fully expanded, it hit me: Copilot was in **ask mode**. The 1200x800 screen had hidden that critical setting from me, and Copilot wasn't able to figure out that problem itself. So, Copilot switched to **agent mode**, and now we're cooking!
+
 ## Why This Application?
 
-For those not currently prescribed anticoagulants (lucky you!), managing warfarin therapy requires:
+For those not currently prescribed anticoagulants (lucky you!), managing vitamin K antagonist therapy (such as acenocoumarol/SINTROM) requires:
 
-1. **Daily Evening Medication**: Taking the prescribed dose of warfarin at roughly the same time each evening
+1. **Daily Evening Medication**: Taking the prescribed dose at roughly the same time each evening
 2. **Regular Blood Tests**: Checking your INR (International Normalized Ratio) to ensure the blood is thinning appropriately
-3. **Dose Adjustments**: Modifying the warfarin dose based on INR readings
-4. **Dietary Awareness**: Monitoring Vitamin K intake, as it affects warfarin efficacy
+3. **Dose Adjustments**: Modifying the dose based on INR readings
+4. **Dietary Awareness**: Monitoring Vitamin K intake, as it affects the medication's efficacy
 
-Currently, I'm doing this with a combination of phone alarms, a paper diary, and my somewhat unreliable memory. A proper application would be most welcome!
+Once discharged from hospital (where the nurses are currently managing this for me), I'll need to manage this with a combination of phone alarms, a paper diary, and my somewhat unreliable memory. A proper application would be most welcome!
 
 ## What's Next
 
