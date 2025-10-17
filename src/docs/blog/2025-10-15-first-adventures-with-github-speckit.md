@@ -59,6 +59,65 @@ For those not currently prescribed anticoagulants (lucky you!), managing vitamin
 
 Once discharged from hospital (where the nurses are currently managing this for me), I'll need to manage this with a combination of phone alarms, a paper diary, and my somewhat unreliable memory. A proper application would be most welcome!
 
+## Actually Using Spec-Kit
+
+With the technical hurdles of ask mode versus agent mode and PowerShell configuration behind me, I could finally experience spec-kit properly. The commands themselves were fairly brief, and I approached them methodically.
+
+### The Constitution
+
+Firstly, the constitution - lifted directly from the [docs](https://github.com/github/spec-kit?tab=readme-ov-file#2-establish-project-principles):
+
+```
+/speckit.constitution Create principles focused on code quality, testing standards, 
+user experience consistency, and performance requirements, being .net focused and 
+aware of application security best practices and striving to avoid any pitfalls 
+listed in the OWASP Top 10
+```
+
+This produced a rather splendid [constitution.md](https://github.com/MarkZither/blood_thinner_INR_tracker/blob/feature/blood-thinner-medication-tracker/.specify/memory/constitution.md) establishing the principles for the project.
+
+### The Specification
+
+Next was to create the spec. It's important at this point to focus on the functionality and avoid any mention of technology - imagine you're the PO/BA, not a dev/architect:
+
+```
+/speckit.specify Build an application that can help to remind me to take my blood 
+thinners on time, daily at the same time each day with a 12 hour maximum error window 
+after which it should warn against taking up until next dose is due, log the dosage 
+and remind me do my blood test on time, first thing in the morning on a schedule I 
+can configure, and log the INR level. I should be able to log and the values should 
+be available across my devices. This is not a medically approved app and it should 
+not be considered to be giving any medical advice.
+```
+
+The output was impressive: 6 user stories, 15 functional requirements, and 10 success criteria. The [commit](https://github.com/MarkZither/blood_thinner_INR_tracker/commit/64482a2c5acd94a9e5e205c0e22de48f55c22376#diff-aa4f55dfdbb3772b672c5fa9711023c93ad0bd9b235d408c37aa187cd1c19927) shows the detail. At this point I could iterate on those, but I'm just going to carry on until I've got an actual computer in front of me.
+
+### The Technical Plan
+
+Next, I described the technical aspects - the stack and the architecture:
+
+```
+/speckit.plan The application offers multiple front ends, dotnet MAUI for mobile 
+devices, Blazor for the web frontend, a dotnet console app packaged as a dotnet tool 
+available on nuget and a local MCP server. The frontend authentication should support 
+Azure and Google, the android version to support the native Google login flow. The 
+backend will be a dotnet web API with aspire, with all the best practices around 
+observability, container based deployment, published to docker hub, swagger docs with 
+scalar UI, health checks. The backend Auth should support the tokens from the front 
+end login with Azure and Google security is critical user sodding must be avoided! 
+data and metadata is stored in a local user specific secured SQLite database and 
+synchronized via the backend to a hosted database which could be PostgreSQL, SQL 
+Server or whatever else entity framework supports.
+```
+
+This produced considerably more output. In theory, at this point there could be blocking questions requiring answers before the process continues, but for me there were none. The [commit](https://github.com/MarkZither/blood_thinner_INR_tracker/commit/e1392e1ba3edc16fb1863e0e00bea8177ea390ed) shows the comprehensive architectural plan generated.
+
+### Planning Tasks
+
+That meant I was ready for `/speckit.tasks`. I noticed it was going to build with .NET 8, so I intervened to ensure it would use .NET 10, helped by some hints from [Merge Conflict episode 479](https://www.mergeconflict.fm/479). Whilst I told it to use .NET 10 and Copilot told itself to use .NET 10, when it came to actually do the work it didn't find .NET 10, so was going to revert to .NET 8. I fixed the `devcontainer.json` and it successfully started using .NET 10 preview.
+
+That finishes this section - next is implementation, which shall be a section all of its own!
+
 ---
 
 *This post was written primarily on a phone whilst waiting for blood test results. Any typos are blamed entirely on mobile autocorrect and hospital-grade WiFi.*
