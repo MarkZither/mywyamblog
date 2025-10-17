@@ -59,12 +59,6 @@ For those not currently prescribed anticoagulants (lucky you!), managing vitamin
 
 Once discharged from hospital (where the nurses are currently managing this for me), I'll need to manage this with a combination of phone alarms, a paper diary, and my somewhat unreliable memory. A proper application would be most welcome!
 
-## What's Next
-
-I'll be documenting this journey as I progress, sharing both successes and inevitable stumbles along the way. In subsequent posts, I'll delve into the actual implementation details and share code examples as the project develops.
-
-Stay tuned for further adventures in spec-driven development!
-
 ---
 
 *This post was written primarily on a phone whilst waiting for blood test results. Any typos are blamed entirely on mobile autocorrect and hospital-grade WiFi.*
