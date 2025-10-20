@@ -67,7 +67,7 @@ The Luxembourg healthcare system continues to impress with its thoroughness - th
 
 This past week at Kirchberg has been characterised by patience and learning. Patience whilst my body adjusts to the anticoagulation therapy, and learning about the lifestyle adjustments that will be part of my life going forward. The mechanical valve offers durability - it should last indefinitely without needing replacement - but it demands this careful management of blood thinning in return.
 
-I've had time to understand the pacemaker's limitations (detailed in previous posts), become proficient with the CoaguChek device, and come to terms with dietary modifications. The medical team has been thorough in their education, ensuring I understand not just what I need to do, but why I need to do it. Understanding the mechanisms at play makes the restrictions far easier to accept.
+I've had time to become proficient with the CoaguChek device and come to terms with dietary modifications. The medical team has been thorough in their education, ensuring I understand not just what I need to do, but why I need to do it. Understanding the mechanisms at play makes the restrictions far easier to accept.
 
 ## Looking Forward
 
