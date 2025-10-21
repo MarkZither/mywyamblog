@@ -1,7 +1,7 @@
 ---
 Title: First Adventures with GitHub Spec-Kit - Spec-Driven Development from Hospital
 Lead: "Whilst recovering in hospital with naught but a phone and tablet, I embark upon learning GitHub's spec-kit to build a proper INR tracking application. A welcome respite from medical dramas!"
-Published: 2025-10-15T12:00:00.000Z
+Published: 2025-10-23T12:00:00.000Z
 Image: 
 Tags:
   - GitHub
