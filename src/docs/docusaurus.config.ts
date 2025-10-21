@@ -138,6 +138,19 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: 'Subscribe',
+          items: [
+            {
+              label: 'RSS Feed',
+              href: 'https://blog.mark-burton.com/feed.rss',
+            },
+            {
+              label: 'Atom Feed',
+              href: 'https://blog.mark-burton.com/feed.atom',
+            },
+          ],
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Mark Burton. Built with Docusaurus.`,
     },
