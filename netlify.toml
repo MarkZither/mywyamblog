@@ -51,9 +51,34 @@
 
 # Specific redirects for posts without date in original filename
 # These files have been renamed to include dates, so we redirect old URLs to new dated format
+# Both /posts/slug and /slug patterns are included for comprehensive coverage
+[[redirects]]
+  from = "/posts/fork-a-cloned-git-repository"
+  to = "/2018/01/27/Fork-a-cloned-git-repository"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fork-a-cloned-git-repository"
+  to = "/2018/01/27/Fork-a-cloned-git-repository"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/Fork-a-cloned-git-repository"
   to = "/2018/01/27/Fork-a-cloned-git-repository"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/job-interview-technical-test-preparation"
+  to = "/2017/11/04/Job-Interview-Technical-Test-Preparation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/job-interview-technical-test-preparation"
+  to = "/2017/11/04/Job-Interview-Technical-Test-Preparation"
   status = 301
   force = true
 
@@ -64,8 +89,32 @@
   force = true
 
 [[redirects]]
+  from = "/posts/notsupportedexception-exception-using-encoding-in-.net-core"
+  to = "/2017/12/12/NotSupportedException-exception-using-Encoding-in-.net-core"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/notsupportedexception-exception-using-encoding-in-.net-core"
+  to = "/2017/12/12/NotSupportedException-exception-using-Encoding-in-.net-core"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/NotSupportedException-exception-using-Encoding-in-.net-core"
   to = "/2017/12/12/NotSupportedException-exception-using-Encoding-in-.net-core"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/nunit-tests-not-showing-in-test-explorer"
+  to = "/2017/02/21/Nunit-Tests-Not-Showing-In-Test-Explorer"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nunit-tests-not-showing-in-test-explorer"
+  to = "/2017/02/21/Nunit-Tests-Not-Showing-In-Test-Explorer"
   status = 301
   force = true
 
@@ -76,8 +125,32 @@
   force = true
 
 [[redirects]]
+  from = "/posts/playing-with-service-workers"
+  to = "/2017/12/18/Playing-with-Service-Workers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/playing-with-service-workers"
+  to = "/2017/12/18/Playing-with-Service-Workers"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/Playing-with-Service-Workers"
   to = "/2017/12/18/Playing-with-Service-Workers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/running-asp.net-core-on-a-raspberrypi-2-with-nginx"
+  to = "/2017/02/21/Running-ASP.NET-Core-on-a-RaspberryPi-2-with-Nginx"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/running-asp.net-core-on-a-raspberrypi-2-with-nginx"
+  to = "/2017/02/21/Running-ASP.NET-Core-on-a-RaspberryPi-2-with-Nginx"
   status = 301
   force = true
 
@@ -88,8 +161,32 @@
   force = true
 
 [[redirects]]
+  from = "/posts/setting-raspberry-pi-nginx-php-mysql-lemp-stack"
+  to = "/2017/02/21/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/setting-raspberry-pi-nginx-php-mysql-lemp-stack"
+  to = "/2017/02/21/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack"
   to = "/2017/02/21/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/setting-up-netlifycms-with-wyam---part-2"
+  to = "/2019/02/15/Setting-up-NetlifyCMS-with-Wyam---Part-2"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/setting-up-netlifycms-with-wyam---part-2"
+  to = "/2019/02/15/Setting-up-NetlifyCMS-with-Wyam---Part-2"
   status = 301
   force = true
 
@@ -100,8 +197,32 @@
   force = true
 
 [[redirects]]
+  from = "/posts/setting-up-netlifycms-with-wyam---part-1"
+  to = "/2018/02/09/Setting-up-NetlifyCMS-with-Wyam---Part-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/setting-up-netlifycms-with-wyam---part-1"
+  to = "/2018/02/09/Setting-up-NetlifyCMS-with-Wyam---Part-1"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/Setting-up-NetlifyCMS-with-Wyam---Part-1"
   to = "/2018/02/09/Setting-up-NetlifyCMS-with-Wyam---Part-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/setting-up-netlifycms-with-wyam---part-3"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-3"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/setting-up-netlifycms-with-wyam---part-3"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-3"
   status = 301
   force = true
 
@@ -112,14 +233,44 @@
   force = true
 
 [[redirects]]
+  from = "/posts/setting-up-netlifycms-with-wyam---part-4"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-4"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/setting-up-netlifycms-with-wyam---part-4"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-4"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/Setting-up-NetlifyCMS-with-Wyam---Part-4"
   to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-4"
   status = 301
   force = true
 
 [[redirects]]
+  from = "/posts/vsto-installs-over-https-issues"
+  to = "/2019/02/25/VSTO-installs-over-HTTPS-issues"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/vsto-installs-over-https-issues"
+  to = "/2019/02/25/VSTO-installs-over-HTTPS-issues"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/VSTO-installs-over-HTTPS-issues"
   to = "/2019/02/25/VSTO-installs-over-HTTPS-issues"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/miniblog-clone"
+  to = "/2018/01/12/miniblog-clone"
   status = 301
   force = true
 
