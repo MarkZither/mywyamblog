@@ -247,13 +247,9 @@
 # So we cannot use a pattern to transform /posts/2025-10-20-slug to /2025/10/20/slug
 # Instead, this pattern is handled by Docusaurus client-side redirects (see docusaurus.config.ts)
 
-# Redirect old /posts/ URLs without date to root (fallback)
-# This catches any /posts/* URLs that don't match specific redirects above
-[[redirects]]
-  from = "/posts/*"
-  to = "/:splat"
-  status = 301
-  force = true
+# DO NOT add a /posts/* fallback redirect here!
+# It would interfere with Docusaurus client-side redirects for date-based posts
+# Date-based posts like /posts/2025-10-20-slug are handled by Docusaurus createRedirects function
 
 # Redirect old /docs/blog/ URLs to root (where blog now lives)
 [[redirects]]
