@@ -2,12 +2,12 @@
 
 ## Repository Overview
 
-This is Mark Burton's personal blog repository, currently in a **hybrid migration state** from Statiq (.NET) to Docusaurus (Node.js/React). Both systems coexist to allow gradual content migration with zero downtime.
+This is Mark Burton's personal blog repository. The **migration from Statiq to Docusaurus is complete**, with Docusaurus now serving as the primary blog engine and Statiq kept as a backup for comparison.
 
 ### Architecture
 - **Blog URL**: https://blog.mark-burton.com
-- **Root path (`/`)**: Statiq blog (original, .NET-based)
-- **Docs path (`/docs/`)**: Docusaurus blog (new, Node.js-based)
+- **Root path (`/`)**: Docusaurus blog (PRIMARY - Node.js/React)
+- **Backup path (`/statiq-backup/`)**: Statiq blog (backup for comparison, .NET-based)
 
 ## Project Structure
 
@@ -17,8 +17,8 @@ mywyamblog/
 ├── .github/
 │   ├── copilot-instructions.md    # This file - development instructions
 │   └── workflows/                 # CI/CD pipelines
-│       ├── deploy-docusaurus.yml  # Hybrid deployment
-│       ├── deploy-prod.yml        # Statiq deployment
+│       ├── deploy-docusaurus.yml  # Primary deployment (Docusaurus + Statiq backup)
+│       ├── deploy-prod.yml.disabled # Old Statiq deployment (disabled)
 │       └── dotnet.yml             # .NET build
 ├── agent-docs/                    # AI agent-generated documentation
 │   ├── README.md                  # Index of agent documentation
@@ -42,18 +42,21 @@ mywyamblog/
 
 ## Technology Stack
 
-### Statiq Blog (Legacy - Being Phased Out)
-- **Framework**: .NET 8.0
-- **Static Generator**: Statiq.Web
-- **Template Engine**: Razor
-- **Build Command**: `dotnet run --project src/blog/mywyamblog.csproj`
-
-### Docusaurus Site (Current Development)
+### Docusaurus Blog (PRIMARY)
 - **Framework**: Docusaurus 3.9.1
 - **Runtime**: Node.js ≥20.0
 - **Language**: TypeScript 5.6
 - **UI Library**: React 19
 - **Build Command**: `npm run build` (in src/docs/)
+- **URL Pattern**: `/yyyy/mm/dd/post-slug`
+
+### Statiq Blog (BACKUP)
+- **Framework**: .NET 8.0
+- **Static Generator**: Statiq.Web
+- **Template Engine**: Razor
+- **Build Command**: `dotnet run --project src/blog/mywyamblog.csproj`
+- **Location**: Available at `/statiq-backup/` for comparison
+- **Status**: Kept as backup only, not actively developed
 
 ## Development Workflow
 
@@ -144,8 +147,8 @@ dotnet run          # Build and preview
 
 ### Current Status
 - ✅ Phase 1: Hybrid setup complete
-- 🔄 Phase 2: Content migration in progress
-- ⏳ Phase 3: Complete migration (future)
+- ✅ Phase 2: Content migration complete
+- ✅ Phase 3: Migration complete - Docusaurus is now primary!
 
 ### Migrating Content
 Use the migration script to convert Statiq posts to Docusaurus:
@@ -170,11 +173,13 @@ Manual fixes needed after migration:
 
 ### GitHub Actions + Netlify
 1. Push to `main` branch
-2. GitHub Actions builds both Statiq and Docusaurus
+2. GitHub Actions builds both Docusaurus (primary) and Statiq (backup)
 3. Outputs combined into single deployment
 4. Deployed to Netlify with routing:
-   - `/` → Statiq content
-   - `/docs/` → Docusaurus content
+   - `/` → Docusaurus content (PRIMARY)
+   - `/statiq-backup/` → Statiq content (backup for comparison)
+5. Redirects in place for old URL patterns:
+   - `/posts/yyyy-mm-dd-slug` → `/yyyy/mm/dd/slug`
 
 ### Environment Variables
 - Configured in GitHub Secrets
@@ -183,19 +188,19 @@ Manual fixes needed after migration:
 ## Important Considerations
 
 ### DO
-- ✅ Make changes primarily to Docusaurus (`src/docs/`)
+- ✅ Make changes to Docusaurus (`src/docs/`) - it's the primary blog
 - ✅ Test both TypeScript and build outputs
 - ✅ Follow British English conventions
-- ✅ Use the migration script for batch content moves
-- ✅ Update `MIGRATION.md` when changing migration strategy
-- ✅ Preserve existing Statiq functionality during transition
+- ✅ Maintain URL redirects from old Statiq patterns
+- ✅ Update documentation when making architectural changes
+- ✅ Keep Statiq as backup for now (at `/statiq-backup/`)
 
 ### DON'T
-- ❌ Break existing Statiq blog (still live at root)
 - ❌ Use American English spellings
-- ❌ Remove Statiq components until migration complete
-- ❌ Change URLs without setting up redirects
+- ❌ Change URLs without setting up redirects in `netlify.toml`
+- ❌ Remove Statiq backup without discussion (it's kept for comparison)
 - ❌ Commit `node_modules/`, `bin/`, `obj/`, or `build/` directories
+- ❌ Break existing redirects or change URL patterns
 
 ## Testing Strategy
 
@@ -267,13 +272,13 @@ npm install <package-name>
 
 When working on this repository:
 
-1. **Understand the hybrid nature**: Both systems must work simultaneously
-2. **Focus on Docusaurus**: New development should primarily target Docusaurus
-3. **Preserve Statiq**: Don't break the existing blog during migration
-4. **British English**: All text content uses British spellings
-5. **Respect the migration**: See `MIGRATION.md` for the phased approach
-6. **Test both builds**: Ensure neither system breaks with changes
-7. **Use the migration script**: Don't manually convert posts
+1. **Docusaurus is primary**: All new development targets Docusaurus at root path
+2. **Statiq is backup**: Kept at `/statiq-backup/` for comparison only
+3. **British English**: All text content uses British spellings
+4. **URL redirects**: Maintain redirects in `netlify.toml` for old Statiq URLs
+5. **Migration complete**: See `MIGRATION.md` for the completed migration details
+6. **Test Docusaurus**: Focus testing on Docusaurus (the primary blog)
+7. **Respect URL patterns**: Blog posts use `/yyyy/mm/dd/slug` format
 8. **Follow existing patterns**: Match the style of existing code/content
 
 ## Documentation Organization
