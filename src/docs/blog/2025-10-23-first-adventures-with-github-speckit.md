@@ -3,8 +3,8 @@ title: "First Adventures with GitHub Spec-Kit - Spec-Driven Development from Hos
 authors: ["mark-burton"]
 tags: ["GitHub", "Spec-Kit", "Development", "MAUI", "Blazor", "Azure", "Copilot", "Claude"]
 description: "Whilst recovering in hospital with naught but a phone and tablet, I embark upon learning GitHub's spec-kit to build a proper INR tracking application. A welcome respite from medical dramas!"
-date: "2025-10-23"
-draft: true
+date: "2025-10-21"
+draft: false
 ---
 
 ## A Most Agreeable Distraction
@@ -132,6 +132,45 @@ For MAUI, it initially claimed it couldn't do MAUI on Linux so skipped it, then 
 For Entity Framework, it made the basic mistakes of creating the database on each run of the application, but then it caught itself and changed it. Also related to Entity Framework, it chose GUIDs as the primary keys on models and then decided it needed to use strings instead. I shall be most interested to read that properly on a real screen.
 
 But ultimately, it builds and it passes its own tests! Though on my tablet I wasn't able to test the endpoints whilst it was running in the Codespace - that shall have to wait until I have proper computer access.
+
+## The Aftermath: Reality Check on a Proper Screen
+
+Finally back home and able to review the work Copilot did on a proper sized screen, and one of the first things I noticed was that although Copilot had visually shown me that it was working through the tasks one by one and saying it had completed the work, it had not updated the `tasks.md` file. So there was no easy way to see what it had done. I asked Copilot to check the `tasks.md` and update it with the work which was done, which suggested that 40% of the work was done - the infrastructure/backend was in place, but the frontend wasn't working or hooked up to the backend. Copilot updated the `tasks.md` file with the work it thought was complete.
+
+Looking more closely, the AppHost and ServiceDefaults don't reference Aspire NuGet packages. I rather expected that because I saw Copilot having issues with Aspire and saying it was simplifying, but really it was little more than placeholder projects. So with Copilot's help, the task was set back to incomplete and 5 subtasks were created to ensure Aspire gets set up fully.
+
+The Blazor app ran, but didn't work at all. Some really basic issues like the logged-in username hardcoded to "John Doe", links to pages just saying that the page does not exist. Copilot reviewed the work and saw the problems and created additional tasks.
+
+As stated by Copilot: "The app looks complete but nothing actually works behind the UI facade. Several more tasks are needed to make it functional!"
+
+But what about the code which was actually written? The API looks good, the Swagger attributes are in place to generate a good Swagger doc. But the Scalar UI was missing despite being in the `plan.md`. A quick ask of Copilot and it put Scalar in place, and now I can see the API. There is also an `.http` file, so I tried to work the API with that, but it was broken - the `baseurl` variable wasn't set, which was due to a `.` being in the variable name.
+
+I called the login endpoint in the `.http` file once I fixed that baseurl, and whilst I didn't know a valid user, there was a username and password in the `.http` file. Not great - it shouldn't even need a password because it is supposed to be Google or Entra login, but I got a JWT. So how does that work? Let's look at the database - maybe some seed data? Nope, the database is empty and there isn't even a password column on the User table. So what if I try a different username and password? I get a JWT every time, whatever the username, whatever the password, I get a JWT. Time to look at the Authentication Service. Bingo, `AuthenticateAsync(LoginRequest request)` - now this is where the problem is:
+
+```csharp
+// TODO: Implement external user lookup or creation
+// This is a placeholder implementation until User entity is created
+```
+
+So the code is more placeholder code, not actually functional.
+
+## Lessons Learnt
+
+This has been quite the educational experience in spec-driven AI development. Some observations:
+
+1. **Spec-kit is brilliant for getting started** - The structured approach of constitution → spec → plan → tasks → implementation really does help guide the AI towards a coherent solution.
+
+2. **Implementation requires oversight** - Whilst Copilot can certainly generate a lot of code, it needs proper verification. Visual confirmation in the chat that tasks are complete doesn't mean the actual artefacts are in place or working.
+
+3. **Screen size matters** - Trying to do serious development work on a 1200x800 tablet screen is... character building. The hidden UI elements led to hours of frustration that could have been avoided on a proper monitor.
+
+4. **Placeholder code is still code** - The generated authentication that accepts any username/password is a perfect example of AI generating structurally correct code that is functionally useless (and potentially dangerous!).
+
+5. **Testing is essential** - Without being able to properly test the endpoints from the Codespace, I accepted Copilot's assurances that things were working. They were not.
+
+Despite these challenges, the experiment has been worthwhile. I now have a codebase that, whilst requiring significant work to make functional, has the right structure and architecture in place. The task now is to systematically work through the issues, converting placeholder implementations into proper, working code.
+
+And perhaps most importantly: next time I attempt such development work, I shall wait until I have a proper computer!
 
 ---
 
