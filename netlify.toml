@@ -243,16 +243,12 @@
   force = true
 
 # General pattern redirects - these come AFTER specific redirects
-# Redirect old Statiq /posts/ URLs with date format to new Docusaurus format
-# Pattern: /posts/yyyy-mm-dd-slug -> /yyyy/mm/dd/slug
-[[redirects]]
-  from = "/posts/:year-:month-:day-:slug"
-  to = "/:year/:month/:day/:slug"
-  status = 301
-  force = true
+# NOTE: Netlify doesn't support named placeholder syntax like :year-:month-:day-:slug
+# So we cannot use a pattern to transform /posts/2025-10-20-slug to /2025/10/20/slug
+# Instead, this pattern is handled by Docusaurus client-side redirects (see docusaurus.config.ts)
 
 # Redirect old /posts/ URLs without date to root (fallback)
-# This should rarely match now that specific redirects are above
+# This catches any /posts/* URLs that don't match specific redirects above
 [[redirects]]
   from = "/posts/*"
   to = "/:splat"
