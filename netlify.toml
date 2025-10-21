@@ -7,6 +7,19 @@
   NODE_VERSION = "20"
   DOTNET_VERSION = "8.0"
 
+# Redirect rules for the hybrid setup
+
+# Feed redirects for backward compatibility
+[[redirects]]
+  from = "/feed.rss"
+  to = "/rss.xml"
+  status = 200
+
+[[redirects]]
+  from = "/feed.atom"
+  to = "/atom.xml"
+  status = 200
+
 # Redirect old /docs/blog/ URLs to root (where blog now lives)
 [[redirects]]
   from = "/docs/blog/*"
