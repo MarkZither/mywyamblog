@@ -15,10 +15,11 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://blog.mark-burton.com',
+  // Use environment variable for GitHub Pages deployment, fallback to main domain
+  url: process.env.URL || 'https://blog.mark-burton.com',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // Changed from '/docs/' to '/' to serve blog at root
-  baseUrl: '/',
+  // Use environment variable for GitHub Pages deployment, fallback to root
+  baseUrl: process.env.BASE_URL || '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

@@ -1,8 +1,8 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+# This workflow builds and deploys the Docusaurus blog to GitHub Pages
+# For more information see: https://docusaurus.io/docs/deployment#deploying-to-github-pages
 
 
-name: Build & Deploy Combined Blog to GitHub Pages
+name: Build & Deploy Docusaurus Blog to GitHub Pages
 
 on:
   push:
@@ -19,12 +19,6 @@ jobs:
       with:
         submodules: true
 
-    # Setup .NET for Statiq
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-
     # Setup Node.js for Docusaurus
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -33,47 +27,24 @@ jobs:
         cache: 'npm'
         cache-dependency-path: src/docs/package-lock.json
 
-    # Build Statiq blog
-    - name: Restore .NET dependencies
-      run: dotnet restore
-
-    - name: Build .NET project
-      run: dotnet build --no-restore
-
-    - name: Generate Statiq site
-      run: dotnet run --project src/blog/mywyamblog.csproj -- -l Information
-
-    # Build Docusaurus
+    # Build Docusaurus with GitHub Pages base URL
     - name: Install Docusaurus dependencies
       working-directory: ./src/docs
       run: npm ci
 
-    - name: Build Docusaurus site
+    - name: Build Docusaurus site for GitHub Pages
       working-directory: ./src/docs
       run: npm run build
-
-    # Combine both sites
-    - name: Combine sites
-      run: |
-        mkdir -p combined-site
-        # Copy Statiq output (assuming it goes to output folder)
-        if [ -d "output" ]; then
-          cp -r output/* combined-site/
-        fi
-        # Copy Docusaurus build to /docs subdirectory
-        if [ -d "src/docs/build" ]; then
-          mkdir -p combined-site/docs
-          cp -r src/docs/build/* combined-site/docs/
-        fi
-        # Create a simple index redirect if needed
-        if [ ! -f "combined-site/index.html" ]; then
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/docs/"></head><body>Redirecting...</body></html>' > combined-site/index.html
-        fi
+      env:
+        # Override base URL for GitHub Pages deployment
+        BASE_URL: /mywyamblog/
+        URL: https://markzither.github.io
 
     # Publish to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
+      if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: combined-site
+        publish_dir: src/docs/build
         force_orphan: true
