@@ -15,6 +15,15 @@ agent-docs/
 
 ## Current Documentation
 
+### Migration Complete: Docusaurus Now Primary
+
+**Location:** `agent-docs/issue-migration-complete/`
+
+**Purpose:** Implementation summary for completing the migration to Docusaurus as the primary blog engine.
+
+**Entry Points:**
+- [IMPLEMENTATION_SUMMARY.md](issue-migration-complete/IMPLEMENTATION_SUMMARY.md) - Complete implementation details
+
 ### Issue #62: Move Docusaurus Blog to Root
 
 **Location:** `agent-docs/issue-62/`
@@ -69,4 +78,4 @@ When creating documentation for issues:
 
 ---
 
-**Last Updated:** 2025-10-10
+**Last Updated:** 2025-10-21
