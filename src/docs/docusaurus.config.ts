@@ -69,6 +69,52 @@ const config: Config = {
     ],
   ],
 
+  // Client-side redirects as a backup to Netlify server-side redirects
+  // These provide a fallback if server-side redirects fail
+  // IMPORTANT: Also handles /posts/yyyy-mm-dd-slug pattern (Netlify can't do this)
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        // Handle the /posts/yyyy-mm-dd-slug -> /yyyy/mm/dd/slug pattern
+        // This is the PRIMARY handler for date-based post URLs from Statiq
+        createRedirects(existingPath) {
+          // For blog posts at /yyyy/mm/dd/slug, create redirect from /posts/yyyy-mm-dd-slug
+          const match = existingPath.match(/^\/(\d{4})\/(\d{2})\/(\d{2})\/(.+)$/);
+          if (match) {
+            const [, year, month, day, slug] = match;
+            return [
+              `/posts/${year}-${month}-${day}-${slug}`,
+            ];
+          }
+          return undefined;
+        },
+        // Specific redirects for renamed posts (lowercase and title case variations)
+        redirects: [
+          // Playing with Service Workers
+          { from: '/posts/playing-with-service-workers', to: '/2017/12/18/Playing-with-Service-Workers' },
+          { from: '/playing-with-service-workers', to: '/2017/12/18/Playing-with-Service-Workers' },
+          
+          // VSTO installs
+          { from: '/posts/vsto-installs-over-https-issues', to: '/2019/02/25/VSTO-installs-over-HTTPS-issues' },
+          { from: '/vsto-installs-over-https-issues', to: '/2019/02/25/VSTO-installs-over-HTTPS-issues' },
+          
+          // Fork a cloned git repository
+          { from: '/posts/fork-a-cloned-git-repository', to: '/2018/01/27/Fork a cloned git repository' },
+          { from: '/fork-a-cloned-git-repository', to: '/2018/01/27/Fork a cloned git repository' },
+          
+          // miniblog clone
+          { from: '/posts/miniblog-clone', to: '/2018/01/12/miniblog clone' },
+          { from: '/miniblog-clone', to: '/2018/01/12/miniblog clone' },
+          
+          // Job Interview
+          { from: '/posts/job-interview-technical-test-preparation', to: '/2017/11/04/Job-Interview-Technical-Test-Preparation' },
+          { from: '/job-interview-technical-test-preparation', to: '/2017/11/04/Job-Interview-Technical-Test-Preparation' },
+        ],
+      },
+    ],
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',

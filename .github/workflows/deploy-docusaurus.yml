@@ -1,6 +1,6 @@
-# This workflow builds both Statiq blog and Docusaurus and deploys to Netlify
+# This workflow builds Docusaurus as primary and Statiq as backup for Netlify
 
-name: Deploy Hybrid Blog (Statiq + Docusaurus) to Netlify
+name: Deploy Docusaurus Blog (with Statiq Backup) to Netlify
 
 on:
   push:
@@ -54,21 +54,31 @@ jobs:
       working-directory: ./src/docs
       run: npm run build
 
-    # Combine both sites
+    # Combine both sites - Docusaurus at root, Statiq at backup URL
     - name: Combine sites
       run: |
         # Create combined output directory
         mkdir -p combined-site
         
-        # Copy Docusaurus build to root (changed from /docs subdirectory)
+        # Copy Docusaurus build to root (primary blog)
         if [ -d "src/docs/build" ]; then
           cp -r src/docs/build/* combined-site/
         fi
         
-        # Copy Statiq output to /statiq subdirectory (if keeping it)
+        # Copy Statiq output to /statiq-backup subdirectory for comparison
         if [ -d "output" ]; then
-          mkdir -p combined-site/statiq
-          cp -r output/* combined-site/statiq/
+          mkdir -p combined-site/statiq-backup
+          cp -r output/* combined-site/statiq-backup/
+        fi
+        
+        # Copy netlify.toml to the deployment directory
+        # This is CRITICAL - Netlify needs this file to process redirects
+        if [ -f "netlify.toml" ]; then
+          cp netlify.toml combined-site/
+          echo "✓ netlify.toml copied to combined-site/"
+        else
+          echo "⚠ WARNING: netlify.toml not found in repository root"
+          exit 1
         fi
 
     # Deploy to Netlify

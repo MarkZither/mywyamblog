@@ -7,7 +7,263 @@
   NODE_VERSION = "20"
   DOTNET_VERSION = "8.0"
 
-# Redirect rules for the hybrid setup
+# Redirect rules - Docusaurus is now primary at root
+# IMPORTANT: Specific redirects must come BEFORE general patterns
+# Netlify processes redirects in order, first match wins
+
+# Specific redirects for posts without date in original filename
+# These files have been renamed to include dates, so we redirect old URLs to new dated format
+# Both /posts/slug and /slug patterns are included for comprehensive coverage
+[[redirects]]
+  from = "/posts/fork-a-cloned-git-repository"
+  to = "/2018/01/27/Fork a cloned git repository"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fork-a-cloned-git-repository"
+  to = "/2018/01/27/Fork a cloned git repository"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Fork-a-cloned-git-repository"
+  to = "/2018/01/27/Fork a cloned git repository"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/job-interview-technical-test-preparation"
+  to = "/2017/11/04/Job-Interview-Technical-Test-Preparation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/job-interview-technical-test-preparation"
+  to = "/2017/11/04/Job-Interview-Technical-Test-Preparation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Job-Interview-Technical-Test-Preparation"
+  to = "/2017/11/04/Job-Interview-Technical-Test-Preparation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/notsupportedexception-exception-using-encoding-in-.net-core"
+  to = "/2017/12/12/NotSupportedException exception using Encoding in .net core"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/notsupportedexception-exception-using-encoding-in-.net-core"
+  to = "/2017/12/12/NotSupportedException exception using Encoding in .net core"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/NotSupportedException-exception-using-Encoding-in-.net-core"
+  to = "/2017/12/12/NotSupportedException exception using Encoding in .net core"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/nunit-tests-not-showing-in-test-explorer"
+  to = "/2017/02/21/Nunit-Tests-Not-Showing-In-Test-Explorer"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nunit-tests-not-showing-in-test-explorer"
+  to = "/2017/02/21/Nunit-Tests-Not-Showing-In-Test-Explorer"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Nunit-Tests-Not-Showing-In-Test-Explorer"
+  to = "/2017/02/21/Nunit-Tests-Not-Showing-In-Test-Explorer"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/playing-with-service-workers"
+  to = "/2017/12/18/Playing-with-Service-Workers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/playing-with-service-workers"
+  to = "/2017/12/18/Playing-with-Service-Workers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Playing-with-Service-Workers"
+  to = "/2017/12/18/Playing-with-Service-Workers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/running-asp.net-core-on-a-raspberrypi-2-with-nginx"
+  to = "/2017/02/21/Running ASP.NET Core on a RaspberryPi 2 with Nginx"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/running-asp.net-core-on-a-raspberrypi-2-with-nginx"
+  to = "/2017/02/21/Running ASP.NET Core on a RaspberryPi 2 with Nginx"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Running-ASP.NET-Core-on-a-RaspberryPi-2-with-Nginx"
+  to = "/2017/02/21/Running ASP.NET Core on a RaspberryPi 2 with Nginx"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/setting-raspberry-pi-nginx-php-mysql-lemp-stack"
+  to = "/2017/02/21/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/setting-raspberry-pi-nginx-php-mysql-lemp-stack"
+  to = "/2017/02/21/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack"
+  to = "/2017/02/21/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/setting-up-netlifycms-with-wyam---part-2"
+  to = "/2019/02/15/Setting-up-NetlifyCMS-with-Wyam---Part 2"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/setting-up-netlifycms-with-wyam---part-2"
+  to = "/2019/02/15/Setting-up-NetlifyCMS-with-Wyam---Part 2"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Setting-up-NetlifyCMS-with-Wyam---Part-2"
+  to = "/2019/02/15/Setting-up-NetlifyCMS-with-Wyam---Part 2"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/setting-up-netlifycms-with-wyam---part-1"
+  to = "/2018/02/09/Setting-up-NetlifyCMS-with-Wyam---Part-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/setting-up-netlifycms-with-wyam---part-1"
+  to = "/2018/02/09/Setting-up-NetlifyCMS-with-Wyam---Part-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Setting-up-NetlifyCMS-with-Wyam---Part-1"
+  to = "/2018/02/09/Setting-up-NetlifyCMS-with-Wyam---Part-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/setting-up-netlifycms-with-wyam---part-3"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-3"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/setting-up-netlifycms-with-wyam---part-3"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-3"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Setting-up-NetlifyCMS-with-Wyam---Part-3"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-3"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/setting-up-netlifycms-with-wyam---part-4"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-4"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/setting-up-netlifycms-with-wyam---part-4"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-4"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Setting-up-NetlifyCMS-with-Wyam---Part-4"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-4"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/vsto-installs-over-https-issues"
+  to = "/2019/02/25/VSTO-installs-over-HTTPS-issues"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/vsto-installs-over-https-issues"
+  to = "/2019/02/25/VSTO-installs-over-HTTPS-issues"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/VSTO-installs-over-HTTPS-issues"
+  to = "/2019/02/25/VSTO-installs-over-HTTPS-issues"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/miniblog-clone"
+  to = "/2018/01/12/miniblog clone"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/miniblog-clone"
+  to = "/2018/01/12/miniblog clone"
+  status = 301
+  force = true
+
+# General pattern redirects - these come AFTER specific redirects
+# NOTE: Netlify doesn't support named placeholder syntax like :year-:month-:day-:slug
+# So we cannot use a pattern to transform /posts/2025-10-20-slug to /2025/10/20/slug
+# Instead, this pattern is handled by Docusaurus client-side redirects (see docusaurus.config.ts)
+
+# DO NOT add a /posts/* fallback redirect here!
+# It would interfere with Docusaurus client-side redirects for date-based posts
+# Date-based posts like /posts/2025-10-20-slug are handled by Docusaurus createRedirects function
+
+# Redirect old /docs/blog/ URLs to root (where blog now lives)
+[[redirects]]
+  from = "/docs/blog/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# Redirect /docs/docs/ to /docs/
+[[redirects]]
+  from = "/docs/docs/*"
+  to = "/docs/:splat"
+  status = 301
+  force = true
 
 # Feed redirects for backward compatibility
 [[redirects]]
@@ -19,45 +275,6 @@
   from = "/feed.atom"
   to = "/atom.xml"
   status = 200
-
-# Redirect old /docs/blog/ URLs to root (where blog now lives)
-[[redirects]]
-  from = "/docs/blog/*"
-  to = "/:splat"
-  status = 301
-  force = true
-
-# Redirect old /posts/ URLs to root (where blog now lives)
-[[redirects]]
-  from = "/posts/*"
-  to = "/:splat"
-  status = 301
-  force = true
-
-# Feed redirects for backward compatibility
-[[redirects]]
-  from = "/feed.rss"
-  to = "/docs/blog/rss.xml"
-  status = 200
-
-[[redirects]]
-  from = "/feed.atom"
-  to = "/docs/blog/atom.xml"
-  status = 200
-
-
-# Redirect /docs/docs/ to /docs/
-[[redirects]]
-  from = "/docs/docs/*"
-  to = "/docs/:splat"
-  status = 301
-  force = true
-
-# Redirect /docs to root
-[[redirects]]
-  from = "/docs"
-  to = "/"
-  status = 301
 
 # SPA routing for Docusaurus (must be last)
 [[redirects]]

@@ -6,8 +6,8 @@ This repository demonstrates a hybrid approach to migrating from Statiq to Docus
 
 ```
 blog.mark-burton.com/
-├── /                    # Statiq blog (original content)
-└── /docs/               # Docusaurus blog (new content)
+├── /                        # Docusaurus blog (PRIMARY - new content)
+└── /statiq-backup/          # Statiq blog (backup for comparison)
 ```
 
 ## 🚀 Quick Start
@@ -68,24 +68,25 @@ mywyamblog/
 
 ## 🔄 Migration Strategy
 
-### Phase 1: Hybrid Setup ✅ (Current)
+### Phase 1: Hybrid Setup ✅ (Complete)
 - [x] Docusaurus installed alongside Statiq
 - [x] Both systems configured and running
 - [x] GitHub Actions updated for hybrid deployment
 - [x] Migration script created
 - [x] Netlify configuration updated
 
-### Phase 2: Content Migration (In Progress)
-- [ ] Migrate existing blog posts using migration script
-- [ ] Update internal links and references
-- [ ] Migrate static assets (images, files)
-- [ ] Test all functionality in Docusaurus
+### Phase 2: Content Migration ✅ (Complete)
+- [x] Migrate existing blog posts using migration script
+- [x] Update internal links and references
+- [x] Migrate static assets (images, files)
+- [x] Test all functionality in Docusaurus
 
-### Phase 3: Complete Migration (Future)
-- [ ] Switch main domain to Docusaurus
-- [ ] Set up redirects from old Statiq URLs
-- [ ] Remove Statiq components
-- [ ] Update GitHub Actions to Docusaurus-only
+### Phase 3: Complete Migration ✅ (Current - Complete)
+- [x] Switch main domain to Docusaurus (root path)
+- [x] Set up redirects from old Statiq URLs (/posts/yyyy-mm-dd-slug → /yyyy/mm/dd/slug)
+- [x] Keep Statiq as backup at /statiq-backup/ for comparison
+- [x] Updated GitHub Actions - deploy-docusaurus.yml is primary
+- [x] Disabled old deploy-prod.yml workflow
 
 ## 🛠️ Migration Tools
 
@@ -118,18 +119,20 @@ npm run migrate-posts
 ## 🌐 Deployment
 
 ### GitHub Actions + Netlify
-The repository includes GitHub Actions workflows that:
-1. **Build Statiq blog** using .NET
-2. **Build Docusaurus** using Node.js
-3. **Combine outputs** into a single deployment
+The repository includes GitHub Actions workflow (`deploy-docusaurus.yml`) that:
+1. **Build Docusaurus** using Node.js (primary blog)
+2. **Build Statiq blog** using .NET (backup for comparison)
+3. **Combine outputs** into a single deployment (Docusaurus at root, Statiq at /statiq-backup/)
 4. **Deploy to Netlify** with proper routing
 
 ### Netlify Configuration
 The `netlify.toml` handles:
-- Routing for both `/` (Statiq) and `/docs/` (Docusaurus)
-- SPA routing for Docusaurus
-- Caching headers for optimal performance
-- Redirects and proxy rules
+- **Primary routing**: `/` serves Docusaurus blog
+- **Backup routing**: `/statiq-backup/` serves original Statiq blog
+- **Redirects**: Old `/posts/yyyy-mm-dd-slug` URLs redirect to `/yyyy/mm/dd/slug`
+- **SPA routing**: Docusaurus single-page application routing
+- **Caching headers**: Optimal performance for static assets
+- **Feed redirects**: RSS and Atom feed backward compatibility
 
 ## 🎯 Benefits of This Approach
 
@@ -171,27 +174,28 @@ The `netlify.toml` handles:
 | **Performance** | Good | Excellent |
 | **SEO** | Manual setup | Built-in |
 
-## 🧹 Cleanup Tasks (Post-Migration)
+## 🧹 Future Cleanup Tasks (Optional)
 
-When ready to complete the migration:
+If you want to fully remove Statiq after confirming the migration is successful:
 
 1. **Remove Statiq components:**
    ```bash
    rm -rf src/blog/
-   rm .github/workflows/deploy-prod.yml
+   rm .github/workflows/deploy-prod.yml.disabled
    ```
 
 2. **Update GitHub Actions:**
-   - Keep only `deploy-docusaurus.yml`
-   - Remove .NET build steps
+   - Remove .NET build steps from `deploy-docusaurus.yml`
+   - Remove Statiq build and copy commands
 
 3. **Update Netlify:**
-   - Change publish directory from `combined-site` to `docs/build`
-   - Remove Statiq-specific redirects
+   - Change publish directory from `combined-site` to `src/docs/build`
+   - Remove `/statiq-backup/` directory from deployment
 
-4. **Set up redirects:**
-   - Map old Statiq URLs to new Docusaurus URLs
-   - Use Netlify redirects or custom redirect component
+4. **Current State:**
+   - ✅ Statiq kept as backup at `/statiq-backup/` for comparison
+   - ✅ Old deploy-prod.yml disabled (renamed to .disabled)
+   - ✅ Redirects in place for old URL patterns
 
 ## 📚 Resources
 
