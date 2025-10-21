@@ -124,6 +124,20 @@ That meant I was ready for `/speckit.tasks`. I noticed it was going to build wit
 
 That finishes this section - next is implementation, which shall be a section all of its own!
 
+## The Implementation
+
+The command itself is remarkably simple: `/speckit.implement`. This triggers Copilot to embark upon a whole heap of work. When I do this again, I shall probably start with fewer requirements and build it out feature by feature, rather than attempting everything at once.
+
+Since I found myself repeatedly clicking "allow" so that Copilot could execute commands like `dotnet build`, I set certain commands to be allowed always to speed things up considerably.
+
+It was rather fascinating watching the Copilot output - observing the build errors and seeing why Copilot thought the errors existed and how it chose to fix them. For Aspire in particular, it seemed to get very confused and jump between workloads and NuGet packages and what it claimed were "simplifications". 
+
+For MAUI, it initially claimed it couldn't do MAUI on Linux so skipped it, then changed its mind and generated the MAUI app - which promptly consumed all of the Codespace disc space installing the workloads! 
+
+For Entity Framework, it made the basic mistakes of creating the database on each run of the application, but then it caught itself and changed it. Also related to Entity Framework, it chose GUIDs as the primary keys on models and then decided it needed to use strings instead. I shall be most interested to read that properly on a real screen.
+
+But ultimately, it builds and it passes its own tests! Though on my tablet I wasn't able to test the endpoints whilst it was running in the Codespace - that shall have to wait until I have proper computer access.
+
 ---
 
 *This post was written primarily on a phone whilst waiting for blood test results. Any typos are blamed entirely on mobile autocorrect and hospital-grade WiFi.*

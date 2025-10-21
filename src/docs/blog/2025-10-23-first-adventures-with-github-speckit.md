@@ -4,6 +4,7 @@ authors: ["mark-burton"]
 tags: ["GitHub", "Spec-Kit", "Development", "MAUI", "Blazor", "Azure", "Copilot", "Claude"]
 description: "Whilst recovering in hospital with naught but a phone and tablet, I embark upon learning GitHub's spec-kit to build a proper INR tracking application. A welcome respite from medical dramas!"
 date: "2025-10-23"
+draft: true
 ---
 
 ## A Most Agreeable Distraction
@@ -117,6 +118,20 @@ This produced considerably more output. In theory, at this point there could be 
 That meant I was ready for `/speckit.tasks`. I noticed it was going to build with .NET 8, so I intervened to ensure it would use .NET 10, helped by some hints from [Merge Conflict episode 479](https://www.mergeconflict.fm/479). Whilst I told it to use .NET 10 and Copilot told itself to use .NET 10, when it came to actually do the work it didn't find .NET 10, so was going to revert to .NET 8. I fixed the `devcontainer.json` and it successfully started using .NET 10 preview.
 
 That finishes this section - next is implementation, which shall be a section all of its own!
+
+## The Implementation
+
+The command itself is remarkably simple: `/speckit.implement`. This triggers Copilot to embark upon a whole heap of work. When I do this again, I shall probably start with fewer requirements and build it out feature by feature, rather than attempting everything at once.
+
+Since I found myself repeatedly clicking "allow" so that Copilot could execute commands like `dotnet build`, I set certain commands to be allowed always to speed things up considerably.
+
+It was rather fascinating watching the Copilot output - observing the build errors and seeing why Copilot thought the errors existed and how it chose to fix them. For Aspire in particular, it seemed to get very confused and jump between workloads and NuGet packages and what it claimed were "simplifications". 
+
+For MAUI, it initially claimed it couldn't do MAUI on Linux so skipped it, then changed its mind and generated the MAUI app - which promptly consumed all of the Codespace disc space installing the workloads! 
+
+For Entity Framework, it made the basic mistakes of creating the database on each run of the application, but then it caught itself and changed it. Also related to Entity Framework, it chose GUIDs as the primary keys on models and then decided it needed to use strings instead. I shall be most interested to read that properly on a real screen.
+
+But ultimately, it builds and it passes its own tests! Though on my tablet I wasn't able to test the endpoints whilst it was running in the Codespace - that shall have to wait until I have proper computer access.
 
 ---
 
