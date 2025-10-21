@@ -49,6 +49,86 @@
   to = "/atom.xml"
   status = 200
 
+# Specific redirects for posts without date in original filename
+# These files have been renamed to include dates, so we redirect old URLs to new dated format
+[[redirects]]
+  from = "/Fork-a-cloned-git-repository"
+  to = "/2018/01/27/Fork-a-cloned-git-repository"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Job-Interview-Technical-Test-Preparation"
+  to = "/2017/11/04/Job-Interview-Technical-Test-Preparation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/NotSupportedException-exception-using-Encoding-in-.net-core"
+  to = "/2017/12/12/NotSupportedException-exception-using-Encoding-in-.net-core"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Nunit-Tests-Not-Showing-In-Test-Explorer"
+  to = "/2017/02/21/Nunit-Tests-Not-Showing-In-Test-Explorer"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Playing-with-Service-Workers"
+  to = "/2017/12/18/Playing-with-Service-Workers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Running-ASP.NET-Core-on-a-RaspberryPi-2-with-Nginx"
+  to = "/2017/02/21/Running-ASP.NET-Core-on-a-RaspberryPi-2-with-Nginx"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack"
+  to = "/2017/02/21/Setting-Raspberry-Pi-NGINX-PHP-MySQL-LEMP-Stack"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Setting-up-NetlifyCMS-with-Wyam---Part-2"
+  to = "/2019/02/15/Setting-up-NetlifyCMS-with-Wyam---Part-2"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Setting-up-NetlifyCMS-with-Wyam---Part-1"
+  to = "/2018/02/09/Setting-up-NetlifyCMS-with-Wyam---Part-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Setting-up-NetlifyCMS-with-Wyam---Part-3"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-3"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Setting-up-NetlifyCMS-with-Wyam---Part-4"
+  to = "/2018/03/09/Setting-up-NetlifyCMS-with-Wyam---Part-4"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/VSTO-installs-over-HTTPS-issues"
+  to = "/2019/02/25/VSTO-installs-over-HTTPS-issues"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/miniblog-clone"
+  to = "/2018/01/12/miniblog-clone"
+  status = 301
+  force = true
+
 # SPA routing for Docusaurus (must be last)
 [[redirects]]
   from = "/*"
