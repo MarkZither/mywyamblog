@@ -70,6 +70,16 @@ jobs:
           mkdir -p combined-site/statiq-backup
           cp -r output/* combined-site/statiq-backup/
         fi
+        
+        # Copy netlify.toml to the deployment directory
+        # This is CRITICAL - Netlify needs this file to process redirects
+        if [ -f "netlify.toml" ]; then
+          cp netlify.toml combined-site/
+          echo "✓ netlify.toml copied to combined-site/"
+        else
+          echo "⚠ WARNING: netlify.toml not found in repository root"
+          exit 1
+        fi
 
     # Deploy to Netlify
     - name: Deploy to Netlify
