@@ -104,7 +104,7 @@ Azure and Google, the android version to support the native Google login flow. T
 backend will be a dotnet web API with aspire, with all the best practices around 
 observability, container based deployment, published to docker hub, swagger docs with 
 scalar UI, health checks. The backend Auth should support the tokens from the front 
-end login with Azure and Google security is critical user sodding must be avoided! 
+end login with Azure and Google security is critical user spoofing must be avoided! 
 data and metadata is stored in a local user specific secured SQLite database and 
 synchronized via the backend to a hosted database which could be PostgreSQL, SQL 
 Server or whatever else entity framework supports.
