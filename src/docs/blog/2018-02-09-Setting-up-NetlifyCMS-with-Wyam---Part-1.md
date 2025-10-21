@@ -5,7 +5,12 @@ date: "2018-02-09"
 tags: ["Wyam", "AppVeyor", "NetlifyCMS", "Netlify"]
 description: "Configuring a simple single user mode NetlifyCMS with Wyam"
 ---
-# Setting up NetlifyCMS with Wyam  Despite the length of this series of blog posts NetlifyCMS is actually really easy to setup. It just involves configuration across a few different tools to get it all working in an automated fashion, from publishing a post in the CMS, thereby the file being pushed to GitHub, to automatically building and publishing your site, in this instance to Netlify. I was not familiar with all these tools when i started so please leave a comment if there are improvements that can be made.  Lets start with what Wyam and NetlifyCMS are;
+
+# Setting up NetlifyCMS with Wyam
+
+Despite the length of this series of blog posts NetlifyCMS is actually really easy to setup. It just involves configuration across a few different tools to get it all working in an automated fashion, from publishing a post in the CMS, thereby the file being pushed to GitHub, to automatically building and publishing your site, in this instance to Netlify. I was not familiar with all these tools when i started so please leave a comment if there are improvements that can be made.
+
+Lets start with what Wyam and NetlifyCMS are;
 > ""Wyam is different.
 > It's a static content toolkit and can be used to generate web sites, produce documentation, create ebooks, and much more. Since everything is configured by chaining together flexible modules (that you can even write yourself), the only limits to what it can create are your imagination.""--<cite />
 [wyam.io](https:/wyam.io)<cite />  > ""Netlify CMS is an open source content management system for your Git workflow that enables you to provide editors with friendly UI and intuitive workflow. You can use it with any static site generator to create faster, more flexible web projects.""

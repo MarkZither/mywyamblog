@@ -6,7 +6,7 @@ description: "Bringing Kimai into the tools you spend your time in"
 date: "2021-05-29"
 ---
 
-As of v1.0.0.0 released on 09032023 the VSTO is signed with an open source code signing cert from [Certum](https:/shop.certum.euopen-source-code-signing-on-simplysign.html) this should mean the installation is automatically trusted.  If you installed a version before v1.0.0.0 you must uninstall it before installing v1.0.0.0 as the change in signing cert will prevent the upgrade working.  ~~Until I get a real certificate you will need to install [this self-signed certificate](..assetsKimaiExcelmburton_cert.cer) as a `trusted root certification authority` to be able to install the add-in.~~  [Download Excel Add-in](..assetsKimaiExcelMarkZither.KimaiDotNet.ExcelAddin.vsto)  ## Create an API password in Kimai
+As of v1.0.0.0 released on 09032023 the VSTO is signed with an open source code signing cert from [Certum](https:/shop.certum.euopen-source-code-signing-on-simplysign.html) this should mean the installation is automatically trusted.  If you installed a version before v1.0.0.0 you must uninstall it before installing v1.0.0.0 as the change in signing cert will prevent the upgrade working.  ~~Until I get a real certificate you will need to install this self-signed certificate as a `trusted root certification authority` to be able to install the add-in.~~  [Download Excel Add-in](..assetsKimaiExcelMarkZither.KimaiDotNet.ExcelAddin.vsto)  ## Create an API password in Kimai
 :::warning
 WARNING!!! If you try and login with your normal password it will fail! 
 :::

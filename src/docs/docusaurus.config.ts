@@ -78,29 +78,25 @@ const config: Config = {
         // Specific redirects for renamed posts (lowercase and title case variations)
         // Note: The general pattern /posts/yyyy-mm-dd-slug is handled by Netlify server-side
         redirects: [
-          // Playing with Service Workers
+          // Playing with Service Workers - only redirect old paths, not the actual post path
           { from: '/posts/playing-with-service-workers', to: '/2017/12/18/Playing-with-Service-Workers' },
           { from: '/playing-with-service-workers', to: '/2017/12/18/Playing-with-Service-Workers' },
-          { from: '/Playing-with-Service-Workers', to: '/2017/12/18/Playing-with-Service-Workers' },
           
-          // VSTO installs
+          // VSTO installs - only redirect old paths
           { from: '/posts/vsto-installs-over-https-issues', to: '/2019/02/25/VSTO-installs-over-HTTPS-issues' },
           { from: '/vsto-installs-over-https-issues', to: '/2019/02/25/VSTO-installs-over-HTTPS-issues' },
-          { from: '/VSTO-installs-over-HTTPS-issues', to: '/2019/02/25/VSTO-installs-over-HTTPS-issues' },
           
-          // Fork a cloned git repository (note: path has spaces as in filename)
+          // Fork a cloned git repository - only redirect old paths
           { from: '/posts/fork-a-cloned-git-repository', to: '/2018/01/27/Fork a cloned git repository' },
           { from: '/fork-a-cloned-git-repository', to: '/2018/01/27/Fork a cloned git repository' },
-          { from: '/Fork-a-cloned-git-repository', to: '/2018/01/27/Fork a cloned git repository' },
           
-          // miniblog clone (note: path has space as in filename)
+          // miniblog clone - only redirect old paths  
           { from: '/posts/miniblog-clone', to: '/2018/01/12/miniblog clone' },
           { from: '/miniblog-clone', to: '/2018/01/12/miniblog clone' },
           
-          // Job Interview
+          // Job Interview - only redirect old paths
           { from: '/posts/job-interview-technical-test-preparation', to: '/2017/11/04/Job-Interview-Technical-Test-Preparation' },
           { from: '/job-interview-technical-test-preparation', to: '/2017/11/04/Job-Interview-Technical-Test-Preparation' },
-          { from: '/Job-Interview-Technical-Test-Preparation', to: '/2017/11/04/Job-Interview-Technical-Test-Preparation' },
         ],
       },
     ],
