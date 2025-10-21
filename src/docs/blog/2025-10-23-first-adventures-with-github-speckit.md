@@ -3,7 +3,7 @@ title: "First Adventures with GitHub Spec-Kit - Spec-Driven Development from Hos
 authors: ["mark-burton"]
 tags: ["GitHub", "Spec-Kit", "Development", "MAUI", "Blazor", "Azure", "Copilot", "Claude"]
 description: "Whilst recovering in hospital with naught but a phone and tablet, I embark upon learning GitHub's spec-kit to build a proper INR tracking application. A welcome respite from medical dramas!"
-date: "2025-10-23"
+date: "2025-10-21"
 draft: true
 ---
 
