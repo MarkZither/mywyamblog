@@ -15,21 +15,21 @@ This is a concise, actionable guide for implementing the blog migration. For ful
 Before proceeding, decide:
 
 1. **Keep Statiq content?**
-   - [ ] No - Remove entirely, redirect to Docusaurus
+   - [ X ] No - Remove entirely, redirect to Docusaurus
    - [ ] Yes - Keep at `/statiq/` for reference
 
 2. **Redirect strategy?**
    - [ ] Netlify server-side (recommended)
    - [ ] Docusaurus client-side
-   - [ ] Hybrid (both)
+   - [ X ] Hybrid (both)
 
 3. **Posts to rename?**
    - [ ] None - Keep all URLs as-is
-   - [ ] Some - List them in `POSTS_TO_RENAME.txt`
+   - [ X ] Some - List them in `POSTS_TO_RENAME.txt`
 
 4. **Timeline?**
    - [ ] Immediate - Deploy to production ASAP
-   - [ ] Phased - Test in preview first
+   - [ X ] Phased - Test in preview first
 
 ## Implementation Steps
 
