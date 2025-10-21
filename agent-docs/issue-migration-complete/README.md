@@ -158,6 +158,8 @@ After 30+ days of stable production:
 - [Main Repository README](../../README.md)
 - [Migration Guide](../../MIGRATION.md)
 - [Copilot Instructions](../../.github/copilot-instructions.md)
+- [Implementation Summary](./IMPLEMENTATION_SUMMARY.md) - Detailed migration implementation
+- [Blog Post Renaming](./BLOG_POST_RENAMING.md) - Post renaming and redirects
 - [Issue #62 Documentation](../issue-62/)
 
 ---

@@ -22,7 +22,9 @@ agent-docs/
 **Purpose:** Implementation summary for completing the migration to Docusaurus as the primary blog engine.
 
 **Entry Points:**
+- [README.md](issue-migration-complete/README.md) - Quick reference and navigation hub
 - [IMPLEMENTATION_SUMMARY.md](issue-migration-complete/IMPLEMENTATION_SUMMARY.md) - Complete implementation details
+- [BLOG_POST_RENAMING.md](issue-migration-complete/BLOG_POST_RENAMING.md) - Blog post renaming and redirects
 
 ### Issue #62: Move Docusaurus Blog to Root
 
