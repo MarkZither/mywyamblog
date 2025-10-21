@@ -7,7 +7,36 @@
   NODE_VERSION = "20"
   DOTNET_VERSION = "8.0"
 
-# Redirect rules for the hybrid setup
+# Redirect rules - Docusaurus is now primary at root
+
+# Redirect old Statiq /posts/ URLs with date format to new Docusaurus format
+# Pattern: /posts/yyyy-mm-dd-slug -> /yyyy/mm/dd/slug
+[[redirects]]
+  from = "/posts/:year-:month-:day-:slug"
+  to = "/:year/:month/:day/:slug"
+  status = 301
+  force = true
+
+# Redirect old /posts/ URLs without date to root (fallback)
+[[redirects]]
+  from = "/posts/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# Redirect old /docs/blog/ URLs to root (where blog now lives)
+[[redirects]]
+  from = "/docs/blog/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# Redirect /docs/docs/ to /docs/
+[[redirects]]
+  from = "/docs/docs/*"
+  to = "/docs/:splat"
+  status = 301
+  force = true
 
 # Feed redirects for backward compatibility
 [[redirects]]
@@ -19,45 +48,6 @@
   from = "/feed.atom"
   to = "/atom.xml"
   status = 200
-
-# Redirect old /docs/blog/ URLs to root (where blog now lives)
-[[redirects]]
-  from = "/docs/blog/*"
-  to = "/:splat"
-  status = 301
-  force = true
-
-# Redirect old /posts/ URLs to root (where blog now lives)
-[[redirects]]
-  from = "/posts/*"
-  to = "/:splat"
-  status = 301
-  force = true
-
-# Feed redirects for backward compatibility
-[[redirects]]
-  from = "/feed.rss"
-  to = "/docs/blog/rss.xml"
-  status = 200
-
-[[redirects]]
-  from = "/feed.atom"
-  to = "/docs/blog/atom.xml"
-  status = 200
-
-
-# Redirect /docs/docs/ to /docs/
-[[redirects]]
-  from = "/docs/docs/*"
-  to = "/docs/:splat"
-  status = 301
-  force = true
-
-# Redirect /docs to root
-[[redirects]]
-  from = "/docs"
-  to = "/"
-  status = 301
 
 # SPA routing for Docusaurus (must be last)
 [[redirects]]
