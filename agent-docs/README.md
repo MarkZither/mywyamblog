@@ -15,6 +15,17 @@ agent-docs/
 
 ## Current Documentation
 
+### GitHub Copilot Instructions Setup
+
+**Location:** `agent-docs/copilot-instructions-setup/`
+
+**Purpose:** Documentation for GitHub Copilot instructions configuration and best practices implementation.
+
+**Entry Points:**
+- [README.md](copilot-instructions-setup/README.md) - Quick overview and navigation
+- [SETUP_GUIDE.md](copilot-instructions-setup/SETUP_GUIDE.md) - Detailed setup and enhancement process
+- [BEST_PRACTICES.md](copilot-instructions-setup/BEST_PRACTICES.md) - Comprehensive best practices reference
+
 ### Migration Complete: Docusaurus Now Primary
 
 **Location:** `agent-docs/issue-migration-complete/`

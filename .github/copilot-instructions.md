@@ -113,17 +113,46 @@ dotnet run          # Build and preview
 - **Components**: Follow Docusaurus component patterns
 - **Config**: Modify `docusaurus.config.ts` for site settings
 - **Imports**: Use ES modules consistently
+- **Linting**: Code must pass TypeScript compiler (`npm run typecheck`)
+- **Formatting**: Follow existing code formatting patterns in the codebase
 
 ### C# (.NET - Statiq)
 - **Target**: .NET 8.0
 - **Style**: Follow standard C# conventions
 - **Statiq**: Use Statiq.Web and Statiq.Lunr packages
 - **Configuration**: Settings in `settings.yml` and `appsettings.json`
+- **Build**: Code must compile without errors
 
 ### Markdown
 - **Blog Posts**: Use frontmatter format appropriate to each system
 - **British English**: Use British spellings throughout (colour, realise, etc.)
 - **Style**: See `.copilot-instructions.md` for writing style
+
+## Security Best Practices
+
+### Code Security
+- **No Secrets in Code**: Never commit passwords, API keys, tokens, or other sensitive credentials
+- **Environment Variables**: Use environment variables for sensitive configuration (configured in GitHub Secrets and Netlify)
+- **Dependency Security**: Review dependencies before adding them, check for known vulnerabilities
+- **Input Validation**: Validate and sanitize any external input (forms, URL parameters, API data)
+- **HTTPS Only**: All external resources and links should use HTTPS
+
+### Content Security
+- **Personal Information**: Be cautious about sharing personal details in blog posts
+- **Asset Security**: Don't commit large binary files or sensitive documents
+- **Third-party Resources**: Verify URLs and resources before linking
+
+### Build & Deployment Security
+- **Locked Dependencies**: Use package-lock.json and lock files to ensure consistent builds
+- **Security Scanning**: CI/CD pipelines should fail on critical vulnerabilities
+- **Secure Headers**: Netlify configuration includes security headers (see netlify.toml)
+
+### When Adding Dependencies
+1. Check the package is from a trusted source
+2. Review recent update activity and maintenance status
+3. Check for known security vulnerabilities (npm audit, Snyk, etc.)
+4. Prefer well-established packages with active communities
+5. Document why new dependencies are needed
 
 ## Key Files to Know
 
@@ -210,11 +239,20 @@ Manual fixes needed after migration:
 3. **Visual check**: `npm run serve` and review changes
 4. **Link validation**: Ensure internal links work
 5. **.NET build** (if modified): `cd src/blog && dotnet build`
+6. **Security check**: Review changes for security issues (secrets, vulnerabilities)
 
 ### CI/CD Validation
 - GitHub Actions runs on every push
 - Validates both Statiq and Docusaurus builds
 - Deployment only on successful builds
+- Security scanning for dependencies (npm audit)
+
+### Quality Standards
+- **TypeScript**: Must pass typecheck with no errors
+- **Build**: Must complete without errors (warnings are acceptable for existing issues)
+- **Links**: New/modified posts should not introduce broken links
+- **Formatting**: Follow existing code style and conventions
+- **Documentation**: Update relevant docs when changing functionality
 
 ## Common Tasks
 
