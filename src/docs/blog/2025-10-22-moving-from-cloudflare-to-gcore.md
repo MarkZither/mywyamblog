@@ -3,7 +3,8 @@ title: "Moving from Cloudflare to GCore: A DNS Migration Tale"
 authors: ["mark-burton"]
 tags: ["DNS", "CDN", "Infrastructure", "GCore", "Cloudflare"]
 description: "After years of faithful service from Cloudflare, I ventured forth to explore EU-based alternatives and discovered GCore. Here's how the migration proceeded."
-date: "2025-10-22"
+date: "2025-10-23"
+draft: true
 ---
 
 ## A Change in the Air
