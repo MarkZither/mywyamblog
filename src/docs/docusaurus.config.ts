@@ -46,7 +46,7 @@ const config: Config = {
 
   // Client modules for Netlify Identity redirect handling
   clientModules: [
-    require.resolve('./src/components/NetlifyIdentity.js'),
+    require.resolve('./src/components/NetlifyIdentity.ts'),
   ],
 
   presets: [
