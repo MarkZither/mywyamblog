@@ -38,7 +38,7 @@ src/docs/
 ### Content Collections
 
 #### Blog Posts
-- **Folder**: `blog/` (relative to `src/docs/`)
+- **Folder**: `src/docs/blog/` (from repository root)
 - **Slug Pattern**: `{{year}}-{{month}}-{{day}}-{{slug}}`
 - **File Format**: Markdown with YAML frontmatter
 
@@ -52,7 +52,7 @@ src/docs/
 - `body` (markdown): Post content
 
 ### Media Storage
-- **Storage Location**: `static/img/`
+- **Storage Location**: `src/docs/static/img/` (from repository root)
 - **Public URL**: `/img/`
 - **Restrictions**: No spaces in filenames (enforced by pattern validation)
 
@@ -182,8 +182,8 @@ The Docusaurus Decap CMS setup differs from the Statiq version:
 
 | Aspect | Statiq | Docusaurus |
 |--------|---------|------------|
-| Blog Folder | `src/blog/input/posts` | `blog/` |
-| Media Folder | `src/blog/input/assets/Images` | `static/img/` |
+| Blog Folder | `src/blog/input/posts` | `src/docs/blog/` |
+| Media Folder | `src/blog/input/assets/Images` | `src/docs/static/img/` |
 | Public URL | `/assets/Images/` | `/img/` |
 | Frontmatter | Title case (Title, Lead, Published) | Lowercase (title, description, date) |
 | Authors | Single field | List field |

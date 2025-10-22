@@ -45,8 +45,8 @@ Slug: {{year}}-{{month}}-{{day}}-{{slug}}
 
 | Feature | Statiq | Docusaurus |
 |---------|--------|------------|
-| Blog Path | `src/blog/input/posts` | `blog/` |
-| Media Path | `src/blog/input/assets/Images` | `static/img/` |
+| Blog Path | `src/blog/input/posts` | `src/docs/blog/` |
+| Media Path | `src/blog/input/assets/Images` | `src/docs/static/img/` |
 | Public URL | `/assets/Images/` | `/img/` |
 | Frontmatter | Title, Lead, Published (Title case) | title, description, date (lowercase) |
 | Authors | Single string field | List field |

@@ -20,7 +20,7 @@ https://blog.mark-burton.com/admin/
 1. Visit `/admin/` and login with Netlify Identity
 2. Create new posts with "New Blog"
 3. Use the editorial workflow for drafts and reviews
-4. Images are automatically stored in `/static/img/`
+4. Images are automatically stored in `src/docs/static/img/` (repository path)
 
 ## Documentation
 

@@ -5,7 +5,7 @@ backend:
 publish_mode: editorial_workflow
 
 # Media files will be stored in the static/img directory
-media_folder: "static/img"
+media_folder: "src/docs/static/img"
 # Public folder indicates where they can be found in the published site
 public_folder: "/img"
 
@@ -13,7 +13,7 @@ collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     identifier_field: title
     label: "Blog" # Used in the UI
-    folder: "blog" # The path to the folder where the documents are stored (relative to src/docs)
+    folder: "src/docs/blog" # The path to the folder where the documents are stored (from repository root)
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
