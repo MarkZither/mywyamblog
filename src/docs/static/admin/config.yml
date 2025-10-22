@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+publish_mode: editorial_workflow
+
+# Media files will be stored in the static/img directory
+media_folder: "src/docs/static/img"
+# Public folder indicates where they can be found in the published site
+public_folder: "/img"
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    identifier_field: title
+    label: "Blog" # Used in the UI
+    folder: "src/docs/blog" # The path to the folder where the documents are stored (from repository root)
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string", optional: true, required: false}
+      - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "Featured Image", name: "image", widget: "image",  
+        optional: true, required: false, pattern: ['^\S*$', "Please rename your image - remove any spaces from the filename"]}
+      - label: "Authors"
+        name: "authors"
+        widget: "list"
+        default: ["mark-burton"]
+        field: {label: Author, name: author, widget: string}
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+      - {label: "Body", name: "body", widget: "markdown"}

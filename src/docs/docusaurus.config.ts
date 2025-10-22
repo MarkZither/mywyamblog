@@ -36,6 +36,19 @@ const config: Config = {
     locales: ['en'],
   },
 
+  // Add Netlify Identity widget for Decap CMS authentication
+  scripts: [
+    {
+      src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
+      async: true,
+    },
+  ],
+
+  // Client modules for Netlify Identity redirect handling
+  clientModules: [
+    require.resolve('./src/components/NetlifyIdentity.ts'),
+  ],
+
   presets: [
     [
       'classic',
