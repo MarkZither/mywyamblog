@@ -194,11 +194,131 @@ Armed with these insights, I now have a clear path forward:
 4. **Document Issues Thoroughly** - Create gap analysis documents when problems are identified
 5. **Iterate and Verify** - Small iterations with frequent verification beats large implementations with belated testing
 
+## The /speckit.checklist Command: A Different Perspective
+
+Whilst the `/speckit.analyze` command proved most illuminating, I subsequently discovered that spec-kit offers another command that provides a rather different perspective: `/speckit.checklist`. This command also expands to "Follow instructions in [speckit.analyze.prompt.md]", but examining the [checklist.md template](https://github.com/github/spec-kit/blob/main/templates/commands/checklist.md) reveals a fundamentally different approach.
+
+### Checklists as Unit Tests for Requirements
+
+The checklist prompt introduces a most intriguing concept:
+
+> **CRITICAL CONCEPT: Checklists are UNIT TESTS FOR REQUIREMENTS WRITING** - they validate the quality, clarity, and completeness of requirements in a given domain.
+
+Rather than merely identifying problems (as analyze does), the checklist command generates specific validation questions such as:
+
+- "Are visual hierarchy requirements defined for all card types?" (completeness)
+- "Is 'prominent display' quantified with specific sizing/positioning?" (clarity)
+- "Are hover state requirements consistent across all interactive elements?" (consistency)
+- "Are accessibility requirements defined for keyboard navigation?" (coverage)
+- "Does the spec define what happens when logo image fails to load?" (edge cases)
+
+### The Interactive Assessment
+
+What's particularly splendid about this command is its interactive nature. Before generating the checklist, Copilot asked me to prioritise focus areas:
+
+| Option | Focus Area | Why It Matters |
+|--------|------------|----------------|
+| A | Medical Safety Requirements | Critical healthcare domain - medication timing, INR validation, safety warnings |
+| B | OAuth2 Authentication Requirements | Recently remediated CRITICAL issue - ensure all auth requirements are complete |
+| C | Cross-Platform Consistency Requirements | Multi-platform app - verify requirements consistency |
+| D | All Critical Paths | Comprehensive review covering safety, auth, and platform consistency |
+| E | Implementation Readiness | Focus on verifying requirements are sufficiently detailed for immediate implementation |
+
+I selected Option E - Implementation Readiness for stakeholder sign-off, with particular emphasis on timezone/DST edge cases.
+
+### A Rather Sobering Discovery
+
+Here's where things became most interesting. Whilst the `/speckit.analyze` command had concluded:
+
+> **Post-Remediation Analysis Complete ✅**  
+> Status: VALIDATION SUCCESSFUL  
+> Recommendation: ✅ PROCEED WITH IMPLEMENTATION  
+> Estimated Timeline: 3-4 weeks for full feature completion
+
+The `/speckit.checklist` command found **154 validation checkpoints** requiring attention! The summary was rather different:
+
+> 📋 Checklist Created  
+> File: requirements.md  
+> Total Items: 154 validation checkpoints  
+> Purpose: Implementation readiness review - Verify all requirements are complete, clear, measurable, and ready for development
+
+These 154 items were written to `requirements.md` and, most critically, became a blocker to further implementation. When I attempted to run `/speckit.implement`, it performed a prerequisite check and discovered:
+
+```
+📊 Checklist Status Report
+Checklist          Total  Completed  Incomplete  Status
+requirements.md    154    0          154         ✗ FAIL
+
+Overall Status: ✗ FAIL - All checklist items are incomplete
+```
+
+Implementation was blocked until these checklist items were addressed. Quite a different conclusion from "proceed with implementation"!
+
+### Addressing the Checklist: A Practical Framework
+
+Copilot provided a most sensible decision framework for addressing each checklist item:
+
+**For each unchecked item, ask:**
+
+1. **Is this already in my spec?**
+   - YES → Check the box ✓
+   - NO → Go to question 2
+
+2. **Is this critical for MVP?**
+   - YES → Add to spec.md, then check box ✓
+   - NO → Document as "Deferred to v2.0" and check box ✓
+
+3. **Is this an assumption I'm accepting?**
+   - YES → Document in "Assumptions" section, check box ✓
+
+### Worked Examples
+
+**CHK022** - "Are timezone detection requirements specified (device location vs manual selection)? [Gap]"
+
+To complete this:
+1. Open spec.md
+2. Find FR-016 (timezone requirements)
+3. Add clarity: "System shall detect device timezone automatically; users may override manually"
+4. Mark checkbox: `- [x] CHK022`
+
+**CHK040** - "Are 'dosage amount' validation rules and supported units explicitly defined? [Gap]"
+
+To complete this:
+1. Open spec.md
+2. Find FR-004 (medication logging)
+3. Add: "Dosage validation: positive decimal numbers, units: mg, mcg, mL, tablets"
+4. Mark checkbox: `- [x] CHK040`
+
+### Point-by-Point Review
+
+I requested that Copilot review the gaps systematically. Here's an example of its analysis:
+
+**CHK001 Analysis**  
+Question: "Are authentication requirements complete for both web (redirect flow) and mobile (ID token exchange) platforms?"
+
+What I Found in Your Spec:
+- ✅ User Story 1 - Acceptance Scenarios 1 & 2 (Lines 25-27): Web redirect flow and mobile ID token exchange explicitly documented
+- ✅ FR-001 (Line 103): States "Web applications use OAuth2 redirect flow; mobile applications use platform-native OAuth with ID token exchange"
+- ✅ Key Entities - User Account (Lines 130-131): Documents OAuth2 fields, explicitly states "NO password field"
+
+Verdict: **COMPLETE ✓**
+
+After confirming the first item was indeed complete, I updated `requirements.md` and checked the box, then requested the next 10 items for review.
+
+### The Tension Between Analyze and Checklist
+
+This reveals a most intriguing tension in spec-kit's approach:
+
+- **`/speckit.analyze`** focuses on identifying problems, violations, and gaps at a high level
+- **`/speckit.checklist`** focuses on granular validation of requirements quality and completeness
+
+The analyze command might declare you ready to proceed, whilst the checklist command discovers 154 specific points requiring validation. Both are valuable, but they serve rather different purposes. The analyze command ensures your architecture and approach are sound; the checklist command ensures every detail is properly specified and ready for implementation.
+
 ## Conclusion: Spec-Kit Redeemed
 
-My initial disappointment with spec-kit was, I must confess, largely due to my own failure to properly verify the implementation. The `/speckit.analyze` command has proven to be precisely the tool needed to maintain quality and honesty in AI-assisted development.
+My initial disappointment with spec-kit was, I must confess, largely due to my own failure to properly verify the implementation. The `/speckit.analyze` command has proven to be precisely the tool needed to maintain quality and honesty in AI-assisted development, whilst the `/speckit.checklist` command provides the granular validation necessary to ensure implementation readiness.
 
-Spec-kit, when used properly with regular verification and the analyze command, is indeed a splendid approach to structured software development. The framework is sound; the implementation oversight is critical. One cannot simply trust that AI-generated code is complete and correct - one must verify, analyze, and iterate until it genuinely meets the specification.
+Spec-kit, when used properly with regular verification, the analyze command, and comprehensive checklists, is indeed a splendid approach to structured software development. The framework is sound; the implementation oversight is critical. One cannot simply trust that AI-generated code is complete and correct - one must verify, analyze, checklist, and iterate until it genuinely meets the specification.
 
 And crucially, one must ensure that tasks marked as complete are actually, properly, thoroughly complete - not merely structurally present with placeholder implementations!
 
