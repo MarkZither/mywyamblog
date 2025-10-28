@@ -2,12 +2,12 @@
 
 ## Repository Overview
 
-This is Mark Burton's personal blog repository. The **migration from Statiq to Docusaurus is complete**, with Docusaurus now serving as the primary blog engine and Statiq kept as a backup for comparison.
+This repository contains Mark Burton's personal blog. Docusaurus is now the main blog engine, with Statiq kept as a backup for reference.
 
 ### Architecture
 - **Blog URL**: https://blog.mark-burton.com
-- **Root path (`/`)**: Docusaurus blog (PRIMARY - Node.js/React)
-- **Backup path (`/statiq-backup/`)**: Statiq blog (backup for comparison, .NET-based)
+- **Root path (`/`)**: Docusaurus blog (Node.js/React, primary)
+- **Backup path (`/statiq-backup/`)**: Statiq blog (legacy .NET, backup only)
 
 ## Project Structure
 

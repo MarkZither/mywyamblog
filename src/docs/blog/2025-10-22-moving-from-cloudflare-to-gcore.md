@@ -1,17 +1,15 @@
----
 title: "Moving from Cloudflare to GCore: A DNS Migration Tale"
 authors: ["mark-burton"]
 tags: ["DNS", "CDN", "Infrastructure", "GCore", "Cloudflare"]
-description: "After years of faithful service from Cloudflare, I ventured forth to explore EU-based alternatives and discovered GCore. Here's how the migration proceeded."
+description: "After using Cloudflare for years, I decided to try an EU-based provider and migrated my DNS to GCore. This post covers the process."
 date: "2025-10-23"
-draft: true
----
+draft: false
 
 ## A Change in the Air
 
-I must confess, dear reader, that I have been rather fortunate with Cloudflare over the years. For managing my DNS and serving as a CDN, it has worked splendidly, and being on the free tier, I've never needed to trouble their support team (thus avoiding the tales of woe one encounters on various blogs and Reddit). However, whilst convalescing from heart surgery (yes, the old ticker required some attention), I found myself with time to consider alternatives, particularly those based within the EU.
+I've used Cloudflare for years to manage DNS and as a CDN, and it's always worked well for me—especially on the free tier, where I've never needed support. But as I have an abundence of freetime (thanks to heart surgery), I started looking at EU-based alternatives.
 
-Enter [GCore](https://gcore.com/), a most agreeable discovery. Founded and headquartered in Luxembourg in 2014, it offers both DNS and CDN services—everything one requires to bid farewell to Cloudflare, should one be so inclined.
+That's when I found [GCore](https://gcore.com/), a provider based in Luxembourg since 2014. They offer DNS and CDN services, making it easy to switch away from Cloudflare if you want everything under one roof.
 
 <!--truncate-->
 
@@ -71,14 +69,7 @@ Whilst reviewing the records, I noticed that Cloudflare had rather helpfully war
 
 ## The Moment of Truth
 
-And now, dear reader, I find myself at the precipice of change. All that remains is to summon sufficient courage to update the nameservers in my domain registrar's admin console. One simply cannot underestimate the gravity of such a change—get it wrong, and one's entire digital presence vanishes into the ether!
+Now comes the critical step: updating the nameservers in my domain registrar's admin console. It's a change that shouldn't be taken lightly—if you get it wrong, your site and email can disappear until it's fixed.
 
-But I dare say, with proper preparation and a spot of British resolve, the migration shall proceed without incident. The records are prepared, the TTL values are appropriate, and the SPF records are properly consolidated.
 
-## Reflections
-
-This exercise has been most instructive. It serves as a capital reminder that periodic reviews of one's technical infrastructure are not merely prudent but necessary. How many obsolete records might you have lurking in your DNS configuration? When last did you audit your own digital housekeeping?
-
-I shall report back once the nameserver change has been completed and the dust has settled. Until then, I remain cautiously optimistic about this new chapter with GCore.
-
-*Update: The nameserver change has been made. Now we wait for DNS propagation to work its magic across the globe. Fingers crossed, as they say!*
+![Fasthosts custom nameservers should GCore nameservers](/img/fasthosts_custom_gcore_nameservers.png)
