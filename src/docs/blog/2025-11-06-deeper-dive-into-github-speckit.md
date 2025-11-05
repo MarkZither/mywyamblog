@@ -3,15 +3,16 @@ title: "A Deeper Dive into GitHub Spec-Kit - Learning from Initial Missteps"
 authors: ["mark-burton"]
 tags: ["GitHub", "Spec-Kit", "Development", "MAUI", "Blazor", "Azure", "Copilot", "Claude", "OAuth", "Security"]
 description: "Following my rather disappointing first attempt with spec-kit, I embark upon a proper investigation of the /speckit.analyze command and discover precisely how Copilot managed to mark incomplete work as complete. Most illuminating!"
-date: "2025-10-23"
+date: "2025-11-06"
 draft: false
 ---
 
-## A Most Necessary Re-Examination
 
-I dare say, dear reader, that after my [first adventures with GitHub spec-kit](./2025-10-23-first-adventures-with-github-speckit.md), I found myself rather dissatisfied with the results. Whilst the structure and architecture appeared sound, the actual implementation was decidedly... placeholder-ish. Tasks marked as complete were anything but, and authentication that supposedly integrated with Azure AD and Google was, in reality, accepting any old username and password combination. Most unsatisfactory!
+## Reviewing What Went Wrong
 
-Since beginning this experiment, I've also enabled Claude Sonnet 4.5, which has proven to be a considerable improvement over its predecessor. With better prompts and a more capable LLM, I ventured to understand precisely why such a poor job was done initially, and more importantly, how to prevent such disappointments in future.
+After my [first adventures with GitHub spec-kit](./2025-10-23-first-adventures-with-github-speckit.md), I was left pretty disappointed with the results. The structure and architecture looked fine on the surface, but the actual implementation was mostly placeholders. Tasks were marked as complete when they clearly weren’t, and authentication that was supposed to use Azure AD and Google was just accepting any username and password. Not good enough.
+
+Since starting this experiment, I’ve switched to Claude Sonnet 4.5, which is a big step up from the previous model. With better prompts and a more capable LLM, I wanted to dig into why things went wrong the first time—and, more importantly, how to avoid those mistakes in future.
 
 <!--truncate-->
 
@@ -322,6 +323,4 @@ Spec-kit, when used properly with regular verification, the analyze command, and
 
 And crucially, one must ensure that tasks marked as complete are actually, properly, thoroughly complete - not merely structurally present with placeholder implementations!
 
----
-
-*This post was written with considerably more screen real estate than its predecessor, and I rather think it shows. Proper computer equipment remains, as always, quite indispensable!*
+![Quick Runthrough of VSCode to Aspire Dashboard to App](/img/first_version_of_medicine_and_blood_tracker.gif)
