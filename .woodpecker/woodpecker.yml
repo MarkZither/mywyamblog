@@ -10,3 +10,16 @@ steps:
       - cd src/docs
       - npm ci --silent
       - npm run typecheck
+  
+  - name: build
+    image: debian
+    commands:
+      - echo "This is the build step"
+      - echo "binary-data-123" > executable
+      - chmod +x executable
+
+  - name: a-test-step
+    image: golang:1.16
+    commands:
+      - echo "Testing ..."
+      - ./executable
