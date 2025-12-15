@@ -4,22 +4,13 @@ when:
       - main
       - copilot/*
 steps:
-  - name: typecheck
+  - name: build-docusaurus
     image: node:20
     commands:
+      - echo "Building Docusaurus site"
       - cd src/docs
       - npm ci --silent
-      - npm run typecheck
-  
-  - name: build
-    image: debian
-    commands:
-      - echo "This is the build step"
-      - echo "binary-data-123" > executable
-      - chmod +x executable
-
-  - name: a-test-step
-    image: golang:1.16
-    commands:
-      - echo "Testing ..."
-      - ./executable
+      - npm run build
+      - cd ../../
+      - tar -czf docusaurus-build.tar.gz -C src/docs build
+      - ls -la docusaurus-build.tar.gz
