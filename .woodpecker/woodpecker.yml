@@ -16,6 +16,13 @@ steps:
       - ls -la docusaurus-build.tar.gz
 
   - name: build-image
+    image: docker
+    commands:
+      - docker build --rm -t markzither/myblog .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  - name: build-image
     image: docker:20
     # NOTE: This step requires a Docker daemon (e.g., Docker-in-Docker service) to be available in the runner.
     commands:
