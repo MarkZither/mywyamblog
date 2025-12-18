@@ -19,3 +19,5 @@ src/docs/src/**/*.js
 !src/docs/src/**/*.config.js
 !src/docs/migrate-*.js
 !src/docs/fix-*.js
+docusaurus-build.tar.gz
+docusaurus-image.tar

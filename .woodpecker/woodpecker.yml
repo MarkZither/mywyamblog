@@ -1,0 +1,32 @@
+when:
+  - event: push
+    branch:
+      - main
+      - copilot/*
+steps:
+  - name: build-docusaurus
+    image: node:20
+    commands:
+      - echo "Building Docusaurus site"
+      - cd src/docs
+      - npm ci --silent
+      - npm run build
+      - cd ../../
+      - tar -czf docusaurus-build.tar.gz -C src/docs build
+      - ls -la docusaurus-build.tar.gz
+
+  - name: build-image
+    image: docker
+    commands:
+      - docker build --rm -t markzither/myblog .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  - name: build-image
+    image: docker:20
+    # NOTE: This step requires a Docker daemon (e.g., Docker-in-Docker service) to be available in the runner.
+    commands:
+      - echo "Building lightweight Docker image (busybox httpd runtime)"
+      - docker build -t markzither/myblog:latest .
+      - docker save markzither/myblog:latest -o docusaurus-image.tar
+      - ls -la docusaurus-image.tar

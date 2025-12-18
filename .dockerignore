@@ -1,0 +1,16 @@
+node_modules
+.git
+.gitignore
+src/docs/.docusaurus
+src/docs/node_modules
+src/docs/.cache
+**/node_modules
+*.log
+*.env
+README.md
+*.md
+/.vscode
+_site
+dist
+build
+**/build
