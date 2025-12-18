@@ -16,10 +16,12 @@ RUN npm run build
 
 # Stage 2: tiny runtime using alpine + busybox httpd (very small)
 FROM alpine:3.18 AS runtime
-RUN apk add --no-cache busybox-extras
+# install busybox httpd and tini (tiny init to forward signals to PID 1)
+RUN apk add --no-cache busybox-extras tini
 
 COPY --from=builder /app/src/docs/build /www
 
 EXPOSE 80
-# Use busybox httpd to serve static content on port 80
+# Use tini as the init process so httpd receives signals correctly
+ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["httpd", "-f", "-p", "80", "-h", "/www"]
