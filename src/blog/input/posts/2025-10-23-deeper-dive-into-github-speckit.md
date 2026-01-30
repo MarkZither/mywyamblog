@@ -9,7 +9,7 @@ draft: false
 
 ## A Most Necessary Re-Examination
 
-I dare say, dear reader, that after my [first adventures with GitHub spec-kit](./2025-10-23-first-adventures-with-github-speckit.md), I found myself rather dissatisfied with the results. Whilst the structure and architecture appeared sound, the actual implementation was decidedly... placeholder-ish. Tasks marked as complete were anything but, and authentication that supposedly integrated with Azure AD and Google was, in reality, accepting any old username and password combination. Most unsatisfactory!
+After my [first adventures with GitHub spec-kit](./2025-10-23-first-adventures-with-github-speckit.md), I found myself rather dissatisfied with the results. Whilst the structure and architecture appeared sound, the actual implementation was decidedly... placeholder-ish. Tasks marked as complete were anything but, and authentication that supposedly integrated with Azure AD and Google was, in reality, accepting any old username and password combination. Most unsatisfactory!
 
 Since beginning this experiment, I've also enabled Claude Sonnet 4.5, which has proven to be a considerable improvement over its predecessor. With better prompts and a more capable LLM, I ventured to understand precisely why such a poor job was done initially, and more importantly, how to prevent such disappointments in future.
 
